@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="30dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/corners_bg"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/child_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/c2"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="子账号：1524546"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/my_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/p1"
+            android:gravity="center"
+            android:text="余额"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/price_edit"
+            android:background="@drawable/comm_edit_bg_white"
+            android:inputType="number"
+            android:textSize="14sp"
+            android:padding="15dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            android:hint="请输入金额"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/comm_border"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/cancle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/c2"
+                android:text="取消"
+                android:gravity="center"/>
+            <View
+                android:id="@+id/line_view"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/comm_border"/>
+            <TextView
+                android:id="@+id/comfirm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_bg_p1_dialog_fill"
+                android:text="确定"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

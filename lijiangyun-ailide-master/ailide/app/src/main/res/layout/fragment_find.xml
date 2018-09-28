@@ -1,0 +1,150 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white">
+
+    <TextView
+        android:layout_gravity="center"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp"
+        android:layout_width="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#323232"
+        android:text="发现"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:background="#f4f4f4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:id="@+id/find_shop_ly"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:src="@drawable/find_shop"
+            android:layout_marginRight="15dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:text="商城"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="7dp"
+            android:src="@drawable/icon_into_right"
+            android:layout_height="12dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#f4f4f4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:id="@+id/find_xingqu_ly"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:src="@drawable/find_xingqu"
+            android:layout_marginRight="15dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:text="兴趣部落"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="7dp"
+            android:src="@drawable/icon_into_right"
+            android:layout_height="12dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#f4f4f4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:id="@+id/find_weibo_ly"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:src="@drawable/find_weibo"
+            android:layout_marginRight="15dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:text="新浪微博"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="7dp"
+            android:src="@drawable/icon_into_right"
+            android:layout_height="12dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#f4f4f4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:id="@+id/find_ailide_ly"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:src="@drawable/find_guanwang"
+            android:layout_marginRight="15dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:text="爱立熊官网"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="7dp"
+            android:src="@drawable/icon_into_right"
+            android:layout_height="12dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#f4f4f4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+</LinearLayout>

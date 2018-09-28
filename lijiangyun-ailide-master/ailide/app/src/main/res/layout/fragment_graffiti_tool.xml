@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_border"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/icon_contract" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_white"
+        android:orientation="vertical">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one"
+            android:background="@color/line_gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_title_paint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:src="@drawable/icon_paint3_p" />
+
+            <ImageView
+                android:id="@+id/iv_title_palette"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:src="@drawable/icon_palette_n" />
+
+            <ImageView
+                android:id="@+id/iv_title_eraser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:src="@drawable/icon_eraser_n" />
+
+            <ImageView
+                android:id="@+id/iv_title_undo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:src="@drawable/icon_graffiti_undo" />
+
+            <ImageView
+                android:id="@+id/iv_title_do"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:src="@drawable/icon_graffiti_do" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one"
+            android:background="@color/line_gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_paint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_paint1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_paint1_n" />
+
+            <ImageView
+                android:id="@+id/iv_paint2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_paint2_n" />
+
+            <ImageView
+                android:id="@+id/iv_paint3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_paint3_n" />
+
+            <ImageView
+                android:id="@+id/iv_paint4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_paint4_n" />
+
+            <ImageView
+                android:id="@+id/iv_paint5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_paint5_n" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_palette"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_red"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_large"
+                    android:layout_weight="1"
+                    android:src="@drawable/palette_red_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_orange"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding_large"
+                    android:src="@drawable/palette_orange_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_yellow"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding_large"
+                    android:src="@drawable/palette_yellow_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_green"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding_large"
+                    android:src="@drawable/palette_green_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_blue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_large"
+                    android:layout_weight="1"
+                    android:src="@drawable/palette_blue_n"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_black"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_large"
+                    android:layout_weight="1"
+                    android:src="@drawable/palette_black_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding_large"
+                    android:src="@drawable/palette_white_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_gray"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding_large"
+                    android:src="@drawable/palette_gray_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_purple"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding_large"
+                    android:src="@drawable/palette_purple_n"/>
+
+                <ImageView
+                    android:id="@+id/iv_light_blue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_large"
+                    android:layout_weight="1"
+                    android:src="@drawable/palette_light_blue_n"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_eraser"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_eraser1"
+                android:layout_width="0dp"
+                android:padding="@dimen/padding_large"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/bg_eraser1_n"/>
+
+            <ImageView
+                android:id="@+id/iv_eraser2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:layout_weight="1"
+                android:src="@drawable/bg_eraser2_n"/>
+
+            <ImageView
+                android:id="@+id/iv_eraser3"
+                android:layout_width="0dp"
+                android:padding="@dimen/padding_large"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/bg_eraser3_n"/>
+
+            <ImageView
+                android:id="@+id/iv_eraser4"
+                android:layout_width="0dp"
+                android:padding="@dimen/padding_large"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/bg_eraser4_n"/>
+
+            <ImageView
+                android:id="@+id/iv_eraser5"
+                android:layout_width="0dp"
+                android:padding="@dimen/padding_large"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/bg_eraser5_n"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="@color/line_gray" />
+</LinearLayout>

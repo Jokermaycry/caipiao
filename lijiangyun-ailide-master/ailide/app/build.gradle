@@ -1,0 +1,178 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+android {
+    signingConfigs {
+        debug {
+            keyAlias 'key0'
+            keyPassword 'ailide'
+            storeFile file('ailide.jks')
+            storePassword 'ailide'
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.ailide.apartmentsabc"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 3
+        versionName "1.0.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+    /*    ndk {
+            abiFilters "armeabi"
+        }*/
+        ndk{
+            abiFilters 'armeabi','armeabi-v7a','armeabi-v8a',"x86"
+        }
+        //极光推送
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.ailide.apartmentsabc",
+                JPUSH_APPKEY : "cfc2959120a986a2b3a3569a", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+        lintOptions {
+            disable 'MissingTranslation'
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.debug
+                // 自定义输出配置
+//                applicationVariants.all { variant ->
+//                    variant.outputs.each { output ->
+//                        def outputFile = output.outputFile
+//                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                            def fileName = "爱立得{defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+//                            output.outputFile = new File(outputFile.parent, fileName)
+//                        }
+//                    }
+//                }
+            }
+            debug {
+                minifyEnabled false
+                proguardFiles 'proguard-rules.pro'
+            }
+        }
+        configurations.all {
+            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+                def requested = details.requested
+                if (requested.group == 'com.android.support') {
+                    if (!requested.name.startsWith("multidex")) {
+                        details.useVersion '25.3.1'
+                    }
+                }
+            }
+        }
+        sourceSets {
+            main {
+                jniLibs.srcDirs = ['libs']
+            }
+        }
+        useLibrary 'org.apache.http.legacy'
+    }
+    dexOptions {
+//        incremental true
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    // 友盟多渠道打包
+    productFlavors {
+        huawei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+        }
+        oppo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "oppo"]
+        }
+        vivo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "vivo"]
+        }
+        yingyongbao {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"]
+        }
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+        meizu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "meizu"]
+        }
+        c360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "c360"]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
+        other {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: ""]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(path: ':sticker')
+    compile project(path: ':scaleview')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/SocialSDK_QQ_Simplify.jar')
+    compile files('libs/SocialSDK_WeChat_Simplify.jar')
+    compile files('libs/umeng_social_api.jar')
+    compile files('libs/umeng_social_net.jar')
+    compile files('libs/umeng_social_tool.jar')
+    compile files('libs/umeng-common-1.4.1.jar')
+    //    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.9.0'
+
+    //    compile 'com.yuyh.imgsel:library:2.0.2'
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.orhanobut:logger:1.3'
+    compile 'com.jaeger.statusbaruitl:library:1.3.0'
+    compile 'com.lovedise:permissiongen:0.0.6'
+    compile 'com.zhy:autolayout:1.4.5'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.15'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'com.alibaba.mobileim:IMCore:2.0.2.1@aar'
+    compile 'com.alibaba.mobileim:IMKit:2.0.2.1@aar'
+    compile 'com.alibaba.mobileim:RecorderSDK:1.0.0@aar'
+    compile 'huha.me:fontmanager:0.0.6'
+    compile 'huha.me:utils:0.2'
+    compile 'com.contrarywind:Android-PickerView:3.2.5'
+    compile 'com.lzy.net:okgo:3.0.4'
+    compile 'com.alibaba:fastjson:1.1.67.android'
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    compile 'com.readystatesoftware.chuck:library:1.0.4'
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+    compile 'com.yuyh.easyadapter:library:1.1.0'
+    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
+    compile 'cn.bingoogolapple:bga-qrcodecore:1.1.9@aar'
+    compile 'cn.bingoogolapple:bga-zxing:1.1.9@aar'
+    compile 'com.lzy.widget:imagepicker:0.5.5'
+    compile 'top.zibin:Luban:1.1.3'
+    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.4.1'
+    compile 'cn.jiguang.sdk:jpush:3.1.1'
+    compile 'cn.jiguang.sdk:jcore:1.1.9'
+    compile 'com.afollestad.material-dialogs:core:0.9.6.0'
+    compile 'com.yanzhenjie:recyclerview-swipe:1.1.4'
+    compile 'org.jsoup:jsoup:1.10.2'
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile files('libs/AlisonPrinter-20180409.jar')
+    compile files('libs/AlisonPrinter20180419.jar')
+}

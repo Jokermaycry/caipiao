@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white">
+
+    <include layout="@layout/include_topbar_layout"/>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/equitment_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        android:clipToPadding="true"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:overScrollMode="never"
+        android:requiresFadingEdge="none"
+        />
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/equitment_search_ly"
+            android:layout_width="@dimen/zero"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="30dp"
+                android:src="@drawable/tjsb_chazhao"
+                android:layout_height="28dp" />
+            <TextView
+                android:textColor="#2c2c2c"
+                android:textSize="14sp"
+                android:text="查找设备"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/equitment_scan_ly"
+            android:layout_width="@dimen/zero"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="30dp"
+                android:src="@drawable/tjsb_saoma"
+                android:layout_height="28dp" />
+            <TextView
+                android:textColor="#2c2c2c"
+                android:textSize="14sp"
+                android:text="扫码添加"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

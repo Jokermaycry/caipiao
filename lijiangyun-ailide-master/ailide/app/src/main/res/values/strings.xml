@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">爱立熊</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="reclick_back_key_exit">再按一次退出程序</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="move_up">上移一层</string>
+    <string name="move_down">下移一层</string>
+    <string name="draft">草稿</string>
+    <string name="save">保存</string>
+    <string name="print">打印</string>
+    <string name="add">插入</string>
+    <string name="text">文字</string>
+    <string name="picture">图片</string>
+    <string name="emoji">表情</string>
+    <string name="theme">主题</string>
+    <string name="frame">边框</string>
+    <string name="qr_code">二维码</string>
+    <string name="graffiti">涂鸦</string>
+    <string name="photo">拍照</string>
+    <string name="album">相册</string>
+    <string name="my_material">我的素材</string>
+    <string name="OK">OK</string>
+    <string name="print_to_qr_code">在此输入生成二维码</string>
+    <string name="print_to_bar_code">在此输入生成一维码</string>
+    <string name="shared_material">共享素材</string>
+    <string name="cloud_material">云端素材</string>
+    <string name="material_detail">素材详情</string>
+    <string name="collection_material">收藏素材</string>
+    <string name="hint_search_shared_material">搜索纸条号/手机号</string>
+    <string name="hint_search_collection_material">搜索素材</string>
+    <string name="hint_search_web">搜索</string>
+    <string name="hint_choose_group">选择分组</string>
+    <string name="hint_input_label">输入标签</string>
+    <string name="manage">管理</string>
+    <string name="create_group">新建分组</string>
+    <string name="hint_input_group_name">请输入分组名称</string>
+    <string name="delete_group">删除分组</string>
+    <string name="scrap_paper">草稿纸</string>
+    <string name="save_to_draft">是否保存为草稿</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="all">全部</string>
+    <string name="common_template">收藏模板</string>
+    <string name="local_template">本地模板</string>
+    <string name="template">模板</string>
+    <string name="more_template">云端模板</string>
+    <string name="edit_bill">编辑清单</string>
+    <string name="please_print_bill">请输入清单</string>
+    <string name="send">发送</string>
+    <string name="collect_web">收藏页面</string>
+    <string name="collect">收藏</string>
+    <string name="collected">已收藏</string>
+    <string name="confirm_format">%1$s(%2$d/%3$d)</string>
+    <string name="minnum">最少选择一张图片</string>
+    <string name="maxnum">最多选择%1$d张图片</string>
+    <string name="all_images">所有图片</string>
+    <string name="sd_disable">SD卡不可用</string>
+    <string name="image">图片</string>
+    <string name="takephoto">拍照</string>
+    <string name="open_camera_failure">打开相机失败</string>
+    <string name="permission_storage_denied">请打开存储空间权限</string>
+    <string name="permission_camera_denied">请打开相关权限</string>
+</resources>

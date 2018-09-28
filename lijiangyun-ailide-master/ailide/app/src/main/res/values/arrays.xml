@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="main_activity">
+        <item>打印</item>
+        <item>好友</item>
+        <item>发现</item>
+        <item>我的</item>
+    </string-array>
+    <string-array name="print_name">
+        <item>图文编辑</item>
+        <item>分类标签</item>
+        <item>便利清单</item>
+        <item>特色网站</item>
+        <item>素材打印</item>
+    </string-array>
+    <string-array name="print_name_two">
+        <item>拍照立得，图文快印，随心涂鸦</item>
+        <item>居家收纳，行政办公，旅行整理</item>
+        <item>记事备忘，习惯养成，流程计划</item>
+        <item>新闻美图，时尚贴吧，科技医疗</item>
+        <item>技能常识，育儿养生，娱乐旅行</item>
+    </string-array>
+</resources>

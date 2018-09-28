@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/item_ly"
+    android:background="@drawable/corners_bg">
+
+   <LinearLayout
+       android:background="?android:selectableItemBackground"
+       android:layout_marginRight="50dp"
+       android:padding="10dp"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+
+       <LinearLayout
+           android:layout_marginTop="3dp"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <TextView
+               android:id="@+id/name"
+               android:textSize="15sp"
+               android:textColor="@color/c2"
+               android:text="名称"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <TextView
+               android:id="@+id/log_num"
+               android:layout_marginLeft="15dp"
+               android:paddingTop="2dp"
+               android:paddingBottom="2dp"
+               android:paddingLeft="5dp"
+               android:paddingRight="5dp"
+               android:background="@drawable/btn_bg_blue_boder"
+               android:textColor="@color/theme_color1"
+               android:textSize="13sp"
+               android:text="1621566期"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+
+       </LinearLayout>
+
+       <com.zhy.view.flowlayout.TagFlowLayout
+           android:id="@+id/num_tag"
+           android:layout_marginTop="5dp"
+           zhy:max_select="0"
+           zhy:auto_select_effect="true"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+       </com.zhy.view.flowlayout.TagFlowLayout>
+
+
+       <TextView
+           android:id="@+id/dur_time"
+           android:layout_marginTop="5dp"
+           android:textSize="13sp"
+           android:textColor="@color/c2"
+           android:text="每10分钟一期"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
+   </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ticket_delete"
+        android:padding="10dp"
+        android:background="?android:selectableItemBackground"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/icon_right_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

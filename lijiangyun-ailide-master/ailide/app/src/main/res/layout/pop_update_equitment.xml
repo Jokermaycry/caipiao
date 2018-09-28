@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="@dimen/zero"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@drawable/white_bg_top"
+            android:layout_width="match_parent"
+            android:layout_marginTop="130dp"
+            android:layout_height="380dp" />
+        <RelativeLayout
+            android:id="@+id/pop_equitment_img_rl"
+            android:layout_centerHorizontal="true"
+            android:layout_width="239dp"
+            android:layout_height="239dp">
+            <ImageView
+                android:id="@+id/pop_equitment_img"
+                android:background="@drawable/find_new"
+                android:scaleType="fitXY"
+                android:layout_width="239dp"
+                android:layout_height="239dp" />
+            <TextView
+                android:id="@+id/equipment_tv"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="35dp"
+                android:text="发现新版本"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:textColor="#090909"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp"
+            android:layout_below="@id/pop_equitment_img_rl"
+            android:id="@+id/pop_update_remain"
+            android:layout_width="wrap_content"
+            android:textColor="#c6c6c6"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/progress_bar_download_ly"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/pop_update_remain"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/progress_bar_download"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/design_16px"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_horizontal"/>
+            <TextView
+                android:id="@+id/progress_bar_download_tv"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pop_equitment_add"
+            android:layout_marginTop="27dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_below="@id/pop_update_remain"
+            android:layout_width="match_parent"
+            android:text="立 即 更 新"
+            android:textColor="@color/bg_white"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:background="@drawable/ff9900_bg_10px"
+            android:layout_height="50dp" />
+        <TextView
+            android:id="@+id/pop_equitment_not"
+            android:layout_marginTop="27dp"
+            android:layout_below="@id/pop_equitment_add"
+            android:layout_width="match_parent"
+            android:text="以 后 再 说"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/bg_white"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:background="@drawable/_dfdfdf_bg_10px"
+            android:layout_height="50dp" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eff1f3"
+    tools:context="com.ailide.apartmentsabc.views.friendchat.NewWhisperActivity">
+    <include layout="@layout/include_topbar_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:background="@drawable/secret"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="38dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="20dp"
+                    android:textColor="@color/bg_white"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:background="@drawable/ff9900_bg_10px"
+                    android:text="1"
+                    android:layout_height="20dp" />
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/niming_ly"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/niming_img"
+                        android:layout_width="17dp"
+                        android:background="@drawable/fxqqh_nimin_default"
+                        android:layout_height="17dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="#323232"
+                        android:textSize="14sp"
+                        android:text="匿名"
+                        android:paddingLeft="10dp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </RelativeLayout>
+            <TextView
+                android:visibility="gone"
+                android:paddingTop="6dp"
+                android:textColor="#323232"
+                android:textSize="14sp"
+                android:text="选择分类"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/botder_xuxian"
+                android:paddingBottom="10dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/fenlei_tv"
+                    android:layout_centerInParent="true"
+                    android:textColor="#323232"
+                    android:textSize="18sp"
+                    android:text="选择分类"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginRight="29dp"
+                    android:drawableRight="@drawable/qqh_xiala"
+                    android:layout_width="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_marginTop="38dp"
+                android:layout_width="20dp"
+                android:textColor="@color/bg_white"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:background="@drawable/ff9900_bg_10px"
+                android:text="2"
+                android:layout_height="20dp" />
+            <TextView
+                android:visibility="gone"
+                android:paddingTop="6dp"
+                android:textColor="#323232"
+                android:textSize="14sp"
+                android:text="选择悄悄话"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/botder_xuxian"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/qiaoqiaohua_tv"
+                    android:layout_centerInParent="true"
+                    android:textColor="#323232"
+                    android:textSize="18sp"
+                    android:text="选择悄悄话"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="29dp"
+                    android:drawableRight="@drawable/qqh_xiala"
+                    android:layout_width="wrap_content"
+                    android:drawablePadding="20dp"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:visibility="gone"
+                    android:id="@+id/qiaoqiaohua_edit"
+                    android:layout_centerInParent="true"
+                    android:textColor="#323232"
+                    android:textSize="18sp"
+                    android:hint="请手动输入"
+                    android:background="@null"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="29dp"
+                    android:layout_width="wrap_content"
+                    android:drawablePadding="20dp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <TextView
+                android:layout_marginTop="38dp"
+                android:layout_width="20dp"
+                android:textColor="@color/bg_white"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:background="@drawable/ff9900_bg_10px"
+                android:text="3"
+                android:layout_height="20dp" />
+            <TextView
+                android:paddingTop="6dp"
+                android:textColor="#323232"
+                android:textSize="14sp"
+                android:text="选择分享平台"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/qq"
+                    android:gravity="center"
+                    android:text="QQ"
+                    android:textColor="#323232"
+                    android:textSize="12sp"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/qiaoqiaohua_qq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/weixin"
+                    android:gravity="center"
+                    android:text="微信"
+                    android:textColor="#323232"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="36dp"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/qiaoqiaohua_weixin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/pengyouquan"
+                    android:gravity="center"
+                    android:text="朋友圈"
+                    android:textColor="#323232"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="36dp"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/qiaoqiaohua_penyouquan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/qq_kongjian"
+                    android:gravity="center"
+                    android:text="QQ空间"
+                    android:textColor="#323232"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="36dp"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/qiaoqiaohua_qzone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

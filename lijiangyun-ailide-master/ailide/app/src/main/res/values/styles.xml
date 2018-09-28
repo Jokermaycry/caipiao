@@ -1,0 +1,108 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="LineStyle_1px">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/mineline</item>
+    </style>
+    <style name="LineStyle_1px_mine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/mineline</item>
+    </style>
+    <style name="buttonStytle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selece_button</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarDivider">@drawable/shape_recycle_item_divider</item>
+        <item name="android:listDivider">@drawable/divider_bg</item>
+    </style>
+    <style name="LineStyle_1px_CCCCCC">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">#cccccc</item>
+    </style>
+    <style name="LineStyle_1px_f4f4f4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#f4f4f4</item>
+    </style>
+    <style name="CustomDialog" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <!-- windowFrame框为无 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- 除去背景 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 去掉覆盖层 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 设置背景颜色 -->
+        <item name="android:background">#00000000</item>
+        <item name="android:textColor">#00000000</item>
+        <item name="android:outAnimation">@style/dialogWindowAnim</item>
+    </style>
+
+    <style name="dialogWindowAnim" parent="android:Animation">
+        <!-- 进入时的动画 -->
+        <item name="android:windowEnterAnimation">@anim/popup_enter</item>
+        <!-- 退出时的动画 -->
+        <item name="android:windowExitAnimation">@anim/popup_exit</item>
+    </style>
+    <style name="PopupAnimationAlpha" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_alpha</item>
+        <item name="android:windowExitAnimation">@anim/popup_alpha2</item>
+
+    </style>
+
+    <style name="PopupAnimationFromTop" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_exit</item>
+        <item name="android:windowExitAnimation">@anim/popup_enter</item>
+    </style>
+
+    <style name="PopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_exit</item>
+    </style>
+    <style name="PopupAnimationRight" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/translate_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_out2</item>
+    </style>
+    <style name="dialog_activity" parent="@style/Theme.AppCompat.Dialog">
+        <!-- 去黑边 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置是否可滑动 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置是否透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 背景 -->
+        <item name="android:background">@null</item>
+        <!-- 窗口背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否变暗 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 点击空白部分activity不消失 -->
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="Widget.GifMoviewView" parent="@android:style/Widget"></style>
+
+</resources>

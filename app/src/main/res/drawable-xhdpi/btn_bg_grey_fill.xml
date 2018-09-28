@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 订单里面 按钮 黑色字体的 背景 由空背景 到点击之后为 灰色 之后-->
+
+    <!-- 圆角 -->
+    <corners
+        android:radius="3dp" /><!-- 设置圆角半径 -->
+
+
+    <solid
+        android:color="@color/comm_border"/><!-- 填充的颜色 -->
+</shape>

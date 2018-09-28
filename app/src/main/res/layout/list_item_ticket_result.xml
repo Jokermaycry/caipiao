@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/corners_bg">
+
+   <LinearLayout
+       android:layout_marginRight="50dp"
+       android:padding="10dp"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <com.zhy.view.flowlayout.TagFlowLayout
+           android:id="@+id/num_tag"
+           zhy:max_select="0"
+           zhy:auto_select_effect="true"
+           android:background="@color/white"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+       </com.zhy.view.flowlayout.TagFlowLayout>
+
+       <LinearLayout
+           android:layout_marginTop="3dp"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <TextView
+               android:id="@+id/ticket_mode"
+               android:textSize="15sp"
+               android:textColor="@color/c2"
+               android:text="普通-任选二"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <TextView
+               android:id="@+id/ticket_num"
+               android:layout_marginLeft="15dp"
+               android:paddingTop="2dp"
+               android:paddingBottom="2dp"
+               android:paddingLeft="5dp"
+               android:paddingRight="5dp"
+               android:background="@drawable/btn_bg_blue_boder"
+               android:textColor="@color/theme_color1"
+               android:textSize="13sp"
+               android:text="6注"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <TextView
+               android:id="@+id/ticket_price"
+               android:layout_marginLeft="15dp"
+               android:paddingTop="2dp"
+               android:paddingBottom="2dp"
+               android:paddingLeft="5dp"
+               android:paddingRight="5dp"
+               android:background="@drawable/btn_bg_p2_fill"
+               android:textColor="@color/p1"
+               android:textSize="13sp"
+               android:text="12元"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+       </LinearLayout>
+   </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ticket_delete"
+        android:padding="10dp"
+        android:background="?android:selectableItemBackground"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/icon_ticket_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

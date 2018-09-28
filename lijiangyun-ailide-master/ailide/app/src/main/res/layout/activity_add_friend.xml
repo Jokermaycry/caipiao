@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ailide.apartmentsabc.views.friendchat.AddFriendActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_include_back"
+            android:layout_width="12dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/zuo_back"/>
+        <LinearLayout
+            android:id="@+id/friend_search"
+            android:layout_width="@dimen/zero"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/f2f2f2_bg_8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="34dp">
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/icon_seach"
+                android:layout_height="14dp" />
+            <EditText
+                android:id="@+id/search_edit"
+                android:layout_width="@dimen/zero"
+                android:layout_weight="1"
+                android:background="@null"
+                android:inputType="number"
+                android:hint="搜索好友熊号"
+                android:textSize="14sp"
+                android:textColor="#c6c5c5"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/friend_add"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="查找"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ten_friend_ly"
+        android:layout_width="match_parent"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_width="40dp"
+            android:src="@drawable/baoxiang"
+            android:layout_height="32dp" />
+        <LinearLayout
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="17dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#323232"
+                android:text="好友十连抽"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:paddingTop="4dp"
+                android:textSize="14sp"
+                android:textColor="#999999"
+                android:text="脱非入欧 快来玩吧"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="7dp"
+            android:src="@drawable/icon_into"
+            android:layout_marginRight="20dp"
+            android:layout_height="12dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        style="@style/LineStyle_1px_f4f4f4" />
+
+</LinearLayout>

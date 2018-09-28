@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white"
+    tools:context=".apartmentsabc.views.mine.SettingActivity">
+    <include layout="@layout/include_topbar_layout"/>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <TextView
+        android:id="@+id/setting_gengxin"
+        android:layout_width="match_parent"
+        android:textColor="#030303"
+        android:textSize="16sp"
+        android:text="版本更新"
+        android:paddingLeft="21dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        style="@style/LineStyle_1px_f4f4f4" />
+    <TextView
+        android:id="@+id/setting_login_out"
+        android:layout_width="match_parent"
+        android:textColor="#ff2828"
+        android:textSize="16sp"
+        android:text="退出登录"
+        android:paddingLeft="21dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        style="@style/LineStyle_1px_f4f4f4" />
+
+</LinearLayout>

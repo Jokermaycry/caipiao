@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f4f4f4"
+    tools:context="com.ailide.apartmentsabc.views.mine.EditEquipmentActivity">
+    <include layout="@layout/include_topbar_layout"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#f4f4f4"
+        android:layout_height="0.5dp" />
+    <LinearLayout
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:paddingRight="20dp"
+        android:background="@color/bg_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="125dp"
+            android:text="设备名称"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:background="@null"
+            android:textColor="#c6c6c6"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:hint="在此修改您的设备名称"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#f4f4f4"
+        android:layout_height="0.5dp" />
+    <LinearLayout
+        android:id="@+id/power_ly"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:paddingRight="20dp"
+        android:background="@color/bg_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="125dp"
+            android:text="电量"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/power"
+            android:layout_width="match_parent"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#f4f4f4"
+        android:layout_height="0.5dp" />
+    <LinearLayout
+        android:id="@+id/version_ly"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:paddingRight="20dp"
+        android:background="@color/bg_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="125dp"
+            android:text="固件版本"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#f4f4f4"
+        android:layout_height="0.5dp" />
+    <LinearLayout
+        android:id="@+id/number_ly"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:paddingRight="20dp"
+        android:background="@color/bg_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="125dp"
+            android:text="设备编号"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#f4f4f4"
+        android:layout_height="0.5dp" />
+    <LinearLayout
+        android:id="@+id/mac_ly"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:paddingRight="20dp"
+        android:background="@color/bg_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="125dp"
+            android:text="MAC地址"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/mac"
+            android:layout_width="match_parent"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#f4f4f4"
+        android:layout_height="0.5dp" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/sn_ly"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:paddingRight="20dp"
+        android:background="@color/bg_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="125dp"
+            android:text="SN号"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/sn"
+            android:layout_width="match_parent"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:background="#f4f4f4"
+        android:layout_height="0.5dp" />
+
+
+</LinearLayout>

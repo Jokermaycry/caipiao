@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white">
+    <include layout="@layout/include_topbar_layout"/>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="@dimen/zero">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/friend_recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="1"
+            android:clipToPadding="true"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:overScrollMode="never"
+            android:requiresFadingEdge="none"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ly"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/edit"
+                android:maxLines="6"
+                android:layout_width="wrap_content"
+                android:background="@null"
+                android:textSize="50px"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/friend_chat_change_img"
+                android:layout_width="30dp"
+                android:src="@drawable/liaotian_more"
+                android:layout_marginRight="10dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:id="@+id/friend_chat_send"
+                android:padding="15dp"
+                android:textColor="#ff9900"
+                android:textSize="14sp"
+                android:text="发送"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/friend_chat_ly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/friend_chat_rl"
+            android:layout_centerInParent="true"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:background="@drawable/tianzige_small">
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginRight="16dp"
+            android:layout_height="250dp">
+            <ImageView
+                android:id="@+id/huanhang"
+                android:layout_width="20dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/huanhang"
+                android:layout_height="20dp" />
+            <ImageView
+                android:id="@+id/shanchu"
+                android:layout_width="20dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/lt_delete"
+                android:layout_height="20dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/friend_chat_all_ly"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="144dp">
+        <LinearLayout
+            android:id="@+id/friend_chat_jianpan_ly"
+            android:gravity="center"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/liaotian_jianpan"
+                android:layout_width="35dp"
+                android:layout_height="25dp" />
+            <TextView
+                android:textSize="14sp"
+                android:paddingTop="5dp"
+                android:textColor="#2c2c2c"
+                android:text="键盘输入"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/friend_chat_yuanbiji_ly"
+            android:gravity="center"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/liaotian_yuanbiji"
+                android:layout_width="35dp"
+                android:layout_height="25dp" />
+            <TextView
+                android:textSize="14sp"
+                android:paddingTop="5dp"
+                android:textColor="#2c2c2c"
+                android:text="原笔迹"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/friend_chat_zhuti_ly"
+            android:gravity="center"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/liaotian_zhuti"
+                android:layout_width="35dp"
+                android:layout_height="25dp" />
+            <TextView
+                android:textSize="14sp"
+                android:paddingTop="5dp"
+                android:textColor="#2c2c2c"
+                android:text="主题选择"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/friend_chat_bianji_ly"
+            android:gravity="center"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/liaotian_bianji"
+                android:layout_width="35dp"
+                android:layout_height="25dp" />
+            <TextView
+                android:textSize="14sp"
+                android:paddingTop="5dp"
+                android:textColor="#2c2c2c"
+                android:text="图片插入"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:visibility="gone"
+        android:id="@+id/friend_recycle_view_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+    
+
+</LinearLayout>

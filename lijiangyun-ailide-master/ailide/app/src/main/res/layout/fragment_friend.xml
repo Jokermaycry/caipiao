@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:gravity="center"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:id="@+id/friend_search"
+           android:layout_width="@dimen/zero"
+           android:layout_marginLeft="20dp"
+           android:background="@drawable/f2f2f2_bg_8dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="8dp"
+           android:layout_weight="1"
+           android:gravity="center"
+           android:layout_height="34dp">
+           <ImageView
+               android:layout_width="14dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="8dp"
+               android:src="@drawable/icon_seach"
+               android:layout_height="14dp" />
+           <TextView
+               android:layout_width="@dimen/zero"
+               android:layout_weight="1"
+               android:background="@null"
+               android:hint="搜索好友熊号"
+               android:textSize="14sp"
+               android:textColor="#c6c5c5"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <ImageView
+           android:id="@+id/friend_add"
+           android:layout_width="24dp"
+           android:layout_marginLeft="20dp"
+           android:src="@drawable/button_jia"
+           android:layout_marginRight="20dp"
+           android:layout_height="24dp" />
+   </LinearLayout>
+    <TextView
+        android:background="#f4f4f4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/friend_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="true"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:overScrollMode="never"
+                android:requiresFadingEdge="none"
+                />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <ImageView
+            android:id="@+id/friend_qiao_hua"
+            android:layout_width="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="37dp"
+            android:src="@drawable/qiaoqiaohua"
+            android:layout_height="70dp" />
+    </RelativeLayout>
+    
+
+</LinearLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="@color/line_gray" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/six_zero">
+
+        <RelativeLayout
+            android:id="@+id/rl_qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding_large">
+
+            <ImageView
+                android:id="@+id/iv_qr_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="@dimen/padding_large"
+                android:src="@drawable/icon_qr_code_p" />
+
+            <View
+                android:id="@+id/line_qr_code"
+                android:layout_width="@dimen/four_five"
+                android:layout_height="@dimen/two"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/padding_small"
+                android:background="@color/line_black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_bar_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding_large"
+            android:layout_toRightOf="@+id/rl_qr_code">
+
+            <ImageView
+                android:id="@+id/iv_bar_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="@dimen/padding_large"
+                android:src="@drawable/icon_bar_code_n" />
+
+            <View
+                android:id="@+id/line_bar_code"
+                android:layout_width="@dimen/four_five"
+                android:layout_height="@dimen/two"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/padding_small"
+                android:background="@color/line_black" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/padding_normal"
+            android:layout_marginRight="@dimen/padding_normal"
+            android:layout_marginLeft="@dimen/padding_normal"
+            android:text="@string/OK"
+            android:textStyle="bold"
+            android:textColor="@color/text_orange"
+            android:textSize="@dimen/one_eight" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/tv_ok"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/line_gray" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="@color/line_gray" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/print_to_qr_code"
+        android:textColor="@color/text_black"
+        android:minHeight="75dp"
+        android:textSize="@dimen/text_normal"
+        android:padding="@dimen/padding_small"
+        android:gravity="top"
+        android:background="@null"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="@color/line_gray" />
+</LinearLayout>

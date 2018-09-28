@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ailide.apartmentsabc.views.friendchat.AddFriendResultActivity">
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="270dp">
+        <ImageView
+            android:id="@+id/head_img"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_marginTop="37dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="12dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/hyzl_back"
+                android:layout_height="22dp" />
+            <TextView
+                android:layout_width="@dimen/zero"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/more"
+                android:layout_width="25dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/friend_detail_more"
+                android:layout_height="6dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingLeft="25dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/bg_white"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/sex_img"
+                    android:layout_width="12dp"
+                    android:background="@drawable/hyzl_nv"
+                    android:layout_height="12dp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/zhitiao_num"
+                android:paddingTop="5dp"
+                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/bg_white"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/siginature"
+                android:paddingTop="5dp"
+                android:paddingBottom="20dp"
+                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/bg_white"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/result_edit"
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:background="@null"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        android:gravity="top|left"
+        android:hint="请填写验证信息"
+        android:padding="20dp"
+        android:layout_height="182dp" />
+    <TextView
+        android:id="@+id/confirm"
+        android:layout_gravity="center"
+        android:textColor="@color/bg_white"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/ff9900_bg_10px"
+        android:layout_width="215dp"
+        android:gravity="center"
+        android:text="发 送 好 友 请 求"
+        android:layout_height="48dp" />
+</LinearLayout>

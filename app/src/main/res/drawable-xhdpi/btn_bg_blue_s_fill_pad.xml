@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 订单里面 按钮 黑色字体的 背景 由空背景 到点击之后为 灰色 之后-->
+
+    <!-- 圆角 -->
+    <corners
+        android:radius="1dp" /><!-- 设置圆角半径 -->
+
+    <!-- 描边 -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/theme_color1" /> <!-- 定义描边的宽度和描边的颜色值 -->
+
+
+    <!-- 间隔 -->
+    <padding
+        android:left="10dp"
+        android:top="8dp"
+        android:right="10dp"
+        android:bottom="8dp"/><!-- 各方向的间隔 -->
+
+    <solid
+        android:color="@color/white"/><!-- 填充的颜色 -->
+</shape>

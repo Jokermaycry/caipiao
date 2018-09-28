@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white">
+    <include layout="@layout/include_topbar_layout"/>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:id="@+id/sex_nan_ly"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:text="男"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/sex_nan"
+            android:layout_width="14dp"
+            android:background="@drawable/grzx_xuanzhong"
+            android:layout_height="14dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:id="@+id/sex_nv_ly"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:text="女"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/sex_nv"
+            android:visibility="gone"
+            android:layout_width="14dp"
+            android:background="@drawable/grzx_xuanzhong"
+            android:layout_height="14dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        style="@style/LineStyle_1px_f4f4f4" />
+
+</LinearLayout>

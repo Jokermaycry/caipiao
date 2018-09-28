@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 编辑框的白色背景框 -->
+
+    <!-- 圆角 -->
+    <corners
+        android:radius="6dp" /><!-- 设置圆角半径 -->
+
+
+
+    <!-- 间隔 -->
+    <padding
+        android:left="2dp"
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp"/><!-- 各方向的间隔 -->
+
+    <!-- 大小 -->
+    <!--<size-->
+        <!--android:width="10dp"-->
+        <!--android:height="10dp"/>-->
+    <!-- 宽度和高度 -->
+
+    <!-- 填充 -->
+    <solid
+        android:color="@color/white"/><!-- 填充的颜色 -->
+
+    <!-- 描边 -->
+    <stroke
+        android:width="0.5dp"
+        android:color="#D8D8D8" />
+
+</shape>

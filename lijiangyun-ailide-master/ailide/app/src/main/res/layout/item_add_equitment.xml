@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/equitment_tv"
+        android:layout_width="wrap_content"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="#030303"
+        android:textSize="16sp"
+        android:layout_height="wrap_content" />
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+</LinearLayout>

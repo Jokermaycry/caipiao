@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white">
+    <include layout="@layout/include_topbar_layout"/>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="设备名称"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/edit_equitment_edit"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:background="@null"
+            android:textColor="#c6c6c6"
+            android:text="在此修改您的设备名称"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="设备编号"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/edit_equitment_number"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:background="@null"
+            android:textColor="#030303"
+            android:text="646888909"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="MAC地址"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/edit_equitment_address"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:background="@null"
+            android:textColor="#030303"
+            android:text="646888909"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="固件版本"
+            android:textColor="#030303"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/edit_equitment_banben"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:background="@null"
+            android:textColor="#030303"
+            android:text="646888909"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        style="@style/LineStyle_1px_f4f4f4" />
+
+
+</LinearLayout>

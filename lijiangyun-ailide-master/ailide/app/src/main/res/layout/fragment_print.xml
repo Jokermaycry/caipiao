@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="99dp"
+            android:layout_height="21dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="@dimen/zero"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:id="@+id/print_select_ly"
+            android:layout_width="135dp"
+
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/print_select_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/print_down" />
+
+            <TextView
+                android:id="@+id/print_equitment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:drawablePadding="5dp"
+                android:paddingLeft="5dp"
+                android:text="未连接设备"
+                android:textColor="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/_74c239_bg_oval" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/print_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:clipToPadding="true"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:overScrollMode="never"
+        android:requiresFadingEdge="none"
+        />
+
+</LinearLayout>

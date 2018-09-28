@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="@dimen/zero">
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_width="234dp"
+            android:background="@drawable/zhitiao"
+            android:layout_height="280dp">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:layout_centerInParent="true"
+                android:background="@drawable/login_bg"
+                android:layout_width="234dp"
+                android:layout_height="280dp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/login_qq_ly"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_width="298dp"
+        android:background="@drawable/_55acee_bg_10px"
+        android:gravity="center"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/qq"
+            android:textColor="@color/bg_white"
+            android:text="Q Q 登 录"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/login_weixin_ly"
+        android:layout_gravity="center"
+        android:layout_width="298dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/_24c67c_bg_10px"
+        android:gravity="center"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/weixin"
+            android:textColor="@color/bg_white"
+            android:text="微 信 登 录"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/login_not_ly"
+        android:layout_gravity="center"
+        android:layout_width="298dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/_dfdfdf_bg_10px"
+        android:gravity="center"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:text="暂 不 登 录"
+                android:textColor="@color/bg_white"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="10sp"
+                android:text="收藏素材及社交功能时需要登录"
+                android:textColor="@color/bg_white"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/dikuang"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/print_img"
+            android:src="@drawable/tab_loan_select"
+            android:layout_width="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="24dp"
+            android:layout_height="45dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/print_name"
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#303030"
+                android:text="图文编辑"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/print_name_one"
+                android:textSize="10sp"
+                android:textColor="#9d9d9d"
+                android:layout_marginTop="5dp"
+                android:text="涂鸦、文字、图文（支持微信聊天记录 截屏长图等）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
