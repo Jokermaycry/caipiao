@@ -55,7 +55,11 @@
             android:name=".View.BaseActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.ElevenForFiveActivity"
+        android:name=".View.ElevenForFiveActivity"
+        android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".View.PukeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".View.ElevenForFiveDetailActivity"

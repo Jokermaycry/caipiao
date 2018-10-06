@@ -230,15 +230,20 @@ public class MainFragment extends Fragment {
                         @Override
                         public void onClick(View v) {
                             if (info.getStatus().equals("1")) {
+                                //11选5
                                 if (info.getType().equals("1")) {
                                     Intent in = new Intent(mContext, ElevenForFiveActivity.class);
                                     in.putExtra("sh_name", info.getSh_name());
                                     startActivity(in);
-                                } else if (info.getType().equals("2")) {
+                                }
+                                //快3
+                                else if (info.getType().equals("2")) {
                                     Intent in = new Intent(mContext, FastThreeActivity.class);
                                     in.putExtra("sh_name", info.getSh_name());
                                     startActivity(in);
-                                }else if (info.getType().equals("3")) {
+                                }
+                                //快12
+                                else if (info.getType().equals("3")) {
                                     Intent in = new Intent(mContext, TwolveForFiveActivity.class);
                                     in.putExtra("sh_name", info.getSh_name());
                                     startActivity(in);
@@ -255,6 +260,9 @@ public class MainFragment extends Fragment {
             } else {
                 timeTv.setTextColor(Color.parseColor("#ff6243"));
                 holder.setText(R.id.time, "暂停服务");
+                Intent in = new Intent(mContext, PukeActivity.class);
+                in.putExtra("sh_name", info.getSh_name());
+                startActivity(in);
             }
 
         }
