@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/comm_grey">
+
+
+    <View
+        android:layout_above="@+id/bottom_ly"
+        android:background="@color/comm_border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
+
+    <LinearLayout
+        android:id="@+id/bottom_ly"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <TextView
+            android:id="@+id/clear_btn"
+            android:gravity="center"
+            android:background="?android:selectableItemBackground"
+            android:padding="15dp"
+            android:textColor="@color/c2"
+            android:textSize="18sp"
+            android:text="清空"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_margin="5dp"
+            android:background="@color/comm_border"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"></View>
+
+      <LinearLayout
+          android:paddingTop="3dp"
+          android:paddingBottom="3dp"
+          android:paddingLeft="15dp"
+          android:paddingRight="15dp"
+          android:background="@drawable/btn_bg_blue_fill"
+          android:layout_gravity="center"
+          android:layout_marginLeft="15dp"
+          android:orientation="vertical"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+
+          <LinearLayout
+              android:layout_gravity="center"
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+              <TextView
+                  android:textSize="13sp"
+                  android:text="0"
+                  android:textColor="@color/white"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/num" />
+
+              <TextView
+                  android:layout_marginLeft="5dp"
+                  android:textSize="12sp"
+                  android:text="注"
+                  android:textColor="@color/white"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+
+          </LinearLayout>
+
+          <View
+              android:layout_margin="1dp"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="0.5dp"></View>
+
+          <LinearLayout
+              android:layout_gravity="center"
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+              <TextView
+                  android:id="@+id/price"
+                  android:layout_gravity="center"
+                  android:textSize="13sp"
+                  android:text="0"
+                  android:textColor="@color/white"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+              <TextView
+                  android:layout_marginLeft="5dp"
+                  android:layout_gravity="center"
+                  android:textSize="12sp"
+                  android:text="元"
+                  android:textColor="@color/white"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+
+          </LinearLayout>
+
+      </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"></View>
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:background="@drawable/btn_bg_red_fill"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/comfirm_btn"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="选好了"
+                android:textColor="@color/white"
+                android:background="?android:selectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@+id/top_ly"
+        android:layout_marginBottom="56dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/rule_tv"
+                    android:layout_centerInParent="true"
+                    android:text="猜开奖号码相加的和"
+                    android:textColor="@color/c4"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/random_btn"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/btn_bg_red_fill"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/white"
+                    android:text="机选"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/sumvalue_ly"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_gravity="center"
+                    zhy:gravity="center"
+                    android:id="@+id/sumvalue_tag"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textColor="@color/c4"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/fast_big"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:text="大"
+                        android:textSize="14sp"
+                        android:textColor="@color/theme_color1"
+                        android:background="@drawable/flow_layout_selector_fast"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/fast_small"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:text="小"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/theme_color1"
+                        android:background="@drawable/btn_bg_blue_s_fill_pad"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/fast_sig"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:text="单"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/theme_color1"
+                        android:background="@drawable/btn_bg_blue_s_fill_pad"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/fast_dual"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:text="双"
+                        android:textSize="14sp"
+                        android:textColor="@color/theme_color1"
+                        android:background="@drawable/btn_bg_blue_s_fill_pad"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/same_three_ly"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="单选"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/samethree_tag"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    zhy:gravity="center"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/same_three_all_ly"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="通选"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/three_same_btn"
+                    android:background="@drawable/btn_bg_blue_s_fill"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/theme_color1"
+                    android:textSize="16sp"
+                    android:text="三同号通选"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/same_two_ly"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="单选"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="选择同号和不同号的组合"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:text="同号"
+                    android:textSize="12sp"
+                    android:textColor="@color/c4"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/sametow_s_tag"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:text="不同号"
+                    android:textColor="@color/c4"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/sametow_d_tag"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/same_two_s_ly"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="复选"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="猜开奖中两个指定的相同号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/sametow_spe_tag"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dif_three_ly"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="三不同号"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="选3个不同号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:id="@+id/difthree_tag"
+                    android:layout_marginTop="10dp"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dif_three_all_ly"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="三连号"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="123/234/345/456"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/three_dif_btn"
+                    android:background="@drawable/btn_bg_blue_s_fill_pad"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/theme_color1"
+                    android:textSize="14sp"
+                    android:text="三连号通选"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dif_two_ly"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:id="@+id/diftwo_tag"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/s_dif_three_ly"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="胆码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/s_difthree_tag1"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="拖码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/s_difthree_tag2"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/s_dif_two_ly"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="胆码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/s_diftwo_tag1"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="拖码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/s_diftwo_tag2"
+                    zhy:max_select="-1"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/top_ly"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/titlebar_ly"
+            android:background="@color/theme_color1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:padding="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/shop_icon_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/title_ly"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="center"
+                    android:id="@+id/title"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:src="@drawable/icon_down" />
+
+            </LinearLayout>
+
+
+
+            <ImageView
+                android:padding="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/more"
+                android:src="@drawable/icon_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/name"
+                android:text="...:"
+                android:textColor="@color/c2"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/last_qs"
+                android:text="上期开奖:"
+                android:textColor="@color/c4"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="5dp"
+                android:text="..."
+                android:textColor="@color/p1"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/last_open_num" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/now_qs"
+                android:text="距本期截止时间:"
+                android:textColor="@color/c4"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/current_time"
+                android:layout_marginLeft="5dp"
+                android:text="..."
+                android:textColor="@color/p1"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
