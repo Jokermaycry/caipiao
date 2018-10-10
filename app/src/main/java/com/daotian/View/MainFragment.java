@@ -260,9 +260,9 @@ public class MainFragment extends Fragment {
             } else {
                 timeTv.setTextColor(Color.parseColor("#ff6243"));
                 holder.setText(R.id.time, "暂停服务");
-                Intent in = new Intent(mContext, PukeActivity.class);
-                in.putExtra("sh_name", info.getSh_name());
-                startActivity(in);
+//                Intent in = new Intent(mContext, PukeActivity.class);
+//                in.putExtra("sh_name", info.getSh_name());
+//                startActivity(in);
             }
 
         }

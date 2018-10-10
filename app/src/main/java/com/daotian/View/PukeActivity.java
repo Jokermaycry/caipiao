@@ -1560,31 +1560,35 @@ public class PukeActivity extends AppCompatActivity {
         }
         if (mContinue) {
             Log.e("mContinue", "true");
-            Intent in = new Intent(PukeActivity.this, FastThreeDetailActivity.class);
-            //和值
+            Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
+            //baoxuan
             in.putExtra("baoxuanList", (Serializable) baoxuanList);
-            //三同号
-            in.putExtra("tonghuaList", (Serializable) baoziList);
-            //二同号单选
-            in.putExtra("sameTwo_D_List", (Serializable) baoziList);
-            in.putExtra("sameTwo_S_List", (Serializable) baoziList);
-            //二同号复选
-            in.putExtra("sameTwo_M_List", (Serializable) baoziList);
-            //三不同号
-            in.putExtra("difThreeList", (Serializable) baoziList);
-            //二不同号
-            in.putExtra("difTwoList", (Serializable) baoziList);
-            //拖胆——三不同号
-            in.putExtra("sDifThreeList", (Serializable) baoziList);
-            in.putExtra("sSDifThreeList", (Serializable) baoziList);
-            //拖胆——二不同号
-            in.putExtra("sDifTwoList", (Serializable) baoziList);
-            in.putExtra("sSDifTwoList", (Serializable) baoziList);
+            //tonghua
+            in.putExtra("tonghuaList", (Serializable) tonghuaList);
+            //shunzi
+            in.putExtra("sameTwo_D_List", (Serializable) shunziList);
 
-            //三同号通选
-            in.putExtra("sameThreeAll", sameThreeAll);
-            //三连号通选
-            in.putExtra("difThreeAll", difThreeAll);
+            //tonghuashun
+            in.putExtra("sameTwo_M_List", (Serializable) tonghuashunList);
+            //baozi
+            in.putExtra("difThreeList", (Serializable) baoziList);
+            //duizi
+            in.putExtra("difTwoList", (Serializable) duiziList);
+            //one
+            in.putExtra("sDifThreeList", (Serializable) RONEList);
+
+            //two
+            in.putExtra("sDifTwoList", (Serializable) RTWOList);
+
+
+            //three
+            in.putExtra("sameThreeAll",  (Serializable) RTHREEList);
+            //four
+            in.putExtra("difThreeAll",  (Serializable) RFOURList);
+            //five
+            in.putExtra("difThreeAll",  (Serializable) RFIVEList);
+            //six
+            in.putExtra("difThreeAll",  (Serializable) RSIXList);
 
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
@@ -1598,7 +1602,7 @@ public class PukeActivity extends AppCompatActivity {
             clearNum();
         } else {
             Log.e("mContinue", "false");
-            Intent in = new Intent(PukeActivity.this, FastThreeDetailActivity.class);
+            Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
             //和值
             in.putExtra("baoxuanList", (Serializable) baoxuanList);
             //三同号
