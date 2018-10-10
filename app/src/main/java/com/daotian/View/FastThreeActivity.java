@@ -25,8 +25,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.daotian.Http.ParamUtil;
 import com.daotian.Http.ServiceInterface;
 import com.daotian.Http.TicketService;
@@ -37,6 +35,8 @@ import com.daotian.Model.TicketDetailInfo;
 import com.daotian.R;
 import com.daotian.Utils.ACache;
 import com.daotian.Utils.ToastUtil;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.abslistview.CommonAdapter;
 import com.zhy.view.flowlayout.FlowLayout;
