@@ -77,60 +77,6 @@ public class PukeActivity extends AppCompatActivity {
     private final int SD_FOUR = 10;//任选4
     private final int SD_FIVE = 11;//任选5
     private final int SD_SIX = 12;//任选6
-
-
-    @BindView(R.id.s_diftwo_tag1)
-    TagFlowLayout sDiftwoTag1;
-    @BindView(R.id.s_diftwo_tag2)
-    TagFlowLayout sDiftwoTag2;
-    @BindView(R.id.s_dif_two_ly)
-    LinearLayout sDifTwoLy;
-    @BindView(R.id.same_two_s_ly)
-    LinearLayout sameTwoSLy;
-    @BindView(R.id.same_three_all_ly)
-    LinearLayout sameThreeAllLy;
-    @BindView(R.id.dif_three_all_ly)
-    LinearLayout difThreeAllLy;
-
-
-
-    private int mSelecte_Mode = S_BAOXUAN;
-
-    @BindView(R.id.samethree_tag)
-    TagFlowLayout samethreeTag;
-    @BindView(R.id.three_same_btn)
-    TextView threeSameBtn;
-    @BindView(R.id.same_three_ly)
-    LinearLayout sameThreeLy;
-    @BindView(R.id.sametow_s_tag)
-    TagFlowLayout sametowSTag;
-    @BindView(R.id.sametow_d_tag)
-    TagFlowLayout sametowDTag;
-    @BindView(R.id.sametow_spe_tag)
-    TagFlowLayout sametowSpeTag;
-    @BindView(R.id.same_two_ly)
-    LinearLayout sameTwoLy;
-    @BindView(R.id.difthree_tag)
-    TagFlowLayout difthreeTag;
-    @BindView(R.id.three_dif_btn)
-    TextView threeDifBtn;
-    @BindView(R.id.dif_three_ly)
-    LinearLayout difThreeLy;
-    @BindView(R.id.diftwo_tag)
-    TagFlowLayout diftwoTag;
-    @BindView(R.id.dif_two_ly)
-    LinearLayout difTwoLy;
-    @BindView(R.id.rule_tv)
-    TextView ruleTv;
-    @BindView(R.id.s_difthree_tag2)
-    TagFlowLayout sDifthreeTag2;
-    @BindView(R.id.s_difthree_tag1)
-    TagFlowLayout sDifthreeTag1;
-    @BindView(R.id.s_dif_three_ly)
-    LinearLayout sDifThreeLy;
-    @BindView(R.id.top_ly)
-    LinearLayout topLy;
-
     @BindView(R.id.clear_btn)
     TextView clearBtn;
     @BindView(R.id.num)
@@ -141,6 +87,58 @@ public class PukeActivity extends AppCompatActivity {
     TextView comfirmBtn;
     @BindView(R.id.bottom_ly)
     LinearLayout bottomLy;
+    @BindView(R.id.rule_tv)
+    TextView ruleTv;
+    @BindView(R.id.random_btn)
+    TextView randomBtn;
+    @BindView(R.id.baoxuan)
+    TagFlowLayout baoxuan;
+    @BindView(R.id.layout_baoxuan)
+    LinearLayout layoutBaoxuan;
+    @BindView(R.id.tonghua)
+    TagFlowLayout tonghua;
+    @BindView(R.id.layout_tonghua)
+    LinearLayout layoutTonghua;
+    @BindView(R.id.shunzi)
+    TagFlowLayout shunzi;
+    @BindView(R.id.layout_shunzi)
+    LinearLayout layoutShunzi;
+    @BindView(R.id.tonghuashun)
+    TagFlowLayout tonghuashun;
+    @BindView(R.id.layout_tonghuashun)
+    LinearLayout layoutTonghuashun;
+    @BindView(R.id.baozi)
+    TagFlowLayout baozi;
+    @BindView(R.id.layout_baozi)
+    LinearLayout layoutBaozi;
+    @BindView(R.id.duizi)
+    TagFlowLayout duizi;
+    @BindView(R.id.layout_duizi)
+    LinearLayout layoutDuizi;
+    @BindView(R.id.rone)
+    TagFlowLayout rone;
+    @BindView(R.id.layout_rone)
+    LinearLayout layoutRone;
+    @BindView(R.id.rtwo)
+    TagFlowLayout rtwo;
+    @BindView(R.id.layout_rtwo)
+    LinearLayout layoutRtwo;
+    @BindView(R.id.three)
+    TagFlowLayout three;
+    @BindView(R.id.layout_rthree)
+    LinearLayout layoutRthree;
+    @BindView(R.id.four)
+    TagFlowLayout four;
+    @BindView(R.id.layout_rfour)
+    LinearLayout layoutRfour;
+    @BindView(R.id.five)
+    TagFlowLayout five;
+    @BindView(R.id.layout_rfive)
+    LinearLayout layoutRfive;
+    @BindView(R.id.six)
+    TagFlowLayout six;
+    @BindView(R.id.layout_rsix)
+    LinearLayout layoutRsix;
     @BindView(R.id.back)
     ImageView back;
     @BindView(R.id.title)
@@ -163,20 +161,11 @@ public class PukeActivity extends AppCompatActivity {
     TextView nowQs;
     @BindView(R.id.current_time)
     TextView currentTime;
-    @BindView(R.id.random_btn)
-    TextView randomBtn;
-    @BindView(R.id.sumvalue_tag)
-    TagFlowLayout sumvalueTag;
-    @BindView(R.id.fast_big)
-    TextView fastBig;
-    @BindView(R.id.fast_small)
-    TextView fastSmall;
-    @BindView(R.id.fast_sig)
-    TextView fastSig;
-    @BindView(R.id.fast_dual)
-    TextView fastDual;
-    @BindView(R.id.sumvalue_ly)
-    LinearLayout sumvalueLy;
+    @BindView(R.id.top_ly)
+    LinearLayout topLy;
+
+    private int mSelecte_Mode = S_BAOXUAN;
+
 
     private TicketDetailInfo mInfo;
     private String sh_name;
@@ -277,13 +266,13 @@ public class PukeActivity extends AppCompatActivity {
             R.drawable.puke11_selected, R.drawable.puke12_selected,
             R.drawable.puke13_selected};
     //包选
-    int[] baoxuan = {
+    int[] images_baoxuan = {
             R.drawable.tonghuashunbx,
             R.drawable.tonghuabx,
             R.drawable.duizibx,
             R.drawable.baozibx,
             R.drawable.shunzibx};
-    int[] baoxuan_selected = {
+    int[] images_baoxuan_selected = {
             R.drawable.tonghuashunbx_selected,
             R.drawable.tonghuabx_selected,
             R.drawable.duizibx_selected,
@@ -291,13 +280,13 @@ public class PukeActivity extends AppCompatActivity {
             R.drawable.shunzibx_selected
     };
     //同花
-    int[] tonghua = {
+    int[] images_tonghua = {
             R.drawable.tonghua1,
             R.drawable.tonghua2,
             R.drawable.tonghua3,
             R.drawable.tonghua4,
     };
-    int[] tonghua_selected = {
+    int[] images_tonghua_selected = {
             R.drawable.tonghua1_selected,
             R.drawable.tonghua2_selected,
             R.drawable.tonghua3_selected,
@@ -305,13 +294,13 @@ public class PukeActivity extends AppCompatActivity {
 
     };
     //同花顺
-    int[] tonghuashun = {
+    int[] images_tonghuashun = {
             R.drawable.tonghuashun1,
             R.drawable.tonghuashun2,
             R.drawable.tonghuashun3,
             R.drawable.tonghuashun4,
     };
-    int[] tonghuashun_selected = {
+    int[] images_tonghuashun_selected = {
             R.drawable.tonghuashun1_2,
             R.drawable.tonghuashun2_2,
             R.drawable.tonghuashun3_2,
@@ -319,7 +308,7 @@ public class PukeActivity extends AppCompatActivity {
 
     };
     //豹子
-    int[] baozi = {
+    int[] images_baozi = {
             R.drawable.baozi1,
             R.drawable.baozi2,
             R.drawable.baozi3,
@@ -334,7 +323,7 @@ public class PukeActivity extends AppCompatActivity {
             R.drawable.baoziq,
             R.drawable.baozik,
     };
-    int[] baozi_selected = {
+    int[] images_baozi_selected = {
             R.drawable.baozi1_2,
             R.drawable.baozi2_2,
             R.drawable.baozi3_2,
@@ -351,7 +340,7 @@ public class PukeActivity extends AppCompatActivity {
 
     };
     //对子
-    int[] duizi = {
+    int[] images_duizi = {
             R.drawable.duizi1,
             R.drawable.duizi2,
             R.drawable.duizi3,
@@ -366,7 +355,7 @@ public class PukeActivity extends AppCompatActivity {
             R.drawable.duizi12,
             R.drawable.duizi13,
     };
-    int[] duizi_selected = {
+    int[] images_duizi_selected = {
             R.drawable.duizi1_2,
             R.drawable.duizi2_2,
             R.drawable.duizi3_2,
@@ -383,7 +372,7 @@ public class PukeActivity extends AppCompatActivity {
 
     };
     //顺子
-    int[] shunzi = {
+    int[] images_shunzi = {
             R.drawable.shunzi1,
             R.drawable.shunzi2,
             R.drawable.shunzi3,
@@ -398,7 +387,7 @@ public class PukeActivity extends AppCompatActivity {
             R.drawable.shunzi12,
 
     };
-    int[] shunzi_selected = {
+    int[] images_shunzi_selected = {
             R.drawable.shunzi1_2,
             R.drawable.shunzi2_2,
             R.drawable.shunzi3_2,
@@ -434,26 +423,24 @@ public class PukeActivity extends AppCompatActivity {
         initRule();
 
         initBAOXUAN();
-//        initTONGHUA();
-//        initTONGHUASHUN();
-//        initDUIZI();
-//        initSHUNZI();
-//        initBAOZI();
-//        initONE();
-//        initTWO();
-//        initTHREE();
-//        initFOUR();
-//        initFIVE();
-//        initSIX();
-        initSameThreeAll();
-        initDifThreeAll();
+        /*initTONGHUA();
+        initTONGHUASHUN();
+        initDUIZI();
+        initSHUNZI();
+        initBAOZI();
+        initONE();
+        initTWO();
+        initTHREE();
+        initFOUR();
+        initFIVE();
+        initSIX();*/
+
         // getDetail();
 
-        // initBefore();
+         //initBefore();
 
 
     }
-
 
 
     private void initBefore() {
@@ -540,14 +527,14 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 4; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             tonghuaList.add(info);
         }
         //顺子 yes
-        for (int i = 0; i <12; i++) {
+        for (int i = 0; i < 12; i++) {
             shunziNums.add(i + "");
         }
-        for (int i = 0; i <12; i++) {
+        for (int i = 0; i < 12; i++) {
             NumInfo info = new NumInfo();
             info.setNum(i + "");
             shunziList.add(info);
@@ -558,7 +545,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 4; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             tonghuashunList.add(info);
         }
         //豹子 yes
@@ -576,7 +563,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             duiziList.add(info);
         }
         //任选1
@@ -585,7 +572,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             RONEList.add(info);
         }
         //任选2
@@ -594,7 +581,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             RTWOList.add(info);
         }
         //任选3
@@ -603,7 +590,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             RTHREEList.add(info);
         }
         //任选4
@@ -612,7 +599,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             RFOURList.add(info);
         }
         //任选5
@@ -621,7 +608,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             RFIVEList.add(info);
         }
         //任选6
@@ -630,7 +617,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i * 111 + "");
+            info.setNum(i + "");
             RSIXList.add(info);
         }
 
@@ -699,198 +686,232 @@ public class PukeActivity extends AppCompatActivity {
             case S_BAOXUAN:
                 title.setText("包选");
                 ruleTv.setText("包选");
-                fastBig.setVisibility(View.GONE);
-                fastDual.setVisibility(View.GONE);
-                fastSig.setVisibility(View.GONE);
-                fastSmall.setVisibility(View.GONE);
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sDifTwoLy.setVisibility(View.GONE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.VISIBLE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
+
+
                 break;
             case S_TONGHUA:
                 title.setText("同花");
                 ruleTv.setText("同花");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameTwoSLy.setVisibility(View.GONE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.VISIBLE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case S_TONGHUASHUN:
                 title.setText("同花顺");
                 ruleTv.setText("同花顺");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.VISIBLE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case S_BAOZI:
                 title.setText("豹子");
                 ruleTv.setText("豹子");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.VISIBLE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case S_SHUNZI:
                 title.setText("顺子");
                 ruleTv.setText("顺子");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.VISIBLE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case S_DUIZI:
                 title.setText("对子");
                 ruleTv.setText("对子");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.VISIBLE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case SD_ONE:
                 title.setText("任选一");
                 ruleTv.setText("任选一");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.VISIBLE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case SD_TWO:
                 title.setText("任选二");
                 ruleTv.setText("任选二");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.VISIBLE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case SD_THREE:
                 title.setText("任选三");
                 ruleTv.setText("任选三");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.VISIBLE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case SD_FOUR:
                 title.setText("任选四");
                 ruleTv.setText("任选四");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.VISIBLE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case SD_FIVE:
                 title.setText("任选五");
                 ruleTv.setText("任选五");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.VISIBLE);
+                layoutRsix.setVisibility(View.GONE);
                 break;
             case SD_SIX:
                 title.setText("任选六");
                 ruleTv.setText("任选六");
+
                 ruleTv.setVisibility(View.VISIBLE);
-                sumvalueLy.setVisibility(View.VISIBLE);
-                sameThreeLy.setVisibility(View.GONE);
-                sameTwoLy.setVisibility(View.GONE);
-                sameTwoSLy.setVisibility(View.GONE);
-                difThreeLy.setVisibility(View.GONE);
-                difTwoLy.setVisibility(View.GONE);
-                sDifThreeLy.setVisibility(View.GONE);
-                sDifTwoLy.setVisibility(View.GONE);
                 randomBtn.setVisibility(View.VISIBLE);
-                sameThreeAllLy.setVisibility(View.GONE);
-                difThreeAllLy.setVisibility(View.GONE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -899,25 +920,25 @@ public class PukeActivity extends AppCompatActivity {
      * 包选   视图初始化
      */
     private void initBAOXUAN() {
-        Log.e("initBAOXUAN","initBAOXUAN");
+        Log.e("initBAOXUAN", "initBAOXUAN");
         for (int i = 0; i < baoxuanList.size(); i++) {
             baoxuanList.get(i).setIs_checked(false);
         }
         baoxuanAdapter = new TagAdapter<String>(baoxuanNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, baoxuan, false);
                 if (baoxuanList.get(position).is_checked()) {
-                    tv.setBackgroundResource(baoxuan_selected[position]);
+                    tv.setBackgroundResource(images_baoxuan_selected[position]);
                 } else {
-                    tv.setBackgroundResource(baoxuan[position]);
+                    tv.setBackgroundResource(images_baoxuan[position]);
                 }
 
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(baoxuanAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        baoxuan.setAdapter(baoxuanAdapter);
+        baoxuan.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
@@ -944,7 +965,7 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initTONGHUA() {
 
-        Log.e("inittonghua","inittonghua");
+        Log.e("inittonghua", "inittonghua");
 
         for (int i = 0; i < tonghuaList.size(); i++) {
             tonghuaList.get(i).setIs_checked(false);
@@ -952,19 +973,19 @@ public class PukeActivity extends AppCompatActivity {
         tonghuaAdapter = new TagAdapter<String>(tonghuaNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, tonghua, false);
                 if (tonghuaList.get(position).is_checked()) {
-                    tv.setBackgroundResource(tonghua_selected[position]);
+                    tv.setBackgroundResource(images_tonghua_selected[position]);
                 } else {
-                    tv.setBackgroundResource(tonghua[position]);
+                    tv.setBackgroundResource(images_tonghua[position]);
                 }
 
 
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(tonghuaAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        tonghua.setAdapter(tonghuaAdapter);
+        tonghua.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
@@ -988,24 +1009,26 @@ public class PukeActivity extends AppCompatActivity {
      * 顺子   视图初始化
      */
     private void initSHUNZI() {
+        Log.e("initSHUNZI", "initSHUNZI");
+
         for (int i = 0; i < shunziList.size(); i++) {
             shunziList.get(i).setIs_checked(false);
         }
         shunziAdapter = new TagAdapter<String>(shunziNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, shunzi, false);
 
                 if (shunziList.get(position).is_checked()) {
-                    tv.setBackgroundResource(shunzi_selected[position]);
+                    tv.setBackgroundResource(images_shunzi_selected[position]);
                 } else {
-                    tv.setBackgroundResource(shunzi[position]);
+                    tv.setBackgroundResource(images_shunzi[position]);
                 }
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(shunziAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        shunzi.setAdapter(shunziAdapter);
+        shunzi.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (shunziList.get(position).is_checked()) {
@@ -1025,25 +1048,27 @@ public class PukeActivity extends AppCompatActivity {
      * 同花顺   视图初始化
      */
     private void initTONGHUASHUN() {
-        Log.e("tonghuashunlist",String.valueOf(tonghuashunList.size()));
+        Log.e("initSHUNZI", "initSHUNZI");
+
+        Log.e("tonghuashunlist", String.valueOf(tonghuashunList.size()));
         for (int i = 0; i < tonghuashunList.size(); i++) {
             tonghuashunList.get(i).setIs_checked(false);
         }
         tonghuashunAdapter = new TagAdapter<String>(tonghuashunNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, tonghuashun, false);
 
                 if (tonghuashunList.get(position).is_checked()) {
-                    tv.setBackgroundResource(tonghuashun_selected[position]);
+                    tv.setBackgroundResource(images_tonghuashun_selected[position]);
                 } else {
-                    tv.setBackgroundResource(tonghuashun[position]);
+                    tv.setBackgroundResource(images_tonghuashun[position]);
                 }
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(tonghuashunAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        tonghuashun.setAdapter(tonghuashunAdapter);
+        tonghuashun.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (tonghuashunList.get(position).is_checked()) {
@@ -1063,7 +1088,8 @@ public class PukeActivity extends AppCompatActivity {
      * 豹子
      */
     private void initBAOZI() {
-        Log.e("initbaozi",String.valueOf(baoziList.size()));
+        Log.e("initbaozi", String.valueOf(baoziList.size()));
+        Log.e("initBAOZI", "initBAOZI");
 
         for (int i = 0; i < baoziList.size(); i++) {
             baoziList.get(i).setIs_checked(false);
@@ -1071,18 +1097,18 @@ public class PukeActivity extends AppCompatActivity {
         baoziAdapter = new TagAdapter<String>(baoziNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, baozi, false);
                 if (baoziList.get(position).is_checked()) {
-                    tv.setBackgroundResource(baozi_selected[position]);
+                    tv.setBackgroundResource(images_baozi_selected[position]);
                 } else {
-                    tv.setBackgroundResource(baozi[position]);
+                    tv.setBackgroundResource(images_baozi[position]);
                 }
 
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(baoziAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        baozi.setAdapter(baoziAdapter);
+        baozi.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
@@ -1114,17 +1140,17 @@ public class PukeActivity extends AppCompatActivity {
         duiziAdapter = new TagAdapter<String>(duiziNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, duizi, false);
                 if (duiziList.get(position).is_checked()) {
-                    tv.setBackgroundResource(duizi_selected[position]);
+                    tv.setBackgroundResource(images_duizi_selected[position]);
                 } else {
-                    tv.setBackgroundResource(duizi[position]);
+                    tv.setBackgroundResource(images_duizi[position]);
                 }
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(duiziAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        duizi.setAdapter(duiziAdapter);
+        duizi.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (duiziList.get(position).is_checked()) {
@@ -1150,7 +1176,7 @@ public class PukeActivity extends AppCompatActivity {
         RONEAdapter = new TagAdapter<String>(RONENums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rone, false);
 
                 if (RONEList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
@@ -1160,8 +1186,8 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(RONEAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        rone.setAdapter(RONEAdapter);
+        rone.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (RONEList.get(position).is_checked()) {
@@ -1187,7 +1213,7 @@ public class PukeActivity extends AppCompatActivity {
         RTWOAdapter = new TagAdapter<String>(RTWONums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rtwo, false);
 
                 if (RTWOList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
@@ -1198,8 +1224,8 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(RTWOAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        rtwo.setAdapter(RTWOAdapter);
+        rtwo.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (RTWOList.get(position).is_checked()) {
@@ -1225,7 +1251,7 @@ public class PukeActivity extends AppCompatActivity {
         RTHREEAdapter = new TagAdapter<String>(RTHREENums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three, false);
 
                 if (RTHREEList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
@@ -1235,8 +1261,8 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(RTHREEAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        three.setAdapter(RTHREEAdapter);
+        three.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (RTHREEList.get(position).is_checked()) {
@@ -1262,7 +1288,7 @@ public class PukeActivity extends AppCompatActivity {
         RFOURAdapter = new TagAdapter<String>(RFOURNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, four, false);
 
                 if (RFOURList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
@@ -1272,8 +1298,8 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(RFOURAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        four.setAdapter(RFOURAdapter);
+        four.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (RFOURList.get(position).is_checked()) {
@@ -1299,7 +1325,7 @@ public class PukeActivity extends AppCompatActivity {
         RFIVEAdapter = new TagAdapter<String>(RFIVENums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, five, false);
 
                 if (RFIVEList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
@@ -1309,8 +1335,8 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(RFIVEAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        five.setAdapter(RFIVEAdapter);
+        five.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (RFIVEList.get(position).is_checked()) {
@@ -1320,7 +1346,7 @@ public class PukeActivity extends AppCompatActivity {
                     RFIVEList.get(position).setIs_checked(true);
                     RFIVEAdapter.notifyDataChanged();
                 }
-               calculate_five();
+                calculate_five();
                 return false;
             }
         });
@@ -1336,7 +1362,7 @@ public class PukeActivity extends AppCompatActivity {
         RSIXAdapter = new TagAdapter<String>(RSIXNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, sumvalueTag, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, six, false);
 
                 if (RSIXList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
@@ -1346,8 +1372,8 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        sumvalueTag.setAdapter(RSIXAdapter);
-        sumvalueTag.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        six.setAdapter(RSIXAdapter);
+        six.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (RSIXList.get(position).is_checked()) {
@@ -1363,7 +1389,7 @@ public class PukeActivity extends AppCompatActivity {
         });
     }
 
-    public void initSameThreeAll() {
+  /*  public void initSameThreeAll() {
         sameThreeAll = false;
         threeSameBtn.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
         threeSameBtn.setTextColor(Color.parseColor("#269ee6"));
@@ -1373,7 +1399,7 @@ public class PukeActivity extends AppCompatActivity {
         difThreeAll = false;
         threeDifBtn.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
         threeDifBtn.setTextColor(Color.parseColor("#269ee6"));
-    }
+    }*/
 
     @Override
     protected void onResume() {
@@ -1387,7 +1413,7 @@ public class PukeActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @OnClick({R.id.comfirm_btn, R.id.clear_btn, R.id.back, R.id.title_ly, R.id.more, R.id.random_btn, R.id.fast_big, R.id.fast_small, R.id.fast_sig, R.id.fast_dual, R.id.three_same_btn, R.id.three_dif_btn})
+    @OnClick({R.id.comfirm_btn, R.id.clear_btn, R.id.back, R.id.title_ly, R.id.more, R.id.random_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.comfirm_btn:
@@ -1398,7 +1424,7 @@ public class PukeActivity extends AppCompatActivity {
                 break;
             case R.id.back:
                 //showBackPop();
-                Intent i=new Intent(this,BaseActivity.class);
+                Intent i = new Intent(this, BaseActivity.class);
                 startActivity(i);
                 break;
             case R.id.title_ly:
@@ -1452,101 +1478,7 @@ public class PukeActivity extends AppCompatActivity {
                 }
                 getRandow();
                 break;
-            case R.id.fast_big:
-//                if (sumBig) {
-//                    sumBig = false;
-//                    fastBig.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastBig.setTextColor(Color.parseColor("#269ee6"));
-//                } else {
-//                    sumBig = true;
-//                    sumSmall = false;
-//                    fastBig.setBackgroundResource(R.drawable.btn_bg_blues_s_fill_s);
-//                    fastSmall.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastBig.setTextColor(Color.parseColor("#ffffff"));
-//                    fastSmall.setTextColor(Color.parseColor("#269ee6"));
-//                }
-//                fastSeleteSumValue();
 
-                break;
-            case R.id.fast_small:
-//                if (sumSmall) {
-//                    sumSmall = false;
-//                    fastSmall.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastSmall.setTextColor(Color.parseColor("#269ee6"));
-//                } else {
-//                    sumSmall = true;
-//                    sumBig = false;
-//                    fastBig.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastSmall.setBackgroundResource(R.drawable.btn_bg_blues_s_fill_s);
-//                    fastBig.setTextColor(Color.parseColor("#269ee6"));
-//                    fastSmall.setTextColor(Color.parseColor("#ffffff"));
-//                }
-//                fastSeleteSumValue();
-
-                break;
-            case R.id.fast_sig:
-//                if (sumSig) {
-//                    sumSig = false;
-//                    fastSig.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastSig.setTextColor(Color.parseColor("#269ee6"));
-//                } else {
-//                    sumSig = true;
-//                    sumDual = false;
-//                    fastSig.setBackgroundResource(R.drawable.btn_bg_blues_s_fill_s);
-//                    fastDual.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastSig.setTextColor(Color.parseColor("#ffffff"));
-//                    fastDual.setTextColor(Color.parseColor("#269ee6"));
-//                }
-//                fastSeleteSumValue();
-                break;
-            case R.id.fast_dual:
-//                if (sumDual) {
-//                    sumDual = false;
-//                    fastDual.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastDual.setTextColor(Color.parseColor("#269ee6"));
-//                } else {
-//                    sumSig = false;
-//                    sumDual = true;
-//                    fastSig.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    fastDual.setBackgroundResource(R.drawable.btn_bg_blues_s_fill_s);
-//                    fastSig.setTextColor(Color.parseColor("#269ee6"));
-//                    fastDual.setTextColor(Color.parseColor("#ffffff"));
-//                }
-//                fastSeleteSumValue();
-                break;
-            //三同号通选
-            case R.id.three_same_btn:
-//                if (sameThreeAll) {
-//                    sameThreeAll = false;
-//                    threeSameBtn.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    threeSameBtn.setTextColor(Color.parseColor("#269ee6"));
-//                    num.setText("0");
-//                    price.setText("0");
-//                } else {
-//                    sameThreeAll = true;
-//                    threeSameBtn.setBackgroundResource(R.drawable.btn_bg_blues_s_fill_s);
-//                    threeSameBtn.setTextColor(Color.parseColor("#ffffff"));
-//                    num.setText("1");
-//                    price.setText(1 * TicketPrice + "");
-//                }
-                break;
-            //三连号
-            case R.id.three_dif_btn:
-//                if (difThreeAll) {
-//                    difThreeAll = false;
-//                    threeDifBtn.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-//                    threeDifBtn.setTextColor(Color.parseColor("#269ee6"));
-//                    num.setText("0");
-//                    price.setText("0");
-//                } else {
-//                    difThreeAll = true;
-//                    threeDifBtn.setBackgroundResource(R.drawable.btn_bg_blues_s_fill_s);
-//                    threeDifBtn.setTextColor(Color.parseColor("#ffffff"));
-//                    num.setText("1");
-//                    price.setText(1 * TicketPrice + "");
-//                }
-
-                break;
         }
     }
 
@@ -1561,80 +1493,96 @@ public class PukeActivity extends AppCompatActivity {
         if (mContinue) {
             Log.e("mContinue", "true");
             Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
-            //baoxuan
+            //images_baoxuan
             in.putExtra("baoxuanList", (Serializable) baoxuanList);
-            //tonghua
+            //images_tonghua
             in.putExtra("tonghuaList", (Serializable) tonghuaList);
-            //shunzi
-            in.putExtra("sameTwo_D_List", (Serializable) shunziList);
+            //images_shunzi
+            in.putExtra("shunziList", (Serializable) shunziList);
 
-            //tonghuashun
-            in.putExtra("sameTwo_M_List", (Serializable) tonghuashunList);
-            //baozi
-            in.putExtra("difThreeList", (Serializable) baoziList);
-            //duizi
-            in.putExtra("difTwoList", (Serializable) duiziList);
+            //images_tonghuashun
+            in.putExtra("tonghuashunList", (Serializable) tonghuashunList);
+            //images_baozi
+            in.putExtra("baoziList", (Serializable) baoziList);
+            //images_duizi
+            in.putExtra("duiziList", (Serializable) duiziList);
+
+
             //one
-            in.putExtra("sDifThreeList", (Serializable) RONEList);
-
+            in.putExtra("RONEList", (Serializable) RONEList);
             //two
-            in.putExtra("sDifTwoList", (Serializable) RTWOList);
-
-
+            in.putExtra("RTWOList", (Serializable) RTWOList);
             //three
-            in.putExtra("sameThreeAll",  (Serializable) RTHREEList);
+            in.putExtra("RTHREEList", (Serializable) RTHREEList);
             //four
-            in.putExtra("difThreeAll",  (Serializable) RFOURList);
+            in.putExtra("RFOURList", (Serializable) RFOURList);
             //five
-            in.putExtra("difThreeAll",  (Serializable) RFIVEList);
+            in.putExtra("RFIVEList", (Serializable) RFIVEList);
             //six
-            in.putExtra("difThreeAll",  (Serializable) RSIXList);
+            in.putExtra("RSIXList", (Serializable) RSIXList);
 
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
             in.putExtra("price", price.getText().toString());
-            in.putExtra("title", mInfo.getName());
-            in.putExtra("sh_name", mInfo.getSh_name());
-            in.putExtra("type", mInfo.getType());
-            in.putExtra("now_qs", mInfo.getNow_qs());
+            in.putExtra("title", "puke");
+            in.putExtra("sh_name", "puke");
+            in.putExtra("type", "puke");
+            in.putExtra("now_qs", "puke");
             setResult(RESULT_OK, in);
+            for (int i = 0; i < baoxuanList.size(); i++) {
+                if (baoxuanList.get(i).is_checked()) {
+
+                    Log.e("i!!!!!!", String.valueOf(i));
+                }
+            }
             finish();
             clearNum();
         } else {
             Log.e("mContinue", "false");
             Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
-            //和值
-            in.putExtra("baoxuanList", (Serializable) baoxuanList);
-            //三同号
-            in.putExtra("tonghuaList", (Serializable) baoziList);
-            //二同号单选
-            in.putExtra("sameTwo_D_List", (Serializable) baoziList);
-            in.putExtra("sameTwo_S_List", (Serializable) baoziList);
-            //二同号复选
-            in.putExtra("sameTwo_M_List", (Serializable) baoziList);
-            //三不同号
-            in.putExtra("difThreeList", (Serializable) baoziList);
-            //二不同号
-            in.putExtra("difTwoList", (Serializable) baoziList);
-            //拖胆——三不同号
-            in.putExtra("sDifThreeList", (Serializable) baoziList);
-            in.putExtra("sSDifThreeList", (Serializable) baoziList);
-            //拖胆——二不同号
-            in.putExtra("sDifTwoList", (Serializable) baoziList);
-            in.putExtra("sSDifTwoList", (Serializable) baoziList);
 
-            //三同号通选
-            in.putExtra("sameThreeAll", sameThreeAll);
-            //三连号通选
-            in.putExtra("difThreeAll", difThreeAll);
+            //images_baoxuan
+            in.putExtra("baoxuanList", (Serializable) baoxuanList);
+            //images_tonghua
+            in.putExtra("tonghuaList", (Serializable) tonghuaList);
+            //images_shunzi
+            in.putExtra("shunziList", (Serializable) shunziList);
+
+            //images_tonghuashun
+            in.putExtra("tonghuashunList", (Serializable) tonghuashunList);
+            //images_baozi
+            in.putExtra("baoziList", (Serializable) baoziList);
+            //images_duizi
+            in.putExtra("duiziList", (Serializable) duiziList);
+
+
+            //one
+            in.putExtra("RONEList", (Serializable) RONEList);
+            //two
+            in.putExtra("RTWOList", (Serializable) RTWOList);
+            //three
+            in.putExtra("RTHREEList", (Serializable) RTHREEList);
+            //four
+            in.putExtra("RFOURList", (Serializable) RFOURList);
+            //five
+            in.putExtra("RFIVEList", (Serializable) RFIVEList);
+            //six
+            in.putExtra("RSIXList", (Serializable) RSIXList);
+
 
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
             in.putExtra("price", price.getText().toString());
-            in.putExtra("title", mInfo.getName());
-            in.putExtra("sh_name", mInfo.getSh_name());
-            in.putExtra("type", mInfo.getType());
-            in.putExtra("now_qs", mInfo.getNow_qs());
+            in.putExtra("title", "puke");
+            in.putExtra("sh_name", "puke");
+            in.putExtra("type", "puke");
+            in.putExtra("now_qs", "puke");
+            for (int i = 0; i < baoxuanList.size(); i++) {
+                if (baoxuanList.get(i).is_checked()) {
+
+                    Log.e("i!!!!!!", String.valueOf(i));
+                }
+            }
             startActivity(in);
             clearNum();
             finish();
@@ -1738,7 +1686,7 @@ public class PukeActivity extends AppCompatActivity {
                 }
             }
         }
-      // sumValueConsult();
+        // sumValueConsult();
     }
 
     /**
@@ -1748,15 +1696,16 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-            for (int i = 0; i < baoxuanList.size(); i++) {
-                if (baoxuanList.get(i).is_checked()) {
-                    buy_acount++;
-                    Log.e("sumValueSelecte", baoxuanList.get(i).getNum());
-                }
+        for (int i = 0; i < baoxuanList.size(); i++) {
+            if (baoxuanList.get(i).is_checked()) {
+                buy_acount++;
+                //Log.e("sumValueSelecte", baoxuanList.get(i).getNum());
             }
+        }
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算tonghua
      */
@@ -1767,12 +1716,13 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < tonghuaList.size(); i++) {
             if (tonghuaList.get(i).is_checked()) {
                 buy_acount++;
-                Log.e("sumValueSelecte", tonghuaList.get(i).getNum());
+                //Log.e("sumValueSelecte", tonghuaList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算shunzi
      */
@@ -1783,12 +1733,13 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < shunziList.size(); i++) {
             if (shunziList.get(i).is_checked()) {
                 buy_acount++;
-                Log.e("sumValueSelecte", shunziList.get(i).getNum());
+               // Log.e("sumValueSelecte", shunziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算tonghuashun
      */
@@ -1799,12 +1750,13 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < tonghuashunList.size(); i++) {
             if (tonghuashunList.get(i).is_checked()) {
                 buy_acount++;
-                Log.e("sumValueSelecte", tonghuashunList.get(i).getNum());
+               // Log.e("sumValueSelecte", tonghuashunList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算baozi
      */
@@ -1815,12 +1767,13 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < baoziList.size(); i++) {
             if (baoziList.get(i).is_checked()) {
                 buy_acount++;
-                Log.e("sumValueSelecte", baoziList.get(i).getNum());
+               // Log.e("sumValueSelecte", baoziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算duizi
      */
@@ -1831,7 +1784,7 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < duiziList.size(); i++) {
             if (duiziList.get(i).is_checked()) {
                 buy_acount++;
-                Log.e("sumValueSelecte", duiziList.get(i).getNum());
+              //  Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
@@ -1854,6 +1807,7 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算two
      */
@@ -1870,6 +1824,7 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算three
      */
@@ -1886,6 +1841,7 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算four
      */
@@ -1902,6 +1858,7 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算five
      */
@@ -1918,6 +1875,7 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
+
     /**
      * 计算six
      */
@@ -1928,14 +1886,12 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < RSIXList.size(); i++) {
             if (RSIXList.get(i).is_checked()) {
                 buy_acount++;
-                Log.e("sumValueSelecte", duiziList.get(i).getNum());
+               // Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
-
-
 
 
     //分类弹窗
@@ -1994,7 +1950,7 @@ public class PukeActivity extends AppCompatActivity {
             itemLy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   // ToastUtil.toast(mActivity, " click"+info.getName().toString());
+                    // ToastUtil.toast(mActivity, " click"+info.getName().toString());
                     for (int i = 0; i < elevenNormalList.size(); i++) {
                         elevenNormalList.get(i).setIs_checked(false);
                     }
@@ -2091,7 +2047,7 @@ public class PukeActivity extends AppCompatActivity {
             itemLy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   // ToastUtil.toast(mActivity, " click"+info.getName().toString());
+                    // ToastUtil.toast(mActivity, " click"+info.getName().toString());
                     for (int i = 0; i < elevenNormalList.size(); i++) {
                         elevenNormalList.get(i).setIs_checked(false);
                     }
@@ -2203,7 +2159,7 @@ public class PukeActivity extends AppCompatActivity {
                     baoxuanAdapter.setSelectedList(result[i]);
                 }
                 break;
-                //
+            //
             case S_TONGHUA:
                 result = numberRandom(1, tonghuaNums);
                 for (int i = 0; i < result.length; i++) {

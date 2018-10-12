@@ -55,22 +55,180 @@ import cz.msebera.android.httpclient.Header;
  */
 
 public class PukeDetailActivity extends AppCompatActivity {
+    int count=0;
     //每注彩票价格
     private final int TicketPrice = 2;
     //普通投注
-    private final int SUM_VALUE = 1;//和值
-    private final int S_THREE = 2;//三同号单选
-    private final int S_THREE_ALL = 9;//三同号通选
-    private final int S_TWO = 8;//二同号复选
-    private final int S_TWO_S = 3;//二同号单选
-    private final int D_THREE = 4;//三不同号
-    private final int D_TWO = 5;//二不同号
-    private final int D_THREE_ALL = 10;//三连号通选
+    private final int S_BAOXUAN = 1;//包选
+    private final int S_TONGHUA = 2;//同花
+    private final int S_SHUNZI = 3;//顺子
+    private final int S_TONGHUASHUN = 4;//同花顺
+    private final int S_BAOZI = 5;//豹子
+    private final int S_DUIZI = 6;//对子
     //拖胆
-    private final int SD_THREE = 6;//三不同号
-    private final int SD_TWO = 7;//二不同号
+    private final int SD_ONE = 7;//任选1
+    private final int SD_TWO = 8;//任选2
+    private final int SD_THREE = 9;//任选3
+    private final int SD_FOUR = 10;//任选4
+    private final int SD_FIVE = 11;//任选5
+    private final int SD_SIX = 12;//任选6
+    //任选
+    int[] images = {
+            R.drawable.puke1, R.drawable.puke2,
+            R.drawable.puke3, R.drawable.puke4,
+            R.drawable.puke5, R.drawable.puke6,
+            R.drawable.puke7, R.drawable.puke8,
+            R.drawable.puke9, R.drawable.puke10,
+            R.drawable.puke11, R.drawable.puke12,
+            R.drawable.puke13,};
+    int[] images_selected = {
+            R.drawable.puke1_selected, R.drawable.puke2_selected,
+            R.drawable.puke3_selected, R.drawable.puke4_selected,
+            R.drawable.puke5_selected, R.drawable.puke6_selected,
+            R.drawable.puke7_selected, R.drawable.puke8_selected,
+            R.drawable.puke9_selected, R.drawable.puke10_selected,
+            R.drawable.puke11_selected, R.drawable.puke12_selected,
+            R.drawable.puke13_selected};
+    //包选
+    int[] baoxuan = {
+            R.drawable.tonghuashunbx,
+            R.drawable.tonghuabx,
+            R.drawable.duizibx,
+            R.drawable.baozibx,
+            R.drawable.shunzibx};
+    int[] baoxuan_selected = {
+            R.drawable.tonghuashunbx_selected,
+            R.drawable.tonghuabx_selected,
+            R.drawable.duizibx_selected,
+            R.drawable.baozibx_selected,
+            R.drawable.shunzibx_selected
+    };
+    //同花
+    int[] tonghua = {
+            R.drawable.tonghua1,
+            R.drawable.tonghua2,
+            R.drawable.tonghua3,
+            R.drawable.tonghua4,
+    };
+    int[] tonghua_selected = {
+            R.drawable.tonghua1_selected,
+            R.drawable.tonghua2_selected,
+            R.drawable.tonghua3_selected,
+            R.drawable.tonghua4_selected,
 
-    private int mSelecte_Mode = SUM_VALUE;
+    };
+    //同花顺
+    int[] tonghuashun = {
+            R.drawable.tonghuashun1,
+            R.drawable.tonghuashun2,
+            R.drawable.tonghuashun3,
+            R.drawable.tonghuashun4,
+    };
+    int[] tonghuashun_selected = {
+            R.drawable.tonghuashun1_2,
+            R.drawable.tonghuashun2_2,
+            R.drawable.tonghuashun3_2,
+            R.drawable.tonghuashun4_2,
+
+    };
+    //豹子
+    int[] baozi = {
+            R.drawable.baozi1,
+            R.drawable.baozi2,
+            R.drawable.baozi3,
+            R.drawable.baozi4,
+            R.drawable.baozi5,
+            R.drawable.duizi6,
+            R.drawable.baozi7,
+            R.drawable.baozi8,
+            R.drawable.baozi9,
+            R.drawable.baozi10,
+            R.drawable.baozij,
+            R.drawable.baoziq,
+            R.drawable.baozik,
+    };
+    int[] baozi_selected = {
+            R.drawable.baozi1_2,
+            R.drawable.baozi2_2,
+            R.drawable.baozi3_2,
+            R.drawable.baozi4_2,
+            R.drawable.baozi5_2,
+            R.drawable.baozi6_2,
+            R.drawable.baozi7_2,
+            R.drawable.baozi8_2,
+            R.drawable.baozi9_2,
+            R.drawable.baozi10_2,
+            R.drawable.baozij_2,
+            R.drawable.baoziq_2,
+            R.drawable.baozik_2,
+
+    };
+    //对子
+    int[] duizi = {
+            R.drawable.duizi1,
+            R.drawable.duizi2,
+            R.drawable.duizi3,
+            R.drawable.duizi4,
+            R.drawable.duizi5,
+            R.drawable.duizi6,
+            R.drawable.duizi7,
+            R.drawable.duizi8,
+            R.drawable.duizi9,
+            R.drawable.duizi10,
+            R.drawable.duizi11,
+            R.drawable.duizi12,
+            R.drawable.duizi13,
+    };
+    int[] duizi_selected = {
+            R.drawable.duizi1_2,
+            R.drawable.duizi2_2,
+            R.drawable.duizi3_2,
+            R.drawable.duizi4_2,
+            R.drawable.duizi5_2,
+            R.drawable.duizi6_2,
+            R.drawable.duizi7_2,
+            R.drawable.duizi8_2,
+            R.drawable.duizi9_2,
+            R.drawable.duizi10_2,
+            R.drawable.duizi11_2,
+            R.drawable.duizi12_2,
+            R.drawable.duizi13_2,
+
+    };
+    //顺子
+    int[] shunzi = {
+            R.drawable.shunzi1,
+            R.drawable.shunzi2,
+            R.drawable.shunzi3,
+            R.drawable.shunzi4,
+            R.drawable.shunzi5,
+            R.drawable.shunzi6,
+            R.drawable.shunzi7,
+            R.drawable.shunzi8,
+            R.drawable.shunzi9,
+            R.drawable.shunzi10,
+            R.drawable.shunzi11,
+            R.drawable.shunzi12,
+
+    };
+    int[] shunzi_selected = {
+            R.drawable.shunzi1_2,
+            R.drawable.shunzi2_2,
+            R.drawable.shunzi3_2,
+            R.drawable.shunzi4_2,
+            R.drawable.shunzi5_2,
+            R.drawable.shunzi6_2,
+            R.drawable.shunzi7_2,
+            R.drawable.shunzi8_2,
+            R.drawable.shunzi9_2,
+            R.drawable.shunzi10_2,
+            R.drawable.shunzi11_2,
+            R.drawable.shunzi12_2,
+
+
+    };
+
+    private int mSelecte_Mode = S_BAOXUAN;
 
     @BindView(R.id.back)
     ImageView back;
@@ -102,17 +260,20 @@ public class PukeDetailActivity extends AppCompatActivity {
     ImageView termStopCheck;
     private boolean check_term_top=true;
 
-    private List<NumInfo> sumList = new ArrayList<>();
-    private List<NumInfo> sameThreeList = new ArrayList<>();
-    private List<NumInfo> sameTwo_S_List = new ArrayList<>();
-    private List<NumInfo> sameTwo_D_List = new ArrayList<>();
-    private List<NumInfo> sameTwo_M_List = new ArrayList<>();
-    private List<NumInfo> difThreeList = new ArrayList<>();
-    private List<NumInfo> difTwoList = new ArrayList<>();
-    private List<NumInfo> sDifTwoList = new ArrayList<>();
-    private List<NumInfo> sSDifTwoList = new ArrayList<>();
-    private List<NumInfo> sSDifThreeList = new ArrayList<>();
-    private List<NumInfo> sDifThreeList = new ArrayList<>();
+    private List<NumInfo> baoxuanList = new ArrayList<>();
+    private List<NumInfo> tonghuaList = new ArrayList<>();
+    private List<NumInfo> shunziList = new ArrayList<>();
+    private List<NumInfo> tonghuashunList = new ArrayList<>();
+    private List<NumInfo> baoziList = new ArrayList<>();
+    private List<NumInfo> duiziList = new ArrayList<>();
+
+
+    private List<NumInfo> RONEList = new ArrayList<>();
+    private List<NumInfo> RTWOList = new ArrayList<>();
+    private List<NumInfo> RTHREEList = new ArrayList<>();
+    private List<NumInfo> RFOURList = new ArrayList<>();
+    private List<NumInfo> RFIVEList = new ArrayList<>();
+    private List<NumInfo> RSIXList = new ArrayList<>();
 
 
     private TicketAdapter adpater;
@@ -128,7 +289,7 @@ public class PukeDetailActivity extends AppCompatActivity {
         mActivity=this;
         initIntent();
         initView();
-        getData();
+       // getData();
 
     }
 
@@ -163,23 +324,25 @@ public class PukeDetailActivity extends AppCompatActivity {
     }
 
     private void initIntent() {
+
         mSelecte_Mode=this.getIntent().getIntExtra("selecte_mode",-1);
         if(mSelecte_Mode==-1){
             ToastUtil.toast(mActivity,"模式错误");
             return;
         }
-        Log.e("mSelecte_Mode",mSelecte_Mode+"");
-        sumList=(List<NumInfo>) this.getIntent().getSerializableExtra("sumList");
-        sameThreeList=(List<NumInfo>) this.getIntent().getSerializableExtra("sameThreeList");
-        sameTwo_S_List=(List<NumInfo>) this.getIntent().getSerializableExtra("sameTwo_S_List");
-        sameTwo_D_List=(List<NumInfo>) this.getIntent().getSerializableExtra("sameTwo_D_List");
-        sameTwo_M_List=(List<NumInfo>) this.getIntent().getSerializableExtra("sameTwo_M_List");
-        difThreeList=(List<NumInfo>) this.getIntent().getSerializableExtra("difThreeList");
-        difTwoList=(List<NumInfo>) this.getIntent().getSerializableExtra("difTwoList");
-        sDifTwoList=(List<NumInfo>) this.getIntent().getSerializableExtra("sDifTwoList");
-        sSDifTwoList=(List<NumInfo>) this.getIntent().getSerializableExtra("sSDifTwoList");
-        sSDifThreeList=(List<NumInfo>) this.getIntent().getSerializableExtra("sSDifThreeList");
-        sDifThreeList=(List<NumInfo>) this.getIntent().getSerializableExtra("sDifThreeList");
+        Log.e("mSelecte_Mode！！！！！！！！！",mSelecte_Mode+"");
+        baoxuanList=(List<NumInfo>) this.getIntent().getSerializableExtra("baoxuanList");
+        tonghuaList=(List<NumInfo>) this.getIntent().getSerializableExtra("tonghuaList");
+        shunziList=(List<NumInfo>) this.getIntent().getSerializableExtra("shunziList");
+        tonghuashunList=(List<NumInfo>) this.getIntent().getSerializableExtra("tonghuashunList");
+        baoziList=(List<NumInfo>) this.getIntent().getSerializableExtra("baoziList");
+        duiziList=(List<NumInfo>) this.getIntent().getSerializableExtra("duiziList");
+        RONEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RONEList");
+        RTWOList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTWOList");
+        RTHREEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTHREEList");
+        RFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFOURList");
+        RFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFIVEList");
+        RSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RSIXList");
 
         num.setText(this.getIntent().getStringExtra("num"));
         price.setText(this.getIntent().getStringExtra("price"));
@@ -194,101 +357,107 @@ public class PukeDetailActivity extends AppCompatActivity {
         info.setPrice(price.getText().toString());
 
         switch (mSelecte_Mode){
-            case SUM_VALUE:
-                for(int i=0;i<sumList.size();i++){
-                    if(sumList.get(i).is_checked()){
-                        info.getNumbers1().add(sumList.get(i));
+            case S_BAOXUAN:
+                for(int i=0;i<baoxuanList.size();i++){
+                    if(baoxuanList.get(i).is_checked()){
+
+                        info.getNumbers1().add(baoxuanList.get(i));
+                        Log.e("checked!!!!!!",String.valueOf(i));
+
                     }
                 }
                 break;
-            case S_THREE:
-                for(int i=0;i<sameThreeList.size();i++){
-                    if(sameThreeList.get(i).is_checked()){
-                        info.getNumbers1().add(sameThreeList.get(i));
+            case S_TONGHUA:
+                for(int i=0;i<tonghuaList.size();i++){
+                    if(tonghuaList.get(i).is_checked()){
+
+                        info.getNumbers1().add(tonghuaList.get(i));
+
+
                     }
                 }
                 break;
-            case S_TWO:
-                for(int i=0;i<sameTwo_S_List.size();i++){
-                    if(sameTwo_S_List.get(i).is_checked()){
-                        info.getNumbers1().add(sameTwo_S_List.get(i));
-                    }
-                }
-                for(int i=0;i<sameTwo_D_List.size();i++){
-                    if(sameTwo_D_List.get(i).is_checked()){
-                        info.getNumbers2().add(sameTwo_D_List.get(i));
-                    }
-                }
-                break;
-            case S_TWO_S:
-                for(int i=0;i<sameTwo_M_List.size();i++){
-                    if(sameTwo_M_List.get(i).is_checked()){
-                        info.getNumbers1().add(sameTwo_M_List.get(i));
-                    }
-                }
-                break;
-            case D_THREE:
-                for(int i=0;i<difThreeList.size();i++){
-                    if(difThreeList.get(i).is_checked()){
-                        info.getNumbers1().add(difThreeList.get(i));
-                    }
-                }
-                break;
-            case D_TWO:
-                for(int i=0;i<difTwoList.size();i++){
-                    if(difTwoList.get(i).is_checked()){
-                        info.getNumbers1().add(difTwoList.get(i));
+            case S_SHUNZI:
+                for(int i=0;i<shunziList.size();i++){
+                    if(shunziList.get(i).is_checked()){
+
+                        info.getNumbers1().add(shunziList.get(i));
                     }
                 }
 
                 break;
-            case SD_THREE:
-                for(int i=0;i<sDifThreeList.size();i++){
-                    if(sDifThreeList.get(i).is_checked()){
-                        sDifThreeList.get(i).setIs_spe(true);
-                        info.getNumbers1().add(sDifThreeList.get(i));
+            case S_TONGHUASHUN:
+                for(int i=0;i<tonghuashunList.size();i++){
+                    if(tonghuashunList.get(i).is_checked()){
+
+                        info.getNumbers1().add(tonghuashunList.get(i));
                     }
                 }
-                for(int i=0;i<sSDifThreeList.size();i++){
-                    if(sSDifThreeList.get(i).is_checked()){
-                        info.getNumbers2().add(sSDifThreeList.get(i));
+                break;
+            case S_BAOZI:
+                for(int i=0;i<baoziList.size();i++){
+                    if(baoziList.get(i).is_checked()){
+
+                        info.getNumbers1().add(baoziList.get(i));
+                    }
+                }
+                break;
+            case S_DUIZI:
+                for(int i=0;i<duiziList.size();i++){
+                    if(duiziList.get(i).is_checked()){
+
+                        info.getNumbers1().add(duiziList.get(i));
+                    }
+                }
+
+                break;
+            case SD_ONE:
+                for(int i=0;i<RONEList.size();i++){
+                    if(RONEList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RONEList.get(i));
                     }
                 }
                 break;
             case SD_TWO:
-                for(int i=0;i<sDifTwoList.size();i++){
-                    if(sDifTwoList.get(i).is_checked()){
-                        sDifTwoList.get(i).setIs_spe(true);
-                        info.getNumbers1().add(sDifTwoList.get(i));
+                for(int i=0;i<RTWOList.size();i++){
+                    if(RTWOList.get(i).is_checked()){
 
-                    }
-                }
-                for(int i=0;i<sSDifTwoList.size();i++){
-                    if(sSDifTwoList.get(i).is_checked()){
-                        info.getNumbers2().add(sSDifTwoList.get(i));
+                        info.getNumbers1().add(RTWOList.get(i));
                     }
                 }
                 break;
-            case S_THREE_ALL:
-                for(int i=1;i<7;i++){
-                    NumInfo data=new NumInfo();
-                    data.setNum(i*111+"");
-                    info.getNumbers1().add(data);
+            case SD_THREE:
+                for(int i=0;i<RTHREEList.size();i++){
+                    if(RTHREEList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RTHREEList.get(i));
+                    }
                 }
                 break;
-            case D_THREE_ALL:
-                NumInfo data=new NumInfo();
-                data.setNum("123");
-                info.getNumbers1().add(data);
-                NumInfo data2=new NumInfo();
-                data2.setNum("234");
-                info.getNumbers1().add(data2);
-                NumInfo data3=new NumInfo();
-                data3.setNum("345");
-                info.getNumbers1().add(data3);
-                NumInfo data4=new NumInfo();
-                data4.setNum("456");
-                info.getNumbers1().add(data4);
+            case SD_FOUR:
+                for(int i=0;i<RFOURList.size();i++){
+                    if(RFOURList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RFOURList.get(i));
+                    }
+                }
+                break;
+            case SD_FIVE:
+                for(int i=0;i<RFIVEList.size();i++){
+                    if(RFIVEList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RFIVEList.get(i));
+                    }
+                }
+                break;
+            case SD_SIX:
+                for(int i=0;i<RSIXList.size();i++){
+                    if(RSIXList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RSIXList.get(i));
+                    }
+                }
                 break;
         }
 
@@ -405,7 +574,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                 showBackPop();
                 break;
             case R.id.continue_btn:
-                Intent in=new Intent(mActivity,FastThreeActivity.class);
+                Intent in=new Intent(mActivity,PukeActivity.class);
                 in.putExtra("sh_name",sh_name);
                 in.putExtra("continue",true);
                 startActivityForResult(in,0);
@@ -438,6 +607,7 @@ public class PukeDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         //继续选号
         if (requestCode == 0 && resultCode == RESULT_OK) {
             mSelecte_Mode=data.getIntExtra("selecte_mode",-1);
@@ -445,17 +615,19 @@ public class PukeDetailActivity extends AppCompatActivity {
                 ToastUtil.toast(mActivity,"模式错误");
                 return;
             }
-            sumList=(List<NumInfo>)data.getSerializableExtra("sumList");
-            sameThreeList=(List<NumInfo>)data.getSerializableExtra("sameThreeList");
-            sameTwo_S_List=(List<NumInfo>) data.getSerializableExtra("sameTwo_S_List");
-            sameTwo_D_List=(List<NumInfo>) data.getSerializableExtra("sameTwo_D_List");
-            sameTwo_M_List=(List<NumInfo>)data.getSerializableExtra("sameTwo_M_List");
-            difThreeList=(List<NumInfo>)data.getSerializableExtra("difThreeList");
-            difTwoList=(List<NumInfo>)data.getSerializableExtra("difTwoList");
-            sDifTwoList=(List<NumInfo>) data.getSerializableExtra("sDifTwoList");
-            sSDifTwoList=(List<NumInfo>) data.getSerializableExtra("sSDifTwoList");
-            sSDifThreeList=(List<NumInfo>) data.getSerializableExtra("sSDifThreeList");
-            sDifThreeList=(List<NumInfo>) data.getSerializableExtra("sDifThreeList");
+
+            baoxuanList=(List<NumInfo>) data.getSerializableExtra("baoxuanList");
+            tonghuaList=(List<NumInfo>)data.getSerializableExtra("tonghuaList");
+            shunziList=(List<NumInfo>) data.getSerializableExtra("shunziList");
+            tonghuashunList=(List<NumInfo>)data.getSerializableExtra("tonghuashunList");
+            baoziList=(List<NumInfo>)data.getSerializableExtra("baoziList");
+            duiziList=(List<NumInfo>) data.getSerializableExtra("duiziList");
+            RONEList=(List<NumInfo>) data.getSerializableExtra("RONEList");
+            RTWOList=(List<NumInfo>) data.getSerializableExtra("RTWOList");
+            RTHREEList=(List<NumInfo>) data.getSerializableExtra("RTHREEList");
+            RFOURList=(List<NumInfo>) data.getSerializableExtra("RFOURList");
+            RFIVEList=(List<NumInfo>)data.getSerializableExtra("RFIVEList");
+            RSIXList=(List<NumInfo>) data.getSerializableExtra("RSIXList");
 
             sh_name=this.getIntent().getStringExtra("sh_name");
 
@@ -466,99 +638,127 @@ public class PukeDetailActivity extends AppCompatActivity {
 
 
             switch (mSelecte_Mode){
-                case SUM_VALUE:
-                    for(int i=0;i<sumList.size();i++){
-                        if(sumList.get(i).is_checked()){
-                            info.getNumbers1().add(sumList.get(i));
+                case S_BAOXUAN:
+                    for(int i=0;i<baoxuanList.size();i++){
+                        if(baoxuanList.get(i).is_checked()){
+                            info.getNumbers1().add(baoxuanList.get(i));
+                            Log.e("checked!!!!!!",String.valueOf(i));
                         }
                     }
                     break;
-                case S_THREE:
-                    for(int i=0;i<sameThreeList.size();i++){
-                        if(sameThreeList.get(i).is_checked()){
-                            info.getNumbers1().add(sameThreeList.get(i));
+                case S_TONGHUA:
+                    for(int i=0;i<tonghuaList.size();i++){
+                        if(tonghuaList.get(i).is_checked()){
+                            info.getNumbers1().add(tonghuaList.get(i));
                         }
                     }
                     break;
-                case S_TWO:
-                    for(int i=0;i<sameTwo_S_List.size();i++){
-                        if(sameTwo_S_List.get(i).is_checked()){
-                            info.getNumbers1().add(sameTwo_S_List.get(i));
+                case S_SHUNZI:
+                    for(int i=0;i<shunziList.size();i++){
+                        if(shunziList.get(i).is_checked()){
+                            info.getNumbers1().add(shunziList.get(i));
                         }
                     }
-                    for(int i=0;i<sameTwo_D_List.size();i++){
-                        if(sameTwo_D_List.get(i).is_checked()){
-                            info.getNumbers2().add(sameTwo_D_List.get(i));
+
+                    break;
+                case S_TONGHUASHUN:
+                    for(int i=0;i<tonghuashunList.size();i++){
+                        if(tonghuashunList.get(i).is_checked()){
+                            info.getNumbers1().add(tonghuashunList.get(i));
                         }
                     }
                     break;
-                case S_TWO_S:
-                    for(int i=0;i<sameTwo_M_List.size();i++){
-                        if(sameTwo_M_List.get(i).is_checked()){
-                            info.getNumbers1().add(sameTwo_M_List.get(i));
+                case S_BAOZI:
+                    for(int i=0;i<baoziList.size();i++){
+                        if(baoziList.get(i).is_checked()){
+                            info.getNumbers1().add(baoziList.get(i));
                         }
                     }
                     break;
-                case D_THREE:
-                    for(int i=0;i<difThreeList.size();i++){
-                        if(difThreeList.get(i).is_checked()){
-                            info.getNumbers1().add(difThreeList.get(i));
+                case S_DUIZI:
+                    for(int i=0;i<duiziList.size();i++){
+                        if(duiziList.get(i).is_checked()){
+                            info.getNumbers1().add(duiziList.get(i));
                         }
                     }
                     break;
-                case D_TWO:
-                    for(int i=0;i<difTwoList.size();i++){
-                        if(difTwoList.get(i).is_checked()){
-                            info.getNumbers1().add(difTwoList.get(i));
+                case SD_ONE:
+                    for(int i=0;i<RONEList.size();i++){
+                        if(RONEList.get(i).is_checked()){
+                            RONEList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RONEList.get(i));
                         }
                     }
-                    break;
-                case SD_THREE:
-                    for(int i=0;i<sDifThreeList.size();i++){
-                        if(sDifThreeList.get(i).is_checked()){
-                            sDifThreeList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(sDifThreeList.get(i));
-                        }
-                    }
-                    for(int i=0;i<sSDifThreeList.size();i++){
-                        if(sSDifThreeList.get(i).is_checked()){
-                            info.getNumbers2().add(sSDifThreeList.get(i));
-                        }
-                    }
+//                    for(int i=0;i<RONEList.size();i++){
+//                        if(RONEList.get(i).is_checked()){
+//                            info.getNumbers2().add(RONEList.get(i));
+//                        }
+//                    }
                     break;
                 case SD_TWO:
-                    for(int i=0;i<sDifTwoList.size();i++){
-                        if(sDifTwoList.get(i).is_checked()){
-                            sDifTwoList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(sDifTwoList.get(i));
+                    for(int i=0;i<RTWOList.size();i++){
+                        if(RTWOList.get(i).is_checked()){
+                            RTWOList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RTWOList.get(i));
                         }
                     }
-                    for(int i=0;i<sSDifTwoList.size();i++){
-                        if(sSDifTwoList.get(i).is_checked()){
-                            info.getNumbers2().add(sSDifTwoList.get(i));
+//                    for(int i=0;i<RTWOList.size();i++){
+//                        if(RTWOList.get(i).is_checked()){
+//                            info.getNumbers2().add(RTWOList.get(i));
+//                        }
+//                    }
+                    break;
+                case SD_THREE:
+                    for(int i=0;i<RTHREEList.size();i++){
+                        if(RTHREEList.get(i).is_checked()){
+                            RTHREEList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RTHREEList.get(i));
                         }
                     }
+//                    for(int i=0;i<RTHREEList.size();i++){
+//                        if(RTHREEList.get(i).is_checked()){
+//                            info.getNumbers2().add(RTHREEList.get(i));
+//                        }
+//                    }
                     break;
-                case S_THREE_ALL:
-                    for(int i=1;i<7;i++){
-                        NumInfo s=new NumInfo();
-                        s.setNum(i*111+"");
-                        info.getNumbers1().add(s);
+                case SD_FOUR:
+                    for(int i=0;i<RFOURList.size();i++){
+                        if(RFOURList.get(i).is_checked()){
+                            RFOURList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RFOURList.get(i));
+                        }
                     }
+//                    for(int i=0;i<RFOURList.size();i++){
+//                        if(RFOURList.get(i).is_checked()){
+//                            info.getNumbers2().add(RFOURList.get(i));
+//                        }
+//                    }
                     break;
-                case D_THREE_ALL:
-                    NumInfo s1=new NumInfo();
-                    s1.setNum("123");
-                    info.getNumbers1().add(s1);
-                    NumInfo s2=new NumInfo();
-                    s2.setNum("234");
-                    info.getNumbers1().add(s2);
-                    NumInfo s3=new NumInfo();
-                    s3.setNum("345");
-                    info.getNumbers1().add(s3);
-                    NumInfo s4=new NumInfo();
-                    s4.setNum("456");
-                    info.getNumbers1().add(s4);
+                case SD_FIVE:
+                    for(int i=0;i<RFIVEList.size();i++){
+                        if(RFIVEList.get(i).is_checked()){
+                            RFIVEList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RFIVEList.get(i));
+                        }
+                    }
+//                    for(int i=0;i<RFIVEList.size();i++){
+//                        if(RFIVEList.get(i).is_checked()){
+//                            info.getNumbers2().add(RFIVEList.get(i));
+//                        }
+//                    }
+                    break;
+                case SD_SIX:
+                    for(int i=0;i<RSIXList.size();i++){
+                        if(RSIXList.get(i).is_checked()){
+                            RSIXList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RSIXList.get(i));
+                        }
+                    }
+//                    for(int i=0;i<RSIXList.size();i++){
+//                        if(RSIXList.get(i).is_checked()){
+//                            info.getNumbers2().add(RSIXList.get(i));
+//                        }
+//                    }
                     break;
             }
             list_result.add(info);
@@ -705,25 +905,642 @@ public class PukeDetailActivity extends AppCompatActivity {
             for(int i=0;i<info.getNumbers1().size();i++){
                 nums.add(info.getNumbers1().get(i));
             }
-            for(int i=0;i<info.getNumbers2().size();i++){
-                nums.add(info.getNumbers2().get(i));
-            }
+
             final TagFlowLayout numTag=holder.getView(R.id.num_tag);
             TagAdapter<NumInfo> numAdapter = new TagAdapter<NumInfo>(nums) {
                 @Override
                 public View getView(FlowLayout parent, int position, NumInfo s) {
-                    TextView tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_tv2, numTag, false);
+
+
+                    TextView tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+
                     if(s.is_spe()){
-                        tv.setBackgroundResource(R.drawable.flow_layout_selector3);
+                        switch (mSelecte_Mode)
+                        {
+                            case S_BAOXUAN:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case S_TONGHUA:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case S_SHUNZI:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_big, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke_big);
+                                break;
+                            case S_TONGHUASHUN:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case S_BAOZI:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_big, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke_big);
+                                break;
+                            case S_DUIZI:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_big, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke_big);
+                                break;
+                            case SD_ONE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_TWO:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_THREE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_FOUR:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_FIVE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_SIX:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+
+                        }
+
                     }else{
-                        tv.setBackgroundResource(R.drawable.flow_layout_selector2);
+                        switch (mSelecte_Mode)
+                        {
+                            case S_BAOXUAN:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case S_TONGHUA:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case S_SHUNZI:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_big, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke_big);
+                                break;
+                            case S_TONGHUASHUN:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case S_BAOZI:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_big, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke_big);
+                                break;
+                            case S_DUIZI:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_big, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke_big);
+                                break;
+                            case SD_ONE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_TWO:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_THREE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_FOUR:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_FIVE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+                            case SD_SIX:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail, numTag, false);
+                                tv.setBackgroundResource(R.drawable.flow_layout_puke);
+                                break;
+
+                        }
                     }
-                    if(s.getNum().length()==1){
-                        tv.setText("0"+s.getNum());
-                    }else{
-                        tv.setText(s.getNum());
+                    //Log.e("mode",String.valueOf(info.getMode()));
+                    switch (s.getNum())
+                    {
+                        case "0":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+                                    tv.setText("♠");
+                                case S_SHUNZI:
+                                    tv.setText("A23");
+                                case S_TONGHUASHUN:
+                                    tv.setText("♠");
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("AAA");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("AA");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("A");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("A");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("A");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("A");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("A");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("A");
+                                    break;
+
+                            }
+
+                            break;
+                        case "1":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+                                    tv.setText("♣");
+                                case S_SHUNZI:
+                                    tv.setText("234");
+                                case S_TONGHUASHUN:
+                                    tv.setText("♣");
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("222");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("22");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("2");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("2");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("2");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("2");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("2");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("2");
+                                    break;
+
+                            }
+                            break;
+                        case "2":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+                                    tv.setText("♥");
+                                case S_SHUNZI:
+                                    tv.setText("345");
+                                case S_TONGHUASHUN:
+                                    tv.setText("♥");
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("333");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("33");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("3");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("3");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("3");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("3");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("3");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("3");
+                                    break;
+
+                            }
+                            break;
+                        case "3":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+                                    tv.setText("♦");
+                                case S_SHUNZI:
+                                    tv.setText("456");
+                                case S_TONGHUASHUN:
+                                    tv.setText("♦");
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("444");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("44");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("4");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("4");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("4");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("4");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("4");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("4");
+                                    break;
+
+                            }
+                            break;
+                        case "4":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("567");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("555");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("55");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("5");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("5");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("5");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("5");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("5");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("5");
+                                    break;
+
+                            }
+                            break;
+                        case "5":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("678");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("666");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("66");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("6");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("6");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("6");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("6");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("6");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("6");
+                                    break;
+
+                            }
+                            break;
+                        case "6":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+                                case S_SHUNZI:
+                                    tv.setText("789");
+                                case S_TONGHUASHUN:
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("777");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("77");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("7");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("7");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("7");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("7");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("7");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("7");
+                                    break;
+
+                            }
+                            break;
+                        case "7":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("8910");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("888");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("88");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("8");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("8");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("8");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("8");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("8");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("8");
+                                    break;
+
+                            }
+                            break;
+                        case "8":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("910J");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("999");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("99");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("9");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("9");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("9");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("9");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("9");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("9");
+                                    break;
+
+                            }
+                            break;
+                        case "9":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("10JA");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("101010");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("1010");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("10");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("10");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("10");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("10");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("10");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("10");
+                                    break;
+
+                            }
+                            break;
+                        case "10":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("JQA");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("JJJ");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("JJ");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("J");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("J");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("J");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("J");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("J");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("J");
+                                    break;
+
+                            }
+                            break;
+                        case "11":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("QKA");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("QQQ");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("QQ");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("Q");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("Q");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("Q");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("Q");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("Q");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("Q");
+                                    break;
+
+                            }
+                            break;
+                        case "12":
+                            switch (mSelecte_Mode)
+                            {
+                                case S_BAOXUAN:
+
+                                case S_TONGHUA:
+
+                                case S_SHUNZI:
+                                    tv.setText("");
+                                case S_TONGHUASHUN:
+
+                                    break;
+                                case S_BAOZI:
+                                    tv.setText("KKK");
+                                    break;
+                                case S_DUIZI:
+                                    tv.setText("KK");
+                                    break;
+                                case SD_ONE:
+                                    tv.setText("K");
+                                    break;
+                                case SD_TWO:
+                                    tv.setText("K");
+                                    break;
+                                case SD_THREE:
+                                    tv.setText("K");
+                                    break;
+                                case SD_FOUR:
+                                    tv.setText("K");
+                                    break;
+                                case SD_FIVE:
+                                    tv.setText("K");
+                                    break;
+                                case SD_SIX:
+                                    tv.setText("K");
+                                    break;
+
+                            }
+                            break;
+
+
+
+
+
+
                     }
+
                     return tv;
+
                 }
             };
             numTag.setAdapter(numAdapter);
@@ -731,35 +1548,39 @@ public class PukeDetailActivity extends AppCompatActivity {
             holder.setText(R.id.ticket_price,info.getPrice()+"元");
             TextView mode_tv=holder.getView(R.id.ticket_mode);
             switch (info.getMode()){
-                case SUM_VALUE:
-                    mode_tv.setText("和值");
+                case S_BAOXUAN:
+                    mode_tv.setText("包选");
                     break;
-                case S_THREE:
-                    mode_tv.setText("三同号-单选");
+                case S_TONGHUA:
+                    mode_tv.setText("同花");
                     break;
-                case S_THREE_ALL:
-                    mode_tv.setText("三同号-通选");
+                case S_SHUNZI:
+                    mode_tv.setText("同花顺");
                     break;
-                case S_TWO:
-                    mode_tv.setText("二同号-单选");
+                case S_TONGHUASHUN:
+                    mode_tv.setText("豹子");
                     break;
-                case S_TWO_S:
-                    mode_tv.setText("二同号-复选");
+                case S_BAOZI:
+                    mode_tv.setText("顺子");
                     break;
-                case D_THREE:
-                    mode_tv.setText("三不同号");
+                case S_DUIZI:
+                    mode_tv.setText("对子");
                     break;
-                case D_TWO:
-                    mode_tv.setText("二不同号");
-                    break;
-                case SD_THREE:
-                    mode_tv.setText("拖胆-三不同号");
+                case SD_ONE:
+                    mode_tv.setText("任选一");
                     break;
                 case SD_TWO:
-                    mode_tv.setText("拖胆-二不同号");
+                    mode_tv.setText("任选二");
                     break;
-                case D_THREE_ALL:
-                    mode_tv.setText("三连号-通选");
+                case SD_THREE:
+                    mode_tv.setText("任选三");
+                    break;
+                case SD_FOUR:
+                    mode_tv.setText("任选四");
+                case SD_FIVE:
+                    mode_tv.setText("任选五");
+                case SD_SIX:
+                    mode_tv.setText("任选六");
                     break;
             }
 
@@ -848,8 +1669,8 @@ public class PukeDetailActivity extends AppCompatActivity {
         List<String> random_list2=new ArrayList<>();
 
         switch (mSelecte_Mode){
-            case SUM_VALUE:
-                for (int i = 3; i <= 18; i++) {
+            case S_BAOXUAN:
+                for (int i = 0; i <5; i++) {
                     random_list.add(""+i);
                 }
                 result=numberRandom(1,random_list);
@@ -859,8 +1680,8 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info);
                 }
                 break;
-            case S_THREE:
-                for (int i = 1; i <7; i++) {
+            case S_TONGHUA:
+                for (int i = 0; i <4; i++) {
                     random_list.add(i * 111 + "");
                 }
                 result=numberRandom(1,random_list);
@@ -870,65 +1691,116 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info);
                 }
                 break;
-            case S_THREE_ALL:
-                ToastUtil.toast(mActivity,"三同号通选不支持机选");
-                break;
-            case S_TWO:
-                for (int i = 1; i <7; i++) {
-                    random_list.add(i * 11 + "");
-                    random_list2.add(i+"");
-                }
-                result=numberRandom(1,random_list);
-                result2=numberRandom(1,random_list2);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*11+"");
-                    result_list1.add(info);
-                }
-                for(int i=0;i<result2.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result2[i]+1)+"");
-                    result_list2.add(info);
-                }
-                break;
-            case S_TWO_S:;
-                for (int i = 1; i <7; i++) {
-                    random_list.add(i * 11  + "");
+            case S_SHUNZI:
+                for (int i = 0; i <12; i++) {
+                    random_list.add(i * 111 + "");
                 }
                 result=numberRandom(1,random_list);
                 for(int i=0;i<result.length;i++){
                     NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*11+"");
+                    info.setNum((result[i]+1)*111+"");
                     result_list1.add(info);
                 }
                 break;
-            case D_THREE:
-
-                for (int i = 1; i <7; i++) {
-                    random_list.add(""+i);
+            case S_TONGHUASHUN:
+                for (int i = 0; i <4; i++) {
+                    random_list.add(i * 111 + "");
                 }
-                result=numberRandom(3,random_list);
+                result=numberRandom(1,random_list);
                 for(int i=0;i<result.length;i++){
                     NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)+"");
+                    info.setNum((result[i]+1)*111+"");
+                    result_list1.add(info);
+                }
+                break;
+            case S_BAOZI:;
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
+                }
+                result=numberRandom(1,random_list);
+                for(int i=0;i<result.length;i++){
+                    NumInfo info=new NumInfo();
+                    info.setNum((result[i]+1)*111+"");
+                    result_list1.add(info);
+                }
+                break;
+            case S_DUIZI:
+
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
+                }
+                result=numberRandom(1,random_list);
+                for(int i=0;i<result.length;i++){
+                    NumInfo info=new NumInfo();
+                    info.setNum((result[i]+1)*111+"");
                     result_list1.add(info);
                 }
 
                 break;
-            case D_TWO:
-                for (int i = 1; i <7; i++) {
-                    random_list.add(""+i );
+            case SD_ONE:
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
                 }
-                result=numberRandom(2,random_list);
+                result=numberRandom(1,random_list);
                 for(int i=0;i<result.length;i++){
                     NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)+"");
+                    info.setNum((result[i]+1)*111+"");
                     result_list1.add(info);
                 }
                 break;
             case SD_TWO:
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
+                }
+                result=numberRandom(2,random_list);
+                for(int i=0;i<result.length;i++){
+                    NumInfo info=new NumInfo();
+                    info.setNum((result[i]+1)*111+"");
+                    result_list1.add(info);
+                }
             case SD_THREE:
-                ToastUtil.toast(mActivity,"该模式不支持机选");
+
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
+                }
+                result=numberRandom(3,random_list);
+                for(int i=0;i<result.length;i++){
+                    NumInfo info=new NumInfo();
+                    info.setNum((result[i]+1)*111+"");
+                    result_list1.add(info);
+                }
+                break;
+            case SD_FOUR:
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
+                }
+                result=numberRandom(4,random_list);
+                for(int i=0;i<result.length;i++){
+                    NumInfo info=new NumInfo();
+                    info.setNum((result[i]+1)*111+"");
+                    result_list1.add(info);
+                }
+            case SD_FIVE:
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
+                }
+                result=numberRandom(5,random_list);
+                for(int i=0;i<result.length;i++){
+                    NumInfo info=new NumInfo();
+                    info.setNum((result[i]+1)*111+"");
+                    result_list1.add(info);
+                }
+                break;
+            case SD_SIX:
+                for (int i = 0; i <13; i++) {
+                    random_list.add(i * 111 + "");
+                }
+                result=numberRandom(6,random_list);
+                for(int i=0;i<result.length;i++){
+                    NumInfo info=new NumInfo();
+                    info.setNum((result[i]+1)*111+"");
+                    result_list1.add(info);
+                }
                 break;
 
 
