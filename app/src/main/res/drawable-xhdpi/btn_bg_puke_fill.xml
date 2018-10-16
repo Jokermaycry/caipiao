@@ -9,5 +9,5 @@
 
 
     <solid
-        android:color="@color/colorPrimary"/><!-- 填充的颜色 -->
+        android:color="@color/comm_grey"/><!-- 填充的颜色 -->
 </shape>

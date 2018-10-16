@@ -518,7 +518,26 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 5; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("同花");
+                    break;
+                case 1:
+                    info.setNum("顺子");
+                    break;
+                case 2:
+                    info.setNum( "同花顺");
+                    break;
+                case 3:
+                    info.setNum( "对子");
+                    break;
+                case 4:
+                    info.setNum( "豹子");
+                    break;
+
+            }
+
             baoxuanList.add(info);
         }
         //同花 yes
@@ -527,7 +546,23 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 4; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("♠");
+                    break;
+                case 1:
+                    info.setNum("♥");
+                    break;
+                case 2:
+                    info.setNum( "♣");
+                    break;
+                case 3:
+                    info.setNum( "♦");
+                    break;
+
+
+            }
             tonghuaList.add(info);
         }
         //顺子 yes
@@ -536,7 +571,47 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 12; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A 2 3");
+                    break;
+                case 1:
+                    info.setNum("2 3 4");
+                    break;
+                case 2:
+                    info.setNum("3 4 5");
+                    break;
+                case 3:
+                    info.setNum("4 5 6");
+                    break;
+                case 4:
+                    info.setNum("5 6 7");
+                    break;
+                case 5:
+                    info.setNum("6 7 8");
+                    break;
+                case 6:
+                    info.setNum("7 8 9");
+                    break;
+                case 7:
+                    info.setNum("8 9 10");
+                    break;
+                case 8:
+                    info.setNum("9 10 J");
+                    break;
+                case 9:
+                    info.setNum("10 J Q");
+                    break;
+                case 10:
+                    info.setNum("J Q K");
+                    break;
+                case 11:
+                    info.setNum("Q K A");
+                    break;
+
+
+            }
             shunziList.add(info);
         }
 //        //同花顺 yes
@@ -545,7 +620,23 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 4; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("♠");
+                    break;
+                case 1:
+                    info.setNum("♥");
+                    break;
+                case 2:
+                    info.setNum( "♣");
+                    break;
+                case 3:
+                    info.setNum( "♦");
+                    break;
+
+
+            }
             tonghuashunList.add(info);
         }
         //豹子 yes
@@ -554,7 +645,51 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A A A");
+                    break;
+                case 1:
+                    info.setNum("2 2 2");
+                    break;
+                case 2:
+                    info.setNum("3 3 3");
+                    break;
+                case 3:
+                    info.setNum("4 4 4");
+                    break;
+                case 4:
+                    info.setNum("5 5 5");
+                    break;
+                case 5:
+                    info.setNum("6 6 6");
+                    break;
+                case 6:
+                    info.setNum("7 7 7");
+                    break;
+                case 7:
+                    info.setNum("8 8 8");
+                    break;
+                case 8:
+                    info.setNum("9 9 9");
+                    break;
+                case 9:
+                    info.setNum("10 10 10");
+                    break;
+                case 10:
+                    info.setNum("J J J");
+                    break;
+                case 11:
+                    info.setNum("Q Q Q");
+                    break;
+                case 12:
+                    info.setNum("K K K");
+                    break;
+
+
+            }
             baoziList.add(info);
         }
         //对子 yes
@@ -563,7 +698,51 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A A");
+                    break;
+                case 1:
+                    info.setNum("2 2");
+                    break;
+                case 2:
+                    info.setNum("3 3");
+                    break;
+                case 3:
+                    info.setNum("4 4");
+                    break;
+                case 4:
+                    info.setNum("5 5");
+                    break;
+                case 5:
+                    info.setNum("6 6");
+                    break;
+                case 6:
+                    info.setNum("7 7");
+                    break;
+                case 7:
+                    info.setNum("8 8");
+                    break;
+                case 8:
+                    info.setNum("9 9");
+                    break;
+                case 9:
+                    info.setNum("10 10");
+                    break;
+                case 10:
+                    info.setNum("J J");
+                    break;
+                case 11:
+                    info.setNum("Q Q");
+                    break;
+                case 12:
+                    info.setNum("K K");
+                    break;
+
+
+            }
+
             duiziList.add(info);
         }
         //任选1
@@ -572,7 +751,52 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+
+
             RONEList.add(info);
         }
         //任选2
@@ -581,7 +805,50 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
             RTWOList.add(info);
         }
         //任选3
@@ -590,7 +857,50 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
             RTHREEList.add(info);
         }
         //任选4
@@ -599,7 +909,50 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
             RFOURList.add(info);
         }
         //任选5
@@ -608,7 +961,50 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
             RFIVEList.add(info);
         }
         //任选6
@@ -617,7 +1013,50 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            info.setNum(i + "");
+            switch (i)
+            {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
             RSIXList.add(info);
         }
 
