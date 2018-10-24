@@ -247,7 +247,16 @@ public class MainFragment extends Fragment {
                                     Intent in = new Intent(mContext, TwolveForFiveActivity.class);
                                     in.putExtra("sh_name", info.getSh_name());
                                     startActivity(in);
-                                } else {
+                                }
+//                                //扑克
+//                                else if (info.getType().equals("4")) {
+//                                    Intent in = new Intent(mContext, Puke.class);
+//                                    in.putExtra("sh_name", info.getSh_name());
+//                                    startActivity(in);
+//                                }
+
+
+                                else {
                                     ToastUtil.toast(mContext, "找不动指定玩法，暂无开放！");
                                 }
 

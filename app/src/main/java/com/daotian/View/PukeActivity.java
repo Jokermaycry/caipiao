@@ -70,8 +70,16 @@ public class PukeActivity extends AppCompatActivity {
     private final int S_BAOZI = 5;//豹子
     private final int S_DUIZI = 6;//对子
 
+    //普通任选
+    private final int SSD_ONE = 13;//任选1
+    private final int SSD_TWO = 14;//任选2
+    private final int SSD_THREE = 15;//任选3
+    private final int SSD_FOUR = 16;//任选4
+    private final int SSD_FIVE = 17;//任选5
+    private final int SSD_SIX = 18;//任选6
+
     //拖胆
-    private final int SD_ONE = 7;//任选1
+    /*private final int SD_ONE = 7;//任选1*/
     private final int SD_TWO = 8;//任选2
     private final int SD_THREE = 9;//任选3
     private final int SD_FOUR = 10;//任选4
@@ -163,10 +171,42 @@ public class PukeActivity extends AppCompatActivity {
     TextView currentTime;
     @BindView(R.id.top_ly)
     LinearLayout topLy;
+    @BindView(R.id.rrone)
+    TagFlowLayout rrone;
+    @BindView(R.id.layout_rrone)
+    LinearLayout layoutRrone;
+    @BindView(R.id.rrtwo)
+    TagFlowLayout rrtwo;
+    @BindView(R.id.layout_rrtwo)
+    LinearLayout layoutRrtwo;
+    @BindView(R.id.rthree)
+    TagFlowLayout rthree;
+    @BindView(R.id.layout_rrthree)
+    LinearLayout layoutRrthree;
+    @BindView(R.id.rfour)
+    TagFlowLayout rfour;
+    @BindView(R.id.layout_rrfour)
+    LinearLayout layoutRrfour;
+    @BindView(R.id.rfive)
+    TagFlowLayout rfive;
+    @BindView(R.id.layout_rrfive)
+    LinearLayout layoutRrfive;
+    @BindView(R.id.rsix)
+    TagFlowLayout rsix;
+    @BindView(R.id.layout_rrsix)
+    LinearLayout layoutRrsix;
+    @BindView(R.id.rtwo2)
+    TagFlowLayout rtwo2;
+    @BindView(R.id.three2)
+    TagFlowLayout three2;
+    @BindView(R.id.four2)
+    TagFlowLayout four2;
+    @BindView(R.id.five2)
+    TagFlowLayout five2;
+    @BindView(R.id.six2)
+    TagFlowLayout six2;
 
     private int mSelecte_Mode = S_BAOXUAN;
-
-
     private TicketDetailInfo mInfo;
     private String sh_name;
     private boolean mContinue;
@@ -179,11 +219,6 @@ public class PukeActivity extends AppCompatActivity {
     private List<ElevenSortInfo> elevenNormalList = new ArrayList<>();
     private List<ElevenSortInfo> elevenSpaceList = new ArrayList<>();
 
-    //和值快速选择判断
-    private boolean sumBig;
-    private boolean sumSmall;
-    private boolean sumSig;
-    private boolean sumDual;
     //包选
     private List<String> baoxuanNums = new ArrayList<>();
     private TagAdapter<String> baoxuanAdapter;
@@ -217,11 +252,12 @@ public class PukeActivity extends AppCompatActivity {
 
 
     //任选1
+    // down 拖胆
     private List<String> RONENums = new ArrayList<>();
     private TagAdapter<String> RONEAdapter;
     private List<NumInfo> RONEList = new ArrayList<>();
 
-    private boolean difThreeAll;
+
     //任选2
     private List<String> RTWONums = new ArrayList<>();
     private TagAdapter<String> RTWOAdapter;
@@ -242,6 +278,55 @@ public class PukeActivity extends AppCompatActivity {
     private List<String> RSIXNums = new ArrayList<>();
     private TagAdapter<String> RSIXAdapter;
     private List<NumInfo> RSIXList = new ArrayList<>();
+
+
+    //任选1   up 普通投注
+    private List<String> RRONENums = new ArrayList<>();
+    private TagAdapter<String> RRONEAdapter;
+    private List<NumInfo> RRONEList = new ArrayList<>();
+    //任选2
+    private List<String> RRTWONums = new ArrayList<>();
+    private TagAdapter<String> RRTWOAdapter;
+    private List<NumInfo> RRTWOList = new ArrayList<>();
+    //任选3
+    private List<String> RRTHREENums = new ArrayList<>();
+    private TagAdapter<String> RRTHREEAdapter;
+    private List<NumInfo> RRTHREEList = new ArrayList<>();
+    //任选4
+    private List<String> RRFOURNums = new ArrayList<>();
+    private TagAdapter<String> RRFOURAdapter;
+    private List<NumInfo> RRFOURList = new ArrayList<>();
+    //任选5
+    private List<String> RRFIVENums = new ArrayList<>();
+    private TagAdapter<String> RRFIVEAdapter;
+    private List<NumInfo> RRFIVEList = new ArrayList<>();
+    //任选6
+    private List<String> RRSIXNums = new ArrayList<>();
+    private TagAdapter<String> RRSIXAdapter;
+    private List<NumInfo> RRSIXList = new ArrayList<>();
+
+    //任选2-6的拖胆
+
+    //任选2
+    private List<String> rRTWONums = new ArrayList<>();
+    private TagAdapter<String> rRTWOAdapter;
+    private List<NumInfo> rRTWOList = new ArrayList<>();
+    //任选3
+    private List<String> rRTHREENums = new ArrayList<>();
+    private TagAdapter<String> rRTHREEAdapter;
+    private List<NumInfo> rRTHREEList = new ArrayList<>();
+    //任选4
+    private List<String> rRFOURNums = new ArrayList<>();
+    private TagAdapter<String> rRFOURAdapter;
+    private List<NumInfo> rRFOURList = new ArrayList<>();
+    //任选5
+    private List<String> rRFIVENums = new ArrayList<>();
+    private TagAdapter<String> rRFIVEAdapter;
+    private List<NumInfo> rRFIVEList = new ArrayList<>();
+    //任选6
+    private List<String> rRSIXNums = new ArrayList<>();
+    private TagAdapter<String> rRSIXAdapter;
+    private List<NumInfo> rRSIXList = new ArrayList<>();
 
 
     private ProgressDialog dialog_test;
@@ -420,6 +505,7 @@ public class PukeActivity extends AppCompatActivity {
         mAcache = ACache.get(this);
 
         initData();
+        initTdata();
         initRule();
 
         initBAOXUAN();
@@ -437,7 +523,7 @@ public class PukeActivity extends AppCompatActivity {
 
         // getDetail();
 
-         //initBefore();
+        //initBefore();
 
 
     }
@@ -518,8 +604,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 5; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("同花");
                     break;
@@ -527,13 +612,13 @@ public class PukeActivity extends AppCompatActivity {
                     info.setNum("顺子");
                     break;
                 case 2:
-                    info.setNum( "同花顺");
+                    info.setNum("同花顺");
                     break;
                 case 3:
-                    info.setNum( "对子");
+                    info.setNum("对子");
                     break;
                 case 4:
-                    info.setNum( "豹子");
+                    info.setNum("豹子");
                     break;
 
             }
@@ -546,8 +631,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 4; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("♠");
                     break;
@@ -555,10 +639,10 @@ public class PukeActivity extends AppCompatActivity {
                     info.setNum("♥");
                     break;
                 case 2:
-                    info.setNum( "♣");
+                    info.setNum("♣");
                     break;
                 case 3:
-                    info.setNum( "♦");
+                    info.setNum("♦");
                     break;
 
 
@@ -571,8 +655,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 12; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A 2 3");
                     break;
@@ -620,8 +703,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 4; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("♠");
                     break;
@@ -629,10 +711,10 @@ public class PukeActivity extends AppCompatActivity {
                     info.setNum("♥");
                     break;
                 case 2:
-                    info.setNum( "♣");
+                    info.setNum("♣");
                     break;
                 case 3:
-                    info.setNum( "♦");
+                    info.setNum("♦");
                     break;
 
 
@@ -646,8 +728,7 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
 
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A A A");
                     break;
@@ -698,8 +779,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A A");
                     break;
@@ -745,14 +825,13 @@ public class PukeActivity extends AppCompatActivity {
 
             duiziList.add(info);
         }
-        //任选1
+     /*   //任选1
         for (int i = 0; i < 13; i++) {
             RONENums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A");
                     break;
@@ -798,15 +877,14 @@ public class PukeActivity extends AppCompatActivity {
 
 
             RONEList.add(info);
-        }
+        }*/
         //任选2
         for (int i = 0; i < 13; i++) {
             RTWONums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A");
                     break;
@@ -857,8 +935,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A");
                     break;
@@ -909,8 +986,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A");
                     break;
@@ -961,8 +1037,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A");
                     break;
@@ -1013,8 +1088,7 @@ public class PukeActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
-            switch (i)
-            {
+            switch (i) {
                 case 0:
                     info.setNum("A");
                     break;
@@ -1059,6 +1133,315 @@ public class PukeActivity extends AppCompatActivity {
             }
             RSIXList.add(info);
         }
+        /////up//////
+        //任选1
+        for (int i = 0; i < 13; i++) {
+            RRONENums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+
+
+            RRONEList.add(info);
+        }
+        //任选2
+        for (int i = 0; i < 13; i++) {
+            RRTWONums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            RRTWOList.add(info);
+        }
+        //任选3
+        for (int i = 0; i < 13; i++) {
+            RRTHREENums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            RRTHREEList.add(info);
+        }
+        //任选4
+        for (int i = 0; i < 13; i++) {
+            RRFOURNums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            RRFOURList.add(info);
+        }
+        //任选5
+        for (int i = 0; i < 13; i++) {
+            RRFIVENums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            RRFIVEList.add(info);
+        }
+        //任选6
+        for (int i = 0; i < 13; i++) {
+            RRSIXNums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            RRSIXList.add(info);
+        }
 
 
         //玩法初始化，普通投注
@@ -1086,11 +1469,35 @@ public class PukeActivity extends AppCompatActivity {
         ElevenSortInfo info6 = new ElevenSortInfo();
         info6.setName("对子");
         elevenNormalList.add(info6);
+        //up
+        ElevenSortInfo info13 = new ElevenSortInfo();
+        info13.setName("任选一");
+        elevenNormalList.add(info13);
+
+        ElevenSortInfo info14 = new ElevenSortInfo();
+        info14.setName("任选二");
+        elevenNormalList.add(info14);
+
+        ElevenSortInfo info15 = new ElevenSortInfo();
+        info15.setName("任选三");
+        elevenNormalList.add(info15);
+
+        ElevenSortInfo info16 = new ElevenSortInfo();
+        info16.setName("任选四");
+        elevenNormalList.add(info16);
+
+        ElevenSortInfo info17 = new ElevenSortInfo();
+        info17.setName("任选五");
+        elevenNormalList.add(info17);
+        ElevenSortInfo info18 = new ElevenSortInfo();
+        info18.setName("任选六");
+        elevenNormalList.add(info18);
+        //
 
         //拖胆投注
-        ElevenSortInfo info7 = new ElevenSortInfo();
+       /* ElevenSortInfo info7 = new ElevenSortInfo();
         info7.setName("任选一");
-        elevenSpaceList.add(info7);
+        elevenSpaceList.add(info7);*/
 
         ElevenSortInfo info8 = new ElevenSortInfo();
         info8.setName("任选二");
@@ -1117,6 +1524,266 @@ public class PukeActivity extends AppCompatActivity {
         spacelAdapter = new SpaceAdapter(mActivity, R.layout.grid_item_tv, elevenSpaceList);
     }
 
+    //拖胆的数据
+    private void initTdata() {
+        //任选2
+        for (int i = 0; i < 13; i++) {
+            rRTWONums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            rRTWOList.add(info);
+        }
+        //任选3
+        for (int i = 0; i < 13; i++) {
+            rRTHREENums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            rRTHREEList.add(info);
+        }
+        //任选4
+        for (int i = 0; i < 13; i++) {
+            rRFOURNums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            rRFOURList.add(info);
+        }
+        //任选5
+        for (int i = 0; i < 13; i++) {
+            rRFIVENums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            rRFIVEList.add(info);
+        }
+        //任选6
+        for (int i = 0; i < 13; i++) {
+            rRSIXNums.add(i * 1 + "");
+        }
+        for (int i = 0; i < 13; i++) {
+            NumInfo info = new NumInfo();
+            switch (i) {
+                case 0:
+                    info.setNum("A");
+                    break;
+                case 1:
+                    info.setNum("2");
+                    break;
+                case 2:
+                    info.setNum("3");
+                    break;
+                case 3:
+                    info.setNum("4");
+                    break;
+                case 4:
+                    info.setNum("5");
+                    break;
+                case 5:
+                    info.setNum("6");
+                    break;
+                case 6:
+                    info.setNum("7");
+                    break;
+                case 7:
+                    info.setNum("8");
+                    break;
+                case 8:
+                    info.setNum("9");
+                    break;
+                case 9:
+                    info.setNum("10");
+                    break;
+                case 10:
+                    info.setNum("J");
+                    break;
+                case 11:
+                    info.setNum("Q");
+                    break;
+                case 12:
+                    info.setNum("K");
+                    break;
+
+
+            }
+            rRSIXList.add(info);
+        }
+
+    }
+
     /**
      * 初始化规则,
      */
@@ -1140,6 +1807,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
 
 
                 break;
@@ -1161,6 +1835,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case S_TONGHUASHUN:
                 title.setText("同花顺");
@@ -1180,6 +1861,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case S_BAOZI:
                 title.setText("豹子");
@@ -1199,6 +1887,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case S_SHUNZI:
                 title.setText("顺子");
@@ -1218,6 +1913,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case S_DUIZI:
                 title.setText("对子");
@@ -1237,26 +1939,15 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SD_ONE:
-                title.setText("任选一");
-                ruleTv.setText("任选一");
 
-                ruleTv.setVisibility(View.VISIBLE);
-                randomBtn.setVisibility(View.VISIBLE);
-                layoutBaoxuan.setVisibility(View.GONE);
-                layoutTonghua.setVisibility(View.GONE);
-                layoutShunzi.setVisibility(View.GONE);
-                layoutTonghuashun.setVisibility(View.GONE);
-                layoutBaozi.setVisibility(View.GONE);
-                layoutDuizi.setVisibility(View.GONE);
-                layoutRone.setVisibility(View.VISIBLE);
-                layoutRtwo.setVisibility(View.GONE);
-                layoutRthree.setVisibility(View.GONE);
-                layoutRfour.setVisibility(View.GONE);
-                layoutRfive.setVisibility(View.GONE);
-                layoutRsix.setVisibility(View.GONE);
-                break;
             case SD_TWO:
                 title.setText("任选二");
                 ruleTv.setText("任选二");
@@ -1275,6 +1966,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case SD_THREE:
                 title.setText("任选三");
@@ -1294,6 +1992,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case SD_FOUR:
                 title.setText("任选四");
@@ -1313,6 +2018,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.VISIBLE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case SD_FIVE:
                 title.setText("任选五");
@@ -1332,6 +2044,13 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.VISIBLE);
                 layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
                 break;
             case SD_SIX:
                 title.setText("任选六");
@@ -1351,6 +2070,169 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRfour.setVisibility(View.GONE);
                 layoutRfive.setVisibility(View.GONE);
                 layoutRsix.setVisibility(View.VISIBLE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
+                break;
+            case SSD_ONE:
+                title.setText("任选一");
+                ruleTv.setText("任选一");
+
+                ruleTv.setVisibility(View.VISIBLE);
+                randomBtn.setVisibility(View.VISIBLE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.VISIBLE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
+                break;
+            case SSD_TWO:
+                title.setText("任选二");
+                ruleTv.setText("任选二");
+
+                ruleTv.setVisibility(View.VISIBLE);
+                randomBtn.setVisibility(View.VISIBLE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.VISIBLE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
+                break;
+            case SSD_THREE:
+                title.setText("任选三");
+                ruleTv.setText("任选三");
+
+                ruleTv.setVisibility(View.VISIBLE);
+                randomBtn.setVisibility(View.VISIBLE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.VISIBLE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
+                break;
+            case SSD_FOUR:
+                title.setText("任选四");
+                ruleTv.setText("任选四");
+
+                ruleTv.setVisibility(View.VISIBLE);
+                randomBtn.setVisibility(View.VISIBLE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.VISIBLE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.GONE);
+                break;
+            case SSD_FIVE:
+                title.setText("任选五");
+                ruleTv.setText("任选五");
+
+                ruleTv.setVisibility(View.VISIBLE);
+                randomBtn.setVisibility(View.VISIBLE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.VISIBLE);
+                layoutRrsix.setVisibility(View.GONE);
+                break;
+            case SSD_SIX:
+                title.setText("任选六");
+                ruleTv.setText("任选六");
+
+                ruleTv.setVisibility(View.VISIBLE);
+                randomBtn.setVisibility(View.VISIBLE);
+                layoutBaoxuan.setVisibility(View.GONE);
+                layoutTonghua.setVisibility(View.GONE);
+                layoutShunzi.setVisibility(View.GONE);
+                layoutTonghuashun.setVisibility(View.GONE);
+                layoutBaozi.setVisibility(View.GONE);
+                layoutDuizi.setVisibility(View.GONE);
+                layoutRone.setVisibility(View.GONE);
+                layoutRtwo.setVisibility(View.GONE);
+                layoutRthree.setVisibility(View.GONE);
+                layoutRfour.setVisibility(View.GONE);
+                layoutRfive.setVisibility(View.GONE);
+                layoutRsix.setVisibility(View.GONE);
+                //up
+                layoutRrone.setVisibility(View.GONE);
+                layoutRrtwo.setVisibility(View.GONE);
+                layoutRrthree.setVisibility(View.GONE);
+                layoutRrfour.setVisibility(View.GONE);
+                layoutRrfive.setVisibility(View.GONE);
+                layoutRrsix.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -1579,7 +2461,7 @@ public class PukeActivity extends AppCompatActivity {
         duiziAdapter = new TagAdapter<String>(duiziNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, duizi, false);
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_duizi, duizi, false);
                 if (duiziList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_duizi_selected[position]);
                 } else {
@@ -1606,9 +2488,9 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选1
+     * 任选1 胆拖
      */
-    private void initONE() {
+  /*  private void initONE() {
         for (int i = 0; i < RONEList.size(); i++) {
             RONEList.get(i).setIs_checked(false);
         }
@@ -1640,7 +2522,9 @@ public class PukeActivity extends AppCompatActivity {
                 return false;
             }
         });
-    }
+
+
+    }*/
 
     /**
      * 任选2
@@ -1669,10 +2553,45 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (RTWOList.get(position).is_checked()) {
                     RTWOList.get(position).setIs_checked(false);
-                    RTHREEAdapter.notifyDataChanged();
+                    RTWOAdapter.notifyDataChanged();
                 } else {
                     RTWOList.get(position).setIs_checked(true);
                     RTWOAdapter.notifyDataChanged();
+                }
+                calculate_two();
+                return false;
+            }
+        });
+
+        //拖胆
+
+        for (int i = 0; i < rRTWOList.size(); i++) {
+            rRTWOList.get(i).setIs_checked(false);
+        }
+        rRTWOAdapter = new TagAdapter<String>(rRTWONums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rtwo2, false);
+
+                if (rRTWOList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+
+                return tv;
+            }
+        };
+        rtwo2.setAdapter(rRTWOAdapter);
+        rtwo2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (rRTWOList.get(position).is_checked()) {
+                    rRTWOList.get(position).setIs_checked(false);
+                    rRTWOAdapter.notifyDataChanged();
+                } else {
+                    rRTWOList.get(position).setIs_checked(true);
+                    rRTWOAdapter.notifyDataChanged();
                 }
                 calculate_two();
                 return false;
@@ -1715,6 +2634,39 @@ public class PukeActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //拖胆
+        for (int i = 0; i < RTHREEList.size(); i++) {
+            RTHREEList.get(i).setIs_checked(false);
+        }
+        rRTHREEAdapter = new TagAdapter<String>(rRTHREENums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three2, false);
+
+                if (rRTHREEList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        three2.setAdapter(rRTHREEAdapter);
+        three2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (rRTHREEList.get(position).is_checked()) {
+                    rRTHREEList.get(position).setIs_checked(false);
+                    rRTHREEAdapter.notifyDataChanged();
+                } else {
+                    rRTHREEList.get(position).setIs_checked(true);
+                    rRTHREEAdapter.notifyDataChanged();
+                }
+                calculate_three();
+                return false;
+            }
+        });
     }
 
     /**
@@ -1747,6 +2699,38 @@ public class PukeActivity extends AppCompatActivity {
                 } else {
                     RFOURList.get(position).setIs_checked(true);
                     RFOURAdapter.notifyDataChanged();
+                }
+                calculate_four();
+                return false;
+            }
+        });
+        //拖胆
+        for (int i = 0; i < rRFOURList.size(); i++) {
+            rRFOURList.get(i).setIs_checked(false);
+        }
+        rRFOURAdapter = new TagAdapter<String>(rRFOURNums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, four2, false);
+
+                if (rRFOURList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        four2.setAdapter(rRFOURAdapter);
+        four2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (rRFOURList.get(position).is_checked()) {
+                    rRFOURList.get(position).setIs_checked(false);
+                    rRFOURAdapter.notifyDataChanged();
+                } else {
+                    rRFOURList.get(position).setIs_checked(true);
+                    rRFOURAdapter.notifyDataChanged();
                 }
                 calculate_four();
                 return false;
@@ -1789,12 +2773,46 @@ public class PukeActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //胆拖
+        for (int i = 0; i < rRFIVEList.size(); i++) {
+            rRFIVEList.get(i).setIs_checked(false);
+        }
+        rRFIVEAdapter = new TagAdapter<String>(rRFIVENums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, five2, false);
+
+                if (rRFIVEList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        five2.setAdapter(rRFIVEAdapter);
+        five2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (rRFIVEList.get(position).is_checked()) {
+                    rRFIVEList.get(position).setIs_checked(false);
+                    rRFIVEAdapter.notifyDataChanged();
+                } else {
+                    rRFIVEList.get(position).setIs_checked(true);
+                    rRFIVEAdapter.notifyDataChanged();
+                }
+                calculate_five();
+                return false;
+            }
+        });
     }
 
     /**
      * 任选6
      */
     private void initSIX() {
+        //胆码
         for (int i = 0; i < RSIXList.size(); i++) {
             RSIXList.get(i).setIs_checked(false);
         }
@@ -1826,19 +2844,266 @@ public class PukeActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //拖码
+        for (int i = 0; i < rRSIXList.size(); i++) {
+            rRSIXList.get(i).setIs_checked(false);
+        }
+        rRSIXAdapter = new TagAdapter<String>(rRSIXNums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, six2, false);
+
+                if (rRSIXList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        six2.setAdapter(rRSIXAdapter);
+        six2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (rRSIXList.get(position).is_checked()) {
+                    rRSIXList.get(position).setIs_checked(false);
+                    rRSIXAdapter.notifyDataChanged();
+                } else {
+                    rRSIXList.get(position).setIs_checked(true);
+                    rRSIXAdapter.notifyDataChanged();
+                }
+                calculate_six();
+                return false;
+            }
+        });
     }
 
-  /*  public void initSameThreeAll() {
-        sameThreeAll = false;
-        threeSameBtn.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-        threeSameBtn.setTextColor(Color.parseColor("#269ee6"));
+    //普通投注
+
+    /**
+     * 任选1
+     */
+    private void initRONE() {
+        Log.e("initRONE", "initRONE");
+        for (int i = 0; i < RRONEList.size(); i++) {
+            RRONEList.get(i).setIs_checked(false);
+        }
+        RRONEAdapter = new TagAdapter<String>(RRONENums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rrone, false);
+
+                if (RRONEList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        rrone.setAdapter(RRONEAdapter);
+        rrone.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (RRONEList.get(position).is_checked()) {
+                    RRONEList.get(position).setIs_checked(false);
+                    RRONEAdapter.notifyDataChanged();
+                } else {
+                    RRONEList.get(position).setIs_checked(true);
+                    RRONEAdapter.notifyDataChanged();
+                }
+                calculate_rone();
+                return false;
+            }
+        });
     }
 
-    public void initDifThreeAll() {
-        difThreeAll = false;
-        threeDifBtn.setBackgroundResource(R.drawable.btn_bg_blue_s_fill);
-        threeDifBtn.setTextColor(Color.parseColor("#269ee6"));
-    }*/
+    /**
+     * 任选2
+     */
+    private void initRTWO() {
+        for (int i = 0; i < RRTWOList.size(); i++) {
+            RRTWOList.get(i).setIs_checked(false);
+        }
+        RRTWOAdapter = new TagAdapter<String>(RRTWONums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rrtwo, false);
+
+                if (RRTWOList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+
+                return tv;
+            }
+        };
+        rrtwo.setAdapter(RRTWOAdapter);
+        rrtwo.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (RRTWOList.get(position).is_checked()) {
+                    RRTWOList.get(position).setIs_checked(false);
+                    RRTHREEAdapter.notifyDataChanged();
+                } else {
+                    RRTWOList.get(position).setIs_checked(true);
+                    RRTWOAdapter.notifyDataChanged();
+                }
+                calculate_rtwo();
+                return false;
+            }
+        });
+    }
+
+    /**
+     * 任选3
+     */
+    private void initRTHREE() {
+        for (int i = 0; i < RRTHREEList.size(); i++) {
+            RRTHREEList.get(i).setIs_checked(false);
+        }
+        RRTHREEAdapter = new TagAdapter<String>(RRTHREENums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rthree, false);
+
+                if (RRTHREEList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        rthree.setAdapter(RRTHREEAdapter);
+        rthree.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (RRTHREEList.get(position).is_checked()) {
+                    RRTHREEList.get(position).setIs_checked(false);
+                    RRTHREEAdapter.notifyDataChanged();
+                } else {
+                    RRTHREEList.get(position).setIs_checked(true);
+                    RRTHREEAdapter.notifyDataChanged();
+                }
+                calculate_rthree();
+                return false;
+            }
+        });
+    }
+
+    /**
+     * 任选4
+     */
+    private void initRFOUR() {
+        for (int i = 0; i < RRFOURList.size(); i++) {
+            RRFOURList.get(i).setIs_checked(false);
+        }
+        RRFOURAdapter = new TagAdapter<String>(RRFOURNums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rfour, false);
+
+                if (RRFOURList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        rfour.setAdapter(RRFOURAdapter);
+        rfour.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (RRFOURList.get(position).is_checked()) {
+                    RRFOURList.get(position).setIs_checked(false);
+                    RRFOURAdapter.notifyDataChanged();
+                } else {
+                    RRFOURList.get(position).setIs_checked(true);
+                    RRFOURAdapter.notifyDataChanged();
+                }
+                calculate_rfour();
+                return false;
+            }
+        });
+    }
+
+    /**
+     * 任选5
+     */
+    private void initRFIVE() {
+        for (int i = 0; i < RRFIVEList.size(); i++) {
+            RRFIVEList.get(i).setIs_checked(false);
+        }
+        RRFIVEAdapter = new TagAdapter<String>(RRFIVENums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rfive, false);
+
+                if (RRFIVEList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        rfive.setAdapter(RRFIVEAdapter);
+        rfive.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (RRFIVEList.get(position).is_checked()) {
+                    RRFIVEList.get(position).setIs_checked(false);
+                    RRFIVEAdapter.notifyDataChanged();
+                } else {
+                    RRFIVEList.get(position).setIs_checked(true);
+                    RRFIVEAdapter.notifyDataChanged();
+                }
+                calculate_rfive();
+                return false;
+            }
+        });
+    }
+
+    /**
+     * 任选6
+     */
+    private void initRSIX() {
+        for (int i = 0; i < RRSIXList.size(); i++) {
+            RRSIXList.get(i).setIs_checked(false);
+        }
+        RRSIXAdapter = new TagAdapter<String>(RRSIXNums) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rsix, false);
+
+                if (RRSIXList.get(position).is_checked()) {
+                    tv.setBackgroundResource(images_selected[position]);
+                } else {
+                    tv.setBackgroundResource(images[position]);
+                }
+                return tv;
+            }
+        };
+        rsix.setAdapter(RRSIXAdapter);
+        rsix.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                if (RRSIXList.get(position).is_checked()) {
+                    RRSIXList.get(position).setIs_checked(false);
+                    RRSIXAdapter.notifyDataChanged();
+                } else {
+                    RRSIXList.get(position).setIs_checked(true);
+                    RRSIXAdapter.notifyDataChanged();
+                }
+                calculate_rsix();
+                return false;
+            }
+        });
+    }
+
 
     @Override
     protected void onResume() {
@@ -1895,9 +3160,9 @@ public class PukeActivity extends AppCompatActivity {
                     case S_SHUNZI:
                         initSHUNZI();
                         break;
-                    case SD_ONE:
+                   /* case SD_ONE:
                         initONE();
-                        break;
+                        break;*/
                     case SD_TWO:
                         initTWO();
                         break;
@@ -1912,6 +3177,25 @@ public class PukeActivity extends AppCompatActivity {
                         break;
                     case SD_SIX:
                         initSIX();
+                        break;
+                    //up
+                    case SSD_ONE:
+                        initRONE();
+                        break;
+                    case SSD_TWO:
+                        initRTWO();
+                        break;
+                    case SSD_THREE:
+                        initRTHREE();
+                        break;
+                    case SSD_FOUR:
+                        initRFOUR();
+                        break;
+                    case SSD_FIVE:
+                        initRFIVE();
+                        break;
+                    case SSD_SIX:
+                        initRSIX();
                         break;
 
                 }
@@ -1946,7 +3230,7 @@ public class PukeActivity extends AppCompatActivity {
             //images_duizi
             in.putExtra("duiziList", (Serializable) duiziList);
 
-
+            //拖胆
             //one
             in.putExtra("RONEList", (Serializable) RONEList);
             //two
@@ -1959,6 +3243,22 @@ public class PukeActivity extends AppCompatActivity {
             in.putExtra("RFIVEList", (Serializable) RFIVEList);
             //six
             in.putExtra("RSIXList", (Serializable) RSIXList);
+
+
+            //普通投注
+            //one
+            in.putExtra("RRONEList", (Serializable) RRONEList);
+            //two
+            in.putExtra("RRTWOList", (Serializable) RRTWOList);
+            //three
+            in.putExtra("RRTHREEList", (Serializable) RRTHREEList);
+            //four
+            in.putExtra("RRFOURList", (Serializable) RRFOURList);
+            //five
+            in.putExtra("RRFIVEList", (Serializable) RRFIVEList);
+            //six
+            in.putExtra("RRSIXList", (Serializable) RRSIXList);
+
 
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
@@ -1994,7 +3294,7 @@ public class PukeActivity extends AppCompatActivity {
             //images_duizi
             in.putExtra("duiziList", (Serializable) duiziList);
 
-
+            //拖胆
             //one
             in.putExtra("RONEList", (Serializable) RONEList);
             //two
@@ -2008,6 +3308,20 @@ public class PukeActivity extends AppCompatActivity {
             //six
             in.putExtra("RSIXList", (Serializable) RSIXList);
 
+
+            //普通投注
+            //one
+            in.putExtra("RRONEList", (Serializable) RRONEList);
+            //two
+            in.putExtra("RRTWOList", (Serializable) RRTWOList);
+            //three
+            in.putExtra("RRTHREEList", (Serializable) RRTHREEList);
+            //four
+            in.putExtra("RRFOURList", (Serializable) RRFOURList);
+            //five
+            in.putExtra("RRFIVEList", (Serializable) RRFIVEList);
+            //six
+            in.putExtra("RRSIXList", (Serializable) RRSIXList);
 
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
@@ -2030,103 +3344,6 @@ public class PukeActivity extends AppCompatActivity {
 
     }
 
-    /*
-       和值快速选择
-     */
-    private void fastSeleteSumValue() {
-        initBAOXUAN();
-        Log.e("sum", sumBig + "," + sumSmall + "," + sumSig + "," + sumDual);
-        if (sumBig && !sumSig && !sumDual) {
-            for (int i = baoxuanList.size() / 2; i < baoxuanList.size(); i++) {
-                baoxuanList.get(i).setIs_checked(true);
-                baoxuanAdapter.setSelectedList(i);
-            }
-        } else if (sumSmall && !sumSig && !sumDual) {
-            for (int i = 0; i < baoxuanList.size() / 2; i++) {
-                baoxuanList.get(i).setIs_checked(true);
-                baoxuanAdapter.setSelectedList(i);
-            }
-        } else if (sumSig && !sumBig && !sumSmall) {
-            for (int i = 0; i < baoxuanList.size(); i++) {
-                if (i % 2 == 0) {
-                    baoxuanList.get(i).setIs_checked(true);
-                    baoxuanAdapter.setSelectedList(i);
-                }
-            }
-        } else if (sumDual && !sumBig && !sumSmall) {
-            for (int i = 0; i < baoxuanList.size(); i++) {
-                if (i % 2 == 1) {
-                    baoxuanList.get(i).setIs_checked(true);
-                    baoxuanAdapter.setSelectedList(i);
-                }
-            }
-        } else if (sumBig && (sumSig || sumDual)) {
-            if (sumSig) {
-                for (int i = baoxuanList.size() / 2; i < baoxuanList.size(); i++) {
-                    if (i % 2 == 0) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            } else if (sumDual) {
-                for (int i = baoxuanList.size() / 2; i < baoxuanList.size(); i++) {
-                    if (i % 2 == 1) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            }
-        } else if (sumSmall && (sumSig || sumDual)) {
-            if (sumSig) {
-                for (int i = 0; i < baoxuanList.size() / 2; i++) {
-                    if (i % 2 == 0) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            } else if (sumDual) {
-                for (int i = 0; i < baoxuanList.size() / 2; i++) {
-                    if (i % 2 == 1) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            }
-        } else if (sumSig && (sumBig || sumSmall)) {
-            if (sumBig) {
-                for (int i = baoxuanList.size() / 2; i < baoxuanList.size(); i++) {
-                    if (i % 2 == 0) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            } else if (sumSmall) {
-                for (int i = 0; i < baoxuanList.size() / 2; i++) {
-                    if (i % 2 == 0) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            }
-        } else if (sumDual && (sumBig || sumSmall)) {
-            if (sumBig) {
-                for (int i = baoxuanList.size() / 2; i < baoxuanList.size(); i++) {
-                    if (i % 2 == 1) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            } else if (sumSmall) {
-                for (int i = 0; i < baoxuanList.size() / 2; i++) {
-                    if (i % 2 == 1) {
-                        baoxuanList.get(i).setIs_checked(true);
-                        baoxuanAdapter.setSelectedList(i);
-                    }
-                }
-            }
-        }
-        // sumValueConsult();
-    }
 
     /**
      * 计算baoxuan
@@ -2172,7 +3389,7 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < shunziList.size(); i++) {
             if (shunziList.get(i).is_checked()) {
                 buy_acount++;
-               // Log.e("sumValueSelecte", shunziList.get(i).getNum());
+                // Log.e("sumValueSelecte", shunziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
@@ -2189,7 +3406,7 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < tonghuashunList.size(); i++) {
             if (tonghuashunList.get(i).is_checked()) {
                 buy_acount++;
-               // Log.e("sumValueSelecte", tonghuashunList.get(i).getNum());
+                // Log.e("sumValueSelecte", tonghuashunList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
@@ -2206,7 +3423,7 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < baoziList.size(); i++) {
             if (baoziList.get(i).is_checked()) {
                 buy_acount++;
-               // Log.e("sumValueSelecte", baoziList.get(i).getNum());
+                // Log.e("sumValueSelecte", baoziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
@@ -2223,7 +3440,7 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < duiziList.size(); i++) {
             if (duiziList.get(i).is_checked()) {
                 buy_acount++;
-              //  Log.e("sumValueSelecte", duiziList.get(i).getNum());
+                //  Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
@@ -2231,7 +3448,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 计算one
+     * 计算one  拖胆
      */
     public void calculate_one() {
         //计算选中的注数和金额
@@ -2248,7 +3465,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 计算two
+     * 计算two  拖胆
      */
     public void calculate_two() {
         //计算选中的注数和金额
@@ -2265,7 +3482,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 计算three
+     * 计算three  拖胆
      */
     public void calculate_three() {
         //计算选中的注数和金额
@@ -2282,7 +3499,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 计算four
+     * 计算four  拖胆
      */
     public void calculate_four() {
         //计算选中的注数和金额
@@ -2299,7 +3516,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 计算five
+     * 计算five  拖胆
      */
     public void calculate_five() {
         //计算选中的注数和金额
@@ -2316,7 +3533,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 计算six
+     * 计算six  拖胆
      */
     public void calculate_six() {
         //计算选中的注数和金额
@@ -2325,13 +3542,116 @@ public class PukeActivity extends AppCompatActivity {
         for (int i = 0; i < RSIXList.size(); i++) {
             if (RSIXList.get(i).is_checked()) {
                 buy_acount++;
-               // Log.e("sumValueSelecte", duiziList.get(i).getNum());
+                // Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
         }
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
 
+    //普通投注
+
+    /**
+     * 计算rone  普通投注
+     */
+    public void calculate_rone() {
+        //计算选中的注数和金额
+        int buy_acount = 0;
+
+        for (int i = 0; i < RRONEList.size(); i++) {
+            if (RRONEList.get(i).is_checked()) {
+                buy_acount++;
+
+            }
+        }
+        num.setText(buy_acount + "");
+        price.setText(buy_acount * TicketPrice + "");
+    }
+
+    /**
+     * 计算rtwo  普通投注
+     */
+    public void calculate_rtwo() {
+        //计算选中的注数和金额
+        int buy_acount = 0;
+
+        for (int i = 0; i < RRTWOList.size(); i++) {
+            if (RRTWOList.get(i).is_checked()) {
+                buy_acount++;
+
+            }
+        }
+        num.setText(buy_acount + "");
+        price.setText(buy_acount * TicketPrice + "");
+    }
+
+    /**
+     * 计算rthree  普通投注
+     */
+    public void calculate_rthree() {
+        //计算选中的注数和金额
+        int buy_acount = 0;
+
+        for (int i = 0; i < RRTHREEList.size(); i++) {
+            if (RRTHREEList.get(i).is_checked()) {
+                buy_acount++;
+
+            }
+        }
+        num.setText(buy_acount + "");
+        price.setText(buy_acount * TicketPrice + "");
+    }
+
+    /**
+     * 计算rfour  普通投注
+     */
+    public void calculate_rfour() {
+        //计算选中的注数和金额
+        int buy_acount = 0;
+
+        for (int i = 0; i < RRFOURList.size(); i++) {
+            if (RRFOURList.get(i).is_checked()) {
+                buy_acount++;
+
+            }
+        }
+        num.setText(buy_acount + "");
+        price.setText(buy_acount * TicketPrice + "");
+    }
+
+    /**
+     * 计算rfive  普通投注
+     */
+    public void calculate_rfive() {
+        //计算选中的注数和金额
+        int buy_acount = 0;
+
+        for (int i = 0; i < RRFIVEList.size(); i++) {
+            if (RRFIVEList.get(i).is_checked()) {
+                buy_acount++;
+
+            }
+        }
+        num.setText(buy_acount + "");
+        price.setText(buy_acount * TicketPrice + "");
+    }
+
+    /**
+     * 计算rsix  普通投注
+     */
+    public void calculate_rsix() {
+        //计算选中的注数和金额
+        int buy_acount = 0;
+
+        for (int i = 0; i < RRSIXList.size(); i++) {
+            if (RRSIXList.get(i).is_checked()) {
+                buy_acount++;
+                // Log.e("sumValueSelecte", duiziList.get(i).getNum());
+            }
+        }
+        num.setText(buy_acount + "");
+        price.setText(buy_acount * TicketPrice + "");
+    }
 
     //分类弹窗
     public void sort_pop() {
@@ -2428,30 +3748,33 @@ public class PukeActivity extends AppCompatActivity {
 
                             mSelecte_Mode = S_DUIZI;
                             break;
+                        //普通投注
                         case "任选一":
 
-                            mSelecte_Mode = SD_ONE;
+                            mSelecte_Mode = SSD_ONE;
+                            //Log.e("mSelecte_Mode", "SSD_ONE");
                             break;
                         case "任选二":
 
-                            mSelecte_Mode = SD_TWO;
+                            mSelecte_Mode = SSD_TWO;
                             break;
                         case "任选三":
 
-                            mSelecte_Mode = SD_THREE;
+                            mSelecte_Mode = SSD_THREE;
                             break;
                         case "任选四":
 
-                            mSelecte_Mode = SD_FOUR;
+                            mSelecte_Mode = SSD_FOUR;
                             break;
                         case "任选五":
 
-                            mSelecte_Mode = SD_FIVE;
+                            mSelecte_Mode = SSD_FIVE;
                             break;
                         case "任选六":
 
-                            mSelecte_Mode = SD_SIX;
+                            mSelecte_Mode = SSD_SIX;
                             break;
+
 
                     }
                     mAcache.put("FAST_SELECT_MODE", mSelecte_Mode + "");
@@ -2500,10 +3823,7 @@ public class PukeActivity extends AppCompatActivity {
                         mPopSort.dismiss();
                     }
                     switch (info.getName().toString()) {
-                        case "任选一":
 
-                            mSelecte_Mode = SD_ONE;
-                            break;
                         case "任选二":
 
                             mSelecte_Mode = SD_TWO;
@@ -2556,9 +3876,7 @@ public class PukeActivity extends AppCompatActivity {
             case S_SHUNZI:
                 initSHUNZI();
                 break;
-            case SD_ONE:
-                initONE();
-                break;
+            //拖胆
             case SD_TWO:
                 initTWO();
                 break;
@@ -2573,6 +3891,25 @@ public class PukeActivity extends AppCompatActivity {
                 break;
             case SD_SIX:
                 initSIX();
+                break;
+            //普通投注
+            case SSD_ONE:
+                initRONE();
+                break;
+            case SSD_TWO:
+                initRTWO();
+                break;
+            case SSD_THREE:
+                initRTHREE();
+                break;
+            case SSD_FOUR:
+                initRFOUR();
+                break;
+            case SSD_FIVE:
+                initRFIVE();
+                break;
+            case SSD_SIX:
+                initRSIX();
                 break;
 
         }
@@ -2628,13 +3965,7 @@ public class PukeActivity extends AppCompatActivity {
                     duiziAdapter.setSelectedList(result[i]);
                 }
                 break;
-            case SD_ONE:
-                result = numberRandom(1, RONENums);
-                for (int i = 0; i < result.length; i++) {
-                    RONEList.get(result[i]).setIs_checked(true);
-                    RONEAdapter.setSelectedList(result[i]);
-                }
-                break;
+
             case SD_TWO:
                 result = numberRandom(2, RTWONums);
                 for (int i = 0; i < result.length; i++) {

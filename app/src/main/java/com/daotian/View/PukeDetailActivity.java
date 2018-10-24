@@ -65,6 +65,13 @@ public class PukeDetailActivity extends AppCompatActivity {
     private final int S_TONGHUASHUN = 4;//同花顺
     private final int S_BAOZI = 5;//豹子
     private final int S_DUIZI = 6;//对子
+    //普通任选
+    private final int SSD_ONE = 13;//任选1
+    private final int SSD_TWO = 14;//任选2
+    private final int SSD_THREE = 15;//任选3
+    private final int SSD_FOUR = 16;//任选4
+    private final int SSD_FIVE = 17;//任选5
+    private final int SSD_SIX = 18;//任选6
     //拖胆
     private final int SD_ONE = 7;//任选1
     private final int SD_TWO = 8;//任选2
@@ -72,161 +79,7 @@ public class PukeDetailActivity extends AppCompatActivity {
     private final int SD_FOUR = 10;//任选4
     private final int SD_FIVE = 11;//任选5
     private final int SD_SIX = 12;//任选6
-    //任选
-    int[] images = {
-            R.drawable.puke1, R.drawable.puke2,
-            R.drawable.puke3, R.drawable.puke4,
-            R.drawable.puke5, R.drawable.puke6,
-            R.drawable.puke7, R.drawable.puke8,
-            R.drawable.puke9, R.drawable.puke10,
-            R.drawable.puke11, R.drawable.puke12,
-            R.drawable.puke13,};
-    int[] images_selected = {
-            R.drawable.puke1_selected, R.drawable.puke2_selected,
-            R.drawable.puke3_selected, R.drawable.puke4_selected,
-            R.drawable.puke5_selected, R.drawable.puke6_selected,
-            R.drawable.puke7_selected, R.drawable.puke8_selected,
-            R.drawable.puke9_selected, R.drawable.puke10_selected,
-            R.drawable.puke11_selected, R.drawable.puke12_selected,
-            R.drawable.puke13_selected};
-    //包选
-    int[] baoxuan = {
-            R.drawable.tonghuashunbx,
-            R.drawable.tonghuabx,
-            R.drawable.duizibx,
-            R.drawable.baozibx,
-            R.drawable.shunzibx};
-    int[] baoxuan_selected = {
-            R.drawable.tonghuashunbx_selected,
-            R.drawable.tonghuabx_selected,
-            R.drawable.duizibx_selected,
-            R.drawable.baozibx_selected,
-            R.drawable.shunzibx_selected
-    };
-    //同花
-    int[] tonghua = {
-            R.drawable.tonghua1,
-            R.drawable.tonghua2,
-            R.drawable.tonghua3,
-            R.drawable.tonghua4,
-    };
-    int[] tonghua_selected = {
-            R.drawable.tonghua1_selected,
-            R.drawable.tonghua2_selected,
-            R.drawable.tonghua3_selected,
-            R.drawable.tonghua4_selected,
 
-    };
-    //同花顺
-    int[] tonghuashun = {
-            R.drawable.tonghuashun1,
-            R.drawable.tonghuashun2,
-            R.drawable.tonghuashun3,
-            R.drawable.tonghuashun4,
-    };
-    int[] tonghuashun_selected = {
-            R.drawable.tonghuashun1_2,
-            R.drawable.tonghuashun2_2,
-            R.drawable.tonghuashun3_2,
-            R.drawable.tonghuashun4_2,
-
-    };
-    //豹子
-    int[] baozi = {
-            R.drawable.baozi1,
-            R.drawable.baozi2,
-            R.drawable.baozi3,
-            R.drawable.baozi4,
-            R.drawable.baozi5,
-            R.drawable.duizi6,
-            R.drawable.baozi7,
-            R.drawable.baozi8,
-            R.drawable.baozi9,
-            R.drawable.baozi10,
-            R.drawable.baozij,
-            R.drawable.baoziq,
-            R.drawable.baozik,
-    };
-    int[] baozi_selected = {
-            R.drawable.baozi1_2,
-            R.drawable.baozi2_2,
-            R.drawable.baozi3_2,
-            R.drawable.baozi4_2,
-            R.drawable.baozi5_2,
-            R.drawable.baozi6_2,
-            R.drawable.baozi7_2,
-            R.drawable.baozi8_2,
-            R.drawable.baozi9_2,
-            R.drawable.baozi10_2,
-            R.drawable.baozij_2,
-            R.drawable.baoziq_2,
-            R.drawable.baozik_2,
-
-    };
-    //对子
-    int[] duizi = {
-            R.drawable.duizi1,
-            R.drawable.duizi2,
-            R.drawable.duizi3,
-            R.drawable.duizi4,
-            R.drawable.duizi5,
-            R.drawable.duizi6,
-            R.drawable.duizi7,
-            R.drawable.duizi8,
-            R.drawable.duizi9,
-            R.drawable.duizi10,
-            R.drawable.duizi11,
-            R.drawable.duizi12,
-            R.drawable.duizi13,
-    };
-    int[] duizi_selected = {
-            R.drawable.duizi1_2,
-            R.drawable.duizi2_2,
-            R.drawable.duizi3_2,
-            R.drawable.duizi4_2,
-            R.drawable.duizi5_2,
-            R.drawable.duizi6_2,
-            R.drawable.duizi7_2,
-            R.drawable.duizi8_2,
-            R.drawable.duizi9_2,
-            R.drawable.duizi10_2,
-            R.drawable.duizi11_2,
-            R.drawable.duizi12_2,
-            R.drawable.duizi13_2,
-
-    };
-    //顺子
-    int[] shunzi = {
-            R.drawable.shunzi1,
-            R.drawable.shunzi2,
-            R.drawable.shunzi3,
-            R.drawable.shunzi4,
-            R.drawable.shunzi5,
-            R.drawable.shunzi6,
-            R.drawable.shunzi7,
-            R.drawable.shunzi8,
-            R.drawable.shunzi9,
-            R.drawable.shunzi10,
-            R.drawable.shunzi11,
-            R.drawable.shunzi12,
-
-    };
-    int[] shunzi_selected = {
-            R.drawable.shunzi1_2,
-            R.drawable.shunzi2_2,
-            R.drawable.shunzi3_2,
-            R.drawable.shunzi4_2,
-            R.drawable.shunzi5_2,
-            R.drawable.shunzi6_2,
-            R.drawable.shunzi7_2,
-            R.drawable.shunzi8_2,
-            R.drawable.shunzi9_2,
-            R.drawable.shunzi10_2,
-            R.drawable.shunzi11_2,
-            R.drawable.shunzi12_2,
-
-
-    };
 
     private int mSelecte_Mode = S_BAOXUAN;
 
@@ -267,13 +120,23 @@ public class PukeDetailActivity extends AppCompatActivity {
     private List<NumInfo> baoziList = new ArrayList<>();
     private List<NumInfo> duiziList = new ArrayList<>();
 
-
+//down
     private List<NumInfo> RONEList = new ArrayList<>();
     private List<NumInfo> RTWOList = new ArrayList<>();
     private List<NumInfo> RTHREEList = new ArrayList<>();
     private List<NumInfo> RFOURList = new ArrayList<>();
     private List<NumInfo> RFIVEList = new ArrayList<>();
     private List<NumInfo> RSIXList = new ArrayList<>();
+    //up
+    private List<NumInfo> RRONEList = new ArrayList<>();
+    private List<NumInfo> RRTWOList = new ArrayList<>();
+    private List<NumInfo> RRTHREEList = new ArrayList<>();
+    private List<NumInfo> RRFOURList = new ArrayList<>();
+    private List<NumInfo> RRFIVEList = new ArrayList<>();
+    private List<NumInfo> RRSIXList = new ArrayList<>();
+
+
+
 
 
     private TicketAdapter adpater;
@@ -343,6 +206,14 @@ public class PukeDetailActivity extends AppCompatActivity {
         RFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFOURList");
         RFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFIVEList");
         RSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RSIXList");
+
+        //up
+        RRONEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRONEList");
+        RRTWOList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRTWOList");
+        RRTHREEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRTHREEList");
+        RRFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRFOURList");
+        RRFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRFIVEList");
+        RRSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRSIXList");
 
         num.setText(this.getIntent().getStringExtra("num"));
         price.setText(this.getIntent().getStringExtra("price"));
@@ -466,6 +337,59 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                         info.getNumbers1().add(RSIXList.get(i));
                         Log.e("checked!!!!!!",String.valueOf(i));
+                    }
+                }
+                break;
+
+                //up
+            case SSD_ONE:
+                for(int i=0;i<RRONEList.size();i++){
+                    if(RRONEList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RRONEList.get(i));
+                    }
+                }
+                break;
+            case SSD_TWO:
+                for(int i=0;i<RRTWOList.size();i++){
+                    if(RRTWOList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RRTWOList.get(i));
+                    }
+                }
+                break;
+            case SSD_THREE:
+                for(int i=0;i<RRTHREEList.size();i++){
+                    if(RRTHREEList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RRTHREEList.get(i));
+                    }
+                }
+                break;
+            case SSD_FOUR:
+                for(int i=0;i<RRFOURList.size();i++){
+                    if(RRFOURList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RRFOURList.get(i));
+
+                    }
+                }
+                break;
+            case SSD_FIVE:
+                for(int i=0;i<RRFIVEList.size();i++){
+                    if(RRFIVEList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RRFIVEList.get(i));
+
+                    }
+                }
+                break;
+            case SSD_SIX:
+                for(int i=0;i<RRSIXList.size();i++){
+                    if(RRSIXList.get(i).is_checked()){
+
+                        info.getNumbers1().add(RRSIXList.get(i));
+
                     }
                 }
                 break;
@@ -639,6 +563,14 @@ public class PukeDetailActivity extends AppCompatActivity {
             RFIVEList=(List<NumInfo>)data.getSerializableExtra("RFIVEList");
             RSIXList=(List<NumInfo>) data.getSerializableExtra("RSIXList");
 
+            //up
+            RRONEList=(List<NumInfo>) data.getSerializableExtra("RRONEList");
+            RRTWOList=(List<NumInfo>) data.getSerializableExtra("RRTWOList");
+            RRTHREEList=(List<NumInfo>) data.getSerializableExtra("RRTHREEList");
+            RRFOURList=(List<NumInfo>) data.getSerializableExtra("RRFOURList");
+            RRFIVEList=(List<NumInfo>)data.getSerializableExtra("RRFIVEList");
+            RRSIXList=(List<NumInfo>) data.getSerializableExtra("RRSIXList");
+
             sh_name=this.getIntent().getStringExtra("sh_name");
 
             TicketResultListInfo info=new TicketResultListInfo();
@@ -742,6 +674,59 @@ public class PukeDetailActivity extends AppCompatActivity {
                         if(RSIXList.get(i).is_checked()){
                             RSIXList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RSIXList.get(i));
+                        }
+                    }
+                    //up
+                case SSD_ONE:
+                    for(int i=0;i<RRONEList.size();i++){
+                        if(RRONEList.get(i).is_checked()){
+                            RRONEList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RRONEList.get(i));
+                        }
+                    }
+
+                    break;
+                case SSD_TWO:
+                    for(int i=0;i<RRTWOList.size();i++){
+                        if(RRTWOList.get(i).is_checked()){
+                            RRTWOList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RRTWOList.get(i));
+                        }
+                    }
+
+                    break;
+                case SSD_THREE:
+                    for(int i=0;i<RRTHREEList.size();i++){
+                        if(RRTHREEList.get(i).is_checked()){
+                            RRTHREEList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RRTHREEList.get(i));
+                        }
+                    }
+
+                    break;
+                case SSD_FOUR:
+                    for(int i=0;i<RRFOURList.size();i++){
+                        if(RRFOURList.get(i).is_checked()){
+                            RRFOURList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RRFOURList.get(i));
+                        }
+                    }
+
+                    break;
+                case SSD_FIVE:
+                    for(int i=0;i<RRFIVEList.size();i++){
+                        if(RRFIVEList.get(i).is_checked()){
+                            RRFIVEList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RRFIVEList.get(i));
+                        }
+                    }
+
+                    break;
+                case SSD_SIX:
+                    for(int i=0;i<RSIXList.size();i++){
+                        if(RRSIXList.get(i).is_checked()){
+                            RRSIXList.get(i).setIs_spe(true);
+                            info.getNumbers1().add(RRSIXList.get(i));
                         }
                     }
 
@@ -954,6 +939,31 @@ public class PukeDetailActivity extends AppCompatActivity {
                                 tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
+                                //up
+                            case SSD_ONE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv.setBackgroundResource(R.drawable.puke_empty);
+                                break;
+                            case SSD_TWO:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv.setBackgroundResource(R.drawable.puke_empty);
+                                break;
+                            case SSD_THREE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv.setBackgroundResource(R.drawable.puke_empty);
+                                break;
+                            case SSD_FOUR:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv.setBackgroundResource(R.drawable.puke_empty);
+                                break;
+                            case SSD_FIVE:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv.setBackgroundResource(R.drawable.puke_empty);
+                                break;
+                            case SSD_SIX:
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv.setBackgroundResource(R.drawable.puke_empty);
+                                break;
                         }
 
 
@@ -1002,6 +1012,25 @@ public class PukeDetailActivity extends AppCompatActivity {
                     mode_tv.setText("任选五");
                     break;
                 case SD_SIX:
+                    mode_tv.setText("任选六");
+                    break;
+                    //up
+                case SSD_ONE:
+                    mode_tv.setText("任选一");
+                    break;
+                case SSD_TWO:
+                    mode_tv.setText("任选二");
+                    break;
+                case SSD_THREE:
+                    mode_tv.setText("任选三");
+                    break;
+                case SSD_FOUR:
+                    mode_tv.setText("任选四");
+                    break;
+                case SSD_FIVE:
+                    mode_tv.setText("任选五");
+                    break;
+                case SSD_SIX:
                     mode_tv.setText("任选六");
                     break;
             }

@@ -246,6 +246,7 @@
                     android:layout_marginTop="5dp"
                     android:id="@+id/tonghuashun"
                     zhy:max_select="-1"
+                    zhy:gravity="center"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
                     android:layout_width="match_parent"
@@ -268,6 +269,7 @@
                     android:layout_marginTop="10dp"
                     android:id="@+id/baozi"
                     zhy:max_select="-1"
+                    zhy:gravity="center"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
                     android:layout_width="match_parent"
@@ -288,6 +290,7 @@
                     android:id="@+id/duizi"
                     android:layout_marginTop="10dp"
                     zhy:max_select="-1"
+                    zhy:gravity="center"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
                     android:layout_width="match_parent"
@@ -296,7 +299,131 @@
 
             </LinearLayout>
 
+            <!--任选1-->
+            <LinearLayout
+                android:id="@+id/layout_rrone"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:id="@+id/rrone"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+            </LinearLayout>
+            <!--任选2-->
+            <LinearLayout
+                android:id="@+id/layout_rrtwo"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/rrtwo"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
+            <!--任选3-->
+            <LinearLayout
+                android:id="@+id/layout_rrthree"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/rthree"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
+            <!--任选4-->
+            <LinearLayout
+                android:id="@+id/layout_rrfour"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/rfour"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
+            <!--任选5-->
+            <LinearLayout
+                android:id="@+id/layout_rrfive"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/rfive"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
+            <!--任选6-->
+            <LinearLayout
+                android:id="@+id/layout_rrsix"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/rsix"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+            </LinearLayout>
 
             <!--任选1-->
             <LinearLayout
@@ -311,6 +438,7 @@
                 <com.zhy.view.flowlayout.TagFlowLayout
                     android:id="@+id/rone"
                     zhy:max_select="-1"
+                    zhy:gravity="center"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
                     android:layout_width="match_parent"
@@ -325,10 +453,56 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="胆码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
                 <com.zhy.view.flowlayout.TagFlowLayout
                     android:layout_marginTop="5dp"
                     android:id="@+id/rtwo"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="拖码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/rtwo2"
                     zhy:max_select="-1"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
@@ -345,11 +519,58 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="胆码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
                 <com.zhy.view.flowlayout.TagFlowLayout
                     android:layout_marginTop="5dp"
                     android:id="@+id/three"
                     zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="拖码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/three2"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
                     android:layout_width="match_parent"
@@ -365,10 +586,56 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="胆码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
                 <com.zhy.view.flowlayout.TagFlowLayout
                     android:layout_marginTop="5dp"
                     android:id="@+id/four"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="拖码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/four2"
                     zhy:max_select="-1"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
@@ -385,17 +652,62 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="胆码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
                 <com.zhy.view.flowlayout.TagFlowLayout
                     android:layout_marginTop="5dp"
                     android:id="@+id/five"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="拖码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/five2"
                     zhy:max_select="-1"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </com.zhy.view.flowlayout.TagFlowLayout>
-
             </LinearLayout>
             <!--任选6-->
             <LinearLayout
@@ -405,10 +717,56 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="胆码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
                 <com.zhy.view.flowlayout.TagFlowLayout
                     android:layout_marginTop="5dp"
                     android:id="@+id/six"
+                    zhy:max_select="-1"
+                    zhy:gravity="center"
+                    zhy:auto_select_effect="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="拖码"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_bg_blue_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="13sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="请至少选择一个号码"
+                        android:textColor="@color/theme_color1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/six2"
                     zhy:max_select="-1"
                     zhy:auto_select_effect="true"
                     android:background="@color/white"
