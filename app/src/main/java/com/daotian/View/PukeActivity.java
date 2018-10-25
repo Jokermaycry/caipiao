@@ -4107,6 +4107,7 @@ public class PukeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         popupWindow.setTouchable(true);
         // 设置好参数之后再show
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
