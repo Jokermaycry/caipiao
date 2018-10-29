@@ -152,7 +152,7 @@ public class PukeDetailActivity extends AppCompatActivity {
         mActivity=this;
         initIntent();
         initView();
-       // getData();
+        getData();
 
     }
 
@@ -200,20 +200,25 @@ public class PukeDetailActivity extends AppCompatActivity {
         tonghuashunList=(List<NumInfo>) this.getIntent().getSerializableExtra("tonghuashunList");
         baoziList=(List<NumInfo>) this.getIntent().getSerializableExtra("baoziList");
         duiziList=(List<NumInfo>) this.getIntent().getSerializableExtra("duiziList");
-        RONEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RONEList");
-        RTWOList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTWOList");
-        RTHREEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTHREEList");
-        RFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFOURList");
-        RFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFIVEList");
-        RSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RSIXList");
 
-        //up
+
+
+
+        //up    普通
         RRONEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRONEList");
         RRTWOList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRTWOList");
         RRTHREEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRTHREEList");
         RRFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRFOURList");
         RRFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRFIVEList");
         RRSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRSIXList");
+
+        //down 拖胆
+        RONEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RONEList");
+        RTWOList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTWOList");
+        RTHREEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTHREEList");
+        RFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFOURList");
+        RFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFIVEList");
+        RSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RSIXList");
 
         num.setText(this.getIntent().getStringExtra("num"));
         price.setText(this.getIntent().getStringExtra("price"));
@@ -556,6 +561,8 @@ public class PukeDetailActivity extends AppCompatActivity {
             tonghuashunList=(List<NumInfo>)data.getSerializableExtra("tonghuashunList");
             baoziList=(List<NumInfo>)data.getSerializableExtra("baoziList");
             duiziList=(List<NumInfo>) data.getSerializableExtra("duiziList");
+
+            //down
             RONEList=(List<NumInfo>) data.getSerializableExtra("RONEList");
             RTWOList=(List<NumInfo>) data.getSerializableExtra("RTWOList");
             RTHREEList=(List<NumInfo>) data.getSerializableExtra("RTHREEList");

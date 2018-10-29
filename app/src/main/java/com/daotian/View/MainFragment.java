@@ -248,12 +248,12 @@ public class MainFragment extends Fragment {
                                     in.putExtra("sh_name", info.getSh_name());
                                     startActivity(in);
                                 }
-//                                //扑克
-//                                else if (info.getType().equals("4")) {
-//                                    Intent in = new Intent(mContext, Puke.class);
-//                                    in.putExtra("sh_name", info.getSh_name());
-//                                    startActivity(in);
-//                                }
+                                //扑克
+                                else if (info.getType().equals("4")) {
+                                    Intent in = new Intent(mContext, PukeActivity.class);
+                                    in.putExtra("sh_name", info.getSh_name());
+                                    startActivity(in);
+                                }
 
 
                                 else {

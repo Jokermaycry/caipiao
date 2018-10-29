@@ -43,7 +43,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".View.PukeActivity"
+            android:name=".View.WelcomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +59,7 @@
         android:screenOrientation="portrait" />
 
         <activity
-            android:name=".View.WelcomeActivity"
+            android:name=".View.PukeActivity"
             android:screenOrientation="portrait" />
 
 

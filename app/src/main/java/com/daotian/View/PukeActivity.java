@@ -495,10 +495,10 @@ public class PukeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_puke);
         ButterKnife.bind(this);
         mActivity = this;
-//        dialog = new ProgressDialog(mActivity);
-//        dialog.setTitle("正在联网下载数据...");
-//        dialog.setMessage("请稍后...");
-//        dialog.show();
+        dialog = new ProgressDialog(mActivity);
+        dialog.setTitle("正在联网下载数据...");
+        dialog.setMessage("请稍后...");
+        dialog.show();
         sh_name = getIntent().getStringExtra("sh_name");
         mContinue = getIntent().getBooleanExtra("continue", false);
         mSelecte_Mode = S_BAOXUAN;
@@ -521,16 +521,16 @@ public class PukeActivity extends AppCompatActivity {
         initFIVE();
         initSIX();*/
 
-        // getDetail();
+         getDetail();
 
-        //initBefore();
+        initBefore();
 
 
     }
 
 
     private void initBefore() {
-        String mode = mAcache.getAsString("FAST_SELECT_MODE");
+        String mode = mAcache.getAsString("PUKEMODE");
         if (TextUtils.isEmpty(mode)) {
             return;
         }
@@ -3268,12 +3268,6 @@ public class PukeActivity extends AppCompatActivity {
             in.putExtra("type", "puke");
             in.putExtra("now_qs", "puke");
             setResult(RESULT_OK, in);
-            for (int i = 0; i < baoxuanList.size(); i++) {
-                if (baoxuanList.get(i).is_checked()) {
-
-                    Log.e("i!!!!!!", String.valueOf(i));
-                }
-            }
             finish();
             clearNum();
         } else {
@@ -3330,12 +3324,6 @@ public class PukeActivity extends AppCompatActivity {
             in.putExtra("sh_name", "puke");
             in.putExtra("type", "puke");
             in.putExtra("now_qs", "puke");
-            for (int i = 0; i < baoxuanList.size(); i++) {
-                if (baoxuanList.get(i).is_checked()) {
-
-                    Log.e("i!!!!!!", String.valueOf(i));
-                }
-            }
             startActivity(in);
             clearNum();
             finish();
@@ -3777,7 +3765,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
                     }
-                    mAcache.put("FAST_SELECT_MODE", mSelecte_Mode + "");
+                    mAcache.put("PUKEMODE", mSelecte_Mode + "");
                     initRule();
                     clearNum();
 
