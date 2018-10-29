@@ -923,52 +923,52 @@ public class PukeDetailActivity extends AppCompatActivity {
                                 tv.setBackgroundResource(R.drawable.duizi_empty);
                                 break;
                             case SD_ONE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SD_TWO:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SD_THREE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SD_FOUR:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SD_FIVE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SD_SIX:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                                 //up
                             case SSD_ONE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SSD_TWO:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SSD_THREE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SSD_FOUR:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SSD_FIVE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                             case SSD_SIX:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                                 tv.setBackgroundResource(R.drawable.puke_empty);
                                 break;
                         }

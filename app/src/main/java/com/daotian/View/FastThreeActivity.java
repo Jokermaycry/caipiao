@@ -1321,7 +1321,7 @@ public class FastThreeActivity extends AppCompatActivity {
             in.putExtra("num", num.getText().toString());
             in.putExtra("price", price.getText().toString());
             in.putExtra("title", mInfo.getName());
-            Log.e("shname",mInfo.getName());
+            //Log.e("shname",mInfo.getName());
             in.putExtra("sh_name", mInfo.getSh_name());
             in.putExtra("type", mInfo.getType());
             in.putExtra("now_qs", mInfo.getNow_qs());
