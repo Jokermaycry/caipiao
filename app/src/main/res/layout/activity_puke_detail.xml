@@ -154,41 +154,42 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
+                android:id="@+id/zhui"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:textSize="14sp"
-                    android:text="追"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="追"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/term_num_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
+                    android:background="@drawable/btn_bg_blue_boder"
                     android:hint="1"
-                    android:textSize="15sp"
-                    android:textColor="@color/theme_color1"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
                     android:inputType="phone"
                     android:maxLength="3"
-                    android:background="@drawable/btn_bg_blue_boder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:paddingLeft="25dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="25dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/theme_color1"
+                    android:textSize="15sp" />
 
                 <TextView
-                    android:textSize="14sp"
-                    android:text="期"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="期"
+                    android:textSize="14sp" />
 
             </LinearLayout>
             <View
@@ -241,24 +242,26 @@
             android:layout_height="0.5dp"></View>
 
         <LinearLayout
-            android:padding="5dp"
+            android:id="@+id/zhongstop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:padding="5dp">
 
             <ImageView
-                android:padding="8dp"
                 android:id="@+id/term_stop_check"
-                android:background="?android:selectableItemBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_shape_seleted"/>
+                android:background="?android:selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/icon_shape_seleted" />
+
             <TextView
-                android:textSize="13sp"
-                android:text="中奖后停止追号"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="中奖后停止追号"
+                android:textSize="13sp" />
 
 
         </LinearLayout>

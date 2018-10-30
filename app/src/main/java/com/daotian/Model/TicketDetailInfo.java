@@ -18,6 +18,15 @@ public class TicketDetailInfo implements Serializable{
     private String open_time;//	开奖时间 	int
     private String after_time;//	开奖时间 	int
     private String current_time;
+    private String zq_type;
+
+    public String getZq_type() {
+        return zq_type;
+    }
+
+    public void setZq_type(String zq_type) {
+        this.zq_type = zq_type;
+    }
 
     public String getName() {
         return name;

@@ -64,27 +64,38 @@ public class PukeActivity extends AppCompatActivity {
     private final int TicketPrice = 2;
     //普通投注
     private final int S_BAOXUAN = 1;//包选
-    private final int S_TONGHUA = 2;//同花
-    private final int S_SHUNZI = 3;//顺子
-    private final int S_TONGHUASHUN = 4;//同花顺
-    private final int S_BAOZI = 5;//豹子
-    private final int S_DUIZI = 6;//对子
+    private final int danxuan_tonghua = 2;//同花单选
+    private final int danxuan_shunzi = 3;//顺子单选
+    private final int danxuan_tonghuashun =4;//同花顺单选
+    private final int danxuan_baozi = 5;//豹子单选
+    private final int danxuan_duizi = 6;//对子单选
 
-    //普通任选
-    private final int SSD_ONE = 13;//任选1
-    private final int SSD_TWO = 14;//任选2
-    private final int SSD_THREE = 15;//任选3
-    private final int SSD_FOUR = 16;//任选4
-    private final int SSD_FIVE = 17;//任选5
-    private final int SSD_SIX = 18;//任选6
+
 
     //拖胆
     /*private final int SD_ONE = 7;//任选1*/
-    private final int SD_TWO = 8;//任选2
-    private final int SD_THREE = 9;//任选3
-    private final int SD_FOUR = 10;//任选4
-    private final int SD_FIVE = 11;//任选5
-    private final int SD_SIX = 12;//任选6
+    private final int tuodan_two = 8;//任选2拖胆
+    private final int tuodan_three = 9;//任选3拖胆
+    private final int tuodan_four = 10;//任选4拖胆
+    private final int tuodan_five = 11;//任选5拖胆
+    private final int tuodan_six = 12;//任选6拖胆
+
+    //普通任选
+    private final int putong_one = 13;//任选1普通
+    private final int putong_two = 14;//任选2普通
+    private final int putong_three = 15;//任选3普通
+    private final int putong_four = 16;//任选4普通
+    private final int putong_five = 17;//任选5普通
+    private final int putong_six = 18;//任选6普通
+
+    private final int type_TONGHUA = 21;//同花包选
+    private final int type_SHUNZI = 22;//顺子包选
+    private final int type_TONGHUASHUN = 23;//同花顺包选
+    private final int type_BAOZI = 24;//豹子包选
+    private final int type_DUIZI = 25;//对子包选
+    int temp_position;
+
+
     @BindView(R.id.clear_btn)
     TextView clearBtn;
     @BindView(R.id.num)
@@ -224,115 +235,116 @@ public class PukeActivity extends AppCompatActivity {
     private TagAdapter<String> baoxuanAdapter;
     private List<NumInfo> baoxuanList = new ArrayList<>();
 
-    //同花
+    //同花单选
     private List<String> tonghuaNums = new ArrayList<>();
     private TagAdapter<String> tonghuaAdapter;
     private List<NumInfo> tonghuaList = new ArrayList<>();
 
 
-    private boolean sameThreeAll;
-    //顺子
+    //顺子单选
     private List<String> shunziNums = new ArrayList<>();
     private TagAdapter<String> shunziAdapter;
     private List<NumInfo> shunziList = new ArrayList<>();
 
-    //同花顺
+    //同花顺单选
     private List<String> tonghuashunNums = new ArrayList<>();
     private TagAdapter<String> tonghuashunAdapter;
     private List<NumInfo> tonghuashunList = new ArrayList<>();
-    //豹子
+    //豹子单选
     private List<String> baoziNums = new ArrayList<>();
     private TagAdapter<String> baoziAdapter;
     private List<NumInfo> baoziList = new ArrayList<>();
 
-    //对子
+    //对子单选
     private List<String> duiziNums = new ArrayList<>();
     private TagAdapter<String> duiziAdapter;
     private List<NumInfo> duiziList = new ArrayList<>();
 
 
-    //任选1
-    // down 拖胆
-    private List<String> RONENums = new ArrayList<>();
-    private TagAdapter<String> RONEAdapter;
-    private List<NumInfo> RONEList = new ArrayList<>();
+//    //任选1
+//    // down 拖胆
+//    private List<String> RONENums = new ArrayList<>();
+//    private TagAdapter<String> RONEAdapter;
+//    private List<NumInfo> RONEList = new ArrayList<>();
 
 
-    //任选2
-    private List<String> RTWONums = new ArrayList<>();
-    private TagAdapter<String> RTWOAdapter;
-    private List<NumInfo> RTWOList = new ArrayList<>();
-    //任选3
-    private List<String> RTHREENums = new ArrayList<>();
-    private TagAdapter<String> RTHREEAdapter;
-    private List<NumInfo> RTHREEList = new ArrayList<>();
-    //任选4
-    private List<String> RFOURNums = new ArrayList<>();
-    private TagAdapter<String> RFOURAdapter;
-    private List<NumInfo> RFOURList = new ArrayList<>();
-    //任选5
-    private List<String> RFIVENums = new ArrayList<>();
-    private TagAdapter<String> RFIVEAdapter;
-    private List<NumInfo> RFIVEList = new ArrayList<>();
-    //任选6
-    private List<String> RSIXNums = new ArrayList<>();
-    private TagAdapter<String> RSIXAdapter;
-    private List<NumInfo> RSIXList = new ArrayList<>();
+    //任选2拖胆
+    private List<String> tuodan_twonums = new ArrayList<>();
+    private TagAdapter<String> twodan_twoadapter;
+    private List<NumInfo> tuodan_twolist = new ArrayList<>();
+    //任选3拖胆
+    private List<String> tuodan_threenums = new ArrayList<>();
+    private TagAdapter<String> tuodanthreeadapter;
+    private List<NumInfo> tuodanthreelist = new ArrayList<>();
+    //任选4拖胆
+    private List<String> tuodan_fournums = new ArrayList<>();
+    private TagAdapter<String> tuodan_fouradapter;
+    private List<NumInfo> tuodan_fourlist = new ArrayList<>();
+    //任选5拖胆
+    private List<String> tuodan_fivenums = new ArrayList<>();
+    private TagAdapter<String> tuodan_fiveadapter;
+    private List<NumInfo> tuodan_fivelist = new ArrayList<>();
+    //任选6拖胆
+    private List<String> tuodan_sixnums = new ArrayList<>();
+    private TagAdapter<String> tuodan_sixadapter;
+    private List<NumInfo> tuodan_sixlist = new ArrayList<>();
 
 
-    //任选1   up 普通投注
-    private List<String> RRONENums = new ArrayList<>();
-    private TagAdapter<String> RRONEAdapter;
-    private List<NumInfo> RRONEList = new ArrayList<>();
-    //任选2
-    private List<String> RRTWONums = new ArrayList<>();
-    private TagAdapter<String> RRTWOAdapter;
-    private List<NumInfo> RRTWOList = new ArrayList<>();
-    //任选3
-    private List<String> RRTHREENums = new ArrayList<>();
-    private TagAdapter<String> RRTHREEAdapter;
-    private List<NumInfo> RRTHREEList = new ArrayList<>();
-    //任选4
-    private List<String> RRFOURNums = new ArrayList<>();
-    private TagAdapter<String> RRFOURAdapter;
-    private List<NumInfo> RRFOURList = new ArrayList<>();
-    //任选5
-    private List<String> RRFIVENums = new ArrayList<>();
-    private TagAdapter<String> RRFIVEAdapter;
-    private List<NumInfo> RRFIVEList = new ArrayList<>();
-    //任选6
-    private List<String> RRSIXNums = new ArrayList<>();
-    private TagAdapter<String> RRSIXAdapter;
-    private List<NumInfo> RRSIXList = new ArrayList<>();
+    //任选1   普通投注
+    private List<String> putong_onenums = new ArrayList<>();
+    private TagAdapter<String> putong_neadapter;
+    private List<NumInfo> putong_onelist = new ArrayList<>();
+    //任选2   普通投注
+    private List<String> putong_twonums = new ArrayList<>();
+    private TagAdapter<String> putong_twoadapter;
+    private List<NumInfo> putong_twolist = new ArrayList<>();
+    //任选3   普通投注
+    private List<String> putong_threenums = new ArrayList<>();
+    private TagAdapter<String> putong_threeadapter;
+    private List<NumInfo> putongthreelist = new ArrayList<>();
+    //任选4   普通投注
+    private List<String> putong_fournums = new ArrayList<>();
+    private TagAdapter<String> putong_fouradapter;
+    private List<NumInfo> putong_fourlist = new ArrayList<>();
+    //任选5   普通投注
+    private List<String> putong_fivenums = new ArrayList<>();
+    private TagAdapter<String> putong_fiveadapter;
+    private List<NumInfo> putong_fivelist = new ArrayList<>();
+    //任选6   普通投注
+    private List<String> putong_sixnums = new ArrayList<>();
+    private TagAdapter<String> putong_sixadapter;
+    private List<NumInfo> putong_sixlist = new ArrayList<>();
 
     //任选2-6的拖胆
 
     //任选2
-    private List<String> rRTWONums = new ArrayList<>();
-    private TagAdapter<String> rRTWOAdapter;
-    private List<NumInfo> rRTWOList = new ArrayList<>();
+    private List<String> child_twonums = new ArrayList<>();
+    private TagAdapter<String> child_twoAdapter;
+    private List<NumInfo> child_twoList = new ArrayList<>();
     //任选3
-    private List<String> rRTHREENums = new ArrayList<>();
-    private TagAdapter<String> rRTHREEAdapter;
-    private List<NumInfo> rRTHREEList = new ArrayList<>();
+    private List<String> child_threenums = new ArrayList<>();
+    private TagAdapter<String> child_threeadpter;
+    private List<NumInfo> child_threeList = new ArrayList<>();
     //任选4
-    private List<String> rRFOURNums = new ArrayList<>();
-    private TagAdapter<String> rRFOURAdapter;
-    private List<NumInfo> rRFOURList = new ArrayList<>();
+    private List<String> child_fournums = new ArrayList<>();
+    private TagAdapter<String> child_fourAdapter;
+    private List<NumInfo> child_fourList = new ArrayList<>();
     //任选5
-    private List<String> rRFIVENums = new ArrayList<>();
-    private TagAdapter<String> rRFIVEAdapter;
-    private List<NumInfo> rRFIVEList = new ArrayList<>();
+    private List<String> child_fivenums = new ArrayList<>();
+    private TagAdapter<String> child_fiveAdapter;
+    private List<NumInfo> child_fiveList = new ArrayList<>();
     //任选6
-    private List<String> rRSIXNums = new ArrayList<>();
-    private TagAdapter<String> rRSIXAdapter;
-    private List<NumInfo> rRSIXList = new ArrayList<>();
+    private List<String> child_sixnums = new ArrayList<>();
+    private TagAdapter<String> child_sixAdapter;
+    private List<NumInfo> child_sixlist = new ArrayList<>();
 
 
     private ProgressDialog dialog_test;
     private ProgressDialog dialog;
     private ACache mAcache;
 
+
+    private  String zq_type,buytype;
     //任选
     int[] images = {
             R.drawable.puke1, R.drawable.puke2,
@@ -562,6 +574,8 @@ public class PukeActivity extends AppCompatActivity {
                 lastQs.setText("上期(" + mInfo.getLast_qs() + ")开奖:");
                 lastOpenNum.setText(mInfo.getOpen_num());
                 nowQs.setText("距本期(" + mInfo.getNow_qs() + ")截止时间:");
+                zq_type=mInfo.getZq_type();
+                Log.e("zq_type",zq_type);
                 mInfo.setCurrent_time(Long.valueOf(mInfo.getOpen_time()) - Long.valueOf(mInfo.getNow_time()) - Long.valueOf(mInfo.getAfter_time()) + "");
                 handler.sendEmptyMessage(1);
                 dialog.dismiss();
@@ -606,19 +620,19 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("同花");
+                    info.setNum("同花顺包选");
                     break;
                 case 1:
-                    info.setNum("顺子");
+                    info.setNum("同花包选");
                     break;
                 case 2:
-                    info.setNum("同花顺");
+                    info.setNum("对子包选");
                     break;
                 case 3:
-                    info.setNum("对子");
+                    info.setNum("豹子包选");
                     break;
                 case 4:
-                    info.setNum("豹子");
+                    info.setNum("顺子包选");
                     break;
 
             }
@@ -880,7 +894,7 @@ public class PukeActivity extends AppCompatActivity {
         }*/
         //任选2
         for (int i = 0; i < 13; i++) {
-            RTWONums.add(i * 1 + "");
+            tuodan_twonums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -927,11 +941,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RTWOList.add(info);
+            tuodan_twolist.add(info);
         }
         //任选3
         for (int i = 0; i < 13; i++) {
-            RTHREENums.add(i * 1 + "");
+            tuodan_threenums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -978,11 +992,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RTHREEList.add(info);
+            tuodanthreelist.add(info);
         }
         //任选4
         for (int i = 0; i < 13; i++) {
-            RFOURNums.add(i * 1 + "");
+            tuodan_fournums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1029,11 +1043,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RFOURList.add(info);
+            tuodan_fourlist.add(info);
         }
         //任选5
         for (int i = 0; i < 13; i++) {
-            RFIVENums.add(i * 1 + "");
+            tuodan_fivenums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1080,11 +1094,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RFIVEList.add(info);
+            tuodan_fivelist.add(info);
         }
         //任选6
         for (int i = 0; i < 13; i++) {
-            RSIXNums.add(i * 1 + "");
+            tuodan_sixnums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1131,12 +1145,12 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RSIXList.add(info);
+            tuodan_sixlist.add(info);
         }
         /////up//////
         //任选1
         for (int i = 0; i < 13; i++) {
-            RRONENums.add(i * 1 + "");
+            putong_onenums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1185,11 +1199,11 @@ public class PukeActivity extends AppCompatActivity {
             }
 
 
-            RRONEList.add(info);
+            putong_onelist.add(info);
         }
         //任选2
         for (int i = 0; i < 13; i++) {
-            RRTWONums.add(i * 1 + "");
+            putong_twonums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1236,11 +1250,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RRTWOList.add(info);
+            putong_twolist.add(info);
         }
         //任选3
         for (int i = 0; i < 13; i++) {
-            RRTHREENums.add(i * 1 + "");
+            putong_threenums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1287,11 +1301,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RRTHREEList.add(info);
+            putongthreelist.add(info);
         }
         //任选4
         for (int i = 0; i < 13; i++) {
-            RRFOURNums.add(i * 1 + "");
+            putong_fournums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1338,11 +1352,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RRFOURList.add(info);
+            putong_fourlist.add(info);
         }
         //任选5
         for (int i = 0; i < 13; i++) {
-            RRFIVENums.add(i * 1 + "");
+            putong_fivenums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1389,11 +1403,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RRFIVEList.add(info);
+            putong_fivelist.add(info);
         }
         //任选6
         for (int i = 0; i < 13; i++) {
-            RRSIXNums.add(i * 1 + "");
+            putong_sixnums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1440,7 +1454,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            RRSIXList.add(info);
+            putong_sixlist.add(info);
         }
 
 
@@ -1528,7 +1542,7 @@ public class PukeActivity extends AppCompatActivity {
     private void initTdata() {
         //任选2
         for (int i = 0; i < 13; i++) {
-            rRTWONums.add(i * 1 + "");
+            child_twonums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1575,11 +1589,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            rRTWOList.add(info);
+            child_twoList.add(info);
         }
         //任选3
         for (int i = 0; i < 13; i++) {
-            rRTHREENums.add(i * 1 + "");
+            child_threenums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1626,11 +1640,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            rRTHREEList.add(info);
+            child_threeList.add(info);
         }
         //任选4
         for (int i = 0; i < 13; i++) {
-            rRFOURNums.add(i * 1 + "");
+            child_fournums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1677,11 +1691,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            rRFOURList.add(info);
+            child_fourList.add(info);
         }
         //任选5
         for (int i = 0; i < 13; i++) {
-            rRFIVENums.add(i * 1 + "");
+            child_fivenums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1728,11 +1742,11 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            rRFIVEList.add(info);
+            child_fiveList.add(info);
         }
         //任选6
         for (int i = 0; i < 13; i++) {
-            rRSIXNums.add(i * 1 + "");
+            child_sixnums.add(i * 1 + "");
         }
         for (int i = 0; i < 13; i++) {
             NumInfo info = new NumInfo();
@@ -1779,7 +1793,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            rRSIXList.add(info);
+            child_sixlist.add(info);
         }
 
     }
@@ -1817,7 +1831,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
                 break;
-            case S_TONGHUA:
+            case danxuan_tonghua:
                 title.setText("同花");
                 ruleTv.setText("同花");
 
@@ -1843,7 +1857,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case S_TONGHUASHUN:
+            case danxuan_tonghuashun:
                 title.setText("同花顺");
                 ruleTv.setText("同花顺");
 
@@ -1869,7 +1883,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case S_BAOZI:
+            case danxuan_baozi:
                 title.setText("豹子");
                 ruleTv.setText("豹子");
 
@@ -1895,7 +1909,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case S_SHUNZI:
+            case danxuan_shunzi:
                 title.setText("顺子");
                 ruleTv.setText("顺子");
 
@@ -1921,7 +1935,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case S_DUIZI:
+            case danxuan_duizi:
                 title.setText("对子");
                 ruleTv.setText("对子");
 
@@ -1948,7 +1962,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrsix.setVisibility(View.GONE);
                 break;
 
-            case SD_TWO:
+            case tuodan_two:
                 title.setText("任选二");
                 ruleTv.setText("任选二");
 
@@ -1974,7 +1988,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SD_THREE:
+            case tuodan_three:
                 title.setText("任选三");
                 ruleTv.setText("任选三");
 
@@ -2000,7 +2014,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SD_FOUR:
+            case tuodan_four:
                 title.setText("任选四");
                 ruleTv.setText("任选四");
 
@@ -2026,7 +2040,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SD_FIVE:
+            case tuodan_five:
                 title.setText("任选五");
                 ruleTv.setText("任选五");
 
@@ -2052,7 +2066,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SD_SIX:
+            case tuodan_six:
                 title.setText("任选六");
                 ruleTv.setText("任选六");
 
@@ -2078,7 +2092,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SSD_ONE:
+            case putong_one:
                 title.setText("任选一");
                 ruleTv.setText("任选一");
 
@@ -2104,7 +2118,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SSD_TWO:
+            case putong_two:
                 title.setText("任选二");
                 ruleTv.setText("任选二");
 
@@ -2130,7 +2144,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SSD_THREE:
+            case putong_three:
                 title.setText("任选三");
                 ruleTv.setText("任选三");
 
@@ -2156,7 +2170,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SSD_FOUR:
+            case putong_four:
                 title.setText("任选四");
                 ruleTv.setText("任选四");
 
@@ -2182,7 +2196,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.GONE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SSD_FIVE:
+            case putong_five:
                 title.setText("任选五");
                 ruleTv.setText("任选五");
 
@@ -2208,7 +2222,7 @@ public class PukeActivity extends AppCompatActivity {
                 layoutRrfive.setVisibility(View.VISIBLE);
                 layoutRrsix.setVisibility(View.GONE);
                 break;
-            case SSD_SIX:
+            case putong_six:
                 title.setText("任选六");
                 ruleTv.setText("任选六");
 
@@ -2263,15 +2277,56 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
+                Log.e("LAST_POSITON", String.valueOf(temp_position));
+
+                    //如果已经被点击！
                 if (baoxuanList.get(position).is_checked()) {
+                    if(temp_position!=position) {
+                        baoxuanList.get(temp_position).setIs_checked(false);
+                    }
                     baoxuanList.get(position).setIs_checked(false);
                     baoxuanAdapter.notifyDataChanged();
-
                 } else {
-                    baoxuanList.get(position).setIs_checked(true);
-                    baoxuanAdapter.notifyDataChanged();
+                    //如果还没被点击
 
+                    if(temp_position!=position) {
+                        baoxuanList.get(temp_position).setIs_checked(false);
+                    }
+                    baoxuanList.get(position).setIs_checked(true);
+
+                    baoxuanAdapter.notifyDataChanged();
                 }
+
+
+
+
+                temp_position=position;
+
+
+//                int number = 0;
+//                for (int i = 0; i < tuodan_twolist.size(); i++) {
+//                    if (tuodan_twolist.get(i).is_checked()) {
+//                        number++;
+//                    }
+//                }
+//                if (number > 0) {
+//                    //如果大于1，如果当前位置已经被点击
+//                    if (tonghuaList.get(position).is_checked()) {
+//                        tonghuaList.get(position).setIs_checked(false);
+//                        tonghuaAdapter.notifyDataChanged();
+//                    }
+//                    //如果大于1，如果当前位置已经没被点击
+//                    else {
+//                        //当前位置被点击，之前位置取消
+//                        tonghuaList.get(position).setIs_checked(true);
+//                        tonghuaList.get(temp_position).setIs_checked(f);
+//                        tonghuaAdapter.notifyDataChanged();
+//                    }
+//
+//                }
+//
+
+
 
 
                 calculate_baoxuan();
@@ -2530,15 +2585,15 @@ public class PukeActivity extends AppCompatActivity {
      * 任选2
      */
     private void initTWO() {
-        for (int i = 0; i < RTWOList.size(); i++) {
-            RTWOList.get(i).setIs_checked(false);
+        for (int i = 0; i < tuodan_twolist.size(); i++) {
+            tuodan_twolist.get(i).setIs_checked(false);
         }
-        RTWOAdapter = new TagAdapter<String>(RTWONums) {
+        twodan_twoadapter = new TagAdapter<String>(tuodan_twonums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rtwo, false);
 
-                if (RTWOList.get(position).is_checked()) {
+                if (tuodan_twolist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2547,37 +2602,37 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rtwo.setAdapter(RTWOAdapter);
+        rtwo.setAdapter(twodan_twoadapter);
         rtwo.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
                 int number = 0;
-                for (int i = 0; i < RTWOList.size(); i++) {
-                    if (RTWOList.get(i).is_checked()) {
+                for (int i = 0; i < tuodan_twolist.size(); i++) {
+                    if (tuodan_twolist.get(i).is_checked()) {
                         number++;
                     }
                 }
                 if (number > 0) {
                     ToastUtil.toast(mActivity, "胆码只能选择一个");
                     int num = 0;
-                    for (int i = 0; i < RTWOList.size(); i++) {
-                        if (RTWOList.get(i).is_checked()) {
-                            RTWOAdapter.setSelectedList(i);
+                    for (int i = 0; i < tuodan_twolist.size(); i++) {
+                        if (tuodan_twolist.get(i).is_checked()) {
+                            twodan_twoadapter.setSelectedList(i);
                         }
                     }
                     if (num == 0) {
-                        RTWOAdapter.notifyDataChanged();
+                        twodan_twoadapter.notifyDataChanged();
                     }
                     return false;
                 }
 
-                if (RTWOList.get(position).is_checked()) {
-                    RTWOList.get(position).setIs_checked(false);
-                    RTWOAdapter.notifyDataChanged();
+                if (tuodan_twolist.get(position).is_checked()) {
+                    tuodan_twolist.get(position).setIs_checked(false);
+                    twodan_twoadapter.notifyDataChanged();
                 } else {
-                    RTWOList.get(position).setIs_checked(true);
-                    RTWOAdapter.notifyDataChanged();
+                    tuodan_twolist.get(position).setIs_checked(true);
+                    twodan_twoadapter.notifyDataChanged();
                 }
                 calculate_two();
                 return false;
@@ -2586,15 +2641,15 @@ public class PukeActivity extends AppCompatActivity {
 
         //拖胆
 
-        for (int i = 0; i < rRTWOList.size(); i++) {
-            rRTWOList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_twoList.size(); i++) {
+            child_twoList.get(i).setIs_checked(false);
         }
-        rRTWOAdapter = new TagAdapter<String>(rRTWONums) {
+        child_twoAdapter = new TagAdapter<String>(child_twonums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rtwo2, false);
 
-                if (rRTWOList.get(position).is_checked()) {
+                if (child_twoList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2603,16 +2658,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rtwo2.setAdapter(rRTWOAdapter);
+        rtwo2.setAdapter(child_twoAdapter);
         rtwo2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (rRTWOList.get(position).is_checked()) {
-                    rRTWOList.get(position).setIs_checked(false);
-                    rRTWOAdapter.notifyDataChanged();
+                if (child_twoList.get(position).is_checked()) {
+                    child_twoList.get(position).setIs_checked(false);
+                    child_twoAdapter.notifyDataChanged();
                 } else {
-                    rRTWOList.get(position).setIs_checked(true);
-                    rRTWOAdapter.notifyDataChanged();
+                    child_twoList.get(position).setIs_checked(true);
+                    child_twoAdapter.notifyDataChanged();
                 }
                 calculate_two();
                 return false;
@@ -2624,15 +2679,15 @@ public class PukeActivity extends AppCompatActivity {
      * 任选3
      */
     private void initTHREE() {
-        for (int i = 0; i < RTHREEList.size(); i++) {
-            RTHREEList.get(i).setIs_checked(false);
+        for (int i = 0; i < tuodanthreelist.size(); i++) {
+            tuodanthreelist.get(i).setIs_checked(false);
         }
-        RTHREEAdapter = new TagAdapter<String>(RTHREENums) {
+        tuodanthreeadapter = new TagAdapter<String>(tuodan_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three, false);
 
-                if (RTHREEList.get(position).is_checked()) {
+                if (tuodanthreelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2640,38 +2695,38 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        three.setAdapter(RTHREEAdapter);
+        three.setAdapter(tuodanthreeadapter);
         three.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
                 int number = 0;
-                for (int i = 0; i < RTHREEList.size(); i++) {
-                    if (RTHREEList.get(i).is_checked()) {
+                for (int i = 0; i < tuodanthreelist.size(); i++) {
+                    if (tuodanthreelist.get(i).is_checked()) {
                         number++;
                     }
                 }
                 if (number > 1) {
                     ToastUtil.toast(mActivity, "胆码只能选择二个");
                     int num = 0;
-                    for (int i = 0; i < RTHREEList.size(); i++) {
-                        if (RTHREEList.get(i).is_checked()) {
-                            RTHREEAdapter.setSelectedList(i);
+                    for (int i = 0; i < tuodanthreelist.size(); i++) {
+                        if (tuodanthreelist.get(i).is_checked()) {
+                            tuodanthreeadapter.setSelectedList(i);
                         }
                     }
                     if (num == 0) {
-                        RTHREEAdapter.notifyDataChanged();
+                        tuodanthreeadapter.notifyDataChanged();
                     }
                     return false;
                 }
 
 
-                if (RTHREEList.get(position).is_checked()) {
-                    RTHREEList.get(position).setIs_checked(false);
-                    RTHREEAdapter.notifyDataChanged();
+                if (tuodanthreelist.get(position).is_checked()) {
+                    tuodanthreelist.get(position).setIs_checked(false);
+                    tuodanthreeadapter.notifyDataChanged();
                 } else {
-                    RTHREEList.get(position).setIs_checked(true);
-                    RTHREEAdapter.notifyDataChanged();
+                    tuodanthreelist.get(position).setIs_checked(true);
+                    tuodanthreeadapter.notifyDataChanged();
                 }
                 calculate_three();
                 return false;
@@ -2679,15 +2734,15 @@ public class PukeActivity extends AppCompatActivity {
         });
 
         //拖胆
-        for (int i = 0; i < RTHREEList.size(); i++) {
-            RTHREEList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_threeList.size(); i++) {
+            child_threeList.get(i).setIs_checked(false);
         }
-        rRTHREEAdapter = new TagAdapter<String>(rRTHREENums) {
+        child_threeadpter = new TagAdapter<String>(child_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three2, false);
 
-                if (rRTHREEList.get(position).is_checked()) {
+                if (child_threeList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2695,16 +2750,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        three2.setAdapter(rRTHREEAdapter);
+        three2.setAdapter(child_threeadpter);
         three2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (rRTHREEList.get(position).is_checked()) {
-                    rRTHREEList.get(position).setIs_checked(false);
-                    rRTHREEAdapter.notifyDataChanged();
+                if (child_threeList.get(position).is_checked()) {
+                    child_threeList.get(position).setIs_checked(false);
+                    child_threeadpter.notifyDataChanged();
                 } else {
-                    rRTHREEList.get(position).setIs_checked(true);
-                    rRTHREEAdapter.notifyDataChanged();
+                    child_threeList.get(position).setIs_checked(true);
+                    child_threeadpter.notifyDataChanged();
                 }
                 calculate_three();
                 return false;
@@ -2716,15 +2771,15 @@ public class PukeActivity extends AppCompatActivity {
      * 任选4
      */
     private void initFOUR() {
-        for (int i = 0; i < RFOURList.size(); i++) {
-            RFOURList.get(i).setIs_checked(false);
+        for (int i = 0; i < tuodan_fourlist.size(); i++) {
+            tuodan_fourlist.get(i).setIs_checked(false);
         }
-        RFOURAdapter = new TagAdapter<String>(RFOURNums) {
+        tuodan_fouradapter = new TagAdapter<String>(tuodan_fournums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, four, false);
 
-                if (RFOURList.get(position).is_checked()) {
+                if (tuodan_fourlist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2732,53 +2787,53 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        four.setAdapter(RFOURAdapter);
+        four.setAdapter(tuodan_fouradapter);
         four.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
 
                 int number = 0;
-                for (int i = 0; i < RFOURList.size(); i++) {
-                    if (RFOURList.get(i).is_checked()) {
+                for (int i = 0; i < tuodan_fourlist.size(); i++) {
+                    if (tuodan_fourlist.get(i).is_checked()) {
                         number++;
                     }
                 }
                 if (number > 2) {
                     ToastUtil.toast(mActivity, "胆码只能选择三个");
                     int num = 0;
-                    for (int i = 0; i < RFOURList.size(); i++) {
-                        if (RFOURList.get(i).is_checked()) {
-                            RFOURAdapter.setSelectedList(i);
+                    for (int i = 0; i < tuodan_fourlist.size(); i++) {
+                        if (tuodan_fourlist.get(i).is_checked()) {
+                            tuodan_fouradapter.setSelectedList(i);
                         }
                     }
                     if (num == 0) {
-                        RFOURAdapter.notifyDataChanged();
+                        tuodan_fouradapter.notifyDataChanged();
                     }
                     return false;
                 }
 
-                if (RFOURList.get(position).is_checked()) {
-                    RFOURList.get(position).setIs_checked(false);
-                    RFOURAdapter.notifyDataChanged();
+                if (tuodan_fourlist.get(position).is_checked()) {
+                    tuodan_fourlist.get(position).setIs_checked(false);
+                    tuodan_fouradapter.notifyDataChanged();
                 } else {
-                    RFOURList.get(position).setIs_checked(true);
-                    RFOURAdapter.notifyDataChanged();
+                    tuodan_fourlist.get(position).setIs_checked(true);
+                    tuodan_fouradapter.notifyDataChanged();
                 }
                 calculate_four();
                 return false;
             }
         });
         //拖胆
-        for (int i = 0; i < rRFOURList.size(); i++) {
-            rRFOURList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_fourList.size(); i++) {
+            child_fourList.get(i).setIs_checked(false);
         }
-        rRFOURAdapter = new TagAdapter<String>(rRFOURNums) {
+        child_fourAdapter = new TagAdapter<String>(child_fournums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, four2, false);
 
-                if (rRFOURList.get(position).is_checked()) {
+                if (child_fourList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2786,16 +2841,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        four2.setAdapter(rRFOURAdapter);
+        four2.setAdapter(child_fourAdapter);
         four2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (rRFOURList.get(position).is_checked()) {
-                    rRFOURList.get(position).setIs_checked(false);
-                    rRFOURAdapter.notifyDataChanged();
+                if (child_fourList.get(position).is_checked()) {
+                    child_fourList.get(position).setIs_checked(false);
+                    child_fourAdapter.notifyDataChanged();
                 } else {
-                    rRFOURList.get(position).setIs_checked(true);
-                    rRFOURAdapter.notifyDataChanged();
+                    child_fourList.get(position).setIs_checked(true);
+                    child_fourAdapter.notifyDataChanged();
                 }
                 calculate_four();
                 return false;
@@ -2807,15 +2862,15 @@ public class PukeActivity extends AppCompatActivity {
      * 任选5
      */
     private void initFIVE() {
-        for (int i = 0; i < RFIVEList.size(); i++) {
-            RFIVEList.get(i).setIs_checked(false);
+        for (int i = 0; i < tuodan_fivelist.size(); i++) {
+            tuodan_fivelist.get(i).setIs_checked(false);
         }
-        RFIVEAdapter = new TagAdapter<String>(RFIVENums) {
+        tuodan_fiveadapter = new TagAdapter<String>(tuodan_fivenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, five, false);
 
-                if (RFIVEList.get(position).is_checked()) {
+                if (tuodan_fivelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2823,37 +2878,37 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        five.setAdapter(RFIVEAdapter);
+        five.setAdapter(tuodan_fiveadapter);
         five.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
                 int number = 0;
-                for (int i = 0; i < RFIVEList.size(); i++) {
-                    if (RFIVEList.get(i).is_checked()) {
+                for (int i = 0; i < tuodan_fivelist.size(); i++) {
+                    if (tuodan_fivelist.get(i).is_checked()) {
                         number++;
                     }
                 }
                 if (number > 3) {
                     ToastUtil.toast(mActivity, "胆码只能选择四个");
                     int num = 0;
-                    for (int i = 0; i < RFIVEList.size(); i++) {
-                        if (RFIVEList.get(i).is_checked()) {
-                            RFIVEAdapter.setSelectedList(i);
+                    for (int i = 0; i < tuodan_fivelist.size(); i++) {
+                        if (tuodan_fivelist.get(i).is_checked()) {
+                            tuodan_fiveadapter.setSelectedList(i);
                         }
                     }
                     if (num == 0) {
-                        RFIVEAdapter.notifyDataChanged();
+                        tuodan_fiveadapter.notifyDataChanged();
                     }
                     return false;
                 }
 
-                if (RFIVEList.get(position).is_checked()) {
-                    RFIVEList.get(position).setIs_checked(false);
-                    RFIVEAdapter.notifyDataChanged();
+                if (tuodan_fivelist.get(position).is_checked()) {
+                    tuodan_fivelist.get(position).setIs_checked(false);
+                    tuodan_fiveadapter.notifyDataChanged();
                 } else {
-                    RFIVEList.get(position).setIs_checked(true);
-                    RFIVEAdapter.notifyDataChanged();
+                    tuodan_fivelist.get(position).setIs_checked(true);
+                    tuodan_fiveadapter.notifyDataChanged();
                 }
                 calculate_five();
                 return false;
@@ -2861,15 +2916,15 @@ public class PukeActivity extends AppCompatActivity {
         });
 
         //胆拖
-        for (int i = 0; i < rRFIVEList.size(); i++) {
-            rRFIVEList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_fiveList.size(); i++) {
+            child_fiveList.get(i).setIs_checked(false);
         }
-        rRFIVEAdapter = new TagAdapter<String>(rRFIVENums) {
+        child_fiveAdapter = new TagAdapter<String>(child_fivenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, five2, false);
 
-                if (rRFIVEList.get(position).is_checked()) {
+                if (child_fiveList.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2877,16 +2932,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        five2.setAdapter(rRFIVEAdapter);
+        five2.setAdapter(child_fiveAdapter);
         five2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (rRFIVEList.get(position).is_checked()) {
-                    rRFIVEList.get(position).setIs_checked(false);
-                    rRFIVEAdapter.notifyDataChanged();
+                if (child_fiveList.get(position).is_checked()) {
+                    child_fiveList.get(position).setIs_checked(false);
+                    child_fiveAdapter.notifyDataChanged();
                 } else {
-                    rRFIVEList.get(position).setIs_checked(true);
-                    rRFIVEAdapter.notifyDataChanged();
+                    child_fiveList.get(position).setIs_checked(true);
+                    child_fiveAdapter.notifyDataChanged();
                 }
                 calculate_five();
                 return false;
@@ -2899,15 +2954,15 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initSIX() {
         //胆码
-        for (int i = 0; i < RSIXList.size(); i++) {
-            RSIXList.get(i).setIs_checked(false);
+        for (int i = 0; i < tuodan_sixlist.size(); i++) {
+            tuodan_sixlist.get(i).setIs_checked(false);
         }
-        RSIXAdapter = new TagAdapter<String>(RSIXNums) {
+        tuodan_sixadapter = new TagAdapter<String>(tuodan_sixnums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, six, false);
 
-                if (RSIXList.get(position).is_checked()) {
+                if (tuodan_sixlist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2915,77 +2970,66 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        six.setAdapter(RSIXAdapter);
+        six.setAdapter(tuodan_sixadapter);
         six.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 int number = 0;
-                for (int i = 0; i < RSIXList.size(); i++) {
-                    if (RSIXList.get(i).is_checked()) {
+                for (int i = 0; i < tuodan_sixlist.size(); i++) {
+                    if (tuodan_sixlist.get(i).is_checked()) {
                         number++;
                     }
                 }
                 if (number > 4) {
                     ToastUtil.toast(mActivity, "胆码只能选择五个");
                     int num = 0;
-                    for (int i = 0; i < RSIXList.size(); i++) {
-                        if (RSIXList.get(i).is_checked()) {
-                            RSIXAdapter.setSelectedList(i);
+                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
+                        if (tuodan_sixlist.get(i).is_checked()) {
+                            tuodan_sixadapter.setSelectedList(i);
                         }
                     }
                     if (num == 0) {
-                        RSIXAdapter.notifyDataChanged();
+                        tuodan_sixadapter.notifyDataChanged();
                     }
                     return false;
                 }
-                if (RRSIXList.get(position).is_checked()) {
+                if (putong_sixlist.get(position).is_checked()) {
                     ToastUtil.toast(mActivity, "不能重复");
                     int num = 0;
-                    for (int i = 0; i < RSIXList.size(); i++) {
-                        if (RSIXList.get(i).is_checked()) {
-                            RSIXAdapter.setSelectedList(i);
+                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
+                        if (tuodan_sixlist.get(i).is_checked()) {
+                            tuodan_sixadapter.setSelectedList(i);
                             num++;
                         }
                     }
                     if (num == 0) {
-                        RSIXAdapter.notifyDataChanged();
+                        tuodan_sixadapter.notifyDataChanged();
                     }
                     return false;
                 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-                if (RSIXList.get(position).is_checked()) {
-                    RSIXList.get(position).setIs_checked(false);
-                    RSIXAdapter.notifyDataChanged();
+                if (tuodan_sixlist.get(position).is_checked()) {
+                    tuodan_sixlist.get(position).setIs_checked(false);
+                    tuodan_sixadapter.notifyDataChanged();
                 } else {
-                    RSIXList.get(position).setIs_checked(true);
-                    RSIXAdapter.notifyDataChanged();
+                    tuodan_sixlist.get(position).setIs_checked(true);
+                    tuodan_sixadapter.notifyDataChanged();
                 }
                 calculate_six();
                 return false;
             }
         });
         //拖码
-        for (int i = 0; i < rRSIXList.size(); i++) {
-            rRSIXList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_sixlist.size(); i++) {
+            child_sixlist.get(i).setIs_checked(false);
         }
-        rRSIXAdapter = new TagAdapter<String>(rRSIXNums) {
+        child_sixAdapter = new TagAdapter<String>(child_sixnums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, six2, false);
 
-                if (rRSIXList.get(position).is_checked()) {
+                if (child_sixlist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2993,31 +3037,31 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        six2.setAdapter(rRSIXAdapter);
+        six2.setAdapter(child_sixAdapter);
         six2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (rRSIXList.get(position).is_checked()) {
+                if (child_sixlist.get(position).is_checked()) {
                     ToastUtil.toast(mActivity, "单选不能重复");
                     int num = 0;
-                    for (int i = 0; i < rRSIXList.size(); i++) {
-                        if (rRSIXList.get(i).is_checked()) {
-                            rRSIXAdapter.setSelectedList(i);
+                    for (int i = 0; i < child_sixlist.size(); i++) {
+                        if (child_sixlist.get(i).is_checked()) {
+                            child_sixAdapter.setSelectedList(i);
                             num++;
                         }
                     }
                     if (num == 0) {
-                        rRSIXAdapter.notifyDataChanged();
+                        child_sixAdapter.notifyDataChanged();
                     }
                     return false;
                 }
 
-                if (rRSIXList.get(position).is_checked()) {
-                    rRSIXList.get(position).setIs_checked(false);
-                    rRSIXAdapter.notifyDataChanged();
+                if (child_sixlist.get(position).is_checked()) {
+                    child_sixlist.get(position).setIs_checked(false);
+                    child_sixAdapter.notifyDataChanged();
                 } else {
-                    rRSIXList.get(position).setIs_checked(true);
-                    rRSIXAdapter.notifyDataChanged();
+                    child_sixlist.get(position).setIs_checked(true);
+                    child_sixAdapter.notifyDataChanged();
                 }
                 calculate_six();
                 return false;
@@ -3025,22 +3069,22 @@ public class PukeActivity extends AppCompatActivity {
         });
     }
 
-    //普通投注
+    //  普通投注
 
     /**
-     * 任选1
+     * 任选1  普通投注
      */
     private void initRONE() {
         Log.e("initRONE", "initRONE");
-        for (int i = 0; i < RRONEList.size(); i++) {
-            RRONEList.get(i).setIs_checked(false);
+        for (int i = 0; i < putong_onelist.size(); i++) {
+            putong_onelist.get(i).setIs_checked(false);
         }
-        RRONEAdapter = new TagAdapter<String>(RRONENums) {
+        putong_neadapter = new TagAdapter<String>(putong_onenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rrone, false);
 
-                if (RRONEList.get(position).is_checked()) {
+                if (putong_onelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3048,16 +3092,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rrone.setAdapter(RRONEAdapter);
+        rrone.setAdapter(putong_neadapter);
         rrone.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (RRONEList.get(position).is_checked()) {
-                    RRONEList.get(position).setIs_checked(false);
-                    RRONEAdapter.notifyDataChanged();
+                if (putong_onelist.get(position).is_checked()) {
+                    putong_onelist.get(position).setIs_checked(false);
+                    putong_neadapter.notifyDataChanged();
                 } else {
-                    RRONEList.get(position).setIs_checked(true);
-                    RRONEAdapter.notifyDataChanged();
+                    putong_onelist.get(position).setIs_checked(true);
+                    putong_neadapter.notifyDataChanged();
                 }
                 calculate_rone();
                 return false;
@@ -3066,18 +3110,18 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选2
+     * 任选2  普通投注
      */
     private void initRTWO() {
-        for (int i = 0; i < RRTWOList.size(); i++) {
-            RRTWOList.get(i).setIs_checked(false);
+        for (int i = 0; i < putong_twolist.size(); i++) {
+            putong_twolist.get(i).setIs_checked(false);
         }
-        RRTWOAdapter = new TagAdapter<String>(RRTWONums) {
+        putong_twoadapter = new TagAdapter<String>(putong_twonums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rrtwo, false);
 
-                if (RRTWOList.get(position).is_checked()) {
+                if (putong_twolist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3086,16 +3130,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rrtwo.setAdapter(RRTWOAdapter);
+        rrtwo.setAdapter(putong_twoadapter);
         rrtwo.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (RRTWOList.get(position).is_checked()) {
-                    RRTWOList.get(position).setIs_checked(false);
-                    RRTHREEAdapter.notifyDataChanged();
+                if (putong_twolist.get(position).is_checked()) {
+                    putong_twolist.get(position).setIs_checked(false);
+                    putong_threeadapter.notifyDataChanged();
                 } else {
-                    RRTWOList.get(position).setIs_checked(true);
-                    RRTWOAdapter.notifyDataChanged();
+                    putong_twolist.get(position).setIs_checked(true);
+                    putong_twoadapter.notifyDataChanged();
                 }
                 calculate_rtwo();
                 return false;
@@ -3104,18 +3148,18 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选3
+     * 任选3  普通投注
      */
     private void initRTHREE() {
-        for (int i = 0; i < RRTHREEList.size(); i++) {
-            RRTHREEList.get(i).setIs_checked(false);
+        for (int i = 0; i < putongthreelist.size(); i++) {
+            putongthreelist.get(i).setIs_checked(false);
         }
-        RRTHREEAdapter = new TagAdapter<String>(RRTHREENums) {
+        putong_threeadapter = new TagAdapter<String>(putong_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rthree, false);
 
-                if (RRTHREEList.get(position).is_checked()) {
+                if (putongthreelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3123,16 +3167,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rthree.setAdapter(RRTHREEAdapter);
+        rthree.setAdapter(putong_threeadapter);
         rthree.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (RRTHREEList.get(position).is_checked()) {
-                    RRTHREEList.get(position).setIs_checked(false);
-                    RRTHREEAdapter.notifyDataChanged();
+                if (putongthreelist.get(position).is_checked()) {
+                    putongthreelist.get(position).setIs_checked(false);
+                    putong_threeadapter.notifyDataChanged();
                 } else {
-                    RRTHREEList.get(position).setIs_checked(true);
-                    RRTHREEAdapter.notifyDataChanged();
+                    putongthreelist.get(position).setIs_checked(true);
+                    putong_threeadapter.notifyDataChanged();
                 }
                 calculate_rthree();
                 return false;
@@ -3141,18 +3185,18 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选4
+     * 任选4  普通投注
      */
     private void initRFOUR() {
-        for (int i = 0; i < RRFOURList.size(); i++) {
-            RRFOURList.get(i).setIs_checked(false);
+        for (int i = 0; i < putong_fourlist.size(); i++) {
+            putong_fourlist.get(i).setIs_checked(false);
         }
-        RRFOURAdapter = new TagAdapter<String>(RRFOURNums) {
+        putong_fouradapter = new TagAdapter<String>(putong_fournums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rfour, false);
 
-                if (RRFOURList.get(position).is_checked()) {
+                if (putong_fourlist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3160,16 +3204,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rfour.setAdapter(RRFOURAdapter);
+        rfour.setAdapter(putong_fouradapter);
         rfour.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (RRFOURList.get(position).is_checked()) {
-                    RRFOURList.get(position).setIs_checked(false);
-                    RRFOURAdapter.notifyDataChanged();
+                if (putong_fourlist.get(position).is_checked()) {
+                    putong_fourlist.get(position).setIs_checked(false);
+                    putong_fouradapter.notifyDataChanged();
                 } else {
-                    RRFOURList.get(position).setIs_checked(true);
-                    RRFOURAdapter.notifyDataChanged();
+                    putong_fourlist.get(position).setIs_checked(true);
+                    putong_fouradapter.notifyDataChanged();
                 }
                 calculate_rfour();
                 return false;
@@ -3178,18 +3222,18 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选5
+     * 任选5  普通投注
      */
     private void initRFIVE() {
-        for (int i = 0; i < RRFIVEList.size(); i++) {
-            RRFIVEList.get(i).setIs_checked(false);
+        for (int i = 0; i < putong_fivelist.size(); i++) {
+            putong_fivelist.get(i).setIs_checked(false);
         }
-        RRFIVEAdapter = new TagAdapter<String>(RRFIVENums) {
+        putong_fiveadapter = new TagAdapter<String>(putong_fivenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rfive, false);
 
-                if (RRFIVEList.get(position).is_checked()) {
+                if (putong_fivelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3197,16 +3241,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rfive.setAdapter(RRFIVEAdapter);
+        rfive.setAdapter(putong_fiveadapter);
         rfive.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (RRFIVEList.get(position).is_checked()) {
-                    RRFIVEList.get(position).setIs_checked(false);
-                    RRFIVEAdapter.notifyDataChanged();
+                if (putong_fivelist.get(position).is_checked()) {
+                    putong_fivelist.get(position).setIs_checked(false);
+                    putong_fiveadapter.notifyDataChanged();
                 } else {
-                    RRFIVEList.get(position).setIs_checked(true);
-                    RRFIVEAdapter.notifyDataChanged();
+                    putong_fivelist.get(position).setIs_checked(true);
+                    putong_fiveadapter.notifyDataChanged();
                 }
                 calculate_rfive();
                 return false;
@@ -3215,18 +3259,18 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选6
+     * 任选6  普通投注
      */
     private void initRSIX() {
-        for (int i = 0; i < RRSIXList.size(); i++) {
-            RRSIXList.get(i).setIs_checked(false);
+        for (int i = 0; i < putong_sixlist.size(); i++) {
+            putong_sixlist.get(i).setIs_checked(false);
         }
-        RRSIXAdapter = new TagAdapter<String>(RRSIXNums) {
+        putong_sixadapter = new TagAdapter<String>(putong_sixnums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rsix, false);
 
-                if (RRSIXList.get(position).is_checked()) {
+                if (putong_sixlist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3234,16 +3278,16 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rsix.setAdapter(RRSIXAdapter);
+        rsix.setAdapter(putong_sixadapter);
         rsix.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (RRSIXList.get(position).is_checked()) {
-                    RRSIXList.get(position).setIs_checked(false);
-                    RRSIXAdapter.notifyDataChanged();
+                if (putong_sixlist.get(position).is_checked()) {
+                    putong_sixlist.get(position).setIs_checked(false);
+                    putong_sixadapter.notifyDataChanged();
                 } else {
-                    RRSIXList.get(position).setIs_checked(true);
-                    RRSIXAdapter.notifyDataChanged();
+                    putong_sixlist.get(position).setIs_checked(true);
+                    putong_sixadapter.notifyDataChanged();
                 }
                 calculate_rsix();
                 return false;
@@ -3290,56 +3334,56 @@ public class PukeActivity extends AppCompatActivity {
                     case S_BAOXUAN:
                         initBAOXUAN();
                         break;
-                    case S_TONGHUA:
+                    case danxuan_tonghua:
                         initTONGHUA();
                         break;
-                    case S_TONGHUASHUN:
+                    case danxuan_tonghuashun:
                         initTONGHUASHUN();
                         break;
-                    case S_BAOZI:
+                    case danxuan_baozi:
                         initBAOZI();
                         break;
-                    case S_DUIZI:
+                    case danxuan_duizi:
                         initDUIZI();
                         break;
-                    case S_SHUNZI:
+                    case danxuan_shunzi:
                         initSHUNZI();
                         break;
                    /* case SD_ONE:
                         initONE();
                         break;*/
-                    case SD_TWO:
+                    case tuodan_two:
                         initTWO();
                         break;
-                    case SD_THREE:
+                    case tuodan_three:
                         initTHREE();
                         break;
-                    case SD_FOUR:
+                    case tuodan_four:
                         initFOUR();
                         break;
-                    case SD_FIVE:
+                    case tuodan_five:
                         initFIVE();
                         break;
-                    case SD_SIX:
+                    case tuodan_six:
                         initSIX();
                         break;
                     //up
-                    case SSD_ONE:
+                    case putong_one:
                         initRONE();
                         break;
-                    case SSD_TWO:
+                    case putong_two:
                         initRTWO();
                         break;
-                    case SSD_THREE:
+                    case putong_three:
                         initRTHREE();
                         break;
-                    case SSD_FOUR:
+                    case putong_four:
                         initRFOUR();
                         break;
-                    case SSD_FIVE:
+                    case putong_five:
                         initRFIVE();
                         break;
-                    case SSD_SIX:
+                    case putong_six:
                         initRSIX();
                         break;
 
@@ -3363,6 +3407,8 @@ public class PukeActivity extends AppCompatActivity {
             Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
             //images_baoxuan
             in.putExtra("baoxuanList", (Serializable) baoxuanList);
+            in.putExtra("zq_type",zq_type);
+            in.putExtra("buytype",String.valueOf(mSelecte_Mode));
             //images_tonghua
             in.putExtra("tonghuaList", (Serializable) tonghuaList);
             //images_shunzi
@@ -3377,32 +3423,32 @@ public class PukeActivity extends AppCompatActivity {
 
             //拖胆
             //one
-            in.putExtra("RONEList", (Serializable) RONEList);
+            //in.putExtra("RONEList", (Serializable) RONEList);
             //two
-            in.putExtra("RTWOList", (Serializable) RTWOList);
+            in.putExtra("tuodan_twolist", (Serializable) tuodan_twolist);
             //three
-            in.putExtra("RTHREEList", (Serializable) RTHREEList);
+            in.putExtra("tuodanthreelist", (Serializable) tuodanthreelist);
             //four
-            in.putExtra("RFOURList", (Serializable) RFOURList);
+            in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
             //five
-            in.putExtra("RFIVEList", (Serializable) RFIVEList);
+            in.putExtra("tuodan_fivelist", (Serializable) tuodan_fivelist);
             //six
-            in.putExtra("RSIXList", (Serializable) RSIXList);
+            in.putExtra("tuodan_sixlist", (Serializable) tuodan_sixlist);
 
 
             //普通投注
             //one
-            in.putExtra("RRONEList", (Serializable) RRONEList);
+            in.putExtra("putong_onelist", (Serializable) putong_onelist);
             //two
-            in.putExtra("RRTWOList", (Serializable) RRTWOList);
+            in.putExtra("putong_twolist", (Serializable) putong_twolist);
             //three
-            in.putExtra("RRTHREEList", (Serializable) RRTHREEList);
+            in.putExtra("putongthreelist", (Serializable) putongthreelist);
             //four
-            in.putExtra("RRFOURList", (Serializable) RRFOURList);
+            in.putExtra("putong_fourlist", (Serializable) putong_fourlist);
             //five
-            in.putExtra("RRFIVEList", (Serializable) RRFIVEList);
+            in.putExtra("putong_fivelist", (Serializable) putong_fivelist);
             //six
-            in.putExtra("RRSIXList", (Serializable) RRSIXList);
+            in.putExtra("putong_sixlist", (Serializable) putong_sixlist);
 
 
             in.putExtra("selecte_mode", mSelecte_Mode);
@@ -3419,7 +3465,8 @@ public class PukeActivity extends AppCompatActivity {
         } else {
             Log.e("mContinue", "false");
             Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
-
+            in.putExtra("zq_type",zq_type);
+            in.putExtra("buytype",String.valueOf(mSelecte_Mode));
             //images_baoxuan
             in.putExtra("baoxuanList", (Serializable) baoxuanList);
             //images_tonghua
@@ -3436,32 +3483,32 @@ public class PukeActivity extends AppCompatActivity {
 
             //拖胆
             //one
-            in.putExtra("RONEList", (Serializable) RONEList);
+            //in.putExtra("RONEList", (Serializable) RONEList);
             //two
-            in.putExtra("RTWOList", (Serializable) RTWOList);
+            in.putExtra("tuodan_twolist", (Serializable) tuodan_twolist);
             //three
-            in.putExtra("RTHREEList", (Serializable) RTHREEList);
+            in.putExtra("tuodanthreelist", (Serializable) tuodanthreelist);
             //four
-            in.putExtra("RFOURList", (Serializable) RFOURList);
+            in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
             //five
-            in.putExtra("RFIVEList", (Serializable) RFIVEList);
+            in.putExtra("tuodan_fivelist", (Serializable) tuodan_fivelist);
             //six
-            in.putExtra("RSIXList", (Serializable) RSIXList);
+            in.putExtra("tuodan_sixlist", (Serializable) tuodan_sixlist);
 
 
             //普通投注
             //one
-            in.putExtra("RRONEList", (Serializable) RRONEList);
+            in.putExtra("putong_onelist", (Serializable) putong_onelist);
             //two
-            in.putExtra("RRTWOList", (Serializable) RRTWOList);
+            in.putExtra("putong_twolist", (Serializable) putong_twolist);
             //three
-            in.putExtra("RRTHREEList", (Serializable) RRTHREEList);
+            in.putExtra("putongthreelist", (Serializable) putongthreelist);
             //four
-            in.putExtra("RRFOURList", (Serializable) RRFOURList);
+            in.putExtra("putong_fourlist", (Serializable) putong_fourlist);
             //five
-            in.putExtra("RRFIVEList", (Serializable) RRFIVEList);
+            in.putExtra("putong_fivelist", (Serializable) putong_fivelist);
             //six
-            in.putExtra("RRSIXList", (Serializable) RRSIXList);
+            in.putExtra("putong_sixlist", (Serializable) putong_sixlist);
 
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
@@ -3585,19 +3632,7 @@ public class PukeActivity extends AppCompatActivity {
     /**
      * 计算one  拖胆
      */
-    public void calculate_one() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
 
-        for (int i = 0; i < RONEList.size(); i++) {
-            if (RONEList.get(i).is_checked()) {
-                buy_acount++;
-
-            }
-        }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
-    }
 
     /**
      * 计算two  拖胆
@@ -3606,14 +3641,14 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
         int but_two=0;
-        for (int i = 0; i < RTWOList.size(); i++) {
-            if (RTWOList.get(i).is_checked()) {
+        for (int i = 0; i < tuodan_twolist.size(); i++) {
+            if (tuodan_twolist.get(i).is_checked()) {
                 buy_acount++;
 
             }
         }
-        for (int i = 0; i < RRTWOList.size(); i++) {
-            if (RRTWOList.get(i).is_checked()) {
+        for (int i = 0; i < putong_twolist.size(); i++) {
+            if (putong_twolist.get(i).is_checked()) {
                 but_two++;
 
             }
@@ -3629,8 +3664,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RTHREEList.size(); i++) {
-            if (RTHREEList.get(i).is_checked()) {
+        for (int i = 0; i < tuodanthreelist.size(); i++) {
+            if (tuodanthreelist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3646,8 +3681,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RFOURList.size(); i++) {
-            if (RFOURList.get(i).is_checked()) {
+        for (int i = 0; i < tuodan_fourlist.size(); i++) {
+            if (tuodan_fourlist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3663,8 +3698,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RFIVEList.size(); i++) {
-            if (RFIVEList.get(i).is_checked()) {
+        for (int i = 0; i < tuodan_fivelist.size(); i++) {
+            if (tuodan_fivelist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3680,8 +3715,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RSIXList.size(); i++) {
-            if (RSIXList.get(i).is_checked()) {
+        for (int i = 0; i < tuodan_sixlist.size(); i++) {
+            if (tuodan_sixlist.get(i).is_checked()) {
                 buy_acount++;
                 // Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
@@ -3699,8 +3734,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RRONEList.size(); i++) {
-            if (RRONEList.get(i).is_checked()) {
+        for (int i = 0; i < putong_onelist.size(); i++) {
+            if (putong_onelist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3716,8 +3751,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RRTWOList.size(); i++) {
-            if (RRTWOList.get(i).is_checked()) {
+        for (int i = 0; i < putong_twolist.size(); i++) {
+            if (putong_twolist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3733,8 +3768,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RRTHREEList.size(); i++) {
-            if (RRTHREEList.get(i).is_checked()) {
+        for (int i = 0; i < putongthreelist.size(); i++) {
+            if (putongthreelist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3750,8 +3785,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RRFOURList.size(); i++) {
-            if (RRFOURList.get(i).is_checked()) {
+        for (int i = 0; i < putong_fourlist.size(); i++) {
+            if (putong_fourlist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3767,8 +3802,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RRFIVEList.size(); i++) {
-            if (RRFIVEList.get(i).is_checked()) {
+        for (int i = 0; i < putong_fivelist.size(); i++) {
+            if (putong_fivelist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -3784,8 +3819,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < RRSIXList.size(); i++) {
-            if (RRSIXList.get(i).is_checked()) {
+        for (int i = 0; i < putong_sixlist.size(); i++) {
+            if (putong_sixlist.get(i).is_checked()) {
                 buy_acount++;
                 // Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
@@ -3870,50 +3905,50 @@ public class PukeActivity extends AppCompatActivity {
                             break;
                         case "同花":
 
-                            mSelecte_Mode = S_TONGHUA;
+                            mSelecte_Mode = danxuan_tonghua;
                             break;
                         case "顺子":
 
-                            mSelecte_Mode = S_SHUNZI;
+                            mSelecte_Mode = danxuan_shunzi;
                             break;
                         case "同花顺":
 
-                            mSelecte_Mode = S_TONGHUASHUN;
+                            mSelecte_Mode = danxuan_tonghuashun;
                             break;
                         case "豹子":
 
-                            mSelecte_Mode = S_BAOZI;
+                            mSelecte_Mode = danxuan_baozi;
 
                             break;
                         case "对子":
 
-                            mSelecte_Mode = S_DUIZI;
+                            mSelecte_Mode = danxuan_duizi;
                             break;
                         //普通投注
                         case "任选一":
 
-                            mSelecte_Mode = SSD_ONE;
-                            //Log.e("mSelecte_Mode", "SSD_ONE");
+                            mSelecte_Mode = putong_one;
+                            //Log.e("mSelecte_Mode", "putong_one");
                             break;
                         case "任选二":
 
-                            mSelecte_Mode = SSD_TWO;
+                            mSelecte_Mode = putong_two;
                             break;
                         case "任选三":
 
-                            mSelecte_Mode = SSD_THREE;
+                            mSelecte_Mode = putong_three;
                             break;
                         case "任选四":
 
-                            mSelecte_Mode = SSD_FOUR;
+                            mSelecte_Mode = putong_four;
                             break;
                         case "任选五":
 
-                            mSelecte_Mode = SSD_FIVE;
+                            mSelecte_Mode = putong_five;
                             break;
                         case "任选六":
 
-                            mSelecte_Mode = SSD_SIX;
+                            mSelecte_Mode = putong_six;
                             break;
 
 
@@ -3967,23 +4002,23 @@ public class PukeActivity extends AppCompatActivity {
 
                         case "任选二":
 
-                            mSelecte_Mode = SD_TWO;
+                            mSelecte_Mode = tuodan_two;
                             break;
                         case "任选三":
 
-                            mSelecte_Mode = SD_THREE;
+                            mSelecte_Mode = tuodan_three;
                             break;
                         case "任选四":
 
-                            mSelecte_Mode = SD_FOUR;
+                            mSelecte_Mode = tuodan_four;
                             break;
                         case "任选五":
 
-                            mSelecte_Mode = SD_FIVE;
+                            mSelecte_Mode = tuodan_five;
                             break;
                         case "任选六":
 
-                            mSelecte_Mode = SD_SIX;
+                            mSelecte_Mode = tuodan_six;
                             break;
                     }
                     mAcache.put("FAST_SELECT_MODE", mSelecte_Mode + "");
@@ -4002,54 +4037,54 @@ public class PukeActivity extends AppCompatActivity {
             case S_BAOXUAN:
                 initBAOXUAN();
                 break;
-            case S_TONGHUA:
+            case danxuan_tonghua:
                 initTONGHUA();
                 break;
-            case S_BAOZI:
+            case danxuan_baozi:
                 initBAOZI();
                 break;
-            case S_TONGHUASHUN:
+            case danxuan_tonghuashun:
                 initTONGHUASHUN();
                 break;
-            case S_DUIZI:
+            case danxuan_duizi:
                 initDUIZI();
                 break;
-            case S_SHUNZI:
+            case danxuan_shunzi:
                 initSHUNZI();
                 break;
             //拖胆
-            case SD_TWO:
+            case tuodan_two:
                 initTWO();
                 break;
-            case SD_THREE:
+            case tuodan_three:
                 initTHREE();
                 break;
-            case SD_FOUR:
+            case tuodan_four:
                 initFOUR();
                 break;
-            case SD_FIVE:
+            case tuodan_five:
                 initFIVE();
                 break;
-            case SD_SIX:
+            case tuodan_six:
                 initSIX();
                 break;
             //普通投注
-            case SSD_ONE:
+            case putong_one:
                 initRONE();
                 break;
-            case SSD_TWO:
+            case putong_two:
                 initRTWO();
                 break;
-            case SSD_THREE:
+            case putong_three:
                 initRTHREE();
                 break;
-            case SSD_FOUR:
+            case putong_four:
                 initRFOUR();
                 break;
-            case SSD_FIVE:
+            case putong_five:
                 initRFIVE();
                 break;
-            case SSD_SIX:
+            case putong_six:
                 initRSIX();
                 break;
 
@@ -4077,21 +4112,28 @@ public class PukeActivity extends AppCompatActivity {
                 }
                 break;
             //
-            case S_TONGHUA:
+            case danxuan_tonghua:
                 result = numberRandom(1, tonghuaNums);
                 for (int i = 0; i < result.length; i++) {
                     tonghuaList.get(result[i]).setIs_checked(true);
                     tonghuaAdapter.setSelectedList(result[i]);
                 }
                 break;
-            case S_TONGHUASHUN:
+            case danxuan_shunzi:
+                result = numberRandom(1, shunziNums);
+                for (int i = 0; i < result.length; i++) {
+                    shunziList.get(result[i]).setIs_checked(true);
+                    shunziAdapter.setSelectedList(result[i]);
+                }
+                break;
+            case danxuan_tonghuashun:
                 result = numberRandom(1, tonghuashunNums);
                 for (int i = 0; i < result.length; i++) {
                     tonghuashunList.get(result[i]).setIs_checked(true);
                     tonghuashunAdapter.setSelectedList(result[i]);
                 }
                 break;
-            case S_BAOZI:
+            case danxuan_baozi:
                 result = numberRandom(1, baoziNums);
                 for (int i = 0; i < result.length; i++) {
                     baoziList.get(result[i]).setIs_checked(true);
@@ -4099,7 +4141,7 @@ public class PukeActivity extends AppCompatActivity {
                 }
 
                 break;
-            case S_DUIZI:
+            case danxuan_duizi:
                 result = numberRandom(1, duiziNums);
                 for (int i = 0; i < result.length; i++) {
                     duiziList.get(result[i]).setIs_checked(true);
@@ -4107,93 +4149,95 @@ public class PukeActivity extends AppCompatActivity {
                 }
                 break;
 
-            case SD_TWO:
-                result = numberRandom(2, RTWONums);
+
+                //任选2
+            case tuodan_two:
+                result = numberRandom(2, tuodan_twonums);
                 for (int i = 0; i < result.length; i++) {
-                    RTWOList.get(result[i]).setIs_checked(true);
-                    RTWOAdapter.setSelectedList(result[i]);
+                    tuodan_twolist.get(result[i]).setIs_checked(true);
+                    twodan_twoadapter.setSelectedList(result[i]);
                 }
 
                 break;
-            case SD_THREE:
-                result = numberRandom(3, RTHREENums);
+            case tuodan_three:
+                result = numberRandom(3, tuodan_threenums);
                 for (int i = 0; i < result.length; i++) {
-                    RTHREEList.get(result[i]).setIs_checked(true);
-                    RTHREEAdapter.setSelectedList(result[i]);
+                    tuodanthreelist.get(result[i]).setIs_checked(true);
+                    tuodanthreeadapter.setSelectedList(result[i]);
                 }
                 break;
-            case SD_FOUR:
-                result = numberRandom(4, RFOURNums);
+            case tuodan_four:
+                result = numberRandom(4, tuodan_fournums);
                 for (int i = 0; i < result.length; i++) {
-                    RFOURList.get(result[i]).setIs_checked(true);
-                    RFOURAdapter.setSelectedList(result[i]);
+                    tuodan_fourlist.get(result[i]).setIs_checked(true);
+                    tuodan_fouradapter.setSelectedList(result[i]);
                 }
                 break;
-            case SD_FIVE:
-                result = numberRandom(5, RFIVENums);
+            case tuodan_five:
+                result = numberRandom(5, tuodan_fivenums);
                 for (int i = 0; i < result.length; i++) {
-                    RFIVEList.get(result[i]).setIs_checked(true);
-                    RFIVEAdapter.setSelectedList(result[i]);
-                }
-                break;
-
-            case SD_SIX:
-                result = numberRandom(6, RSIXNums);
-                for (int i = 0; i < result.length; i++) {
-                    RSIXList.get(result[i]).setIs_checked(true);
-                    RSIXAdapter.setSelectedList(result[i]);
-                }
-                result = numberRandom(6, RSIXNums);
-                for (int i = 0; i < result.length; i++) {
-                    RSIXList.get(result[i]).setIs_checked(true);
-                    RSIXAdapter.setSelectedList(result[i]);
-                }
-
-
-
-
-
-            case SSD_ONE:
-                result = numberRandom(1, RRONENums);
-                for (int i = 0; i < result.length; i++) {
-                    RRONEList.get(result[i]).setIs_checked(true);
-                    RRONEAdapter.setSelectedList(result[i]);
-                }
-                break;
-            case SSD_TWO:
-                result = numberRandom(1, RRTWONums);
-                for (int i = 0; i < result.length; i++) {
-                    RRTWOList.get(result[i]).setIs_checked(true);
-                    RRTWOAdapter.setSelectedList(result[i]);
-                }
-                break;
-            case SSD_THREE:
-                result = numberRandom(1, RRTHREENums);
-                for (int i = 0; i < result.length; i++) {
-                    RRTHREEList.get(result[i]).setIs_checked(true);
-                    RRTHREEAdapter.setSelectedList(result[i]);
-                }
-                break;
-            case SSD_FOUR:
-                result = numberRandom(1, RRFOURNums);
-                for (int i = 0; i < result.length; i++) {
-                    RRFOURList.get(result[i]).setIs_checked(true);
-                    RRFOURAdapter.setSelectedList(result[i]);
-                }
-                break;
-            case SSD_FIVE:
-                result = numberRandom(1, RRFIVENums);
-                for (int i = 0; i < result.length; i++) {
-                    RRFIVEList.get(result[i]).setIs_checked(true);
-                    RRFIVEAdapter.setSelectedList(result[i]);
+                    tuodan_fivelist.get(result[i]).setIs_checked(true);
+                    tuodan_fiveadapter.setSelectedList(result[i]);
                 }
                 break;
 
-            case SSD_SIX:
-                result = numberRandom(1, RRSIXNums);
+            case tuodan_six:
+                result = numberRandom(6, tuodan_sixnums);
                 for (int i = 0; i < result.length; i++) {
-                    RRSIXList.get(result[i]).setIs_checked(true);
-                    RRSIXAdapter.setSelectedList(result[i]);
+                    tuodan_sixlist.get(result[i]).setIs_checked(true);
+                    tuodan_sixadapter.setSelectedList(result[i]);
+                }
+                result = numberRandom(6, tuodan_sixnums);
+                for (int i = 0; i < result.length; i++) {
+                    tuodan_sixlist.get(result[i]).setIs_checked(true);
+                    tuodan_sixadapter.setSelectedList(result[i]);
+                }
+
+
+
+
+
+            case putong_one:
+                result = numberRandom(1, putong_onenums);
+                for (int i = 0; i < result.length; i++) {
+                    putong_onelist.get(result[i]).setIs_checked(true);
+                    putong_neadapter.setSelectedList(result[i]);
+                }
+                break;
+            case putong_two:
+                result = numberRandom(2, putong_twonums);
+                for (int i = 0; i < result.length; i++) {
+                    putong_twolist.get(result[i]).setIs_checked(true);
+                    putong_twoadapter.setSelectedList(result[i]);
+                }
+                break;
+            case putong_three:
+                result = numberRandom(3, putong_threenums);
+                for (int i = 0; i < result.length; i++) {
+                    putongthreelist.get(result[i]).setIs_checked(true);
+                    putong_threeadapter.setSelectedList(result[i]);
+                }
+                break;
+            case putong_four:
+                result = numberRandom(4, putong_fournums);
+                for (int i = 0; i < result.length; i++) {
+                    putong_fourlist.get(result[i]).setIs_checked(true);
+                    putong_fouradapter.setSelectedList(result[i]);
+                }
+                break;
+            case putong_five:
+                result = numberRandom(5, putong_fivenums);
+                for (int i = 0; i < result.length; i++) {
+                    putong_fivelist.get(result[i]).setIs_checked(true);
+                    putong_fiveadapter.setSelectedList(result[i]);
+                }
+                break;
+
+            case putong_six:
+                result = numberRandom(6, putong_sixnums);
+                for (int i = 0; i < result.length; i++) {
+                    putong_sixlist.get(result[i]).setIs_checked(true);
+                    putong_sixadapter.setSelectedList(result[i]);
                 }
                 break;
         }

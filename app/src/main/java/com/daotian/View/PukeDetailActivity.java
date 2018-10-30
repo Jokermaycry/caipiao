@@ -55,7 +55,7 @@ import cz.msebera.android.httpclient.Header;
  */
 
 public class PukeDetailActivity extends AppCompatActivity {
-    int count=0;
+    int count = 0;
     //每注彩票价格
     private final int TicketPrice = 2;
     //普通投注
@@ -79,6 +79,10 @@ public class PukeDetailActivity extends AppCompatActivity {
     private final int SD_FOUR = 10;//任选4
     private final int SD_FIVE = 11;//任选5
     private final int SD_SIX = 12;//任选6
+    @BindView(R.id.zhui)
+    LinearLayout zhui;
+    @BindView(R.id.zhongstop)
+    LinearLayout zhongstop;
 
 
     private int mSelecte_Mode = S_BAOXUAN;
@@ -111,7 +115,7 @@ public class PukeDetailActivity extends AppCompatActivity {
     EditText multipleNumEdit;
     @BindView(R.id.term_stop_check)
     ImageView termStopCheck;
-    private boolean check_term_top=true;
+    private boolean check_term_top = true;
 
     private List<NumInfo> baoxuanList = new ArrayList<>();
     private List<NumInfo> tonghuaList = new ArrayList<>();
@@ -120,7 +124,7 @@ public class PukeDetailActivity extends AppCompatActivity {
     private List<NumInfo> baoziList = new ArrayList<>();
     private List<NumInfo> duiziList = new ArrayList<>();
 
-//down
+    //down
     private List<NumInfo> RONEList = new ArrayList<>();
     private List<NumInfo> RTWOList = new ArrayList<>();
     private List<NumInfo> RTHREEList = new ArrayList<>();
@@ -136,20 +140,18 @@ public class PukeDetailActivity extends AppCompatActivity {
     private List<NumInfo> RRSIXList = new ArrayList<>();
 
 
-
-
-
     private TicketAdapter adpater;
-    private List<TicketResultListInfo> list_result=new ArrayList<>();
+    private List<TicketResultListInfo> list_result = new ArrayList<>();
     private Activity mActivity;
     private OrderInitBO mOrderInit;
-    private String sh_name,type,now_qs;
+    private String sh_name, type, now_qs, zq_type,buytype;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_elevenforfive_detail);
+        setContentView(R.layout.activity_puke_detail);
         ButterKnife.bind(this);
-        mActivity=this;
+        mActivity = this;
         initIntent();
         initView();
         getData();
@@ -172,8 +174,8 @@ public class PukeDetailActivity extends AppCompatActivity {
                     ToastUtil.toast(mActivity, resultBO.getResultMsg());
                     return;
                 }
-                mOrderInit= JSON.parseObject(resultBO.getResultData(),OrderInitBO.class);
-                if(mOrderInit==null){
+                mOrderInit = JSON.parseObject(resultBO.getResultData(), OrderInitBO.class);
+                if (mOrderInit == null) {
                     multipleNumEdit.setEnabled(false);
                     termNumEdit.setEnabled(false);
                 }
@@ -188,192 +190,203 @@ public class PukeDetailActivity extends AppCompatActivity {
 
     private void initIntent() {
 
-        mSelecte_Mode=this.getIntent().getIntExtra("selecte_mode",-1);
-        if(mSelecte_Mode==-1){
-            ToastUtil.toast(mActivity,"模式错误");
+        mSelecte_Mode = this.getIntent().getIntExtra("selecte_mode", -1);
+        if (mSelecte_Mode == -1) {
+            ToastUtil.toast(mActivity, "模式错误");
             return;
         }
         //Log.e("mSelecte_Mode！！！！！！！！！",mSelecte_Mode+"");
-        baoxuanList=(List<NumInfo>) this.getIntent().getSerializableExtra("baoxuanList");
-        tonghuaList=(List<NumInfo>) this.getIntent().getSerializableExtra("tonghuaList");
-        shunziList=(List<NumInfo>) this.getIntent().getSerializableExtra("shunziList");
-        tonghuashunList=(List<NumInfo>) this.getIntent().getSerializableExtra("tonghuashunList");
-        baoziList=(List<NumInfo>) this.getIntent().getSerializableExtra("baoziList");
-        duiziList=(List<NumInfo>) this.getIntent().getSerializableExtra("duiziList");
-
-
+        baoxuanList = (List<NumInfo>) this.getIntent().getSerializableExtra("baoxuanList");
+        tonghuaList = (List<NumInfo>) this.getIntent().getSerializableExtra("tonghuaList");
+        shunziList = (List<NumInfo>) this.getIntent().getSerializableExtra("shunziList");
+        tonghuashunList = (List<NumInfo>) this.getIntent().getSerializableExtra("tonghuashunList");
+        baoziList = (List<NumInfo>) this.getIntent().getSerializableExtra("baoziList");
+        duiziList = (List<NumInfo>) this.getIntent().getSerializableExtra("duiziList");
 
 
         //up    普通
-        RRONEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRONEList");
-        RRTWOList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRTWOList");
-        RRTHREEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRTHREEList");
-        RRFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRFOURList");
-        RRFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRFIVEList");
-        RRSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RRSIXList");
+        RRONEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRONEList");
+        RRTWOList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRTWOList");
+        RRTHREEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRTHREEList");
+        RRFOURList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRFOURList");
+        RRFIVEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRFIVEList");
+        RRSIXList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRSIXList");
 
         //down 拖胆
-        RONEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RONEList");
-        RTWOList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTWOList");
-        RTHREEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RTHREEList");
-        RFOURList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFOURList");
-        RFIVEList=(List<NumInfo>) this.getIntent().getSerializableExtra("RFIVEList");
-        RSIXList=(List<NumInfo>) this.getIntent().getSerializableExtra("RSIXList");
+        RONEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RONEList");
+        RTWOList = (List<NumInfo>) this.getIntent().getSerializableExtra("RTWOList");
+        RTHREEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RTHREEList");
+        RFOURList = (List<NumInfo>) this.getIntent().getSerializableExtra("RFOURList");
+        RFIVEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RFIVEList");
+        RSIXList = (List<NumInfo>) this.getIntent().getSerializableExtra("RSIXList");
 
         num.setText(this.getIntent().getStringExtra("num"));
         price.setText(this.getIntent().getStringExtra("price"));
         title.setText(this.getIntent().getStringExtra("title"));
-        sh_name=this.getIntent().getStringExtra("sh_name");
-        type=this.getIntent().getStringExtra("type");
-        now_qs=this.getIntent().getStringExtra("now_qs");
+        sh_name = this.getIntent().getStringExtra("sh_name");
+        type = this.getIntent().getStringExtra("type");
+        now_qs = this.getIntent().getStringExtra("now_qs");
+        zq_type = this.getIntent().getStringExtra("zq_type");
+        buytype = this.getIntent().getStringExtra("buytype");
+        switch (zq_type) {
+            case "1":
 
-        TicketResultListInfo info=new TicketResultListInfo();
+                break;
+            case "2":
+                zhongstop.setVisibility(View.GONE);
+                break;
+            case "3":
+                zhui.setVisibility(View.GONE);
+                zhongstop.setVisibility(View.GONE);
+                break;
+        }
+        TicketResultListInfo info = new TicketResultListInfo();
         info.setMode(mSelecte_Mode);
         info.setNum(num.getText().toString());
         info.setPrice(price.getText().toString());
 
-        switch (mSelecte_Mode){
+        switch (mSelecte_Mode) {
             case S_BAOXUAN:
-                for(int i=0;i<baoxuanList.size();i++){
-                    if(baoxuanList.get(i).is_checked()){
+                for (int i = 0; i < baoxuanList.size(); i++) {
+                    if (baoxuanList.get(i).is_checked()) {
 
                         info.getNumbers1().add(baoxuanList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
 
                     }
                 }
                 break;
             case S_TONGHUA:
-                for(int i=0;i<tonghuaList.size();i++){
-                    if(tonghuaList.get(i).is_checked()){
+                for (int i = 0; i < tonghuaList.size(); i++) {
+                    if (tonghuaList.get(i).is_checked()) {
 
                         info.getNumbers1().add(tonghuaList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
 
                     }
                 }
                 break;
             case S_SHUNZI:
-                for(int i=0;i<shunziList.size();i++){
-                    if(shunziList.get(i).is_checked()){
+                for (int i = 0; i < shunziList.size(); i++) {
+                    if (shunziList.get(i).is_checked()) {
 
                         info.getNumbers1().add(shunziList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
 
                 break;
             case S_TONGHUASHUN:
-                for(int i=0;i<tonghuashunList.size();i++){
-                    if(tonghuashunList.get(i).is_checked()){
+                for (int i = 0; i < tonghuashunList.size(); i++) {
+                    if (tonghuashunList.get(i).is_checked()) {
 
                         info.getNumbers1().add(tonghuashunList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
             case S_BAOZI:
-                for(int i=0;i<baoziList.size();i++){
-                    if(baoziList.get(i).is_checked()){
+                for (int i = 0; i < baoziList.size(); i++) {
+                    if (baoziList.get(i).is_checked()) {
 
                         info.getNumbers1().add(baoziList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
             case S_DUIZI:
-                for(int i=0;i<duiziList.size();i++){
-                    if(duiziList.get(i).is_checked()){
+                for (int i = 0; i < duiziList.size(); i++) {
+                    if (duiziList.get(i).is_checked()) {
 
                         info.getNumbers1().add(duiziList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
 
                 break;
             case SD_ONE:
-                for(int i=0;i<RONEList.size();i++){
-                    if(RONEList.get(i).is_checked()){
+                for (int i = 0; i < RONEList.size(); i++) {
+                    if (RONEList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RONEList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
             case SD_TWO:
-                for(int i=0;i<RTWOList.size();i++){
-                    if(RTWOList.get(i).is_checked()){
+                for (int i = 0; i < RTWOList.size(); i++) {
+                    if (RTWOList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RTWOList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
             case SD_THREE:
-                for(int i=0;i<RTHREEList.size();i++){
-                    if(RTHREEList.get(i).is_checked()){
+                for (int i = 0; i < RTHREEList.size(); i++) {
+                    if (RTHREEList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RTHREEList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
             case SD_FOUR:
-                for(int i=0;i<RFOURList.size();i++){
-                    if(RFOURList.get(i).is_checked()){
+                for (int i = 0; i < RFOURList.size(); i++) {
+                    if (RFOURList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RFOURList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
             case SD_FIVE:
-                for(int i=0;i<RFIVEList.size();i++){
-                    if(RFIVEList.get(i).is_checked()){
+                for (int i = 0; i < RFIVEList.size(); i++) {
+                    if (RFIVEList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RFIVEList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
             case SD_SIX:
-                for(int i=0;i<RSIXList.size();i++){
-                    if(RSIXList.get(i).is_checked()){
+                for (int i = 0; i < RSIXList.size(); i++) {
+                    if (RSIXList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RSIXList.get(i));
-                        Log.e("checked!!!!!!",String.valueOf(i));
+                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
 
-                //up
+            //up
             case SSD_ONE:
-                for(int i=0;i<RRONEList.size();i++){
-                    if(RRONEList.get(i).is_checked()){
+                for (int i = 0; i < RRONEList.size(); i++) {
+                    if (RRONEList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RRONEList.get(i));
                     }
                 }
                 break;
             case SSD_TWO:
-                for(int i=0;i<RRTWOList.size();i++){
-                    if(RRTWOList.get(i).is_checked()){
+                for (int i = 0; i < RRTWOList.size(); i++) {
+                    if (RRTWOList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RRTWOList.get(i));
                     }
                 }
                 break;
             case SSD_THREE:
-                for(int i=0;i<RRTHREEList.size();i++){
-                    if(RRTHREEList.get(i).is_checked()){
+                for (int i = 0; i < RRTHREEList.size(); i++) {
+                    if (RRTHREEList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RRTHREEList.get(i));
                     }
                 }
                 break;
             case SSD_FOUR:
-                for(int i=0;i<RRFOURList.size();i++){
-                    if(RRFOURList.get(i).is_checked()){
+                for (int i = 0; i < RRFOURList.size(); i++) {
+                    if (RRFOURList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RRFOURList.get(i));
 
@@ -381,8 +394,8 @@ public class PukeDetailActivity extends AppCompatActivity {
                 }
                 break;
             case SSD_FIVE:
-                for(int i=0;i<RRFIVEList.size();i++){
-                    if(RRFIVEList.get(i).is_checked()){
+                for (int i = 0; i < RRFIVEList.size(); i++) {
+                    if (RRFIVEList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RRFIVEList.get(i));
 
@@ -390,8 +403,8 @@ public class PukeDetailActivity extends AppCompatActivity {
                 }
                 break;
             case SSD_SIX:
-                for(int i=0;i<RRSIXList.size();i++){
-                    if(RRSIXList.get(i).is_checked()){
+                for (int i = 0; i < RRSIXList.size(); i++) {
+                    if (RRSIXList.get(i).is_checked()) {
 
                         info.getNumbers1().add(RRSIXList.get(i));
 
@@ -406,7 +419,7 @@ public class PukeDetailActivity extends AppCompatActivity {
 
     private void initView() {
 
-        adpater=new TicketAdapter(this,R.layout.list_item_ticket_result,list_result);
+        adpater = new TicketAdapter(this, R.layout.list_item_ticket_result, list_result);
         ticketListview.setAdapter(adpater);
 
         multipleNumEdit.addTextChangedListener(new TextWatcher() {
@@ -421,28 +434,28 @@ public class PukeDetailActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(mOrderInit.getMax_bs()==null){
+                if (mOrderInit.getMax_bs() == null) {
                     return;
                 }
-                if(TextUtils.isEmpty(price.getText().toString() ) ||TextUtils.isEmpty(num.getText().toString())){
+                if (TextUtils.isEmpty(price.getText().toString()) || TextUtils.isEmpty(num.getText().toString())) {
                     return;
                 }
-                if(TextUtils.isEmpty(termNumEdit.getText().toString())){
+                if (TextUtils.isEmpty(termNumEdit.getText().toString())) {
                     termNumEdit.setText("1");
                 }
-                if( TextUtils.isEmpty(multipleNumEdit.getText().toString())){
+                if (TextUtils.isEmpty(multipleNumEdit.getText().toString())) {
                     multipleNumEdit.setHint("1");
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(termNumEdit.getText().toString())*TicketPrice*1+"");
-                }else if(Integer.valueOf(multipleNumEdit.getText().toString())<1 ){
-                    ToastUtil.toast(PukeDetailActivity.this,"最小倍数为1");
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(termNumEdit.getText().toString()) * TicketPrice * 1 + "");
+                } else if (Integer.valueOf(multipleNumEdit.getText().toString()) < 1) {
+                    ToastUtil.toast(PukeDetailActivity.this, "最小倍数为1");
                     multipleNumEdit.setText("1");
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(termNumEdit.getText().toString())*TicketPrice*1+"");
-                } else if(!mOrderInit.getMax_bs().equals("0")&&Integer.valueOf(multipleNumEdit.getText().toString())>Integer.valueOf(mOrderInit.getMax_bs())){
-                    ToastUtil.toast(PukeDetailActivity.this,"最大倍数为"+mOrderInit.getMax_bs());
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(termNumEdit.getText().toString()) * TicketPrice * 1 + "");
+                } else if (!mOrderInit.getMax_bs().equals("0") && Integer.valueOf(multipleNumEdit.getText().toString()) > Integer.valueOf(mOrderInit.getMax_bs())) {
+                    ToastUtil.toast(PukeDetailActivity.this, "最大倍数为" + mOrderInit.getMax_bs());
                     multipleNumEdit.setText(mOrderInit.getMax_bs());
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(termNumEdit.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*TicketPrice+"");
-                }else{
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(termNumEdit.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*TicketPrice+"");
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(termNumEdit.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * TicketPrice + "");
+                } else {
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(termNumEdit.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * TicketPrice + "");
                 }
                 multipleNumEdit.setSelection(multipleNumEdit.length());
             }
@@ -459,34 +472,32 @@ public class PukeDetailActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(mOrderInit.getMax_zq()==null){
+                if (mOrderInit.getMax_zq() == null) {
                     return;
                 }
-                if(TextUtils.isEmpty(price.getText().toString() ) ||TextUtils.isEmpty(num.getText().toString())){
+                if (TextUtils.isEmpty(price.getText().toString()) || TextUtils.isEmpty(num.getText().toString())) {
                     return;
                 }
-                if(TextUtils.isEmpty(multipleNumEdit.getText().toString())){
+                if (TextUtils.isEmpty(multipleNumEdit.getText().toString())) {
                     multipleNumEdit.setText("1");
                 }
-                if(TextUtils.isEmpty(termNumEdit.getText().toString())){
+                if (TextUtils.isEmpty(termNumEdit.getText().toString())) {
                     termNumEdit.setHint("1");
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*1*TicketPrice+"");
-                }
-                else if(Integer.valueOf(termNumEdit.getText().toString())<1 ){
-                    ToastUtil.toast(PukeDetailActivity.this,"最少需要追1期");
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * 1 * TicketPrice + "");
+                } else if (Integer.valueOf(termNumEdit.getText().toString()) < 1) {
+                    ToastUtil.toast(PukeDetailActivity.this, "最少需要追1期");
                     termNumEdit.setText("1");
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*1*TicketPrice+"");
-                }
-                else if(Integer.valueOf(termNumEdit.getText().toString())>Integer.valueOf(mOrderInit.getMax_zq())){
-                    ToastUtil.toast(PukeDetailActivity.this,"最多可追"+mOrderInit.getMax_zq()+"期");
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * 1 * TicketPrice + "");
+                } else if (Integer.valueOf(termNumEdit.getText().toString()) > Integer.valueOf(mOrderInit.getMax_zq())) {
+                    ToastUtil.toast(PukeDetailActivity.this, "最多可追" + mOrderInit.getMax_zq() + "期");
                     termNumEdit.setText(mOrderInit.getMax_zq());
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*Integer.valueOf(mOrderInit.getMax_zq())*TicketPrice+"");
-                }else if(Integer.valueOf(termNumEdit.getText().toString())<1 || TextUtils.isEmpty(termNumEdit.getText().toString())){
-                    ToastUtil.toast(PukeDetailActivity.this,"最少需要追1期");
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * Integer.valueOf(mOrderInit.getMax_zq()) * TicketPrice + "");
+                } else if (Integer.valueOf(termNumEdit.getText().toString()) < 1 || TextUtils.isEmpty(termNumEdit.getText().toString())) {
+                    ToastUtil.toast(PukeDetailActivity.this, "最少需要追1期");
                     termNumEdit.setText("1");
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*1*TicketPrice+"");
-                }else{
-                    price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(termNumEdit.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*TicketPrice+"");
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * 1 * TicketPrice + "");
+                } else {
+                    price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(termNumEdit.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * TicketPrice + "");
                 }
                 termNumEdit.setSelection(termNumEdit.length());
 
@@ -513,10 +524,10 @@ public class PukeDetailActivity extends AppCompatActivity {
                 showBackPop();
                 break;
             case R.id.continue_btn:
-                Intent in=new Intent(mActivity,PukeActivity.class);
-                in.putExtra("sh_name",sh_name);
-                in.putExtra("continue",true);
-                startActivityForResult(in,0);
+                Intent in = new Intent(mActivity, PukeActivity.class);
+                in.putExtra("sh_name", sh_name);
+                in.putExtra("continue", true);
+                startActivityForResult(in, 0);
                 break;
             //机选
             case R.id.random_btn:
@@ -533,12 +544,12 @@ public class PukeDetailActivity extends AppCompatActivity {
                 BuyComfirm();
                 break;
             case R.id.term_stop_check:
-                if(check_term_top){
+                if (check_term_top) {
                     termStopCheck.setImageResource(R.drawable.icon_shape_unselete);
-                    check_term_top=false;
-                }else{
+                    check_term_top = false;
+                } else {
                     termStopCheck.setImageResource(R.drawable.icon_shape_seleted);
-                    check_term_top=true;
+                    check_term_top = true;
                 }
                 break;
         }
@@ -549,91 +560,91 @@ public class PukeDetailActivity extends AppCompatActivity {
 
         //继续选号
         if (requestCode == 0 && resultCode == RESULT_OK) {
-            mSelecte_Mode=data.getIntExtra("selecte_mode",-1);
-            if(mSelecte_Mode==-1){
-                ToastUtil.toast(mActivity,"模式错误");
+            mSelecte_Mode = data.getIntExtra("selecte_mode", -1);
+            if (mSelecte_Mode == -1) {
+                ToastUtil.toast(mActivity, "模式错误");
                 return;
             }
 
-            baoxuanList=(List<NumInfo>) data.getSerializableExtra("baoxuanList");
-            tonghuaList=(List<NumInfo>)data.getSerializableExtra("tonghuaList");
-            shunziList=(List<NumInfo>) data.getSerializableExtra("shunziList");
-            tonghuashunList=(List<NumInfo>)data.getSerializableExtra("tonghuashunList");
-            baoziList=(List<NumInfo>)data.getSerializableExtra("baoziList");
-            duiziList=(List<NumInfo>) data.getSerializableExtra("duiziList");
+            baoxuanList = (List<NumInfo>) data.getSerializableExtra("baoxuanList");
+            tonghuaList = (List<NumInfo>) data.getSerializableExtra("tonghuaList");
+            shunziList = (List<NumInfo>) data.getSerializableExtra("shunziList");
+            tonghuashunList = (List<NumInfo>) data.getSerializableExtra("tonghuashunList");
+            baoziList = (List<NumInfo>) data.getSerializableExtra("baoziList");
+            duiziList = (List<NumInfo>) data.getSerializableExtra("duiziList");
 
             //down
-            RONEList=(List<NumInfo>) data.getSerializableExtra("RONEList");
-            RTWOList=(List<NumInfo>) data.getSerializableExtra("RTWOList");
-            RTHREEList=(List<NumInfo>) data.getSerializableExtra("RTHREEList");
-            RFOURList=(List<NumInfo>) data.getSerializableExtra("RFOURList");
-            RFIVEList=(List<NumInfo>)data.getSerializableExtra("RFIVEList");
-            RSIXList=(List<NumInfo>) data.getSerializableExtra("RSIXList");
+            RONEList = (List<NumInfo>) data.getSerializableExtra("RONEList");
+            RTWOList = (List<NumInfo>) data.getSerializableExtra("RTWOList");
+            RTHREEList = (List<NumInfo>) data.getSerializableExtra("RTHREEList");
+            RFOURList = (List<NumInfo>) data.getSerializableExtra("RFOURList");
+            RFIVEList = (List<NumInfo>) data.getSerializableExtra("RFIVEList");
+            RSIXList = (List<NumInfo>) data.getSerializableExtra("RSIXList");
 
             //up
-            RRONEList=(List<NumInfo>) data.getSerializableExtra("RRONEList");
-            RRTWOList=(List<NumInfo>) data.getSerializableExtra("RRTWOList");
-            RRTHREEList=(List<NumInfo>) data.getSerializableExtra("RRTHREEList");
-            RRFOURList=(List<NumInfo>) data.getSerializableExtra("RRFOURList");
-            RRFIVEList=(List<NumInfo>)data.getSerializableExtra("RRFIVEList");
-            RRSIXList=(List<NumInfo>) data.getSerializableExtra("RRSIXList");
+            RRONEList = (List<NumInfo>) data.getSerializableExtra("RRONEList");
+            RRTWOList = (List<NumInfo>) data.getSerializableExtra("RRTWOList");
+            RRTHREEList = (List<NumInfo>) data.getSerializableExtra("RRTHREEList");
+            RRFOURList = (List<NumInfo>) data.getSerializableExtra("RRFOURList");
+            RRFIVEList = (List<NumInfo>) data.getSerializableExtra("RRFIVEList");
+            RRSIXList = (List<NumInfo>) data.getSerializableExtra("RRSIXList");
 
-            sh_name=this.getIntent().getStringExtra("sh_name");
+            sh_name = this.getIntent().getStringExtra("sh_name");
 
-            TicketResultListInfo info=new TicketResultListInfo();
-            info.setMode(data.getIntExtra("selecte_mode",1));
+            TicketResultListInfo info = new TicketResultListInfo();
+            info.setMode(data.getIntExtra("selecte_mode", 1));
             info.setNum(data.getStringExtra("num"));
             info.setPrice(data.getStringExtra("price"));
 
 
-            switch (mSelecte_Mode){
+            switch (mSelecte_Mode) {
                 case S_BAOXUAN:
-                    for(int i=0;i<baoxuanList.size();i++){
-                        if(baoxuanList.get(i).is_checked()){
+                    for (int i = 0; i < baoxuanList.size(); i++) {
+                        if (baoxuanList.get(i).is_checked()) {
                             info.getNumbers1().add(baoxuanList.get(i));
-                            Log.e("checked!!!!!!",String.valueOf(i));
+                            Log.e("checked!!!!!!", String.valueOf(i));
                         }
                     }
                     break;
                 case S_TONGHUA:
-                    for(int i=0;i<tonghuaList.size();i++){
-                        if(tonghuaList.get(i).is_checked()){
+                    for (int i = 0; i < tonghuaList.size(); i++) {
+                        if (tonghuaList.get(i).is_checked()) {
                             info.getNumbers1().add(tonghuaList.get(i));
                         }
                     }
                     break;
                 case S_SHUNZI:
-                    for(int i=0;i<shunziList.size();i++){
-                        if(shunziList.get(i).is_checked()){
+                    for (int i = 0; i < shunziList.size(); i++) {
+                        if (shunziList.get(i).is_checked()) {
                             info.getNumbers1().add(shunziList.get(i));
                         }
                     }
 
                     break;
                 case S_TONGHUASHUN:
-                    for(int i=0;i<tonghuashunList.size();i++){
-                        if(tonghuashunList.get(i).is_checked()){
+                    for (int i = 0; i < tonghuashunList.size(); i++) {
+                        if (tonghuashunList.get(i).is_checked()) {
                             info.getNumbers1().add(tonghuashunList.get(i));
                         }
                     }
                     break;
                 case S_BAOZI:
-                    for(int i=0;i<baoziList.size();i++){
-                        if(baoziList.get(i).is_checked()){
+                    for (int i = 0; i < baoziList.size(); i++) {
+                        if (baoziList.get(i).is_checked()) {
                             info.getNumbers1().add(baoziList.get(i));
                         }
                     }
                     break;
                 case S_DUIZI:
-                    for(int i=0;i<duiziList.size();i++){
-                        if(duiziList.get(i).is_checked()){
+                    for (int i = 0; i < duiziList.size(); i++) {
+                        if (duiziList.get(i).is_checked()) {
                             info.getNumbers1().add(duiziList.get(i));
                         }
                     }
                     break;
                 case SD_ONE:
-                    for(int i=0;i<RONEList.size();i++){
-                        if(RONEList.get(i).is_checked()){
+                    for (int i = 0; i < RONEList.size(); i++) {
+                        if (RONEList.get(i).is_checked()) {
                             RONEList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RONEList.get(i));
                         }
@@ -641,8 +652,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SD_TWO:
-                    for(int i=0;i<RTWOList.size();i++){
-                        if(RTWOList.get(i).is_checked()){
+                    for (int i = 0; i < RTWOList.size(); i++) {
+                        if (RTWOList.get(i).is_checked()) {
                             RTWOList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RTWOList.get(i));
                         }
@@ -650,8 +661,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SD_THREE:
-                    for(int i=0;i<RTHREEList.size();i++){
-                        if(RTHREEList.get(i).is_checked()){
+                    for (int i = 0; i < RTHREEList.size(); i++) {
+                        if (RTHREEList.get(i).is_checked()) {
                             RTHREEList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RTHREEList.get(i));
                         }
@@ -659,8 +670,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SD_FOUR:
-                    for(int i=0;i<RFOURList.size();i++){
-                        if(RFOURList.get(i).is_checked()){
+                    for (int i = 0; i < RFOURList.size(); i++) {
+                        if (RFOURList.get(i).is_checked()) {
                             RFOURList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RFOURList.get(i));
                         }
@@ -668,8 +679,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SD_FIVE:
-                    for(int i=0;i<RFIVEList.size();i++){
-                        if(RFIVEList.get(i).is_checked()){
+                    for (int i = 0; i < RFIVEList.size(); i++) {
+                        if (RFIVEList.get(i).is_checked()) {
                             RFIVEList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RFIVEList.get(i));
                         }
@@ -677,16 +688,16 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SD_SIX:
-                    for(int i=0;i<RSIXList.size();i++){
-                        if(RSIXList.get(i).is_checked()){
+                    for (int i = 0; i < RSIXList.size(); i++) {
+                        if (RSIXList.get(i).is_checked()) {
                             RSIXList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RSIXList.get(i));
                         }
                     }
                     //up
                 case SSD_ONE:
-                    for(int i=0;i<RRONEList.size();i++){
-                        if(RRONEList.get(i).is_checked()){
+                    for (int i = 0; i < RRONEList.size(); i++) {
+                        if (RRONEList.get(i).is_checked()) {
                             RRONEList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RRONEList.get(i));
                         }
@@ -694,8 +705,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SSD_TWO:
-                    for(int i=0;i<RRTWOList.size();i++){
-                        if(RRTWOList.get(i).is_checked()){
+                    for (int i = 0; i < RRTWOList.size(); i++) {
+                        if (RRTWOList.get(i).is_checked()) {
                             RRTWOList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RRTWOList.get(i));
                         }
@@ -703,8 +714,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SSD_THREE:
-                    for(int i=0;i<RRTHREEList.size();i++){
-                        if(RRTHREEList.get(i).is_checked()){
+                    for (int i = 0; i < RRTHREEList.size(); i++) {
+                        if (RRTHREEList.get(i).is_checked()) {
                             RRTHREEList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RRTHREEList.get(i));
                         }
@@ -712,8 +723,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SSD_FOUR:
-                    for(int i=0;i<RRFOURList.size();i++){
-                        if(RRFOURList.get(i).is_checked()){
+                    for (int i = 0; i < RRFOURList.size(); i++) {
+                        if (RRFOURList.get(i).is_checked()) {
                             RRFOURList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RRFOURList.get(i));
                         }
@@ -721,8 +732,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SSD_FIVE:
-                    for(int i=0;i<RRFIVEList.size();i++){
-                        if(RRFIVEList.get(i).is_checked()){
+                    for (int i = 0; i < RRFIVEList.size(); i++) {
+                        if (RRFIVEList.get(i).is_checked()) {
                             RRFIVEList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RRFIVEList.get(i));
                         }
@@ -730,8 +741,8 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     break;
                 case SSD_SIX:
-                    for(int i=0;i<RSIXList.size();i++){
-                        if(RRSIXList.get(i).is_checked()){
+                    for (int i = 0; i < RSIXList.size(); i++) {
+                        if (RRSIXList.get(i).is_checked()) {
                             RRSIXList.get(i).setIs_spe(true);
                             info.getNumbers1().add(RRSIXList.get(i));
                         }
@@ -744,13 +755,14 @@ public class PukeDetailActivity extends AppCompatActivity {
             calcluateNumAndPrice();
         }
     }
+
     /**
      * 确定下单
      */
     private void BuyComfirm() {
-        if(App.mUser==null || App.mUser.getAccess_token()==null){
-            ToastUtil.toast(mActivity,"请先登录！");
-            Intent in=new Intent(this,LoginActivity.class);
+        if (App.mUser == null || App.mUser.getAccess_token() == null) {
+            ToastUtil.toast(mActivity, "请先登录！");
+            Intent in = new Intent(this, LoginActivity.class);
             startActivity(in);
             return;
         }
@@ -758,35 +770,53 @@ public class PukeDetailActivity extends AppCompatActivity {
 //            ToastUtil.toast(mActivity,"金额不足，请先充值！");
 //            return;
 //        }
-        if(list_result.size()<1){
-            ToastUtil.toast(mActivity,"请先购买号码！");
+        if (list_result.size() < 1) {
+            ToastUtil.toast(mActivity, "请先购买号码！");
             return;
         }
         HashMap<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("sh_name", sh_name);
-        paramMap.put("lottery_type", "2");
-        paramMap.put("total_fee", price.getText().toString());
+        paramMap.put("lottery_type", "4");
+        paramMap.put("total_fee", "0");//!!!!!!!!!!!!!!!!!!!!
         paramMap.put("log_num", now_qs);
-        if(TextUtils.isEmpty(termNumEdit.getText().toString())){
+        if (TextUtils.isEmpty(termNumEdit.getText().toString())) {
             paramMap.put("sery_num", "1");
-            Log.e("sery_num","1");
-        }else{
+            Log.e("sery_num", "1");
+        } else {
             paramMap.put("sery_num", termNumEdit.getText().toString());
-            Log.e("sery_num",termNumEdit.getText().toString());
+            Log.e("sery_num", termNumEdit.getText().toString());
         }
-        if(TextUtils.isEmpty(multipleNumEdit.getText().toString())){
+        if (TextUtils.isEmpty(multipleNumEdit.getText().toString())) {
             paramMap.put("buy_bs", "1");
-            Log.e("buy_bs","1");
-        }else{
+            Log.e("buy_bs", "1");
+        } else {
             paramMap.put("buy_bs", multipleNumEdit.getText().toString());
-            Log.e("buy_bs",multipleNumEdit.getText().toString());
+            Log.e("buy_bs", multipleNumEdit.getText().toString());
         }
-        if(check_term_top){
-            paramMap.put("is_sery_stop", "1");
-        }else{
-            paramMap.put("is_sery_stop", "0");
+//        if (check_term_top) {
+//            paramMap.put("is_sery_stop", "1");
+//        } else {
+//            paramMap.put("is_sery_stop", "0");
+//        }
+
+        switch (zq_type) {
+            case "1":
+                paramMap.put("is_sery_stop", "1");
+                break;
+            case "2":
+                paramMap.put("is_sery_stop", "0");
+                zhongstop.setVisibility(View.GONE);
+                break;
+            case "3":
+                paramMap.put("is_sery_stop", "0");
+                zhui.setVisibility(View.GONE);
+                zhongstop.setVisibility(View.GONE);
+                break;
+
+
         }
-        Log.e("total_fee",price.getText().toString());
+
+        Log.e("total_fee", price.getText().toString());
 
         paramMap.put("buy_array", setbuyArray());
         RequestParams params = ParamUtil.requestParams(paramMap);
@@ -805,8 +835,8 @@ public class PukeDetailActivity extends AppCompatActivity {
                     comfirmBtn.setBackgroundResource(R.drawable.btn_bg_red_fill);
                     return;
                 }
-                Intent in=new Intent(mActivity,FastThreeActivity.class);
-                in.putExtra("sh_name",sh_name);
+                Intent in = new Intent(mActivity, PukeActivity.class);
+                in.putExtra("sh_name", sh_name);
                 startActivity(in);
                 finish();
             }
@@ -821,40 +851,82 @@ public class PukeDetailActivity extends AppCompatActivity {
 
     }
 
+//    /**
+//     * 拼接参数
+//     * @return
+//     */
+//    private String  setbuyArray() {
+//        List<BuyNumBO> buylist=new ArrayList<>();
+//
+//
+//        for(int i=0;i<list_result.size();i++){
+//            BuyNumBO info=new BuyNumBO();
+//            info.setType(list_result.get(i).getMode()+"");
+//            Log.e("getMode",list_result.get(i).getMode()+"");
+//
+//            String s1="";
+//            for(int j=0;j<list_result.get(i).getNumbers1().size();j++){
+//                if(j==0){
+//                    s1=s1+list_result.get(i).getNumbers1().get(j).getNum();
+//                }else{
+//                    s1=s1+","+list_result.get(i).getNumbers1().get(j).getNum();
+//                }
+//            }
+//            info.setS1(s1);
+//            if(list_result.get(i).getNumbers2().size()>0){
+//                String s2="";
+//                for(int j=0;j<list_result.get(i).getNumbers2().size();j++){
+//                    if(j==0){
+//                        s2=s2+list_result.get(i).getNumbers2().get(j).getNum();
+//                    }else{
+//                        s2=s2+","+list_result.get(i).getNumbers2().get(j).getNum();
+//                    }
+//                }
+//                info.setS2(s2);
+//            }
+//            buylist.add(info);
+//        }
+//        Log.e("buy_arry",JSON.toJSONString(buylist));
+//        return JSON.toJSONString(buylist);
+//    }
+
     /**
      * 拼接参数
+     *
      * @return
      */
-    private String  setbuyArray() {
-        List<BuyNumBO> buylist=new ArrayList<>();
+    private String setbuyArray() {
+        List<BuyNumBO> buylist = new ArrayList<>();
 
 
-        for(int i=0;i<list_result.size();i++){
-            BuyNumBO info=new BuyNumBO();
-            info.setType(list_result.get(i).getMode()+"");
-            String s1="";
-            for(int j=0;j<list_result.get(i).getNumbers1().size();j++){
-                if(j==0){
-                    s1=s1+list_result.get(i).getNumbers1().get(j).getNum();
-                }else{
-                    s1=s1+","+list_result.get(i).getNumbers1().get(j).getNum();
+        for (int i = 0; i < list_result.size(); i++) {
+            BuyNumBO info = new BuyNumBO();
+            info.setType(buytype);
+            //Log.e("getMode",list_result.get(i).getMode()+"");
+
+            String s1 = "";
+            for (int j = 0; j < list_result.get(i).getNumbers1().size(); j++) {
+                if (j == 0) {
+                    s1 = s1 + list_result.get(i).getNumbers1().get(j).getNum();
+                } else {
+                    s1 = s1 + "," + list_result.get(i).getNumbers1().get(j).getNum();
                 }
             }
             info.setS1(s1);
-            if(list_result.get(i).getNumbers2().size()>0){
-                String s2="";
-                for(int j=0;j<list_result.get(i).getNumbers2().size();j++){
-                    if(j==0){
-                        s2=s2+list_result.get(i).getNumbers2().get(j).getNum();
-                    }else{
-                        s2=s2+","+list_result.get(i).getNumbers2().get(j).getNum();
+            if (list_result.get(i).getNumbers2().size() > 0) {
+                String s2 = "";
+                for (int j = 0; j < list_result.get(i).getNumbers2().size(); j++) {
+                    if (j == 0) {
+                        s2 = s2 + list_result.get(i).getNumbers2().get(j).getNum();
+                    } else {
+                        s2 = s2 + "," + list_result.get(i).getNumbers2().get(j).getNum();
                     }
                 }
                 info.setS2(s2);
             }
             buylist.add(info);
         }
-        Log.e("buy_arry",JSON.toJSONString(buylist));
+        Log.e("buy_arry", JSON.toJSONString(buylist));
         return JSON.toJSONString(buylist);
     }
 
@@ -881,110 +953,110 @@ public class PukeDetailActivity extends AppCompatActivity {
         @Override
         public void convert(ViewHolder holder, final TicketResultListInfo info) {
             List<NumInfo> nums = new ArrayList<>();
-            Log.e("mode",String.valueOf(mSelecte_Mode));
-            Log.e("size",String.valueOf(info.getNumbers1().size()));
-            for(int i=0;i<info.getNumbers1().size();i++){
+            Log.e("mode", String.valueOf(mSelecte_Mode));
+            Log.e("size", String.valueOf(info.getNumbers1().size()));
+            for (int i = 0; i < info.getNumbers1().size(); i++) {
                 nums.add(info.getNumbers1().get(i));
 
             }
-            Log.e("num",String.valueOf(nums.size()));
+            Log.e("num", String.valueOf(nums.size()));
 
 
-            final TagFlowLayout numTag=holder.getView(R.id.num_tag);
+            final TagFlowLayout numTag = holder.getView(R.id.num_tag);
             final TagAdapter<NumInfo> numAdapter = new TagAdapter<NumInfo>(nums) {
                 @Override
                 public View getView(FlowLayout parent, int position, NumInfo s) {
-                    TextView tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                    TextView tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
                     //Log.e("positon",String.valueOf(position));
 
-                        switch (info.getMode()){
-                            case S_BAOXUAN:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case S_TONGHUA:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_tonghua, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case S_SHUNZI:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_three, numTag, false);
-                                tv.setBackgroundResource(R.drawable.shunzi_empty);
-                                break;
-                            case S_TONGHUASHUN:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_tonghua, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case S_BAOZI:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_three, numTag, false);
-                                tv.setBackgroundResource(R.drawable.shunzi_empty);
-                                break;
-                            case S_DUIZI:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_two, numTag, false);
-                                tv.setBackgroundResource(R.drawable.duizi_empty);
-                                break;
-                            case SD_ONE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SD_TWO:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SD_THREE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SD_FOUR:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SD_FIVE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SD_SIX:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                                //up
-                            case SSD_ONE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SSD_TWO:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SSD_THREE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SSD_FOUR:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SSD_FIVE:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                            case SSD_SIX:
-                                tv= (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                                tv.setBackgroundResource(R.drawable.puke_empty);
-                                break;
-                        }
+                    switch (info.getMode()) {
+                        case S_BAOXUAN:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case S_TONGHUA:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_tonghua, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case S_SHUNZI:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_three, numTag, false);
+                            tv.setBackgroundResource(R.drawable.shunzi_empty);
+                            break;
+                        case S_TONGHUASHUN:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_tonghua, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case S_BAOZI:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_three, numTag, false);
+                            tv.setBackgroundResource(R.drawable.shunzi_empty);
+                            break;
+                        case S_DUIZI:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_two, numTag, false);
+                            tv.setBackgroundResource(R.drawable.duizi_empty);
+                            break;
+                        case SD_ONE:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SD_TWO:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SD_THREE:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SD_FOUR:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SD_FIVE:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SD_SIX:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        //up
+                        case SSD_ONE:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SSD_TWO:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SSD_THREE:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SSD_FOUR:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SSD_FIVE:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                        case SSD_SIX:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            break;
+                    }
 
 
-                        tv.setText(s.getNum());
+                    tv.setText(s.getNum());
 
                     return tv;
 
                 }
             };
             numTag.setAdapter(numAdapter);
-            holder.setText(R.id.ticket_num,info.getNum()+"注");
-            holder.setText(R.id.ticket_price,info.getPrice()+"元");
-            TextView mode_tv=holder.getView(R.id.ticket_mode);
-            switch (info.getMode()){
+            holder.setText(R.id.ticket_num, info.getNum() + "注");
+            holder.setText(R.id.ticket_price, info.getPrice() + "元");
+            TextView mode_tv = holder.getView(R.id.ticket_mode);
+            switch (info.getMode()) {
                 case S_BAOXUAN:
                     mode_tv.setText("包选");
                     break;
@@ -1021,7 +1093,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                 case SD_SIX:
                     mode_tv.setText("任选六");
                     break;
-                    //up
+                //up
                 case SSD_ONE:
                     mode_tv.setText("任选一");
                     break;
@@ -1042,7 +1114,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     break;
             }
 
-            ImageView delete=holder.getView(R.id.ticket_delete);
+            ImageView delete = holder.getView(R.id.ticket_delete);
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -1059,8 +1131,8 @@ public class PukeDetailActivity extends AppCompatActivity {
         // 一个自定义的布局，作为显示的内容
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_close, null);
         final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
-        TextView cancle=(TextView)view.findViewById(R.id.cancle);
-        TextView comfirm=(TextView)view.findViewById(R.id.comfirm);
+        TextView cancle = (TextView) view.findViewById(R.id.cancle);
+        TextView comfirm = (TextView) view.findViewById(R.id.comfirm);
         cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1083,13 +1155,14 @@ public class PukeDetailActivity extends AppCompatActivity {
         // 设置好参数之后再show
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
     }
+
     public void showCanclePop() {
         // 一个自定义的布局，作为显示的内容
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_close, null);
         final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
-        TextView cancle=(TextView)view.findViewById(R.id.cancle);
-        TextView comfirm=(TextView)view.findViewById(R.id.comfirm);
-        TextView title=(TextView)view.findViewById(R.id.title);
+        TextView cancle = (TextView) view.findViewById(R.id.cancle);
+        TextView comfirm = (TextView) view.findViewById(R.id.comfirm);
+        TextView title = (TextView) view.findViewById(R.id.title);
         title.setText("您是否确定清空数据？");
         cancle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1118,162 +1191,575 @@ public class PukeDetailActivity extends AppCompatActivity {
      * 设置机选号码
      */
     private void getRandow() {
-        int[] result=null;
-        int[] result2=null;
+        int[] result = null;
+        int[] result2 = null;
 
-        List<NumInfo> result_list1=new ArrayList<>();
-        List<NumInfo> result_list2=new ArrayList<>();
-        List<String> random_list=new ArrayList<>();
-        List<String> random_list2=new ArrayList<>();
+        List<NumInfo> result_list1 = new ArrayList<>();
+        List<NumInfo> result_list2 = new ArrayList<>();
+        List<String> random_list = new ArrayList<>();
+        List<String> random_list2 = new ArrayList<>();
 
-        switch (mSelecte_Mode){
+        switch (mSelecte_Mode) {
             case S_BAOXUAN:
-                for (int i = 0; i <5; i++) {
+                for (int i = 0; i < 5; i++) {
                     random_list.add(""+i);
+
                 }
-                result=numberRandom(1,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum(result[i]+1+"");
-                    result_list1.add(info);
+                result = numberRandom(1, random_list);
+
+                NumInfo info1 = new NumInfo();
+                switch (result[0]) {
+                    case 0:
+                        info1.setNum("同花包选");
+                        break;
+                    case 1:
+                        info1.setNum("顺子包选");
+                        break;
+                    case 2:
+                        info1.setNum("同花顺包选");
+                        break;
+                    case 3:
+                        info1.setNum("对子包选");
+                        break;
+                    case 4:
+                        info1.setNum("豹子包选");
+                        break;
                 }
+                result_list1.add(info1);
                 break;
             case S_TONGHUA:
-                for (int i = 0; i <4; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 4; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(1,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
-                    result_list1.add(info);
-                }
+                result = numberRandom(1, random_list);
+
+                    NumInfo info2 = new NumInfo();
+                    switch (result[0]) {
+                        case 0:
+                            info2.setNum("♠");
+                            break;
+                        case 1:
+                            info2.setNum("♥");
+                            break;
+                        case 2:
+                            info2.setNum("♣");
+                            break;
+                        case 3:
+                            info2.setNum("♦");
+                            break;
+                    }
+
+                    result_list1.add(info2);
+
                 break;
             case S_SHUNZI:
-                for (int i = 0; i <12; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 12; i++) {
+                    random_list.add( i +"");
                 }
-                result=numberRandom(1,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
-                    result_list1.add(info);
-                }
+                result = numberRandom(1, random_list);
+
+                    NumInfo info3 = new NumInfo();
+                    switch (result[0]) {
+                        case 0:
+                            info3.setNum("A  2  3");
+                            break;
+                        case 1:
+                            info3.setNum("2  3  4");
+                            break;
+                        case 2:
+                            info3.setNum("3  4  5");
+                            break;
+                        case 3:
+                            info3.setNum("4  5  6");
+                            break;
+                        case 4:
+                            info3.setNum("5  6  7");
+                            break;
+                        case 5:
+                            info3.setNum("6  7  8");
+                            break;
+                        case 6:
+                            info3.setNum("7  8  9");
+                            break;
+                        case 7:
+                            info3.setNum("8  9  10");
+                            break;
+                        case 8:
+                            info3.setNum("9  10  J");
+                            break;
+                        case 9:
+                            info3.setNum("10 J  Q");
+                            break;
+                        case 10:
+                            info3.setNum("J  Q  K");
+                            break;
+                        case 11:
+                            info3.setNum("Q  K  A");
+                            break;
+
+
+                    }
+                    result_list1.add(info3);
+
                 break;
             case S_TONGHUASHUN:
-                for (int i = 0; i <4; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 4; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(1,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
-                    result_list1.add(info);
-                }
+                result = numberRandom(1, random_list);
+
+                    NumInfo tonghua_info = new NumInfo();
+                    switch (result[0]) {
+                        case 0:
+                            tonghua_info.setNum("♠");
+                            break;
+                        case 1:
+                            tonghua_info.setNum("♥");
+                            break;
+                        case 2:
+                            tonghua_info.setNum("♣");
+                            break;
+                        case 3:
+                            tonghua_info.setNum("♦");
+                            break;
+                    }
+                    result_list1.add(tonghua_info);
+
                 break;
-            case S_BAOZI:;
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+            case S_BAOZI:
+
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(1,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
-                    result_list1.add(info);
-                }
+                result = numberRandom(1, random_list);
+                    NumInfo baozi_info = new NumInfo();
+                    switch (result[0]) {
+                        case 0:
+                            baozi_info.setNum("A  A  A");
+                            break;
+                        case 1:
+                            baozi_info.setNum("2  2  2");
+                            break;
+                        case 2:
+                            baozi_info.setNum("3  3  3");
+                            break;
+                        case 3:
+                            baozi_info.setNum("4  4  4");
+                            break;
+                        case 4:
+                            baozi_info.setNum("5  5  5");
+                            break;
+                        case 5:
+                            baozi_info.setNum("6  6  6");
+                            break;
+                        case 6:
+                            baozi_info.setNum("7  7  7");
+                            break;
+                        case 7:
+                            baozi_info.setNum("8  8  8");
+                            break;
+                        case 8:
+                            baozi_info.setNum("9  9  9");
+                            break;
+                        case 9:
+                            baozi_info.setNum("10 10 10");
+                            break;
+                        case 10:
+                            baozi_info.setNum("J  J  J");
+                            break;
+                        case 11:
+                            baozi_info.setNum("Q  Q  Q");
+                            break;
+                        case 12:
+                            baozi_info.setNum("K  K  K");
+                            break;
+                    }
+                    result_list1.add(baozi_info);
+
                 break;
             case S_DUIZI:
 
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(1,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
-                    result_list1.add(info);
-                }
+                result = numberRandom(1, random_list);
+
+                    NumInfo duizi_info = new NumInfo();
+                    switch (result[0]) {
+                        case 0:
+                            duizi_info.setNum("A A");
+                            break;
+                        case 1:
+                            duizi_info.setNum("2 2");
+                            break;
+                        case 2:
+                            duizi_info.setNum("3 3");
+                            break;
+                        case 3:
+                            duizi_info.setNum("4 4");
+                            break;
+                        case 4:
+                            duizi_info.setNum("5 5");
+                            break;
+                        case 5:
+                            duizi_info.setNum("6 6");
+                            break;
+                        case 6:
+                            duizi_info.setNum("7 7");
+                            break;
+                        case 7:
+                            duizi_info.setNum("8 8");
+                            break;
+                        case 8:
+                            duizi_info.setNum("9 9");
+                            break;
+                        case 9:
+                            duizi_info.setNum("10 10");
+                            break;
+                        case 10:
+                            duizi_info.setNum("J J");
+                            break;
+                        case 11:
+                            duizi_info.setNum("Q Q");
+                            break;
+                        case 12:
+                            duizi_info.setNum("K K");
+                            break;
+
+                    }
+
+                    result_list1.add(duizi_info);
+
 
                 break;
+                    //普通任选模式
             case SD_ONE:
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(1,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
-                    result_list1.add(info);
-                }
+                result = numberRandom(1, random_list);
+
+                    NumInfo putong_one_info = new NumInfo();
+                    switch (result[0]) {
+                        case 0:
+                            putong_one_info.setNum("A");
+                            break;
+                        case 1:
+                            putong_one_info.setNum("2");
+                            break;
+                        case 2:
+                            putong_one_info.setNum("3");
+                            break;
+                        case 3:
+                            putong_one_info.setNum("4");
+                            break;
+                        case 4:
+                            putong_one_info.setNum("5");
+                            break;
+                        case 5:
+                            putong_one_info.setNum("6");
+                            break;
+                        case 6:
+                            putong_one_info.setNum("7");
+                            break;
+                        case 7:
+                            putong_one_info.setNum("8");
+                            break;
+                        case 8:
+                            putong_one_info.setNum("9");
+                            break;
+                        case 9:
+                            putong_one_info.setNum("10");
+                            break;
+                        case 10:
+                            putong_one_info.setNum("J");
+                            break;
+                        case 11:
+                            putong_one_info.setNum("Q");
+                            break;
+                        case 12:
+                            putong_one_info.setNum("K");
+                            break;
+
+
+                    }
+                    result_list1.add(putong_one_info);
+
                 break;
             case SD_TWO:
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(2,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
+                result = numberRandom(2, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            break;
+
+                    }
                     result_list1.add(info);
                 }
+                break;
             case SD_THREE:
-
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(3,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
+                result = numberRandom(3, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            break;
+
+                    }
                     result_list1.add(info);
                 }
                 break;
             case SD_FOUR:
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(4,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
+                result = numberRandom(4, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            break;
+
+                    }
                     result_list1.add(info);
                 }
+                break;
             case SD_FIVE:
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(5,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
+                result = numberRandom(5, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            break;
+
+                    }
                     result_list1.add(info);
                 }
                 break;
             case SD_SIX:
-                for (int i = 0; i <13; i++) {
-                    random_list.add(i * 111 + "");
+                for (int i = 0; i < 13; i++) {
+                    random_list.add(i +"");
                 }
-                result=numberRandom(6,random_list);
-                for(int i=0;i<result.length;i++){
-                    NumInfo info=new NumInfo();
-                    info.setNum((result[i]+1)*111+"");
+                result = numberRandom(6, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            break;
+
+                    }
                     result_list1.add(info);
                 }
                 break;
 
 
         }
-        if(result==null){
-            ToastUtil.toast(this,"模式错误");
+        if (result == null) {
+            ToastUtil.toast(this, "模式错误");
             finish();
             return;
         }
 
-        TicketResultListInfo data=new TicketResultListInfo();
+        TicketResultListInfo data = new TicketResultListInfo();
         data.setNumbers1(result_list1);
         data.setNumbers2(result_list2);
         data.setNum("1");
-        data.setPrice(TicketPrice+"");
+        data.setPrice(TicketPrice + "");
         data.setMode(mSelecte_Mode);
         list_result.add(data);
         adpater.notifyDataSetChanged();
@@ -1305,21 +1791,21 @@ public class PukeDetailActivity extends AppCompatActivity {
     /**
      * 计算总的注数和金额
      */
-    public void calcluateNumAndPrice(){
-        int c_num=0;
+    public void calcluateNumAndPrice() {
+        int c_num = 0;
 
-        for(int i=0;i<list_result.size();i++){
-            c_num=c_num+Integer.valueOf(list_result.get(i).getNum());
+        for (int i = 0; i < list_result.size(); i++) {
+            c_num = c_num + Integer.valueOf(list_result.get(i).getNum());
         }
-        num.setText(c_num+"");
-        if(TextUtils.isEmpty(multipleNumEdit.getText().toString()) && TextUtils.isEmpty(termNumEdit.getText().toString())){
-            price.setText(Integer.valueOf(num.getText().toString())*1*1*TicketPrice+"");
-        }else if(TextUtils.isEmpty(multipleNumEdit.getText().toString())){
-            price.setText(Integer.valueOf(num.getText().toString())*1*Integer.valueOf(termNumEdit.getText().toString())*TicketPrice+"");
-        } else if(TextUtils.isEmpty(termNumEdit.getText().toString())){
-            price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*1*TicketPrice+"");
-        } else{
-            price.setText(Integer.valueOf(num.getText().toString())*Integer.valueOf(multipleNumEdit.getText().toString())*Integer.valueOf(termNumEdit.getText().toString())*TicketPrice+"");
+        num.setText(c_num + "");
+        if (TextUtils.isEmpty(multipleNumEdit.getText().toString()) && TextUtils.isEmpty(termNumEdit.getText().toString())) {
+            price.setText(Integer.valueOf(num.getText().toString()) * 1 * 1 * TicketPrice + "");
+        } else if (TextUtils.isEmpty(multipleNumEdit.getText().toString())) {
+            price.setText(Integer.valueOf(num.getText().toString()) * 1 * Integer.valueOf(termNumEdit.getText().toString()) * TicketPrice + "");
+        } else if (TextUtils.isEmpty(termNumEdit.getText().toString())) {
+            price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * 1 * TicketPrice + "");
+        } else {
+            price.setText(Integer.valueOf(num.getText().toString()) * Integer.valueOf(multipleNumEdit.getText().toString()) * Integer.valueOf(termNumEdit.getText().toString()) * TicketPrice + "");
         }
     }
 }
