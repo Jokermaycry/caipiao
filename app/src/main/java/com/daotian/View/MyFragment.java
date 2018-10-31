@@ -15,8 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.daotian.Base.App;
 import com.daotian.Http.ParamUtil;
 import com.daotian.Http.ServiceInterface;
@@ -25,6 +23,8 @@ import com.daotian.Model.ResultBO;
 import com.daotian.Model.UserBO;
 import com.daotian.R;
 import com.daotian.Utils.ToastUtil;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import java.util.HashMap;
 
@@ -73,6 +73,8 @@ public class MyFragment extends Fragment {
     TextView monthBalance;
     @BindView(R.id.stream_ly)
     LinearLayout streamLy;
+    @BindView(R.id.puke)
+    LinearLayout puke;
     private Activity mActivity;
 
     @Override
@@ -150,13 +152,9 @@ public class MyFragment extends Fragment {
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
 
-    }
 
-    @OnClick({R.id.login_btn, R.id.head_ly, R.id.my_ticket_ly, R.id.win_ly,  R.id.chase_num_ly, R.id.money_ly, R.id.setting_btn, R.id.my_child_ly,R.id.stream_ly,R.id.twolve_ly})
+    @OnClick({R.id.login_btn,R.id.puke, R.id.head_ly, R.id.my_ticket_ly, R.id.win_ly, R.id.chase_num_ly, R.id.money_ly, R.id.setting_btn, R.id.my_child_ly, R.id.stream_ly, R.id.twolve_ly})
     public void onClick(View view) {
         Intent in;
         switch (view.getId()) {
@@ -172,6 +170,13 @@ public class MyFragment extends Fragment {
                 in = new Intent(mActivity, OrderActivity.class);
                 in.putExtra("current", 0);
                 in.putExtra("type", 1);
+                startActivity(in);
+                break;
+            case R.id.puke:
+                checkLogin();
+                in = new Intent(mActivity, OrderActivity.class);
+                in.putExtra("current", 0);
+                in.putExtra("type", 4);
                 startActivity(in);
                 break;
             case R.id.twolve_ly:

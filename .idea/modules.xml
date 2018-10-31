@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/caipiao.iml" filepath="$PROJECT_DIR$/caipiao.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_pulltorefresh/lib_pulltorefresh.iml" filepath="$PROJECT_DIR$/lib_pulltorefresh/lib_pulltorefresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/privateTicket.iml" filepath="$PROJECT_DIR$/privateTicket.iml" />
     </modules>
   </component>
 </project>

@@ -220,6 +220,9 @@
             android:layout_height="match_parent" />
 
     </LinearLayout>
+
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
@@ -279,6 +282,35 @@
             android:gravity="center_vertical"
             android:textColorHint="@color/c2"
             android:text="我的彩票—十二选五"/>
+
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_right_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/puke"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_personal_apply_technology_expert"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:textColorHint="@color/c2"
+            android:text="我的彩票—扑克订单"/>
 
         <ImageView
             android:layout_marginRight="10dp"

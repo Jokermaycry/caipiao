@@ -274,8 +274,8 @@ public class PukeActivity extends AppCompatActivity {
     private List<NumInfo> tuodan_twolist = new ArrayList<>();
     //任选3拖胆
     private List<String> tuodan_threenums = new ArrayList<>();
-    private TagAdapter<String> tuodanthreeadapter;
-    private List<NumInfo> tuodanthreelist = new ArrayList<>();
+    private TagAdapter<String> tuodan_threeadapter;
+    private List<NumInfo> tuodan_threelist = new ArrayList<>();
     //任选4拖胆
     private List<String> tuodan_fournums = new ArrayList<>();
     private TagAdapter<String> tuodan_fouradapter;
@@ -320,15 +320,15 @@ public class PukeActivity extends AppCompatActivity {
     //任选2
     private List<String> child_twonums = new ArrayList<>();
     private TagAdapter<String> child_twoAdapter;
-    private List<NumInfo> child_twoList = new ArrayList<>();
+    private List<NumInfo> child_twolist = new ArrayList<>();
     //任选3
     private List<String> child_threenums = new ArrayList<>();
     private TagAdapter<String> child_threeadpter;
-    private List<NumInfo> child_threeList = new ArrayList<>();
+    private List<NumInfo> child_threelist = new ArrayList<>();
     //任选4
     private List<String> child_fournums = new ArrayList<>();
     private TagAdapter<String> child_fourAdapter;
-    private List<NumInfo> child_fourList = new ArrayList<>();
+    private List<NumInfo> child_fourlist = new ArrayList<>();
     //任选5
     private List<String> child_fivenums = new ArrayList<>();
     private TagAdapter<String> child_fiveAdapter;
@@ -515,29 +515,12 @@ public class PukeActivity extends AppCompatActivity {
         mContinue = getIntent().getBooleanExtra("continue", false);
         mSelecte_Mode = S_BAOXUAN;
         mAcache = ACache.get(this);
-
         initData();
         initTdata();
         initRule();
-
         initBAOXUAN();
-        /*initTONGHUA();
-        initTONGHUASHUN();
-        initDUIZI();
-        initSHUNZI();
-        initBAOZI();
-        initONE();
-        initTWO();
-        initTHREE();
-        initFOUR();
-        initFIVE();
-        initSIX();*/
-
          getDetail();
-
         //initBefore();
-
-
     }
 
 
@@ -992,7 +975,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            tuodanthreelist.add(info);
+            tuodan_threelist.add(info);
         }
         //任选4
         for (int i = 0; i < 13; i++) {
@@ -1589,7 +1572,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            child_twoList.add(info);
+            child_twolist.add(info);
         }
         //任选3
         for (int i = 0; i < 13; i++) {
@@ -1640,7 +1623,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            child_threeList.add(info);
+            child_threelist.add(info);
         }
         //任选4
         for (int i = 0; i < 13; i++) {
@@ -1691,7 +1674,7 @@ public class PukeActivity extends AppCompatActivity {
 
 
             }
-            child_fourList.add(info);
+            child_fourlist.add(info);
         }
         //任选5
         for (int i = 0; i < 13; i++) {
@@ -2288,49 +2271,33 @@ public class PukeActivity extends AppCompatActivity {
                     baoxuanAdapter.notifyDataChanged();
                 } else {
                     //如果还没被点击
-
+                    switch (position)
+                    {
+                        case 0:
+                            mSelecte_Mode=type_TONGHUASHUN;
+                            break;
+                        case 1:
+                            mSelecte_Mode=type_TONGHUA;
+                            break;
+                        case 2:
+                            mSelecte_Mode=type_DUIZI;
+                            break;
+                        case 3:
+                            mSelecte_Mode=type_SHUNZI;
+                            break;
+                        case 4:
+                            mSelecte_Mode=type_TONGHUA;
+                            break;
+                    }
                     if(temp_position!=position) {
                         baoxuanList.get(temp_position).setIs_checked(false);
                     }
                     baoxuanList.get(position).setIs_checked(true);
-
                     baoxuanAdapter.notifyDataChanged();
                 }
-
-
-
-
                 temp_position=position;
-
-
-//                int number = 0;
-//                for (int i = 0; i < tuodan_twolist.size(); i++) {
-//                    if (tuodan_twolist.get(i).is_checked()) {
-//                        number++;
-//                    }
-//                }
-//                if (number > 0) {
-//                    //如果大于1，如果当前位置已经被点击
-//                    if (tonghuaList.get(position).is_checked()) {
-//                        tonghuaList.get(position).setIs_checked(false);
-//                        tonghuaAdapter.notifyDataChanged();
-//                    }
-//                    //如果大于1，如果当前位置已经没被点击
-//                    else {
-//                        //当前位置被点击，之前位置取消
-//                        tonghuaList.get(position).setIs_checked(true);
-//                        tonghuaList.get(temp_position).setIs_checked(f);
-//                        tonghuaAdapter.notifyDataChanged();
-//                    }
-//
-//                }
-//
-
-
-
-
                 calculate_baoxuan();
-
+                Log.e("mSelecte_Mode", String.valueOf(mSelecte_Mode));
                 return false;
             }
         });
@@ -2543,46 +2510,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选1 胆拖
-     */
-  /*  private void initONE() {
-        for (int i = 0; i < RONEList.size(); i++) {
-            RONEList.get(i).setIs_checked(false);
-        }
-        RONEAdapter = new TagAdapter<String>(RONENums) {
-            @Override
-            public View getView(FlowLayout parent, int position, String s) {
-                ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rone, false);
-
-                if (RONEList.get(position).is_checked()) {
-                    tv.setBackgroundResource(images_selected[position]);
-                } else {
-                    tv.setBackgroundResource(images[position]);
-                }
-                return tv;
-            }
-        };
-        rone.setAdapter(RONEAdapter);
-        rone.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
-            @Override
-            public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (RONEList.get(position).is_checked()) {
-                    RONEList.get(position).setIs_checked(false);
-                    RONEAdapter.notifyDataChanged();
-                } else {
-                    RONEList.get(position).setIs_checked(true);
-                    RONEAdapter.notifyDataChanged();
-                }
-                calculate_one();
-                return false;
-            }
-        });
-
-
-    }*/
-
-    /**
-     * 任选2
+     * 任选2 拖胆
      */
     private void initTWO() {
         for (int i = 0; i < tuodan_twolist.size(); i++) {
@@ -2608,31 +2536,69 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
                 int number = 0;
-                for (int i = 0; i < tuodan_twolist.size(); i++) {
-                    if (tuodan_twolist.get(i).is_checked()) {
-                        number++;
-                    }
-                }
-                if (number > 0) {
-                    ToastUtil.toast(mActivity, "胆码只能选择一个");
-                    int num = 0;
-                    for (int i = 0; i < tuodan_twolist.size(); i++) {
+                //如果被点击
+                if (tuodan_twolist.get(position).is_checked()) {
+                    //计算number
+                    for (int i = 0; i < tuodan_twolist.size(); i++)
+                    {
                         if (tuodan_twolist.get(i).is_checked()) {
-                            twodan_twoadapter.setSelectedList(i);
+                            number++;
                         }
                     }
-                    if (num == 0) {
-                        twodan_twoadapter.notifyDataChanged();
-                    }
-                    return false;
-                }
+                    //超出胆码数量，提示，且设为false；
+                    if (number >0)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择一个");
+                        tuodan_twolist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_twolist.get(position).is_checked()) {
+                            child_twolist.get(position).setIs_checked(false);
+                            child_twoAdapter.notifyDataChanged();
 
-                if (tuodan_twolist.get(position).is_checked()) {
-                    tuodan_twolist.get(position).setIs_checked(false);
-                    twodan_twoadapter.notifyDataChanged();
-                } else {
-                    tuodan_twolist.get(position).setIs_checked(true);
-                    twodan_twoadapter.notifyDataChanged();
+                        }
+                    }
+                    //没超出胆码数量
+                    else
+                    {
+                        tuodan_twolist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_twolist.get(position).is_checked()) {
+                            child_twolist.get(position).setIs_checked(false);
+                            child_twoAdapter.notifyDataChanged();
+
+                        }
+                    }
+                    child_twoAdapter.notifyDataChanged();
+                }
+                //没被点击，设为true
+                else
+                {
+                    //计算num
+                    for (int i = 0; i < tuodan_twolist.size(); i++)
+                    {
+                        if (tuodan_twolist.get(i).is_checked()) {
+                            number++;
+                        }
+                    }
+
+                    if (number >0)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择一个");
+                        tuodan_twolist.get(position).setIs_checked(false);
+                        if (child_twolist.get(position).is_checked()) {
+                            child_twolist.get(position).setIs_checked(false);
+                            child_twoAdapter.notifyDataChanged();
+                        }
+                    }
+                    else
+                    {
+                        tuodan_twolist.get(position).setIs_checked(true);
+                        if (child_twolist.get(position).is_checked()) {
+                            child_twolist.get(position).setIs_checked(false);
+                            child_twoAdapter.notifyDataChanged();
+                        }
+                    }
+                    child_twoAdapter.notifyDataChanged();
                 }
                 calculate_two();
                 return false;
@@ -2641,15 +2607,15 @@ public class PukeActivity extends AppCompatActivity {
 
         //拖胆
 
-        for (int i = 0; i < child_twoList.size(); i++) {
-            child_twoList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_twolist.size(); i++) {
+            child_twolist.get(i).setIs_checked(false);
         }
         child_twoAdapter = new TagAdapter<String>(child_twonums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rtwo2, false);
 
-                if (child_twoList.get(position).is_checked()) {
+                if (child_twolist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2662,11 +2628,27 @@ public class PukeActivity extends AppCompatActivity {
         rtwo2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (child_twoList.get(position).is_checked()) {
-                    child_twoList.get(position).setIs_checked(false);
+                //同样的位置如果已经被点击
+                if (child_twolist.get(position).is_checked()) {
+                    child_twolist.get(position).setIs_checked(false);
+                    if(tuodan_twolist.get(position).is_checked())
+                    {
+                        tuodan_twolist.get(position).setIs_checked(false);
+                        child_twoAdapter.notifyDataChanged();
+
+                    }
+
+
                     child_twoAdapter.notifyDataChanged();
                 } else {
-                    child_twoList.get(position).setIs_checked(true);
+
+                    child_twolist.get(position).setIs_checked(true);
+                    if(tuodan_twolist.get(position).is_checked())
+                    {
+                        tuodan_twolist.get(position).setIs_checked(false);
+                        child_twoAdapter.notifyDataChanged();
+
+                    }
                     child_twoAdapter.notifyDataChanged();
                 }
                 calculate_two();
@@ -2676,18 +2658,18 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选3
+     * 任选3 拖胆
      */
     private void initTHREE() {
-        for (int i = 0; i < tuodanthreelist.size(); i++) {
-            tuodanthreelist.get(i).setIs_checked(false);
+        for (int i = 0; i < tuodan_threelist.size(); i++) {
+            tuodan_threelist.get(i).setIs_checked(false);
         }
-        tuodanthreeadapter = new TagAdapter<String>(tuodan_threenums) {
+        tuodan_threeadapter = new TagAdapter<String>(tuodan_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three, false);
 
-                if (tuodanthreelist.get(position).is_checked()) {
+                if (tuodan_threelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2695,38 +2677,75 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        three.setAdapter(tuodanthreeadapter);
+        three.setAdapter(tuodan_threeadapter);
         three.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
                 int number = 0;
-                for (int i = 0; i < tuodanthreelist.size(); i++) {
-                    if (tuodanthreelist.get(i).is_checked()) {
-                        number++;
-                    }
-                }
-                if (number > 1) {
-                    ToastUtil.toast(mActivity, "胆码只能选择二个");
-                    int num = 0;
-                    for (int i = 0; i < tuodanthreelist.size(); i++) {
-                        if (tuodanthreelist.get(i).is_checked()) {
-                            tuodanthreeadapter.setSelectedList(i);
+                //如果被点击
+                if (tuodan_threelist.get(position).is_checked()) {
+                    //计算number
+                    for (int i = 0; i < tuodan_threelist.size(); i++)
+                    {
+                        if (tuodan_threelist.get(i).is_checked()) {
+                            number++;
                         }
                     }
-                    if (num == 0) {
-                        tuodanthreeadapter.notifyDataChanged();
+                    //超出胆码数量，提示，且设为false；
+                    if (number > 1)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择二个");
+                        tuodan_threelist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_threelist.get(position).is_checked()) {
+                            child_threelist.get(position).setIs_checked(false);
+                            child_threeadpter.notifyDataChanged();
+
+                        }
                     }
-                    return false;
+                    //没超出胆码数量
+                    else
+                    {
+                        tuodan_threelist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_threelist.get(position).is_checked()) {
+                            child_threelist.get(position).setIs_checked(false);
+                            child_threeadpter.notifyDataChanged();
+
+                        }
+                    }
+                    tuodan_threeadapter.notifyDataChanged();
                 }
+                //没被点击，设为true
+                else
+                {
+                    //计算num
+                    for (int i = 0; i < tuodan_threelist.size(); i++)
+                    {
+                        if (tuodan_threelist.get(i).is_checked()) {
+                            number++;
+                        }
+                    }
 
-
-                if (tuodanthreelist.get(position).is_checked()) {
-                    tuodanthreelist.get(position).setIs_checked(false);
-                    tuodanthreeadapter.notifyDataChanged();
-                } else {
-                    tuodanthreelist.get(position).setIs_checked(true);
-                    tuodanthreeadapter.notifyDataChanged();
+                    if (number > 1)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择二个");
+                        tuodan_threelist.get(position).setIs_checked(false);
+                        if (child_threelist.get(position).is_checked()) {
+                            child_threelist.get(position).setIs_checked(false);
+                            child_threeadpter.notifyDataChanged();
+                        }
+                    }
+                    else
+                    {
+                        tuodan_threelist.get(position).setIs_checked(true);
+                        if (child_threelist.get(position).is_checked()) {
+                            child_threelist.get(position).setIs_checked(false);
+                            child_threeadpter.notifyDataChanged();
+                        }
+                    }
+                    tuodan_threeadapter.notifyDataChanged();
                 }
                 calculate_three();
                 return false;
@@ -2734,15 +2753,15 @@ public class PukeActivity extends AppCompatActivity {
         });
 
         //拖胆
-        for (int i = 0; i < child_threeList.size(); i++) {
-            child_threeList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_threelist.size(); i++) {
+            child_threelist.get(i).setIs_checked(false);
         }
         child_threeadpter = new TagAdapter<String>(child_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three2, false);
 
-                if (child_threeList.get(position).is_checked()) {
+                if (child_threelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2754,11 +2773,27 @@ public class PukeActivity extends AppCompatActivity {
         three2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (child_threeList.get(position).is_checked()) {
-                    child_threeList.get(position).setIs_checked(false);
+                //同样的位置如果已经被点击
+                if (child_threelist.get(position).is_checked()) {
+                    child_threelist.get(position).setIs_checked(false);
+                    if(tuodan_threelist.get(position).is_checked())
+                    {
+                        tuodan_threelist.get(position).setIs_checked(false);
+                        tuodan_threeadapter.notifyDataChanged();
+
+                    }
+
+
                     child_threeadpter.notifyDataChanged();
                 } else {
-                    child_threeList.get(position).setIs_checked(true);
+
+                    child_threelist.get(position).setIs_checked(true);
+                    if(tuodan_threelist.get(position).is_checked())
+                    {
+                        tuodan_threelist.get(position).setIs_checked(false);
+                        tuodan_threeadapter.notifyDataChanged();
+
+                    }
                     child_threeadpter.notifyDataChanged();
                 }
                 calculate_three();
@@ -2768,7 +2803,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选4
+     * 任选4 拖胆
      */
     private void initFOUR() {
         for (int i = 0; i < tuodan_fourlist.size(); i++) {
@@ -2792,32 +2827,69 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
-
                 int number = 0;
-                for (int i = 0; i < tuodan_fourlist.size(); i++) {
-                    if (tuodan_fourlist.get(i).is_checked()) {
-                        number++;
-                    }
-                }
-                if (number > 2) {
-                    ToastUtil.toast(mActivity, "胆码只能选择三个");
-                    int num = 0;
-                    for (int i = 0; i < tuodan_fourlist.size(); i++) {
+                //如果被点击
+                if (tuodan_fourlist.get(position).is_checked()) {
+                    //计算number
+                    for (int i = 0; i < tuodan_fourlist.size(); i++)
+                    {
                         if (tuodan_fourlist.get(i).is_checked()) {
-                            tuodan_fouradapter.setSelectedList(i);
+                            number++;
                         }
                     }
-                    if (num == 0) {
-                        tuodan_fouradapter.notifyDataChanged();
-                    }
-                    return false;
-                }
+                    //超出胆码数量，提示，且设为false；
+                    if (number > 2)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择三个");
+                        tuodan_fourlist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_fourlist.get(position).is_checked()) {
+                            child_fourlist.get(position).setIs_checked(false);
+                            child_fourAdapter.notifyDataChanged();
 
-                if (tuodan_fourlist.get(position).is_checked()) {
-                    tuodan_fourlist.get(position).setIs_checked(false);
+                        }
+                    }
+                    //没超出胆码数量
+                    else
+                    {
+                        tuodan_fourlist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_fourlist.get(position).is_checked()) {
+                            child_fourlist.get(position).setIs_checked(false);
+                            child_fourAdapter.notifyDataChanged();
+
+                        }
+                    }
                     tuodan_fouradapter.notifyDataChanged();
-                } else {
-                    tuodan_fourlist.get(position).setIs_checked(true);
+                }
+                //没被点击，设为true
+                else
+                {
+                    //计算num
+                    for (int i = 0; i < tuodan_fourlist.size(); i++)
+                    {
+                        if (tuodan_fourlist.get(i).is_checked()) {
+                            number++;
+                        }
+                    }
+
+                    if (number > 2)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择三个");
+                        tuodan_fourlist.get(position).setIs_checked(false);
+                        if (child_fourlist.get(position).is_checked()) {
+                            child_fourlist.get(position).setIs_checked(false);
+                            child_fourAdapter.notifyDataChanged();
+                        }
+                    }
+                    else
+                    {
+                        tuodan_fourlist.get(position).setIs_checked(true);
+                        if (child_fourlist.get(position).is_checked()) {
+                            child_fourlist.get(position).setIs_checked(false);
+                            child_fourAdapter.notifyDataChanged();
+                        }
+                    }
                     tuodan_fouradapter.notifyDataChanged();
                 }
                 calculate_four();
@@ -2825,15 +2897,15 @@ public class PukeActivity extends AppCompatActivity {
             }
         });
         //拖胆
-        for (int i = 0; i < child_fourList.size(); i++) {
-            child_fourList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_fourlist.size(); i++) {
+            child_fourlist.get(i).setIs_checked(false);
         }
         child_fourAdapter = new TagAdapter<String>(child_fournums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, four2, false);
 
-                if (child_fourList.get(position).is_checked()) {
+                if (child_fourlist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2845,11 +2917,27 @@ public class PukeActivity extends AppCompatActivity {
         four2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (child_fourList.get(position).is_checked()) {
-                    child_fourList.get(position).setIs_checked(false);
+                //同样的位置如果已经被点击
+                if (child_fourlist.get(position).is_checked()) {
+                    child_fourlist.get(position).setIs_checked(false);
+                    if(tuodan_fourlist.get(position).is_checked())
+                    {
+                        tuodan_fourlist.get(position).setIs_checked(false);
+                        tuodan_fouradapter.notifyDataChanged();
+
+                    }
+
+
                     child_fourAdapter.notifyDataChanged();
                 } else {
-                    child_fourList.get(position).setIs_checked(true);
+
+                    child_fourlist.get(position).setIs_checked(true);
+                    if(tuodan_fourlist.get(position).is_checked())
+                    {
+                        tuodan_fourlist.get(position).setIs_checked(false);
+                        tuodan_fouradapter.notifyDataChanged();
+
+                    }
                     child_fourAdapter.notifyDataChanged();
                 }
                 calculate_four();
@@ -2859,7 +2947,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选5
+     * 任选5 拖胆
      */
     private void initFIVE() {
         for (int i = 0; i < tuodan_fivelist.size(); i++) {
@@ -2882,32 +2970,69 @@ public class PukeActivity extends AppCompatActivity {
         five.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-
                 int number = 0;
-                for (int i = 0; i < tuodan_fivelist.size(); i++) {
-                    if (tuodan_fivelist.get(i).is_checked()) {
-                        number++;
-                    }
-                }
-                if (number > 3) {
-                    ToastUtil.toast(mActivity, "胆码只能选择四个");
-                    int num = 0;
-                    for (int i = 0; i < tuodan_fivelist.size(); i++) {
+                //如果被点击
+                if (tuodan_fivelist.get(position).is_checked()) {
+                    //计算number
+                    for (int i = 0; i < tuodan_fivelist.size(); i++)
+                    {
                         if (tuodan_fivelist.get(i).is_checked()) {
-                            tuodan_fiveadapter.setSelectedList(i);
+                            number++;
                         }
                     }
-                    if (num == 0) {
-                        tuodan_fiveadapter.notifyDataChanged();
-                    }
-                    return false;
-                }
+                    //超出胆码数量，提示，且设为false；
+                    if (number > 3)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择四个");
+                        tuodan_fivelist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_fiveList.get(position).is_checked()) {
+                            child_fiveList.get(position).setIs_checked(false);
+                            child_fiveAdapter.notifyDataChanged();
 
-                if (tuodan_fivelist.get(position).is_checked()) {
-                    tuodan_fivelist.get(position).setIs_checked(false);
+                        }
+                    }
+                    //没超出胆码数量
+                    else
+                    {
+                        tuodan_fivelist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_fiveList.get(position).is_checked()) {
+                            child_fiveList.get(position).setIs_checked(false);
+                            child_fiveAdapter.notifyDataChanged();
+
+                        }
+                    }
                     tuodan_fiveadapter.notifyDataChanged();
-                } else {
-                    tuodan_fivelist.get(position).setIs_checked(true);
+                }
+                //没被点击，设为true
+                else
+                {
+                    //计算num
+                    for (int i = 0; i < tuodan_fivelist.size(); i++)
+                    {
+                        if (tuodan_fivelist.get(i).is_checked()) {
+                            number++;
+                        }
+                    }
+
+                    if (number > 3)
+                    {
+                        ToastUtil.toast(mActivity, "胆码只能选择四个");
+                        tuodan_fivelist.get(position).setIs_checked(false);
+                        if (child_fiveList.get(position).is_checked()) {
+                            child_fiveList.get(position).setIs_checked(false);
+                            child_fiveAdapter.notifyDataChanged();
+                        }
+                    }
+                    else
+                    {
+                        tuodan_fivelist.get(position).setIs_checked(true);
+                        if (child_fiveList.get(position).is_checked()) {
+                            child_fiveList.get(position).setIs_checked(false);
+                            child_fiveAdapter.notifyDataChanged();
+                        }
+                    }
                     tuodan_fiveadapter.notifyDataChanged();
                 }
                 calculate_five();
@@ -2936,11 +3061,27 @@ public class PukeActivity extends AppCompatActivity {
         five2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
+                //同样的位置如果已经被点击
                 if (child_fiveList.get(position).is_checked()) {
                     child_fiveList.get(position).setIs_checked(false);
+                    if(tuodan_fivelist.get(position).is_checked())
+                    {
+                        tuodan_fivelist.get(position).setIs_checked(false);
+                        tuodan_fiveadapter.notifyDataChanged();
+
+                    }
+
+
                     child_fiveAdapter.notifyDataChanged();
                 } else {
+
                     child_fiveList.get(position).setIs_checked(true);
+                    if(tuodan_fivelist.get(position).is_checked())
+                    {
+                        tuodan_fivelist.get(position).setIs_checked(false);
+                        tuodan_fiveadapter.notifyDataChanged();
+
+                    }
                     child_fiveAdapter.notifyDataChanged();
                 }
                 calculate_five();
@@ -2950,7 +3091,7 @@ public class PukeActivity extends AppCompatActivity {
     }
 
     /**
-     * 任选6
+     * 任选6 拖胆
      */
     private void initSIX() {
         //胆码
@@ -2975,45 +3116,64 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 int number = 0;
-                for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                    if (tuodan_sixlist.get(i).is_checked()) {
-                        number++;
-                    }
-                }
-                if (number > 4) {
-                    ToastUtil.toast(mActivity, "胆码只能选择五个");
-                    int num = 0;
-                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                        if (tuodan_sixlist.get(i).is_checked()) {
-                            tuodan_sixadapter.setSelectedList(i);
-                        }
-                    }
-                    if (num == 0) {
-                        tuodan_sixadapter.notifyDataChanged();
-                    }
-                    return false;
-                }
-                if (putong_sixlist.get(position).is_checked()) {
-                    ToastUtil.toast(mActivity, "不能重复");
-                    int num = 0;
-                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                        if (tuodan_sixlist.get(i).is_checked()) {
-                            tuodan_sixadapter.setSelectedList(i);
-                            num++;
-                        }
-                    }
-                    if (num == 0) {
-                        tuodan_sixadapter.notifyDataChanged();
-                    }
-                    return false;
-                }
-
-
+                    //如果被点击
                 if (tuodan_sixlist.get(position).is_checked()) {
-                    tuodan_sixlist.get(position).setIs_checked(false);
+                    //计算number
+                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
+                        if (tuodan_sixlist.get(i).is_checked()) {
+                            number++;
+                        }
+                    }
+                    //超出胆码数量，提示，且设为false；
+                    if (number > 4) {
+                        ToastUtil.toast(mActivity, "胆码只能选择五个");
+                        tuodan_sixlist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_sixlist.get(position).is_checked()) {
+                            child_sixlist.get(position).setIs_checked(false);
+                            child_sixAdapter.notifyDataChanged();
+
+                        }
+                    }
+                    //没超出胆码数量
+                    else {
+                        tuodan_sixlist.get(position).setIs_checked(false);
+                        //取消冲突
+                        if (child_sixlist.get(position).is_checked()) {
+                            child_sixlist.get(position).setIs_checked(false);
+                            child_sixAdapter.notifyDataChanged();
+
+                        }
+                    }
                     tuodan_sixadapter.notifyDataChanged();
-                } else {
-                    tuodan_sixlist.get(position).setIs_checked(true);
+                }
+                //没被点击，设为true
+                else
+                    {
+                        //计算num
+                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
+                        if (tuodan_sixlist.get(i).is_checked()) {
+                            number++;
+                        }
+                    }
+                    if (number > 4) {
+                        ToastUtil.toast(mActivity, "胆码只能选择五个");
+                        tuodan_sixlist.get(position).setIs_checked(false);
+                        if (child_sixlist.get(position).is_checked()) {
+                            child_sixlist.get(position).setIs_checked(false);
+                            child_sixAdapter.notifyDataChanged();
+
+                        }
+                    }
+                    else {
+                        tuodan_sixlist.get(position).setIs_checked(true);
+                        if (child_sixlist.get(position).is_checked()) {
+                            child_sixlist.get(position).setIs_checked(false);
+                            child_sixAdapter.notifyDataChanged();
+
+                        }
+                    }
+
                     tuodan_sixadapter.notifyDataChanged();
                 }
                 calculate_six();
@@ -3030,6 +3190,7 @@ public class PukeActivity extends AppCompatActivity {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, six2, false);
 
                 if (child_sixlist.get(position).is_checked()) {
+
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3041,26 +3202,28 @@ public class PukeActivity extends AppCompatActivity {
         six2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (child_sixlist.get(position).is_checked()) {
-                    ToastUtil.toast(mActivity, "单选不能重复");
-                    int num = 0;
-                    for (int i = 0; i < child_sixlist.size(); i++) {
-                        if (child_sixlist.get(i).is_checked()) {
-                            child_sixAdapter.setSelectedList(i);
-                            num++;
-                        }
-                    }
-                    if (num == 0) {
-                        child_sixAdapter.notifyDataChanged();
-                    }
-                    return false;
-                }
 
+                    //同样的位置如果已经被点击
                 if (child_sixlist.get(position).is_checked()) {
                     child_sixlist.get(position).setIs_checked(false);
+                    if(tuodan_sixlist.get(position).is_checked())
+                    {
+                        tuodan_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixadapter.notifyDataChanged();
+
+                    }
+
+
                     child_sixAdapter.notifyDataChanged();
                 } else {
+
                     child_sixlist.get(position).setIs_checked(true);
+                    if(tuodan_sixlist.get(position).is_checked())
+                    {
+                        tuodan_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixadapter.notifyDataChanged();
+
+                    }
                     child_sixAdapter.notifyDataChanged();
                 }
                 calculate_six();
@@ -3427,7 +3590,7 @@ public class PukeActivity extends AppCompatActivity {
             //two
             in.putExtra("tuodan_twolist", (Serializable) tuodan_twolist);
             //three
-            in.putExtra("tuodanthreelist", (Serializable) tuodanthreelist);
+            in.putExtra("tuodan_threelist", (Serializable) tuodan_threelist);
             //four
             in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
             //five
@@ -3487,7 +3650,7 @@ public class PukeActivity extends AppCompatActivity {
             //two
             in.putExtra("tuodan_twolist", (Serializable) tuodan_twolist);
             //three
-            in.putExtra("tuodanthreelist", (Serializable) tuodanthreelist);
+            in.putExtra("tuodan_threelist", (Serializable) tuodan_threelist);
             //four
             in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
             //five
@@ -3514,7 +3677,7 @@ public class PukeActivity extends AppCompatActivity {
             in.putExtra("num", num.getText().toString());
             in.putExtra("price", price.getText().toString());
             in.putExtra("title", mInfo.getName());
-            //Log.e("shname",mInfo.getName());
+            Log.e("shname",mInfo.getName());
             in.putExtra("sh_name", mInfo.getSh_name());
             in.putExtra("type", mInfo.getType());
             in.putExtra("now_qs", mInfo.getNow_qs());
@@ -3664,8 +3827,8 @@ public class PukeActivity extends AppCompatActivity {
         //计算选中的注数和金额
         int buy_acount = 0;
 
-        for (int i = 0; i < tuodanthreelist.size(); i++) {
-            if (tuodanthreelist.get(i).is_checked()) {
+        for (int i = 0; i < tuodan_threelist.size(); i++) {
+            if (tuodan_threelist.get(i).is_checked()) {
                 buy_acount++;
 
             }
@@ -4162,8 +4325,8 @@ public class PukeActivity extends AppCompatActivity {
             case tuodan_three:
                 result = numberRandom(3, tuodan_threenums);
                 for (int i = 0; i < result.length; i++) {
-                    tuodanthreelist.get(result[i]).setIs_checked(true);
-                    tuodanthreeadapter.setSelectedList(result[i]);
+                    tuodan_threelist.get(result[i]).setIs_checked(true);
+                    tuodan_threeadapter.setSelectedList(result[i]);
                 }
                 break;
             case tuodan_four:
