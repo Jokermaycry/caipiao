@@ -139,6 +139,7 @@ public class OpenFragment extends Fragment {
                 @Override
                 public View getView(FlowLayout parent, int position, String s) {
                     TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_tv2, numTag, false);
+                    Log.e("s",s);
                     tv.setText(s);
                     return tv;
                 }

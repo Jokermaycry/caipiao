@@ -1,5 +1,7 @@
 package com.daotian.Model;
 
+import com.loopj.android.http.PreemptiveAuthorizationHttpRequestInterceptor;
+
 import java.io.Serializable;
 
 /**
@@ -9,8 +11,17 @@ import java.io.Serializable;
 public class NumInfo implements Serializable{
 
     private String num;
+    private String upload_data;
     private boolean is_checked=false;
     private boolean is_spe;
+
+    public String getUpload_data() {
+        return upload_data;
+    }
+
+    public void setUpload_data(String upload_data) {
+        this.upload_data = upload_data;
+    }
 
     public String getNum() {
         return num;

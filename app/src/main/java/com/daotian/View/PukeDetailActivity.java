@@ -40,6 +40,7 @@ import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -136,6 +137,13 @@ public class PukeDetailActivity extends AppCompatActivity {
     private List<NumInfo> tuodan_fourlist = new ArrayList<>();
     private List<NumInfo> tuodan_fivelist = new ArrayList<>();
     private List<NumInfo> tuodan_sixlist = new ArrayList<>();
+
+    //
+    private List<NumInfo> child_twolist = new ArrayList<>();
+    private List<NumInfo> child_threelist = new ArrayList<>();
+    private List<NumInfo> child_fourlist = new ArrayList<>();
+    private List<NumInfo> child_fivelist = new ArrayList<>();
+    private List<NumInfo> child_sixlist = new ArrayList<>();
     //普通
     private List<NumInfo> putong_onelist = new ArrayList<>();
     private List<NumInfo> putong_twolist = new ArrayList<>();
@@ -216,29 +224,32 @@ public class PukeDetailActivity extends AppCompatActivity {
     for (int i = 0; i < baoxuanList.size(); i++) {
         if (baoxuanList.get(i).is_checked()) {
             TicketResultListInfo info = new TicketResultListInfo();
-            info.setMode(mSelecte_Mode);
             info.setNum("1");
+            switch (i)
+            {
+                case 0:
+                    info.setMode(type_TONGHUASHUN);
+                    break;
+                case 1:
+                    info.setMode(type_TONGHUA);
+                    break;
+                case 2:
+                    info.setMode(type_DUIZI);
+                    break;
+                case 3:
+                    info.setMode(type_BAOZI);
+                    break;
+                case 4:
+                    info.setMode(type_SHUNZI);
+                    break;
+            }
+
             info.setPrice("2");
             info.getNumbers1().add(baoxuanList.get(i));
             list_result.add(info);
         }
     }
-    int count=0;
-    for(int i=0;i<list_result.size();i++)
-    {
-        count++;
-    }
-    Log.e("count",String.valueOf(count));
-//    TicketResultListInfo info = new TicketResultListInfo();
-//    info.setMode(mSelecte_Mode);
-//    info.setNum(num.getText().toString());
-//    info.setPrice(price.getText().toString());
-//    for (int i = 0; i < baoxuanList.size(); i++) {
-//        if (baoxuanList.get(i).is_checked()) {
-//            info.getNumbers1().add(baoxuanList.get(i));
-//        }
-//    }
-//    list_result.add(info);
+
         adpater.notifyDataSetChanged();
         calcluateNumAndPrice();
 }
@@ -268,6 +279,18 @@ public class PukeDetailActivity extends AppCompatActivity {
         tuodan_fourlist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_fourlist");
         tuodan_fivelist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_fivelist");
         tuodan_sixlist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_sixlist");
+        //拖胆的下面
+
+        child_twolist = (List<NumInfo>) this.getIntent().getSerializableExtra("child_twolist");
+        child_threelist = (List<NumInfo>) this.getIntent().getSerializableExtra("child_threelist");
+        child_fourlist = (List<NumInfo>) this.getIntent().getSerializableExtra("child_fourlist");
+        child_fivelist = (List<NumInfo>) this.getIntent().getSerializableExtra("child_fivelist");
+        child_sixlist = (List<NumInfo>) this.getIntent().getSerializableExtra("child_sixlist");
+
+
+
+
+
 
         num.setText(this.getIntent().getStringExtra("num"));
         price.setText(this.getIntent().getStringExtra("price"));
@@ -583,7 +606,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                 ToastUtil.toast(mActivity, "模式错误");
                 return;
             }
-            //如果是包选模式
+            //继续按号---如果是包选模式
             if (mSelecte_Mode == S_BAOXUAN) {
                 baoxuanList = (List<NumInfo>) data.getSerializableExtra("baoxuanList");
                 sh_name = this.getIntent().getStringExtra("sh_name");
@@ -594,24 +617,37 @@ public class PukeDetailActivity extends AppCompatActivity {
                   if (baoxuanList.get(i).is_checked())
                 {
                     TicketResultListInfo info = new TicketResultListInfo();
-                    info.setMode(data.getIntExtra("selecte_mode", 1));
-                    info.setNum(data.getStringExtra("num"));
-                    info.setPrice(data.getStringExtra("price"));
+                    baoxuanList.get(i).setIs_spe(true);
+                    switch (i)
+                    {
+                        case 0:
+                            info.setMode(type_TONGHUASHUN);
+                            break;
+                        case 1:
+                            info.setMode(type_TONGHUA);
+                            break;
+                        case 2:
+                            info.setMode(type_DUIZI);
+                            break;
+                        case 3:
+                            info.setMode(type_BAOZI);
+                            break;
+                        case 4:
+                            info.setMode(type_SHUNZI);
+                            break;
+                    }
+                    info.setNum("1");
+                    info.setPrice("2");
                     info.getNumbers1().add(baoxuanList.get(i));
                     list_result.add(info);
                 }
                 }
                 adpater.notifyDataSetChanged();
                 calcluateNumAndPrice();
-//                init_intent_baoxuan();
-//                adpater.notifyDataSetChanged();
-//                calcluateNumAndPrice();
             }
             //如果是其他模式
             else {
-//                init_inten_else();
-//                adpater.notifyDataSetChanged();
-//                calcluateNumAndPrice();
+
                 tonghuaList = (List<NumInfo>) data.getSerializableExtra("tonghuaList");
                 shunziList = (List<NumInfo>) data.getSerializableExtra("shunziList");
                 tonghuashunList = (List<NumInfo>) data.getSerializableExtra("tonghuashunList");
@@ -629,28 +665,18 @@ public class PukeDetailActivity extends AppCompatActivity {
                 putong_fourlist = (List<NumInfo>) data.getSerializableExtra("putong_fourlist");
                 putong_fivelist = (List<NumInfo>) data.getSerializableExtra("putong_fivelist");
                 putong_sixlist = (List<NumInfo>) data.getSerializableExtra("putong_sixlist");
+                child_twolist = (List<NumInfo>)  data.getSerializableExtra("child_twolist");
+                child_threelist = (List<NumInfo>)  data.getSerializableExtra("child_threelist");
+                child_fourlist = (List<NumInfo>) data.getSerializableExtra("child_fourlist");
+                child_fivelist = (List<NumInfo>) data.getSerializableExtra("child_fivelist");
+                child_sixlist = (List<NumInfo>)  data.getSerializableExtra("child_sixlist");
+
                 sh_name = this.getIntent().getStringExtra("sh_name");
                 TicketResultListInfo info = new TicketResultListInfo();
                 info.setMode(data.getIntExtra("selecte_mode", 1));
                 info.setNum(data.getStringExtra("num"));
                 info.setPrice(data.getStringExtra("price"));
-                for (int i = 0; i < baoxuanList.size(); i++) {
-                    if (baoxuanList.get(i).is_checked()) {
-                        info.getNumbers1().add(baoxuanList.get(i));
-                       // Log.e("checked!!!!!!", String.valueOf(i));
-                    }
-                }
-
-
                 switch (mSelecte_Mode) {
-//                    case S_BAOXUAN:
-//                        for (int i = 0; i < baoxuanList.size(); i++) {
-//                            if (baoxuanList.get(i).is_checked()) {
-//                                info.getNumbers1().add(baoxuanList.get(i));
-//                                Log.e("checked!!!!!!", String.valueOf(i));
-//                            }
-//                        }
-//                        break;
                     case danxuan_tonghua:
                         for (int i = 0; i < 4; i++) {
                             if (tonghuaList.get(i).is_checked()) {
@@ -687,15 +713,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                             }
                         }
                         break;
-//                    case SD_ONE:
-//                        for (int i = 0; i < tuodan_RONEList.size(); i++) {
-//                            if (tuodan_RONEList.get(i).is_checked()) {
-//                                tuodan_RONEList.get(i).setIs_spe(true);
-//                                info.getNumbers1().add(tuodan_RONEList.get(i));
-//                            }
-//                        }
-//
-//                        break;
+
                     case tuodan_two:
                         for (int i = 0; i < 13; i++) {
                             if (tuodan_twolist.get(i).is_checked()) {
@@ -703,7 +721,12 @@ public class PukeDetailActivity extends AppCompatActivity {
                                 info.getNumbers1().add(tuodan_twolist.get(i));
                             }
                         }
-
+                        for (int i = 0; i < 13; i++) {
+                            if (child_twolist.get(i).is_checked()) {
+                                child_twolist.get(i).setIs_spe(true);
+                                info.getNumbers2().add(child_twolist.get(i));
+                            }
+                        }
                         break;
                     case tuodan_three:
                         for (int i = 0; i < 13; i++) {
@@ -712,7 +735,12 @@ public class PukeDetailActivity extends AppCompatActivity {
                                 info.getNumbers1().add(tuodan_threelist.get(i));
                             }
                         }
-
+                        for (int i = 0; i < 13; i++) {
+                            if (child_threelist.get(i).is_checked()) {
+                                child_threelist.get(i).setIs_spe(true);
+                                info.getNumbers2().add(child_threelist.get(i));
+                            }
+                        }
                         break;
                     case tuodan_four:
                         for (int i = 0; i < 13; i++) {
@@ -721,7 +749,12 @@ public class PukeDetailActivity extends AppCompatActivity {
                                 info.getNumbers1().add(tuodan_fourlist.get(i));
                             }
                         }
-
+                        for (int i = 0; i < 13; i++) {
+                            if (child_fourlist.get(i).is_checked()) {
+                                child_fourlist.get(i).setIs_spe(true);
+                                info.getNumbers2().add(child_fourlist.get(i));
+                            }
+                        }
                         break;
                     case tuodan_five:
                         for (int i = 0; i < 13; i++) {
@@ -730,13 +763,24 @@ public class PukeDetailActivity extends AppCompatActivity {
                                 info.getNumbers1().add(tuodan_fivelist.get(i));
                             }
                         }
-
+                        for (int i = 0; i < 13; i++) {
+                            if (child_fivelist.get(i).is_checked()) {
+                                child_fivelist.get(i).setIs_spe(true);
+                                info.getNumbers2().add(child_fivelist.get(i));
+                            }
+                        }
                         break;
                     case tuodan_six:
                         for (int i = 0; i <13; i++) {
                             if (tuodan_sixlist.get(i).is_checked()) {
                                 tuodan_sixlist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(tuodan_sixlist.get(i));
+                            }
+                        }
+                        for (int i = 0; i < 13; i++) {
+                            if (child_sixlist.get(i).is_checked()) {
+                                child_sixlist.get(i).setIs_spe(true);
+                                info.getNumbers2().add(child_sixlist.get(i));
                             }
                         }
                         //up
@@ -796,15 +840,11 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                 }
                 list_result.add(info);
-                adpater.notifyDataSetChanged();
                 calcluateNumAndPrice();
+                adpater.notifyDataSetChanged();
             }
         }
     }
-
-    /**
-     * 确定下单
-     */
     private void BuyComfirm() {
         if (App.mUser == null || App.mUser.getAccess_token() == null) {
             ToastUtil.toast(mActivity, "请先登录！");
@@ -823,7 +863,8 @@ public class PukeDetailActivity extends AppCompatActivity {
         HashMap<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("sh_name", sh_name);
         paramMap.put("lottery_type", "4");
-        paramMap.put("total_fee", "0");//!!!!!!!!!!!!!!!!!!!!
+        paramMap.put("total_fee", price.getText().toString());//!!!!!!!!!!!!!!!!!!!!
+        Log.e("total_fee", price.getText().toString());
         paramMap.put("log_num", now_qs);
         if (TextUtils.isEmpty(termNumEdit.getText().toString())) {
             paramMap.put("sery_num", "1");
@@ -839,11 +880,6 @@ public class PukeDetailActivity extends AppCompatActivity {
             paramMap.put("buy_bs", multipleNumEdit.getText().toString());
            // Log.e("buy_bs", multipleNumEdit.getText().toString());
         }
-//        if (check_term_top) {
-//            paramMap.put("is_sery_stop", "1");
-//        } else {
-//            paramMap.put("is_sery_stop", "0");
-//        }
 
         switch (zq_type) {
             case "1":
@@ -861,16 +897,13 @@ public class PukeDetailActivity extends AppCompatActivity {
 
 
         }
-
-        //Log.e("total_fee", price.getText().toString());
-
         paramMap.put("buy_array", setbuyArray());
         RequestParams params = ParamUtil.requestParams(paramMap);
         TicketService.post(params, ServiceInterface.buyOrder, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String result = new String(responseBody);
-               // Log.e("init_result", result);
+                Log.e("init_result", result);
                 if (!TextUtils.isEmpty(result)) {
                     result = ParamUtil.unicodeToChinese(result);
                 }
@@ -896,64 +929,17 @@ public class PukeDetailActivity extends AppCompatActivity {
         });
 
     }
-
-//    /**
-//     * 拼接参数
-//     * @return
-//     */
-//    private String  setbuyArray() {
-//        List<BuyNumBO> buylist=new ArrayList<>();
-//
-//
-//        for(int i=0;i<list_result.size();i++){
-//            BuyNumBO info=new BuyNumBO();
-//            info.setType(list_result.get(i).getMode()+"");
-//            Log.e("getMode",list_result.get(i).getMode()+"");
-//
-//            String s1="";
-//            for(int j=0;j<list_result.get(i).getNumbers1().size();j++){
-//                if(j==0){
-//                    s1=s1+list_result.get(i).getNumbers1().get(j).getNum();
-//                }else{
-//                    s1=s1+","+list_result.get(i).getNumbers1().get(j).getNum();
-//                }
-//            }
-//            info.setS1(s1);
-//            if(list_result.get(i).getNumbers2().size()>0){
-//                String s2="";
-//                for(int j=0;j<list_result.get(i).getNumbers2().size();j++){
-//                    if(j==0){
-//                        s2=s2+list_result.get(i).getNumbers2().get(j).getNum();
-//                    }else{
-//                        s2=s2+","+list_result.get(i).getNumbers2().get(j).getNum();
-//                    }
-//                }
-//                info.setS2(s2);
-//            }
-//            buylist.add(info);
-//        }
-//        Log.e("buy_arry",JSON.toJSONString(buylist));
-//        return JSON.toJSONString(buylist);
-//    }
-
-    /**
-     * 拼接参数
-     *
-     * @return
-     */
     private String setbuyArray() {
         List<BuyNumBO> buylist = new ArrayList<>();
         for (int i = 0; i < list_result.size(); i++) {
             BuyNumBO info = new BuyNumBO();
-            info.setType(buytype);
-            //Log.e("getMode",list_result.get(i).getMode()+"");
-
+            info.setType(list_result.get(i).getMode()+"");
             String s1 = "";
             for (int j = 0; j < list_result.get(i).getNumbers1().size(); j++) {
                 if (j == 0) {
-                    s1 = s1 + list_result.get(i).getNumbers1().get(j).getNum();
+                    s1 = s1 + list_result.get(i).getNumbers1().get(j).getUpload_data();
                 } else {
-                    s1 = s1 + "," + list_result.get(i).getNumbers1().get(j).getNum();
+                    s1 = s1 + "," + list_result.get(i).getNumbers1().get(j).getUpload_data();
                 }
             }
             info.setS1(s1);
@@ -961,19 +947,18 @@ public class PukeDetailActivity extends AppCompatActivity {
                 String s2 = "";
                 for (int j = 0; j < list_result.get(i).getNumbers2().size(); j++) {
                     if (j == 0) {
-                        s2 = s2 + list_result.get(i).getNumbers2().get(j).getNum();
+                        s2 = s2 + list_result.get(i).getNumbers2().get(j).getUpload_data();
                     } else {
-                        s2 = s2 + "," + list_result.get(i).getNumbers2().get(j).getNum();
+                        s2 = s2 + "," + list_result.get(i).getNumbers2().get(j).getUpload_data();
                     }
                 }
                 info.setS2(s2);
             }
             buylist.add(info);
         }
-        //Log.e("buy_arry", JSON.toJSONString(buylist));
+        Log.e("buy_arry", JSON.toJSONString(buylist));
         return JSON.toJSONString(buylist);
     }
-
     private void clearAll() {
         list_result.clear();
         num.setText("0");
@@ -982,11 +967,6 @@ public class PukeDetailActivity extends AppCompatActivity {
         multipleNumEdit.setText("1");
         adpater.notifyDataSetChanged();
     }
-
-
-    /**
-     * 投注列表适配器
-     */
     public class TicketAdapter extends CommonAdapter<TicketResultListInfo> {
 
         public TicketAdapter(Context context, int layoutId, List<TicketResultListInfo> datas) {
@@ -997,8 +977,8 @@ public class PukeDetailActivity extends AppCompatActivity {
         @Override
         public void convert(ViewHolder holder, final TicketResultListInfo info) {
             List<NumInfo> nums = new ArrayList<>();
-            Log.e("mode", String.valueOf(mSelecte_Mode));
-            Log.e("size", String.valueOf(info.getNumbers1().size()));
+            //Log.e("mode", String.valueOf(mSelecte_Mode));
+           // Log.e("size", String.valueOf(info.getNumbers1().size()));
             for (int i = 0; i < info.getNumbers1().size(); i++) {
                 nums.add(info.getNumbers1().get(i));
             }
@@ -1011,7 +991,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     switch (info.getMode()) {
                         case S_BAOXUAN:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
-                            tv.setBackgroundResource(R.drawable.puke_empty);
+                            tv.setBackgroundResource(R.drawable.baozi_temp);
                             break;
                         case danxuan_tonghua:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_tonghua, numTag, false);
@@ -1151,6 +1131,22 @@ public class PukeDetailActivity extends AppCompatActivity {
                 case putong_six:
                     mode_tv.setText("任选六");
                     break;
+                case type_BAOZI:
+                    mode_tv.setText("豹子包选");
+                    break;
+                case type_SHUNZI:
+                    mode_tv.setText("顺子包选");
+                    break;
+                case type_DUIZI:
+                    mode_tv.setText("对子包选");
+                    break;
+                case type_TONGHUA:
+                    mode_tv.setText("同花包选");
+                    break;
+                case type_TONGHUASHUN:
+                    mode_tv.setText("同花顺包选");
+                    break;
+
             }
 
             ImageView delete = holder.getView(R.id.ticket_delete);
@@ -1165,7 +1161,6 @@ public class PukeDetailActivity extends AppCompatActivity {
 
         }
     }
-
     public void showBackPop() {
         // 一个自定义的布局，作为显示的内容
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_close, null);
@@ -1194,7 +1189,6 @@ public class PukeDetailActivity extends AppCompatActivity {
         // 设置好参数之后再show
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
     }
-
     public void showCanclePop() {
         // 一个自定义的布局，作为显示的内容
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_close, null);
@@ -1224,11 +1218,6 @@ public class PukeDetailActivity extends AppCompatActivity {
         // 设置好参数之后再show
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
     }
-
-
-    /**
-     * 设置机选号码
-     */
     private void getRandow() {
         int[] result = null;
         int[] result2 = null;
@@ -1805,10 +1794,6 @@ public class PukeDetailActivity extends AppCompatActivity {
         //重新计算金额和注数
         calcluateNumAndPrice();
     }
-
-    /**
-     * 机选号码
-     */
     private int[] numberRandom(int select_num, List<String> nums) {
         int suit[] = new int[select_num]; //存储select_num个随机数
         boolean sw[] = new boolean[nums.size()]; //随机数存在。则为真，否则为假
@@ -1826,10 +1811,6 @@ public class PukeDetailActivity extends AppCompatActivity {
         }
         return suit;
     }
-
-    /**
-     * 计算总的注数和金额
-     */
     public void calcluateNumAndPrice() {
         int c_num = 0;
 

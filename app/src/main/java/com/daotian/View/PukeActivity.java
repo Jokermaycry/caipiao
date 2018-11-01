@@ -332,7 +332,7 @@ public class PukeActivity extends AppCompatActivity {
     //任选5
     private List<String> child_fivenums = new ArrayList<>();
     private TagAdapter<String> child_fiveAdapter;
-    private List<NumInfo> child_fiveList = new ArrayList<>();
+    private List<NumInfo> child_fivelist = new ArrayList<>();
     //任选6
     private List<String> child_sixnums = new ArrayList<>();
     private TagAdapter<String> child_sixAdapter;
@@ -604,18 +604,23 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("同花顺包选");
+                    info.setUpload_data("同花顺包选");
                     break;
                 case 1:
                     info.setNum("同花包选");
+                    info.setUpload_data("同花包选");
                     break;
                 case 2:
                     info.setNum("对子包选");
+                    info.setUpload_data("对子包选");
                     break;
                 case 3:
                     info.setNum("豹子包选");
+                    info.setUpload_data("豹子包选");
                     break;
                 case 4:
                     info.setNum("顺子包选");
+                    info.setUpload_data("顺子包选");
                     break;
 
             }
@@ -631,15 +636,19 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("♠");
+                    info.setUpload_data("1");
                     break;
                 case 1:
                     info.setNum("♥");
+                    info.setUpload_data("2");
                     break;
                 case 2:
                     info.setNum("♣");
+                    info.setUpload_data("3");
                     break;
                 case 3:
                     info.setNum("♦");
+                    info.setUpload_data("4");
                     break;
 
 
@@ -655,39 +664,51 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("A  2  3");
+                    info.setUpload_data("1");
                     break;
                 case 1:
                     info.setNum("2  3  4");
+                    info.setUpload_data("2");
                     break;
                 case 2:
                     info.setNum("3  4  5");
+                    info.setUpload_data("3");
                     break;
                 case 3:
                     info.setNum("4  5  6");
+                    info.setUpload_data("4");
                     break;
                 case 4:
                     info.setNum("5  6  7");
+                    info.setUpload_data("5");
                     break;
                 case 5:
                     info.setNum("6  7  8");
+                    info.setUpload_data("6");
                     break;
                 case 6:
                     info.setNum("7  8  9");
+                    info.setUpload_data("7");
                     break;
                 case 7:
                     info.setNum("8  9  10");
+                    info.setUpload_data("8");
                     break;
                 case 8:
                     info.setNum("9  10  J");
+                    info.setUpload_data("9");
                     break;
                 case 9:
                     info.setNum("10 J  Q");
+                    info.setUpload_data("10");
                     break;
                 case 10:
                     info.setNum("J  Q  K");
+                    info.setUpload_data("11");
                     break;
                 case 11:
                     info.setNum("Q  K  A");
+                    info.setUpload_data("12");
                     break;
 
 
@@ -703,15 +724,19 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("♠");
+                    info.setUpload_data("1");
                     break;
                 case 1:
                     info.setNum("♥");
+                    info.setUpload_data("2");
                     break;
                 case 2:
                     info.setNum("♣");
+                    info.setUpload_data("3");
                     break;
                 case 3:
                     info.setNum("♦");
+                    info.setUpload_data("4");
                     break;
 
 
@@ -728,42 +753,55 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("A  A  A");
+                    info.setUpload_data("1");
                     break;
                 case 1:
                     info.setNum("2  2  2");
+                    info.setUpload_data("2");
                     break;
                 case 2:
                     info.setNum("3  3  3");
+                    info.setUpload_data("3");
                     break;
                 case 3:
                     info.setNum("4  4  4");
+                    info.setUpload_data("4");
                     break;
                 case 4:
                     info.setNum("5  5  5");
+                    info.setUpload_data("5");
                     break;
                 case 5:
                     info.setNum("6  6  6");
+                    info.setUpload_data("6");
                     break;
                 case 6:
                     info.setNum("7  7  7");
+                    info.setUpload_data("7");
                     break;
                 case 7:
                     info.setNum("8  8  8");
+                    info.setUpload_data("8");
                     break;
                 case 8:
                     info.setNum("9  9  9");
+                    info.setUpload_data("9");
                     break;
                 case 9:
                     info.setNum("10 10 10");
+                    info.setUpload_data("10");
                     break;
                 case 10:
                     info.setNum("J  J  J");
+                    info.setUpload_data("11");
                     break;
                 case 11:
                     info.setNum("Q  Q  Q");
+                    info.setUpload_data("12");
                     break;
                 case 12:
                     info.setNum("K  K  K");
+                    info.setUpload_data("13");
                     break;
 
 
@@ -779,42 +817,55 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("A A");
+                    info.setUpload_data("1");
                     break;
                 case 1:
                     info.setNum("2 2");
+                    info.setUpload_data("2");
                     break;
                 case 2:
                     info.setNum("3 3");
+                    info.setUpload_data("3");
                     break;
                 case 3:
                     info.setNum("4 4");
+                    info.setUpload_data("4");
                     break;
                 case 4:
                     info.setNum("5 5");
+                    info.setUpload_data("5");
                     break;
                 case 5:
                     info.setNum("6 6");
+                    info.setUpload_data("6");
                     break;
                 case 6:
                     info.setNum("7 7");
+                    info.setUpload_data("7");
                     break;
                 case 7:
                     info.setNum("8 8");
+                    info.setUpload_data("8");
                     break;
                 case 8:
                     info.setNum("9 9");
+                    info.setUpload_data("9");
                     break;
                 case 9:
                     info.setNum("10 10");
+                    info.setUpload_data("10");
                     break;
                 case 10:
                     info.setNum("J J");
+                    info.setUpload_data("11");
                     break;
                 case 11:
                     info.setNum("Q Q");
+                    info.setUpload_data("12");
                     break;
                 case 12:
                     info.setNum("K K");
+                    info.setUpload_data("13");
                     break;
 
 
@@ -822,59 +873,7 @@ public class PukeActivity extends AppCompatActivity {
 
             duiziList.add(info);
         }
-     /*   //任选1
-        for (int i = 0; i < 13; i++) {
-            RONENums.add(i * 1 + "");
-        }
-        for (int i = 0; i < 13; i++) {
-            NumInfo info = new NumInfo();
-            switch (i) {
-                case 0:
-                    info.setNum("A");
-                    break;
-                case 1:
-                    info.setNum("2");
-                    break;
-                case 2:
-                    info.setNum("3");
-                    break;
-                case 3:
-                    info.setNum("4");
-                    break;
-                case 4:
-                    info.setNum("5");
-                    break;
-                case 5:
-                    info.setNum("6");
-                    break;
-                case 6:
-                    info.setNum("7");
-                    break;
-                case 7:
-                    info.setNum("8");
-                    break;
-                case 8:
-                    info.setNum("9");
-                    break;
-                case 9:
-                    info.setNum("10");
-                    break;
-                case 10:
-                    info.setNum("J");
-                    break;
-                case 11:
-                    info.setNum("Q");
-                    break;
-                case 12:
-                    info.setNum("K");
-                    break;
 
-
-            }
-
-
-            RONEList.add(info);
-        }*/
         //任选2
         for (int i = 0; i < 13; i++) {
             tuodan_twonums.add(i * 1 + "");
@@ -884,42 +883,45 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("A");
+                    info.setUpload_data("1");
                     break;
                 case 1:
                     info.setNum("2");
+                    info.setUpload_data("2");
                     break;
                 case 2:
                     info.setNum("3");
+                    info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -934,43 +936,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -985,43 +987,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1036,43 +1038,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1087,45 +1089,44 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
-
 
             }
             tuodan_sixlist.add(info);
@@ -1139,43 +1140,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1192,43 +1193,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1243,45 +1244,44 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
-
 
             }
             putongthreelist.add(info);
@@ -1294,43 +1294,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1345,43 +1345,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1396,45 +1396,44 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
-
 
             }
             putong_sixlist.add(info);
@@ -1531,43 +1530,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1582,43 +1581,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1633,43 +1632,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -1684,48 +1683,48 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
             }
-            child_fiveList.add(info);
+            child_fivelist.add(info);
         }
         //任选6
         for (int i = 0; i < 13; i++) {
@@ -1735,43 +1734,43 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");
+                    info.setNum("A");info.setUpload_data("1");
                     break;
                 case 1:
-                    info.setNum("2");
+                    info.setNum("2");info.setUpload_data("2");
                     break;
                 case 2:
-                    info.setNum("3");
+                    info.setNum("3");info.setUpload_data("3");
                     break;
                 case 3:
-                    info.setNum("4");
+                    info.setNum("4");info.setUpload_data("4");
                     break;
                 case 4:
-                    info.setNum("5");
+                    info.setNum("5");info.setUpload_data("5");
                     break;
                 case 5:
-                    info.setNum("6");
+                    info.setNum("6");info.setUpload_data("6");
                     break;
                 case 6:
-                    info.setNum("7");
+                    info.setNum("7");info.setUpload_data("7");
                     break;
                 case 7:
-                    info.setNum("8");
+                    info.setNum("8");info.setUpload_data("8");
                     break;
                 case 8:
-                    info.setNum("9");
+                    info.setNum("9");info.setUpload_data("9");
                     break;
                 case 9:
-                    info.setNum("10");
+                    info.setNum("10");info.setUpload_data("10");
                     break;
                 case 10:
-                    info.setNum("J");
+                    info.setNum("J");info.setUpload_data("11");
                     break;
                 case 11:
-                    info.setNum("Q");
+                    info.setNum("Q");info.setUpload_data("12");
                     break;
                 case 12:
-                    info.setNum("K");
+                    info.setNum("K");info.setUpload_data("13");
                     break;
 
 
@@ -2958,8 +2957,8 @@ public class PukeActivity extends AppCompatActivity {
                         ToastUtil.toast(mActivity, "胆码只能选择四个");
                         tuodan_fivelist.get(position).setIs_checked(false);
                         //取消冲突
-                        if (child_fiveList.get(position).is_checked()) {
-                            child_fiveList.get(position).setIs_checked(false);
+                        if (child_fivelist.get(position).is_checked()) {
+                            child_fivelist.get(position).setIs_checked(false);
                             child_fiveAdapter.notifyDataChanged();
 
                         }
@@ -2969,8 +2968,8 @@ public class PukeActivity extends AppCompatActivity {
                     {
                         tuodan_fivelist.get(position).setIs_checked(false);
                         //取消冲突
-                        if (child_fiveList.get(position).is_checked()) {
-                            child_fiveList.get(position).setIs_checked(false);
+                        if (child_fivelist.get(position).is_checked()) {
+                            child_fivelist.get(position).setIs_checked(false);
                             child_fiveAdapter.notifyDataChanged();
 
                         }
@@ -2992,16 +2991,16 @@ public class PukeActivity extends AppCompatActivity {
                     {
                         ToastUtil.toast(mActivity, "胆码只能选择四个");
                         tuodan_fivelist.get(position).setIs_checked(false);
-                        if (child_fiveList.get(position).is_checked()) {
-                            child_fiveList.get(position).setIs_checked(false);
+                        if (child_fivelist.get(position).is_checked()) {
+                            child_fivelist.get(position).setIs_checked(false);
                             child_fiveAdapter.notifyDataChanged();
                         }
                     }
                     else
                     {
                         tuodan_fivelist.get(position).setIs_checked(true);
-                        if (child_fiveList.get(position).is_checked()) {
-                            child_fiveList.get(position).setIs_checked(false);
+                        if (child_fivelist.get(position).is_checked()) {
+                            child_fivelist.get(position).setIs_checked(false);
                             child_fiveAdapter.notifyDataChanged();
                         }
                     }
@@ -3013,15 +3012,15 @@ public class PukeActivity extends AppCompatActivity {
         });
 
         //胆拖
-        for (int i = 0; i < child_fiveList.size(); i++) {
-            child_fiveList.get(i).setIs_checked(false);
+        for (int i = 0; i < child_fivelist.size(); i++) {
+            child_fivelist.get(i).setIs_checked(false);
         }
         child_fiveAdapter = new TagAdapter<String>(child_fivenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, five2, false);
 
-                if (child_fiveList.get(position).is_checked()) {
+                if (child_fivelist.get(position).is_checked()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3034,8 +3033,8 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 //同样的位置如果已经被点击
-                if (child_fiveList.get(position).is_checked()) {
-                    child_fiveList.get(position).setIs_checked(false);
+                if (child_fivelist.get(position).is_checked()) {
+                    child_fivelist.get(position).setIs_checked(false);
                     if(tuodan_fivelist.get(position).is_checked())
                     {
                         tuodan_fivelist.get(position).setIs_checked(false);
@@ -3047,7 +3046,7 @@ public class PukeActivity extends AppCompatActivity {
                     child_fiveAdapter.notifyDataChanged();
                 } else {
 
-                    child_fiveList.get(position).setIs_checked(true);
+                    child_fivelist.get(position).setIs_checked(true);
                     if(tuodan_fivelist.get(position).is_checked())
                     {
                         tuodan_fivelist.get(position).setIs_checked(false);
@@ -3553,6 +3552,12 @@ public class PukeActivity extends AppCompatActivity {
             in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
             in.putExtra("tuodan_fivelist", (Serializable) tuodan_fivelist);
             in.putExtra("tuodan_sixlist", (Serializable) tuodan_sixlist);
+            in.putExtra("child_twolist", (Serializable) child_twolist);
+            in.putExtra("child_threelist", (Serializable) child_threelist);
+            in.putExtra("child_fourlist", (Serializable) child_fourlist);
+            in.putExtra("child_fivelist", (Serializable) child_fivelist);
+            in.putExtra("child_sixlist", (Serializable) child_sixlist);
+
             in.putExtra("putong_onelist", (Serializable) putong_onelist);
             in.putExtra("putong_twolist", (Serializable) putong_twolist);
             in.putExtra("putongthreelist", (Serializable) putongthreelist);
@@ -3588,6 +3593,12 @@ public class PukeActivity extends AppCompatActivity {
             in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
             in.putExtra("tuodan_fivelist", (Serializable) tuodan_fivelist);
             in.putExtra("tuodan_sixlist", (Serializable) tuodan_sixlist);
+            in.putExtra("child_twolist", (Serializable) child_twolist);
+            in.putExtra("child_threelist", (Serializable) child_threelist);
+            in.putExtra("child_fourlist", (Serializable) child_fourlist);
+            in.putExtra("child_fivelist", (Serializable) child_fivelist);
+            in.putExtra("child_sixlist", (Serializable) child_sixlist);
+
             in.putExtra("putong_onelist", (Serializable) putong_onelist);
             in.putExtra("putong_twolist", (Serializable) putong_twolist);
             in.putExtra("putongthreelist", (Serializable) putongthreelist);
@@ -3610,9 +3621,6 @@ public class PukeActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * 计算baoxuan
-     */
     public void calculate_baoxuan() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3627,9 +3635,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算tonghua
-     */
+
     public void calculate_tonghua() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3644,9 +3650,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算shunzi
-     */
+
     public void calculate_shunzi() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3661,9 +3665,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算tonghuashun
-     */
+
     public void calculate_tonghuashun() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3678,9 +3680,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算baozi
-     */
+
     public void calculate_baozi() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3695,9 +3695,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算duizi
-     */
+
     public void calculate_duizi() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3712,14 +3710,6 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算one  拖胆
-     */
-
-
-    /**
-     * 计算two  拖胆
-     */
     public void calculate_two() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3740,9 +3730,8 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算three  拖胆
-     */
+
+
     public void calculate_three() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3757,9 +3746,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算four  拖胆
-     */
+
     public void calculate_four() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3774,9 +3761,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算five  拖胆
-     */
+
     public void calculate_five() {
         //计算选中的注数和金额
         int buy_acount = 0;
@@ -3791,9 +3776,7 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-    /**
-     * 计算six  拖胆
-     */
+
     public void calculate_six() {
         //计算选中的注数和金额
         int buy_acount = 0;
