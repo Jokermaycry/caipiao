@@ -60,33 +60,38 @@ public class PukeDetailActivity extends AppCompatActivity {
     private final int TicketPrice = 2;
     //普通投注
     private final int S_BAOXUAN = 1;//包选
-    private final int S_TONGHUA = 2;//同花
-    private final int S_SHUNZI = 3;//顺子
-    private final int S_TONGHUASHUN = 4;//同花顺
-    private final int S_BAOZI = 5;//豹子
-    private final int S_DUIZI = 6;//对子
-    //普通任选
-    private final int SSD_ONE = 13;//任选1
-    private final int SSD_TWO = 14;//任选2
-    private final int SSD_THREE = 15;//任选3
-    private final int SSD_FOUR = 16;//任选4
-    private final int SSD_FIVE = 17;//任选5
-    private final int SSD_SIX = 18;//任选6
+    private final int danxuan_tonghua = 2;//同花单选
+    private final int danxuan_shunzi = 3;//顺子单选
+    private final int danxuan_tonghuashun = 4;//同花顺单选
+    private final int danxuan_baozi = 5;//豹子单选
+    private final int danxuan_duizi = 6;//对子单选
+
     //拖胆
-    private final int SD_ONE = 7;//任选1
-    private final int SD_TWO = 8;//任选2
-    private final int SD_THREE = 9;//任选3
-    private final int SD_FOUR = 10;//任选4
-    private final int SD_FIVE = 11;//任选5
-    private final int SD_SIX = 12;//任选6
+   // private final int SD_ONE = 7;//任选1拖胆
+    private final int tuodan_two = 8;//任选2拖胆
+    private final int tuodan_three = 9;//任选3拖胆
+    private final int tuodan_four = 10;//任选4拖胆
+    private final int tuodan_five = 11;//任选5拖胆
+    private final int tuodan_six = 12;//任选6拖胆
+    //普通任选
+    private final int putong_one = 13;//任选1普通任选
+    private final int putong_two = 14;//任选2普通任选
+    private final int putong_three = 15;//任选3普通任选
+    private final int putong_four = 16;//任选4普通任选
+    private final int putong_five = 17;//任选5普通任选
+    private final int putong_six = 18;//任选6普通任选
+
+
+    private final int type_TONGHUA = 21;//同花包选
+    private final int type_SHUNZI = 22;//顺子包选
+    private final int type_TONGHUASHUN = 23;//同花顺包选
+    private final int type_BAOZI = 24;//豹子包选
+    private final int type_DUIZI = 25;//对子包选
     @BindView(R.id.zhui)
     LinearLayout zhui;
     @BindView(R.id.zhongstop)
     LinearLayout zhongstop;
-
-
     private int mSelecte_Mode = S_BAOXUAN;
-
     @BindView(R.id.back)
     ImageView back;
     @BindView(R.id.title)
@@ -124,20 +129,20 @@ public class PukeDetailActivity extends AppCompatActivity {
     private List<NumInfo> baoziList = new ArrayList<>();
     private List<NumInfo> duiziList = new ArrayList<>();
 
-    //down
-    private List<NumInfo> RONEList = new ArrayList<>();
-    private List<NumInfo> RTWOList = new ArrayList<>();
-    private List<NumInfo> RTHREEList = new ArrayList<>();
-    private List<NumInfo> RFOURList = new ArrayList<>();
-    private List<NumInfo> RFIVEList = new ArrayList<>();
-    private List<NumInfo> RSIXList = new ArrayList<>();
-    //up
-    private List<NumInfo> RRONEList = new ArrayList<>();
-    private List<NumInfo> RRTWOList = new ArrayList<>();
-    private List<NumInfo> RRTHREEList = new ArrayList<>();
-    private List<NumInfo> RRFOURList = new ArrayList<>();
-    private List<NumInfo> RRFIVEList = new ArrayList<>();
-    private List<NumInfo> RRSIXList = new ArrayList<>();
+    //拖胆
+    private List<NumInfo> tuodan_RONEList = new ArrayList<>();
+    private List<NumInfo> tuodan_twolist = new ArrayList<>();
+    private List<NumInfo> tuodan_threelist = new ArrayList<>();
+    private List<NumInfo> tuodan_fourlist = new ArrayList<>();
+    private List<NumInfo> tuodan_fivelist = new ArrayList<>();
+    private List<NumInfo> tuodan_sixlist = new ArrayList<>();
+    //普通
+    private List<NumInfo> putong_onelist = new ArrayList<>();
+    private List<NumInfo> putong_twolist = new ArrayList<>();
+    private List<NumInfo> putongthreelist = new ArrayList<>();
+    private List<NumInfo> putong_fourlist = new ArrayList<>();
+    private List<NumInfo> putong_fivelist = new ArrayList<>();
+    private List<NumInfo> putong_sixlist = new ArrayList<>();
 
 
     private TicketAdapter adpater;
@@ -152,12 +157,11 @@ public class PukeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_puke_detail);
         ButterKnife.bind(this);
         mActivity = this;
-        initIntent();
+        Log.e("onCreate！！！！！！！！！",mSelecte_Mode+"");
         initView();
+        initIntent();
         getData();
-
     }
-
     private void getData() {
         HashMap<String, Object> paramMap = new HashMap<String, Object>();
         RequestParams params = ParamUtil.requestParams(paramMap);
@@ -187,16 +191,61 @@ public class PukeDetailActivity extends AppCompatActivity {
             }
         });
     }
+    private  void init_intent_baoxuan(){
+    baoxuanList = (List<NumInfo>) this.getIntent().getSerializableExtra("baoxuanList");
+//    num.setText("1");
+//    price.setText("2");
+    title.setText(this.getIntent().getStringExtra("title"));
+    sh_name = this.getIntent().getStringExtra("sh_name");
+    type = this.getIntent().getStringExtra("type");
+    now_qs = this.getIntent().getStringExtra("now_qs");
+    zq_type = this.getIntent().getStringExtra("zq_type");
+    buytype = this.getIntent().getStringExtra("buytype");
+    switch (zq_type) {
+        case "1":
 
-    private void initIntent() {
-
-        mSelecte_Mode = this.getIntent().getIntExtra("selecte_mode", -1);
-        if (mSelecte_Mode == -1) {
-            ToastUtil.toast(mActivity, "模式错误");
-            return;
+            break;
+        case "2":
+            zhongstop.setVisibility(View.GONE);
+            break;
+        case "3":
+            zhui.setVisibility(View.GONE);
+            zhongstop.setVisibility(View.GONE);
+            break;
+    }
+    for (int i = 0; i < baoxuanList.size(); i++) {
+        if (baoxuanList.get(i).is_checked()) {
+            TicketResultListInfo info = new TicketResultListInfo();
+            info.setMode(mSelecte_Mode);
+            info.setNum("1");
+            info.setPrice("2");
+            info.getNumbers1().add(baoxuanList.get(i));
+            list_result.add(info);
         }
+    }
+    int count=0;
+    for(int i=0;i<list_result.size();i++)
+    {
+        count++;
+    }
+    Log.e("count",String.valueOf(count));
+//    TicketResultListInfo info = new TicketResultListInfo();
+//    info.setMode(mSelecte_Mode);
+//    info.setNum(num.getText().toString());
+//    info.setPrice(price.getText().toString());
+//    for (int i = 0; i < baoxuanList.size(); i++) {
+//        if (baoxuanList.get(i).is_checked()) {
+//            info.getNumbers1().add(baoxuanList.get(i));
+//        }
+//    }
+//    list_result.add(info);
+        adpater.notifyDataSetChanged();
+        calcluateNumAndPrice();
+}
+    private  void init_inten_else()
+    {
         //Log.e("mSelecte_Mode！！！！！！！！！",mSelecte_Mode+"");
-        baoxuanList = (List<NumInfo>) this.getIntent().getSerializableExtra("baoxuanList");
+        //baoxuanList = (List<NumInfo>) this.getIntent().getSerializableExtra("baoxuanList");
         tonghuaList = (List<NumInfo>) this.getIntent().getSerializableExtra("tonghuaList");
         shunziList = (List<NumInfo>) this.getIntent().getSerializableExtra("shunziList");
         tonghuashunList = (List<NumInfo>) this.getIntent().getSerializableExtra("tonghuashunList");
@@ -205,20 +254,20 @@ public class PukeDetailActivity extends AppCompatActivity {
 
 
         //up    普通
-        RRONEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRONEList");
-        RRTWOList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRTWOList");
-        RRTHREEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRTHREEList");
-        RRFOURList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRFOURList");
-        RRFIVEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRFIVEList");
-        RRSIXList = (List<NumInfo>) this.getIntent().getSerializableExtra("RRSIXList");
+        putong_onelist = (List<NumInfo>) this.getIntent().getSerializableExtra("putong_onelist");
+        putong_twolist = (List<NumInfo>) this.getIntent().getSerializableExtra("putong_twolist");
+        putongthreelist = (List<NumInfo>) this.getIntent().getSerializableExtra("putongthreelist");
+        putong_fourlist = (List<NumInfo>) this.getIntent().getSerializableExtra("putong_fourlist");
+        putong_fivelist = (List<NumInfo>) this.getIntent().getSerializableExtra("putong_fivelist");
+        putong_sixlist = (List<NumInfo>) this.getIntent().getSerializableExtra("putong_sixlist");
 
         //down 拖胆
-        RONEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RONEList");
-        RTWOList = (List<NumInfo>) this.getIntent().getSerializableExtra("RTWOList");
-        RTHREEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RTHREEList");
-        RFOURList = (List<NumInfo>) this.getIntent().getSerializableExtra("RFOURList");
-        RFIVEList = (List<NumInfo>) this.getIntent().getSerializableExtra("RFIVEList");
-        RSIXList = (List<NumInfo>) this.getIntent().getSerializableExtra("RSIXList");
+        tuodan_RONEList = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_RONEList");
+        tuodan_twolist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_twolist");
+        tuodan_threelist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_threelist");
+        tuodan_fourlist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_fourlist");
+        tuodan_fivelist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_fivelist");
+        tuodan_sixlist = (List<NumInfo>) this.getIntent().getSerializableExtra("tuodan_sixlist");
 
         num.setText(this.getIntent().getStringExtra("num"));
         price.setText(this.getIntent().getStringExtra("price"));
@@ -246,168 +295,133 @@ public class PukeDetailActivity extends AppCompatActivity {
         info.setPrice(price.getText().toString());
 
         switch (mSelecte_Mode) {
-            case S_BAOXUAN:
-                for (int i = 0; i < baoxuanList.size(); i++) {
-                    if (baoxuanList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(baoxuanList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
-
-                    }
-                }
-                break;
-            case S_TONGHUA:
+//                case S_BAOXUAN:
+//                    for (int i = 0; i < baoxuanList.size(); i++) {
+//                        if (baoxuanList.get(i).is_checked()) {
+//                            info.getNumbers1().add(baoxuanList.get(i));
+//                        }
+//                    }
+//                    break;
+            case danxuan_tonghua:
                 for (int i = 0; i < tonghuaList.size(); i++) {
                     if (tonghuaList.get(i).is_checked()) {
-
                         info.getNumbers1().add(tonghuaList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
-
                     }
                 }
                 break;
-            case S_SHUNZI:
+            case danxuan_shunzi:
                 for (int i = 0; i < shunziList.size(); i++) {
                     if (shunziList.get(i).is_checked()) {
-
                         info.getNumbers1().add(shunziList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
 
                 break;
-            case S_TONGHUASHUN:
+            case danxuan_tonghuashun:
                 for (int i = 0; i < tonghuashunList.size(); i++) {
                     if (tonghuashunList.get(i).is_checked()) {
-
                         info.getNumbers1().add(tonghuashunList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
-            case S_BAOZI:
+            case danxuan_baozi:
                 for (int i = 0; i < baoziList.size(); i++) {
                     if (baoziList.get(i).is_checked()) {
-
                         info.getNumbers1().add(baoziList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
                 break;
-            case S_DUIZI:
+            case danxuan_duizi:
                 for (int i = 0; i < duiziList.size(); i++) {
                     if (duiziList.get(i).is_checked()) {
-
                         info.getNumbers1().add(duiziList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
                     }
                 }
 
                 break;
-            case SD_ONE:
-                for (int i = 0; i < RONEList.size(); i++) {
-                    if (RONEList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RONEList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
+//                case SD_ONE:
+//                    for (int i = 0; i < tuodan_RONEList.size(); i++) {
+//                        if (tuodan_RONEList.get(i).is_checked()) {
+//                            info.getNumbers1().add(tuodan_RONEList.get(i));
+//                        }
+//                    }
+//                    break;
+            case tuodan_two:
+                for (int i = 0; i < tuodan_twolist.size(); i++) {
+                    if (tuodan_twolist.get(i).is_checked()) {
+                        info.getNumbers1().add(tuodan_twolist.get(i));
                     }
                 }
                 break;
-            case SD_TWO:
-                for (int i = 0; i < RTWOList.size(); i++) {
-                    if (RTWOList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RTWOList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
+            case tuodan_three:
+                for (int i = 0; i < tuodan_threelist.size(); i++) {
+                    if (tuodan_threelist.get(i).is_checked()) {
+                        info.getNumbers1().add(tuodan_threelist.get(i));
                     }
                 }
                 break;
-            case SD_THREE:
-                for (int i = 0; i < RTHREEList.size(); i++) {
-                    if (RTHREEList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RTHREEList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
+            case tuodan_four:
+                for (int i = 0; i < tuodan_fourlist.size(); i++) {
+                    if (tuodan_fourlist.get(i).is_checked()) {
+                        info.getNumbers1().add(tuodan_fourlist.get(i));
                     }
                 }
                 break;
-            case SD_FOUR:
-                for (int i = 0; i < RFOURList.size(); i++) {
-                    if (RFOURList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RFOURList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
+            case tuodan_five:
+                for (int i = 0; i < tuodan_fivelist.size(); i++) {
+                    if (tuodan_fivelist.get(i).is_checked()) {
+                        info.getNumbers1().add(tuodan_fivelist.get(i));
                     }
                 }
                 break;
-            case SD_FIVE:
-                for (int i = 0; i < RFIVEList.size(); i++) {
-                    if (RFIVEList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RFIVEList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
-                    }
-                }
-                break;
-            case SD_SIX:
-                for (int i = 0; i < RSIXList.size(); i++) {
-                    if (RSIXList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RSIXList.get(i));
-                        Log.e("checked!!!!!!", String.valueOf(i));
+            case tuodan_six:
+                for (int i = 0; i < tuodan_sixlist.size(); i++) {
+                    if (tuodan_sixlist.get(i).is_checked()) {
+                        info.getNumbers1().add(tuodan_sixlist.get(i));
                     }
                 }
                 break;
 
             //up
-            case SSD_ONE:
-                for (int i = 0; i < RRONEList.size(); i++) {
-                    if (RRONEList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RRONEList.get(i));
+            case putong_one:
+                for (int i = 0; i < putong_onelist.size(); i++) {
+                    if (putong_onelist.get(i).is_checked()) {
+                        info.getNumbers1().add(putong_onelist.get(i));
                     }
                 }
                 break;
-            case SSD_TWO:
-                for (int i = 0; i < RRTWOList.size(); i++) {
-                    if (RRTWOList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RRTWOList.get(i));
+            case putong_two:
+                for (int i = 0; i < putong_twolist.size(); i++) {
+                    if (putong_twolist.get(i).is_checked()) {
+                        info.getNumbers1().add(putong_twolist.get(i));
                     }
                 }
                 break;
-            case SSD_THREE:
-                for (int i = 0; i < RRTHREEList.size(); i++) {
-                    if (RRTHREEList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RRTHREEList.get(i));
+            case putong_three:
+                for (int i = 0; i < putongthreelist.size(); i++) {
+                    if (putongthreelist.get(i).is_checked()) {
+                        info.getNumbers1().add(putongthreelist.get(i));
                     }
                 }
                 break;
-            case SSD_FOUR:
-                for (int i = 0; i < RRFOURList.size(); i++) {
-                    if (RRFOURList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RRFOURList.get(i));
-
+            case putong_four:
+                for (int i = 0; i < putong_fourlist.size(); i++) {
+                    if (putong_fourlist.get(i).is_checked()) {
+                        info.getNumbers1().add(putong_fourlist.get(i));
                     }
                 }
                 break;
-            case SSD_FIVE:
-                for (int i = 0; i < RRFIVEList.size(); i++) {
-                    if (RRFIVEList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RRFIVEList.get(i));
-
+            case putong_five:
+                for (int i = 0; i < putong_fivelist.size(); i++) {
+                    if (putong_fivelist.get(i).is_checked()) {
+                        info.getNumbers1().add(putong_fivelist.get(i));
                     }
                 }
                 break;
-            case SSD_SIX:
-                for (int i = 0; i < RRSIXList.size(); i++) {
-                    if (RRSIXList.get(i).is_checked()) {
-
-                        info.getNumbers1().add(RRSIXList.get(i));
-
+            case putong_six:
+                for (int i = 0; i < putong_sixlist.size(); i++) {
+                    if (putong_sixlist.get(i).is_checked()) {
+                        info.getNumbers1().add(putong_sixlist.get(i));
                     }
                 }
                 break;
@@ -416,7 +430,23 @@ public class PukeDetailActivity extends AppCompatActivity {
         list_result.add(info);
 
     }
+    private void initIntent() {
 
+        mSelecte_Mode = this.getIntent().getIntExtra("selecte_mode", -1);
+        if (mSelecte_Mode == -1) {
+            ToastUtil.toast(mActivity, "模式错误");
+            return;
+        }
+        //如果是包选
+        if (mSelecte_Mode==S_BAOXUAN)
+        {
+            init_intent_baoxuan();
+        }
+        //如果是其他玩法
+       else {
+            init_inten_else();
+        }
+    }
     private void initView() {
 
         adpater = new TicketAdapter(this, R.layout.list_item_ticket_result, list_result);
@@ -504,19 +534,6 @@ public class PukeDetailActivity extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-
     @OnClick({R.id.back, R.id.continue_btn, R.id.random_btn, R.id.clear_btn, R.id.comfirm_btn, R.id.term_stop_check})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -526,8 +543,9 @@ public class PukeDetailActivity extends AppCompatActivity {
             case R.id.continue_btn:
                 Intent in = new Intent(mActivity, PukeActivity.class);
                 in.putExtra("sh_name", sh_name);
-                in.putExtra("continue", true);
+                in.putExtra("continue",true);
                 startActivityForResult(in, 0);
+                //startActivity(in);
                 break;
             //机选
             case R.id.random_btn:
@@ -565,194 +583,222 @@ public class PukeDetailActivity extends AppCompatActivity {
                 ToastUtil.toast(mActivity, "模式错误");
                 return;
             }
+            //如果是包选模式
+            if (mSelecte_Mode == S_BAOXUAN) {
+                baoxuanList = (List<NumInfo>) data.getSerializableExtra("baoxuanList");
+                sh_name = this.getIntent().getStringExtra("sh_name");
 
-            baoxuanList = (List<NumInfo>) data.getSerializableExtra("baoxuanList");
-            tonghuaList = (List<NumInfo>) data.getSerializableExtra("tonghuaList");
-            shunziList = (List<NumInfo>) data.getSerializableExtra("shunziList");
-            tonghuashunList = (List<NumInfo>) data.getSerializableExtra("tonghuashunList");
-            baoziList = (List<NumInfo>) data.getSerializableExtra("baoziList");
-            duiziList = (List<NumInfo>) data.getSerializableExtra("duiziList");
-
-            //down
-            RONEList = (List<NumInfo>) data.getSerializableExtra("RONEList");
-            RTWOList = (List<NumInfo>) data.getSerializableExtra("RTWOList");
-            RTHREEList = (List<NumInfo>) data.getSerializableExtra("RTHREEList");
-            RFOURList = (List<NumInfo>) data.getSerializableExtra("RFOURList");
-            RFIVEList = (List<NumInfo>) data.getSerializableExtra("RFIVEList");
-            RSIXList = (List<NumInfo>) data.getSerializableExtra("RSIXList");
-
-            //up
-            RRONEList = (List<NumInfo>) data.getSerializableExtra("RRONEList");
-            RRTWOList = (List<NumInfo>) data.getSerializableExtra("RRTWOList");
-            RRTHREEList = (List<NumInfo>) data.getSerializableExtra("RRTHREEList");
-            RRFOURList = (List<NumInfo>) data.getSerializableExtra("RRFOURList");
-            RRFIVEList = (List<NumInfo>) data.getSerializableExtra("RRFIVEList");
-            RRSIXList = (List<NumInfo>) data.getSerializableExtra("RRSIXList");
-
-            sh_name = this.getIntent().getStringExtra("sh_name");
-
-            TicketResultListInfo info = new TicketResultListInfo();
-            info.setMode(data.getIntExtra("selecte_mode", 1));
-            info.setNum(data.getStringExtra("num"));
-            info.setPrice(data.getStringExtra("price"));
-
-
-            switch (mSelecte_Mode) {
-                case S_BAOXUAN:
-                    for (int i = 0; i < baoxuanList.size(); i++) {
-                        if (baoxuanList.get(i).is_checked()) {
-                            info.getNumbers1().add(baoxuanList.get(i));
-                            Log.e("checked!!!!!!", String.valueOf(i));
-                        }
-                    }
-                    break;
-                case S_TONGHUA:
-                    for (int i = 0; i < tonghuaList.size(); i++) {
-                        if (tonghuaList.get(i).is_checked()) {
-                            info.getNumbers1().add(tonghuaList.get(i));
-                        }
-                    }
-                    break;
-                case S_SHUNZI:
-                    for (int i = 0; i < shunziList.size(); i++) {
-                        if (shunziList.get(i).is_checked()) {
-                            info.getNumbers1().add(shunziList.get(i));
-                        }
-                    }
-
-                    break;
-                case S_TONGHUASHUN:
-                    for (int i = 0; i < tonghuashunList.size(); i++) {
-                        if (tonghuashunList.get(i).is_checked()) {
-                            info.getNumbers1().add(tonghuashunList.get(i));
-                        }
-                    }
-                    break;
-                case S_BAOZI:
-                    for (int i = 0; i < baoziList.size(); i++) {
-                        if (baoziList.get(i).is_checked()) {
-                            info.getNumbers1().add(baoziList.get(i));
-                        }
-                    }
-                    break;
-                case S_DUIZI:
-                    for (int i = 0; i < duiziList.size(); i++) {
-                        if (duiziList.get(i).is_checked()) {
-                            info.getNumbers1().add(duiziList.get(i));
-                        }
-                    }
-                    break;
-                case SD_ONE:
-                    for (int i = 0; i < RONEList.size(); i++) {
-                        if (RONEList.get(i).is_checked()) {
-                            RONEList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RONEList.get(i));
-                        }
-                    }
-
-                    break;
-                case SD_TWO:
-                    for (int i = 0; i < RTWOList.size(); i++) {
-                        if (RTWOList.get(i).is_checked()) {
-                            RTWOList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RTWOList.get(i));
-                        }
-                    }
-
-                    break;
-                case SD_THREE:
-                    for (int i = 0; i < RTHREEList.size(); i++) {
-                        if (RTHREEList.get(i).is_checked()) {
-                            RTHREEList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RTHREEList.get(i));
-                        }
-                    }
-
-                    break;
-                case SD_FOUR:
-                    for (int i = 0; i < RFOURList.size(); i++) {
-                        if (RFOURList.get(i).is_checked()) {
-                            RFOURList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RFOURList.get(i));
-                        }
-                    }
-
-                    break;
-                case SD_FIVE:
-                    for (int i = 0; i < RFIVEList.size(); i++) {
-                        if (RFIVEList.get(i).is_checked()) {
-                            RFIVEList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RFIVEList.get(i));
-                        }
-                    }
-
-                    break;
-                case SD_SIX:
-                    for (int i = 0; i < RSIXList.size(); i++) {
-                        if (RSIXList.get(i).is_checked()) {
-                            RSIXList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RSIXList.get(i));
-                        }
-                    }
-                    //up
-                case SSD_ONE:
-                    for (int i = 0; i < RRONEList.size(); i++) {
-                        if (RRONEList.get(i).is_checked()) {
-                            RRONEList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RRONEList.get(i));
-                        }
-                    }
-
-                    break;
-                case SSD_TWO:
-                    for (int i = 0; i < RRTWOList.size(); i++) {
-                        if (RRTWOList.get(i).is_checked()) {
-                            RRTWOList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RRTWOList.get(i));
-                        }
-                    }
-
-                    break;
-                case SSD_THREE:
-                    for (int i = 0; i < RRTHREEList.size(); i++) {
-                        if (RRTHREEList.get(i).is_checked()) {
-                            RRTHREEList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RRTHREEList.get(i));
-                        }
-                    }
-
-                    break;
-                case SSD_FOUR:
-                    for (int i = 0; i < RRFOURList.size(); i++) {
-                        if (RRFOURList.get(i).is_checked()) {
-                            RRFOURList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RRFOURList.get(i));
-                        }
-                    }
-
-                    break;
-                case SSD_FIVE:
-                    for (int i = 0; i < RRFIVEList.size(); i++) {
-                        if (RRFIVEList.get(i).is_checked()) {
-                            RRFIVEList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RRFIVEList.get(i));
-                        }
-                    }
-
-                    break;
-                case SSD_SIX:
-                    for (int i = 0; i < RSIXList.size(); i++) {
-                        if (RRSIXList.get(i).is_checked()) {
-                            RRSIXList.get(i).setIs_spe(true);
-                            info.getNumbers1().add(RRSIXList.get(i));
-                        }
-                    }
-
-                    break;
+                //如果被点击，添加到数组
+                for (int i = 0; i < baoxuanList.size(); i++)
+                {
+                  if (baoxuanList.get(i).is_checked())
+                {
+                    TicketResultListInfo info = new TicketResultListInfo();
+                    info.setMode(data.getIntExtra("selecte_mode", 1));
+                    info.setNum(data.getStringExtra("num"));
+                    info.setPrice(data.getStringExtra("price"));
+                    info.getNumbers1().add(baoxuanList.get(i));
+                    list_result.add(info);
+                }
+                }
+                adpater.notifyDataSetChanged();
+                calcluateNumAndPrice();
+//                init_intent_baoxuan();
+//                adpater.notifyDataSetChanged();
+//                calcluateNumAndPrice();
             }
-            list_result.add(info);
-            adpater.notifyDataSetChanged();
-            calcluateNumAndPrice();
+            //如果是其他模式
+            else {
+//                init_inten_else();
+//                adpater.notifyDataSetChanged();
+//                calcluateNumAndPrice();
+                tonghuaList = (List<NumInfo>) data.getSerializableExtra("tonghuaList");
+                shunziList = (List<NumInfo>) data.getSerializableExtra("shunziList");
+                tonghuashunList = (List<NumInfo>) data.getSerializableExtra("tonghuashunList");
+                baoziList = (List<NumInfo>) data.getSerializableExtra("baoziList");
+                duiziList = (List<NumInfo>) data.getSerializableExtra("duiziList");
+                tuodan_RONEList = (List<NumInfo>) data.getSerializableExtra("tuodan_RONEList");
+                tuodan_twolist = (List<NumInfo>) data.getSerializableExtra("tuodan_twolist");
+                tuodan_threelist = (List<NumInfo>) data.getSerializableExtra("tuodan_threelist");
+                tuodan_fourlist = (List<NumInfo>) data.getSerializableExtra("tuodan_fourlist");
+                tuodan_fivelist = (List<NumInfo>) data.getSerializableExtra("tuodan_fivelist");
+                tuodan_sixlist = (List<NumInfo>) data.getSerializableExtra("tuodan_sixlist");
+                putong_onelist = (List<NumInfo>) data.getSerializableExtra("putong_onelist");
+                putong_twolist = (List<NumInfo>) data.getSerializableExtra("putong_twolist");
+                putongthreelist = (List<NumInfo>) data.getSerializableExtra("putongthreelist");
+                putong_fourlist = (List<NumInfo>) data.getSerializableExtra("putong_fourlist");
+                putong_fivelist = (List<NumInfo>) data.getSerializableExtra("putong_fivelist");
+                putong_sixlist = (List<NumInfo>) data.getSerializableExtra("putong_sixlist");
+                sh_name = this.getIntent().getStringExtra("sh_name");
+                TicketResultListInfo info = new TicketResultListInfo();
+                info.setMode(data.getIntExtra("selecte_mode", 1));
+                info.setNum(data.getStringExtra("num"));
+                info.setPrice(data.getStringExtra("price"));
+                for (int i = 0; i < baoxuanList.size(); i++) {
+                    if (baoxuanList.get(i).is_checked()) {
+                        info.getNumbers1().add(baoxuanList.get(i));
+                       // Log.e("checked!!!!!!", String.valueOf(i));
+                    }
+                }
+
+
+                switch (mSelecte_Mode) {
+//                    case S_BAOXUAN:
+//                        for (int i = 0; i < baoxuanList.size(); i++) {
+//                            if (baoxuanList.get(i).is_checked()) {
+//                                info.getNumbers1().add(baoxuanList.get(i));
+//                                Log.e("checked!!!!!!", String.valueOf(i));
+//                            }
+//                        }
+//                        break;
+                    case danxuan_tonghua:
+                        for (int i = 0; i < 4; i++) {
+                            if (tonghuaList.get(i).is_checked()) {
+                                info.getNumbers1().add(tonghuaList.get(i));
+                            }
+                        }
+                        break;
+                    case danxuan_shunzi:
+                        for (int i = 0; i <12; i++) {
+                            if (shunziList.get(i).is_checked()) {
+                                info.getNumbers1().add(shunziList.get(i));
+                            }
+                        }
+
+                        break;
+                    case danxuan_tonghuashun:
+                        for (int i = 0; i < 4; i++) {
+                            if (tonghuashunList.get(i).is_checked()) {
+                                info.getNumbers1().add(tonghuashunList.get(i));
+                            }
+                        }
+                        break;
+                    case danxuan_baozi:
+                        for (int i = 0; i < 13; i++) {
+                            if (baoziList.get(i).is_checked()) {
+                                info.getNumbers1().add(baoziList.get(i));
+                            }
+                        }
+                        break;
+                    case danxuan_duizi:
+                        for (int i = 0; i < 13; i++) {
+                            if (duiziList.get(i).is_checked()) {
+                                info.getNumbers1().add(duiziList.get(i));
+                            }
+                        }
+                        break;
+//                    case SD_ONE:
+//                        for (int i = 0; i < tuodan_RONEList.size(); i++) {
+//                            if (tuodan_RONEList.get(i).is_checked()) {
+//                                tuodan_RONEList.get(i).setIs_spe(true);
+//                                info.getNumbers1().add(tuodan_RONEList.get(i));
+//                            }
+//                        }
+//
+//                        break;
+                    case tuodan_two:
+                        for (int i = 0; i < 13; i++) {
+                            if (tuodan_twolist.get(i).is_checked()) {
+                                tuodan_twolist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(tuodan_twolist.get(i));
+                            }
+                        }
+
+                        break;
+                    case tuodan_three:
+                        for (int i = 0; i < 13; i++) {
+                            if (tuodan_threelist.get(i).is_checked()) {
+                                tuodan_threelist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(tuodan_threelist.get(i));
+                            }
+                        }
+
+                        break;
+                    case tuodan_four:
+                        for (int i = 0; i < 13; i++) {
+                            if (tuodan_fourlist.get(i).is_checked()) {
+                                tuodan_fourlist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(tuodan_fourlist.get(i));
+                            }
+                        }
+
+                        break;
+                    case tuodan_five:
+                        for (int i = 0; i < 13; i++) {
+                            if (tuodan_fivelist.get(i).is_checked()) {
+                                tuodan_fivelist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(tuodan_fivelist.get(i));
+                            }
+                        }
+
+                        break;
+                    case tuodan_six:
+                        for (int i = 0; i <13; i++) {
+                            if (tuodan_sixlist.get(i).is_checked()) {
+                                tuodan_sixlist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(tuodan_sixlist.get(i));
+                            }
+                        }
+                        //up
+                    case putong_one:
+                        for (int i = 0; i < 13; i++) {
+                            if (putong_onelist.get(i).is_checked()) {
+                                putong_onelist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(putong_onelist.get(i));
+                            }
+                        }
+
+                        break;
+                    case putong_two:
+                        for (int i = 0; i <13; i++) {
+                            if (putong_twolist.get(i).is_checked()) {
+                                putong_twolist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(putong_twolist.get(i));
+                            }
+                        }
+
+                        break;
+                    case putong_three:
+                        for (int i = 0; i < 13; i++) {
+                            if (putongthreelist.get(i).is_checked()) {
+                                putongthreelist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(putongthreelist.get(i));
+                            }
+                        }
+
+                        break;
+                    case putong_four:
+                        for (int i = 0; i <13; i++) {
+                            if (putong_fourlist.get(i).is_checked()) {
+                                putong_fourlist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(putong_fourlist.get(i));
+                            }
+                        }
+
+                        break;
+                    case putong_five:
+                        for (int i = 0; i < 13; i++) {
+                            if (putong_fivelist.get(i).is_checked()) {
+                                putong_fivelist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(putong_fivelist.get(i));
+                            }
+                        }
+
+                        break;
+                    case putong_six:
+                        for (int i = 0; i < 13; i++) {
+                            if (putong_sixlist.get(i).is_checked()) {
+                                putong_sixlist.get(i).setIs_spe(true);
+                                info.getNumbers1().add(putong_sixlist.get(i));
+                            }
+                        }
+
+                        break;
+                }
+                list_result.add(info);
+                adpater.notifyDataSetChanged();
+                calcluateNumAndPrice();
+            }
         }
     }
 
@@ -781,17 +827,17 @@ public class PukeDetailActivity extends AppCompatActivity {
         paramMap.put("log_num", now_qs);
         if (TextUtils.isEmpty(termNumEdit.getText().toString())) {
             paramMap.put("sery_num", "1");
-            Log.e("sery_num", "1");
+            //Log.e("sery_num", "1");
         } else {
             paramMap.put("sery_num", termNumEdit.getText().toString());
-            Log.e("sery_num", termNumEdit.getText().toString());
+           // Log.e("sery_num", termNumEdit.getText().toString());
         }
         if (TextUtils.isEmpty(multipleNumEdit.getText().toString())) {
             paramMap.put("buy_bs", "1");
-            Log.e("buy_bs", "1");
+            //Log.e("buy_bs", "1");
         } else {
             paramMap.put("buy_bs", multipleNumEdit.getText().toString());
-            Log.e("buy_bs", multipleNumEdit.getText().toString());
+           // Log.e("buy_bs", multipleNumEdit.getText().toString());
         }
 //        if (check_term_top) {
 //            paramMap.put("is_sery_stop", "1");
@@ -816,7 +862,7 @@ public class PukeDetailActivity extends AppCompatActivity {
 
         }
 
-        Log.e("total_fee", price.getText().toString());
+        //Log.e("total_fee", price.getText().toString());
 
         paramMap.put("buy_array", setbuyArray());
         RequestParams params = ParamUtil.requestParams(paramMap);
@@ -824,7 +870,7 @@ public class PukeDetailActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String result = new String(responseBody);
-                Log.e("init_result", result);
+               // Log.e("init_result", result);
                 if (!TextUtils.isEmpty(result)) {
                     result = ParamUtil.unicodeToChinese(result);
                 }
@@ -897,8 +943,6 @@ public class PukeDetailActivity extends AppCompatActivity {
      */
     private String setbuyArray() {
         List<BuyNumBO> buylist = new ArrayList<>();
-
-
         for (int i = 0; i < list_result.size(); i++) {
             BuyNumBO info = new BuyNumBO();
             info.setType(buytype);
@@ -926,7 +970,7 @@ public class PukeDetailActivity extends AppCompatActivity {
             }
             buylist.add(info);
         }
-        Log.e("buy_arry", JSON.toJSONString(buylist));
+        //Log.e("buy_arry", JSON.toJSONString(buylist));
         return JSON.toJSONString(buylist);
     }
 
@@ -953,93 +997,88 @@ public class PukeDetailActivity extends AppCompatActivity {
         @Override
         public void convert(ViewHolder holder, final TicketResultListInfo info) {
             List<NumInfo> nums = new ArrayList<>();
-            Log.e("mode", String.valueOf(mSelecte_Mode));
-            Log.e("size", String.valueOf(info.getNumbers1().size()));
+           // Log.e("mode", String.valueOf(mSelecte_Mode));
+           // Log.e("size", String.valueOf(info.getNumbers1().size()));
             for (int i = 0; i < info.getNumbers1().size(); i++) {
                 nums.add(info.getNumbers1().get(i));
-
             }
-            Log.e("num", String.valueOf(nums.size()));
-
-
+           // Log.e("num", String.valueOf(nums.size()));
             final TagFlowLayout numTag = holder.getView(R.id.num_tag);
             final TagAdapter<NumInfo> numAdapter = new TagAdapter<NumInfo>(nums) {
                 @Override
                 public View getView(FlowLayout parent, int position, NumInfo s) {
                     TextView tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
-                    //Log.e("positon",String.valueOf(position));
-
                     switch (info.getMode()) {
                         case S_BAOXUAN:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case S_TONGHUA:
+                        case danxuan_tonghua:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_tonghua, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case S_SHUNZI:
+                        case danxuan_shunzi:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_three, numTag, false);
                             tv.setBackgroundResource(R.drawable.shunzi_empty);
                             break;
-                        case S_TONGHUASHUN:
+                        case danxuan_tonghuashun:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_tonghua, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case S_BAOZI:
+                        case danxuan_baozi:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_three, numTag, false);
                             tv.setBackgroundResource(R.drawable.shunzi_empty);
                             break;
-                        case S_DUIZI:
+                        case danxuan_duizi:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_two, numTag, false);
                             tv.setBackgroundResource(R.drawable.duizi_empty);
                             break;
-                        case SD_ONE:
+//                        case SD_ONE:
+//                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
+//                            tv.setBackgroundResource(R.drawable.puke_empty);
+//                            break;
+                        case tuodan_two:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SD_TWO:
+                        case tuodan_three:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SD_THREE:
+                        case tuodan_four:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SD_FOUR:
+                        case tuodan_five:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SD_FIVE:
-                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
-                            tv.setBackgroundResource(R.drawable.puke_empty);
-                            break;
-                        case SD_SIX:
+                        case tuodan_six:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
                         //up
-                        case SSD_ONE:
+                        case putong_one:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SSD_TWO:
+                        case putong_two:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SSD_THREE:
+                        case putong_three:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SSD_FOUR:
+                        case putong_four:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SSD_FIVE:
+                        case putong_five:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
-                        case SSD_SIX:
+                        case putong_six:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
@@ -1060,56 +1099,56 @@ public class PukeDetailActivity extends AppCompatActivity {
                 case S_BAOXUAN:
                     mode_tv.setText("包选");
                     break;
-                case S_TONGHUA:
+                case danxuan_tonghua:
                     mode_tv.setText("同花");
                     break;
-                case S_SHUNZI:
+                case danxuan_shunzi:
                     mode_tv.setText("顺子");
                     break;
-                case S_TONGHUASHUN:
+                case danxuan_tonghuashun:
                     mode_tv.setText("同花顺");
                     break;
-                case S_BAOZI:
+                case danxuan_baozi:
                     mode_tv.setText("豹子");
                     break;
-                case S_DUIZI:
+                case danxuan_duizi:
                     mode_tv.setText("对子");
                     break;
-                case SD_ONE:
-                    mode_tv.setText("任选一");
-                    break;
-                case SD_TWO:
+//                case SD_ONE:
+//                    mode_tv.setText("任选一");
+//                    break;
+                case tuodan_two:
                     mode_tv.setText("任选二");
                     break;
-                case SD_THREE:
+                case tuodan_three:
                     mode_tv.setText("任选三");
                     break;
-                case SD_FOUR:
+                case tuodan_four:
                     mode_tv.setText("任选四");
                     break;
-                case SD_FIVE:
+                case tuodan_five:
                     mode_tv.setText("任选五");
                     break;
-                case SD_SIX:
+                case tuodan_six:
                     mode_tv.setText("任选六");
                     break;
                 //up
-                case SSD_ONE:
+                case putong_one:
                     mode_tv.setText("任选一");
                     break;
-                case SSD_TWO:
+                case putong_two:
                     mode_tv.setText("任选二");
                     break;
-                case SSD_THREE:
+                case putong_three:
                     mode_tv.setText("任选三");
                     break;
-                case SSD_FOUR:
+                case putong_four:
                     mode_tv.setText("任选四");
                     break;
-                case SSD_FIVE:
+                case putong_five:
                     mode_tv.setText("任选五");
                     break;
-                case SSD_SIX:
+                case putong_six:
                     mode_tv.setText("任选六");
                     break;
             }
@@ -1227,7 +1266,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                 }
                 result_list1.add(info1);
                 break;
-            case S_TONGHUA:
+            case danxuan_tonghua:
                 for (int i = 0; i < 4; i++) {
                     random_list.add(i +"");
                 }
@@ -1252,7 +1291,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info2);
 
                 break;
-            case S_SHUNZI:
+            case danxuan_shunzi:
                 for (int i = 0; i < 12; i++) {
                     random_list.add( i +"");
                 }
@@ -1302,7 +1341,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info3);
 
                 break;
-            case S_TONGHUASHUN:
+            case danxuan_tonghuashun:
                 for (int i = 0; i < 4; i++) {
                     random_list.add(i +"");
                 }
@@ -1326,7 +1365,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(tonghua_info);
 
                 break;
-            case S_BAOZI:
+            case danxuan_baozi:
 
                 for (int i = 0; i < 13; i++) {
                     random_list.add(i +"");
@@ -1377,7 +1416,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(baozi_info);
 
                 break;
-            case S_DUIZI:
+            case danxuan_duizi:
 
                 for (int i = 0; i < 13; i++) {
                     random_list.add(i +"");
@@ -1433,60 +1472,60 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                 break;
                     //普通任选模式
-            case SD_ONE:
-                for (int i = 0; i < 13; i++) {
-                    random_list.add(i +"");
-                }
-                result = numberRandom(1, random_list);
-
-                    NumInfo putong_one_info = new NumInfo();
-                    switch (result[0]) {
-                        case 0:
-                            putong_one_info.setNum("A");
-                            break;
-                        case 1:
-                            putong_one_info.setNum("2");
-                            break;
-                        case 2:
-                            putong_one_info.setNum("3");
-                            break;
-                        case 3:
-                            putong_one_info.setNum("4");
-                            break;
-                        case 4:
-                            putong_one_info.setNum("5");
-                            break;
-                        case 5:
-                            putong_one_info.setNum("6");
-                            break;
-                        case 6:
-                            putong_one_info.setNum("7");
-                            break;
-                        case 7:
-                            putong_one_info.setNum("8");
-                            break;
-                        case 8:
-                            putong_one_info.setNum("9");
-                            break;
-                        case 9:
-                            putong_one_info.setNum("10");
-                            break;
-                        case 10:
-                            putong_one_info.setNum("J");
-                            break;
-                        case 11:
-                            putong_one_info.setNum("Q");
-                            break;
-                        case 12:
-                            putong_one_info.setNum("K");
-                            break;
-
-
-                    }
-                    result_list1.add(putong_one_info);
-
-                break;
-            case SD_TWO:
+//            case SD_ONE:
+//                for (int i = 0; i < 13; i++) {
+//                    random_list.add(i +"");
+//                }
+//                result = numberRandom(1, random_list);
+//
+//                    NumInfo putong_one_info = new NumInfo();
+//                    switch (result[0]) {
+//                        case 0:
+//                            putong_one_info.setNum("A");
+//                            break;
+//                        case 1:
+//                            putong_one_info.setNum("2");
+//                            break;
+//                        case 2:
+//                            putong_one_info.setNum("3");
+//                            break;
+//                        case 3:
+//                            putong_one_info.setNum("4");
+//                            break;
+//                        case 4:
+//                            putong_one_info.setNum("5");
+//                            break;
+//                        case 5:
+//                            putong_one_info.setNum("6");
+//                            break;
+//                        case 6:
+//                            putong_one_info.setNum("7");
+//                            break;
+//                        case 7:
+//                            putong_one_info.setNum("8");
+//                            break;
+//                        case 8:
+//                            putong_one_info.setNum("9");
+//                            break;
+//                        case 9:
+//                            putong_one_info.setNum("10");
+//                            break;
+//                        case 10:
+//                            putong_one_info.setNum("J");
+//                            break;
+//                        case 11:
+//                            putong_one_info.setNum("Q");
+//                            break;
+//                        case 12:
+//                            putong_one_info.setNum("K");
+//                            break;
+//
+//
+//                    }
+//                    result_list1.add(putong_one_info);
+//
+//                break;
+            case tuodan_two:
                 for (int i = 0; i < 13; i++) {
                     random_list.add(i +"");
                 }
@@ -1538,7 +1577,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info);
                 }
                 break;
-            case SD_THREE:
+            case tuodan_three:
                 for (int i = 0; i < 13; i++) {
                     random_list.add(i +"");
                 }
@@ -1590,7 +1629,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info);
                 }
                 break;
-            case SD_FOUR:
+            case tuodan_four:
                 for (int i = 0; i < 13; i++) {
                     random_list.add(i +"");
                 }
@@ -1642,7 +1681,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info);
                 }
                 break;
-            case SD_FIVE:
+            case tuodan_five:
                 for (int i = 0; i < 13; i++) {
                     random_list.add(i +"");
                 }
@@ -1694,7 +1733,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                     result_list1.add(info);
                 }
                 break;
-            case SD_SIX:
+            case tuodan_six:
                 for (int i = 0; i < 13; i++) {
                     random_list.add(i +"");
                 }

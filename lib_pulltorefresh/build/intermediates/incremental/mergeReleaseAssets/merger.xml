@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/wangweiming/StudioProjects/privateTicket/lib_pulltorefresh/src/main/assets"/><source path="/Users/wangweiming/StudioProjects/privateTicket/lib_pulltorefresh/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/wangweiming/StudioProjects/privateTicket/lib_pulltorefresh/src/release/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\1\caipiao\lib_pulltorefresh\src\main\assets"/><source path="D:\1\caipiao\lib_pulltorefresh\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="D:\1\caipiao\lib_pulltorefresh\src\release\assets"/></dataSet></merger>

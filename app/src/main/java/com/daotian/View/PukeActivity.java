@@ -2259,45 +2259,17 @@ public class PukeActivity extends AppCompatActivity {
         baoxuan.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-
-                Log.e("LAST_POSITON", String.valueOf(temp_position));
-
                     //如果已经被点击！
+
                 if (baoxuanList.get(position).is_checked()) {
-                    if(temp_position!=position) {
-                        baoxuanList.get(temp_position).setIs_checked(false);
-                    }
+
                     baoxuanList.get(position).setIs_checked(false);
                     baoxuanAdapter.notifyDataChanged();
                 } else {
-                    //如果还没被点击
-                    switch (position)
-                    {
-                        case 0:
-                            mSelecte_Mode=type_TONGHUASHUN;
-                            break;
-                        case 1:
-                            mSelecte_Mode=type_TONGHUA;
-                            break;
-                        case 2:
-                            mSelecte_Mode=type_DUIZI;
-                            break;
-                        case 3:
-                            mSelecte_Mode=type_SHUNZI;
-                            break;
-                        case 4:
-                            mSelecte_Mode=type_TONGHUA;
-                            break;
-                    }
-                    if(temp_position!=position) {
-                        baoxuanList.get(temp_position).setIs_checked(false);
-                    }
                     baoxuanList.get(position).setIs_checked(true);
                     baoxuanAdapter.notifyDataChanged();
                 }
-                temp_position=position;
                 calculate_baoxuan();
-                Log.e("mSelecte_Mode", String.valueOf(mSelecte_Mode));
                 return false;
             }
         });
@@ -3568,116 +3540,64 @@ public class PukeActivity extends AppCompatActivity {
         if (mContinue) {
             Log.e("mContinue", "true");
             Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
-            //images_baoxuan
             in.putExtra("baoxuanList", (Serializable) baoxuanList);
             in.putExtra("zq_type",zq_type);
             in.putExtra("buytype",String.valueOf(mSelecte_Mode));
-            //images_tonghua
             in.putExtra("tonghuaList", (Serializable) tonghuaList);
-            //images_shunzi
             in.putExtra("shunziList", (Serializable) shunziList);
-
-            //images_tonghuashun
             in.putExtra("tonghuashunList", (Serializable) tonghuashunList);
-            //images_baozi
             in.putExtra("baoziList", (Serializable) baoziList);
-            //images_duizi
             in.putExtra("duiziList", (Serializable) duiziList);
-
-            //拖胆
-            //one
-            //in.putExtra("RONEList", (Serializable) RONEList);
-            //two
             in.putExtra("tuodan_twolist", (Serializable) tuodan_twolist);
-            //three
             in.putExtra("tuodan_threelist", (Serializable) tuodan_threelist);
-            //four
             in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
-            //five
             in.putExtra("tuodan_fivelist", (Serializable) tuodan_fivelist);
-            //six
             in.putExtra("tuodan_sixlist", (Serializable) tuodan_sixlist);
-
-
-            //普通投注
-            //one
             in.putExtra("putong_onelist", (Serializable) putong_onelist);
-            //two
             in.putExtra("putong_twolist", (Serializable) putong_twolist);
-            //three
             in.putExtra("putongthreelist", (Serializable) putongthreelist);
-            //four
             in.putExtra("putong_fourlist", (Serializable) putong_fourlist);
-            //five
             in.putExtra("putong_fivelist", (Serializable) putong_fivelist);
-            //six
             in.putExtra("putong_sixlist", (Serializable) putong_sixlist);
-
-
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
             in.putExtra("price", price.getText().toString());
             in.putExtra("title", mInfo.getName());
-            //Log.e("shname",mInfo.getName());
             in.putExtra("sh_name", mInfo.getSh_name());
             in.putExtra("type", mInfo.getType());
             in.putExtra("now_qs", mInfo.getNow_qs());
             setResult(RESULT_OK, in);
             finish();
             clearNum();
+//            startActivity(in);
+//            clearNum();
+//            finish();
         } else {
             Log.e("mContinue", "false");
             Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
             in.putExtra("zq_type",zq_type);
             in.putExtra("buytype",String.valueOf(mSelecte_Mode));
-            //images_baoxuan
             in.putExtra("baoxuanList", (Serializable) baoxuanList);
-            //images_tonghua
             in.putExtra("tonghuaList", (Serializable) tonghuaList);
-            //images_shunzi
             in.putExtra("shunziList", (Serializable) shunziList);
-
-            //images_tonghuashun
             in.putExtra("tonghuashunList", (Serializable) tonghuashunList);
-            //images_baozi
             in.putExtra("baoziList", (Serializable) baoziList);
-            //images_duizi
             in.putExtra("duiziList", (Serializable) duiziList);
-
-            //拖胆
-            //one
-            //in.putExtra("RONEList", (Serializable) RONEList);
-            //two
             in.putExtra("tuodan_twolist", (Serializable) tuodan_twolist);
-            //three
             in.putExtra("tuodan_threelist", (Serializable) tuodan_threelist);
-            //four
             in.putExtra("tuodan_fourlist", (Serializable) tuodan_fourlist);
-            //five
             in.putExtra("tuodan_fivelist", (Serializable) tuodan_fivelist);
-            //six
             in.putExtra("tuodan_sixlist", (Serializable) tuodan_sixlist);
-
-
-            //普通投注
-            //one
             in.putExtra("putong_onelist", (Serializable) putong_onelist);
-            //two
             in.putExtra("putong_twolist", (Serializable) putong_twolist);
-            //three
             in.putExtra("putongthreelist", (Serializable) putongthreelist);
-            //four
             in.putExtra("putong_fourlist", (Serializable) putong_fourlist);
-            //five
             in.putExtra("putong_fivelist", (Serializable) putong_fivelist);
-            //six
             in.putExtra("putong_sixlist", (Serializable) putong_sixlist);
-
             in.putExtra("selecte_mode", mSelecte_Mode);
             in.putExtra("num", num.getText().toString());
             in.putExtra("price", price.getText().toString());
             in.putExtra("title", mInfo.getName());
-            Log.e("shname",mInfo.getName());
             in.putExtra("sh_name", mInfo.getSh_name());
             in.putExtra("type", mInfo.getType());
             in.putExtra("now_qs", mInfo.getNow_qs());
