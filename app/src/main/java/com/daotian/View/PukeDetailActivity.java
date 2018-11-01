@@ -997,12 +997,12 @@ public class PukeDetailActivity extends AppCompatActivity {
         @Override
         public void convert(ViewHolder holder, final TicketResultListInfo info) {
             List<NumInfo> nums = new ArrayList<>();
-           // Log.e("mode", String.valueOf(mSelecte_Mode));
-           // Log.e("size", String.valueOf(info.getNumbers1().size()));
+            Log.e("mode", String.valueOf(mSelecte_Mode));
+            Log.e("size", String.valueOf(info.getNumbers1().size()));
             for (int i = 0; i < info.getNumbers1().size(); i++) {
                 nums.add(info.getNumbers1().get(i));
             }
-           // Log.e("num", String.valueOf(nums.size()));
+            Log.e("num", String.valueOf(nums.size()));
             final TagFlowLayout numTag = holder.getView(R.id.num_tag);
             final TagAdapter<NumInfo> numAdapter = new TagAdapter<NumInfo>(nums) {
                 @Override
