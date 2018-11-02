@@ -59,7 +59,9 @@ import cz.msebera.android.httpclient.Header;
  */
 
 public class PukeActivity extends AppCompatActivity {
-
+    int count=0;
+    int x=0;
+    int buy_acount = 0;
     //每注彩票价格
     private final int TicketPrice = 2;
     //普通投注
@@ -519,8 +521,23 @@ public class PukeActivity extends AppCompatActivity {
         initTdata();
         initRule();
         initBAOXUAN();
+        initBAOZI();
+        initDUIZI();
+        initTONGHUA();
+        initTONGHUASHUN();
+        initRONE();
+        initRTWO();
+        initRTHREE();
+        initRFOUR();
+        initRFIVE();
+        initRSIX();
+        initTWO();
+        initTHREE();
+        initFOUR();
+        initFIVE();
+        initSIX();
          getDetail();
-        //initBefore();
+        initBefore();
     }
 
 
@@ -883,33 +900,33 @@ public class PukeActivity extends AppCompatActivity {
             switch (i) {
                 case 0:
                     info.setNum("A");
-                    info.setUpload_data("1");
+                    info.setUpload_data("01");
                     break;
                 case 1:
                     info.setNum("2");
-                    info.setUpload_data("2");
+                    info.setUpload_data("02");
                     break;
                 case 2:
                     info.setNum("3");
-                    info.setUpload_data("3");
+                    info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -936,31 +953,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -987,31 +1004,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1038,31 +1055,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1089,31 +1106,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1140,31 +1157,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1193,31 +1210,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1244,31 +1261,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1294,31 +1311,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1345,31 +1362,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1396,31 +1413,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -2239,13 +2256,13 @@ public class PukeActivity extends AppCompatActivity {
     private void initBAOXUAN() {
         Log.e("initBAOXUAN", "initBAOXUAN");
         for (int i = 0; i < baoxuanList.size(); i++) {
-            baoxuanList.get(i).setIs_checked(false);
+            baoxuanList.get(i).setTouchflag(false);
         }
         baoxuanAdapter = new TagAdapter<String>(baoxuanNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, baoxuan, false);
-                if (baoxuanList.get(position).is_checked()) {
+                if (baoxuanList.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_baoxuan_selected[position]);
                 } else {
                     tv.setBackgroundResource(images_baoxuan[position]);
@@ -2260,12 +2277,12 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                     //如果已经被点击！
 
-                if (baoxuanList.get(position).is_checked()) {
+                if (baoxuanList.get(position).isTouchflag()) {
 
-                    baoxuanList.get(position).setIs_checked(false);
+                    baoxuanList.get(position).setTouchflag(false);
                     baoxuanAdapter.notifyDataChanged();
                 } else {
-                    baoxuanList.get(position).setIs_checked(true);
+                    baoxuanList.get(position).setTouchflag(true);
                     baoxuanAdapter.notifyDataChanged();
                 }
                 calculate_baoxuan();
@@ -2282,13 +2299,13 @@ public class PukeActivity extends AppCompatActivity {
         Log.e("inittonghua", "inittonghua");
 
         for (int i = 0; i < tonghuaList.size(); i++) {
-            tonghuaList.get(i).setIs_checked(false);
+            tonghuaList.get(i).setTouchflag(false);
         }
         tonghuaAdapter = new TagAdapter<String>(tonghuaNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, tonghua, false);
-                if (tonghuaList.get(position).is_checked()) {
+                if (tonghuaList.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_tonghua_selected[position]);
                 } else {
                     tv.setBackgroundResource(images_tonghua[position]);
@@ -2303,11 +2320,11 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
-                if (tonghuaList.get(position).is_checked()) {
-                    tonghuaList.get(position).setIs_checked(false);
+                if (tonghuaList.get(position).isTouchflag()) {
+                    tonghuaList.get(position).setTouchflag(false);
                     tonghuaAdapter.notifyDataChanged();
                 } else {
-                    tonghuaList.get(position).setIs_checked(true);
+                    tonghuaList.get(position).setTouchflag(true);
                     tonghuaAdapter.notifyDataChanged();
                 }
                 calculate_tonghua();
@@ -2326,14 +2343,14 @@ public class PukeActivity extends AppCompatActivity {
         Log.e("initSHUNZI", "initSHUNZI");
 
         for (int i = 0; i < shunziList.size(); i++) {
-            shunziList.get(i).setIs_checked(false);
+            shunziList.get(i).setTouchflag(false);
         }
         shunziAdapter = new TagAdapter<String>(shunziNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, shunzi, false);
 
-                if (shunziList.get(position).is_checked()) {
+                if (shunziList.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_shunzi_selected[position]);
                 } else {
                     tv.setBackgroundResource(images_shunzi[position]);
@@ -2345,11 +2362,11 @@ public class PukeActivity extends AppCompatActivity {
         shunzi.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (shunziList.get(position).is_checked()) {
-                    shunziList.get(position).setIs_checked(false);
+                if (shunziList.get(position).isTouchflag()) {
+                    shunziList.get(position).setTouchflag(false);
                     shunziAdapter.notifyDataChanged();
                 } else {
-                    shunziList.get(position).setIs_checked(true);
+                    shunziList.get(position).setTouchflag(true);
                     shunziAdapter.notifyDataChanged();
                 }
                 calculate_shunzi();
@@ -2366,14 +2383,14 @@ public class PukeActivity extends AppCompatActivity {
 
         Log.e("tonghuashunlist", String.valueOf(tonghuashunList.size()));
         for (int i = 0; i < tonghuashunList.size(); i++) {
-            tonghuashunList.get(i).setIs_checked(false);
+            tonghuashunList.get(i).setTouchflag(false);
         }
         tonghuashunAdapter = new TagAdapter<String>(tonghuashunNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, tonghuashun, false);
 
-                if (tonghuashunList.get(position).is_checked()) {
+                if (tonghuashunList.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_tonghuashun_selected[position]);
                 } else {
                     tv.setBackgroundResource(images_tonghuashun[position]);
@@ -2385,11 +2402,11 @@ public class PukeActivity extends AppCompatActivity {
         tonghuashun.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (tonghuashunList.get(position).is_checked()) {
-                    tonghuashunList.get(position).setIs_checked(false);
+                if (tonghuashunList.get(position).isTouchflag()) {
+                    tonghuashunList.get(position).setTouchflag(false);
                     tonghuashunAdapter.notifyDataChanged();
                 } else {
-                    tonghuashunList.get(position).setIs_checked(true);
+                    tonghuashunList.get(position).setTouchflag(true);
                     tonghuashunAdapter.notifyDataChanged();
                 }
                 calculate_tonghuashun();
@@ -2406,13 +2423,13 @@ public class PukeActivity extends AppCompatActivity {
         Log.e("initBAOZI", "initBAOZI");
 
         for (int i = 0; i < baoziList.size(); i++) {
-            baoziList.get(i).setIs_checked(false);
+            baoziList.get(i).setTouchflag(false);
         }
         baoziAdapter = new TagAdapter<String>(baoziNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_baozi, baozi, false);
-                if (baoziList.get(position).is_checked()) {
+                if (baoziList.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_baozi_selected[position]);
                 } else {
                     tv.setBackgroundResource(images_baozi[position]);
@@ -2426,12 +2443,12 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
-                if (baoziList.get(position).is_checked()) {
-                    baoziList.get(position).setIs_checked(false);
+                if (baoziList.get(position).isTouchflag()) {
+                    baoziList.get(position).setTouchflag(false);
                     baoziAdapter.notifyDataChanged();
 
                 } else {
-                    baoziList.get(position).setIs_checked(true);
+                    baoziList.get(position).setTouchflag(true);
                     baoziAdapter.notifyDataChanged();
 
                 }
@@ -2449,13 +2466,13 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initDUIZI() {
         for (int i = 0; i < duiziList.size(); i++) {
-            duiziList.get(i).setIs_checked(false);
+            duiziList.get(i).setTouchflag(false);
         }
         duiziAdapter = new TagAdapter<String>(duiziNums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_duizi, duizi, false);
-                if (duiziList.get(position).is_checked()) {
+                if (duiziList.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_duizi_selected[position]);
                 } else {
                     tv.setBackgroundResource(images_duizi[position]);
@@ -2467,11 +2484,11 @@ public class PukeActivity extends AppCompatActivity {
         duizi.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (duiziList.get(position).is_checked()) {
-                    duiziList.get(position).setIs_checked(false);
+                if (duiziList.get(position).isTouchflag()) {
+                    duiziList.get(position).setTouchflag(false);
                     duiziAdapter.notifyDataChanged();
                 } else {
-                    duiziList.get(position).setIs_checked(true);
+                    duiziList.get(position).setTouchflag(true);
                     duiziAdapter.notifyDataChanged();
                 }
                 calculate_duizi();
@@ -2485,14 +2502,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initTWO() {
         for (int i = 0; i < tuodan_twolist.size(); i++) {
-            tuodan_twolist.get(i).setIs_checked(false);
+            tuodan_twolist.get(i).setTouchflag(false);
         }
         twodan_twoadapter = new TagAdapter<String>(tuodan_twonums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rtwo, false);
 
-                if (tuodan_twolist.get(position).is_checked()) {
+                if (tuodan_twolist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2507,65 +2524,69 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
                 int number = 0;
-                //如果被点击
-                if (tuodan_twolist.get(position).is_checked()) {
+                //如果已经被点击如果被点击
+                if (tuodan_twolist.get(position).isTouchflag()) {
                     //计算number
-                    for (int i = 0; i < tuodan_twolist.size(); i++)
-                    {
-                        if (tuodan_twolist.get(i).is_checked()) {
+                    for (int i = 0; i < tuodan_twolist.size(); i++) {
+                        if (tuodan_twolist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
+                    ToastUtil.toast(mActivity, String.valueOf(number));
                     //超出胆码数量，提示，且设为false；
-                    if (number >0)
-                    {
+                    if (number > 0) {
                         ToastUtil.toast(mActivity, "胆码只能选择一个");
-                        tuodan_twolist.get(position).setIs_checked(false);
+                        ToastUtil.toast(mActivity, String.valueOf(number));
+                        tuodan_twolist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_twolist.get(position).is_checked()) {
-                            child_twolist.get(position).setIs_checked(false);
+                        if (child_twolist.get(position).isTouchflag()) {
+                            child_twolist.get(position).setTouchflag(false);
                             child_twoAdapter.notifyDataChanged();
 
                         }
-                    }
-                    //没超出胆码数量
-                    else
-                    {
-                        tuodan_twolist.get(position).setIs_checked(false);
+                    } else {
+                        tuodan_twolist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_twolist.get(position).is_checked()) {
-                            child_twolist.get(position).setIs_checked(false);
+                        if (child_twolist.get(position).isTouchflag()) {
+                            child_twolist.get(position).setTouchflag(false);
                             child_twoAdapter.notifyDataChanged();
 
                         }
+                        child_twoAdapter.notifyDataChanged();
+
                     }
-                    child_twoAdapter.notifyDataChanged();
                 }
-                //没被点击，设为true
-                else
+                //没被点击的情况下，设置成true
+                else if(!tuodan_twolist.get(position).isTouchflag())
                 {
                     //计算num
                     for (int i = 0; i < tuodan_twolist.size(); i++)
                     {
-                        if (tuodan_twolist.get(i).is_checked()) {
+                        if (tuodan_twolist.get(i).isTouchflag()) {
                             number++;
                         }
-                    }
 
+
+                    }
+                    Log.e("wangweimingnumber",String.valueOf(number));
                     if (number >0)
                     {
+                        Log.e("wangweimingclick","number >0");
+                        Log.e("wangweimingclick",String.valueOf(position));
                         ToastUtil.toast(mActivity, "胆码只能选择一个");
-                        tuodan_twolist.get(position).setIs_checked(false);
-                        if (child_twolist.get(position).is_checked()) {
-                            child_twolist.get(position).setIs_checked(false);
+                        tuodan_twolist.get(position).setTouchflag(false);
+                        if (child_twolist.get(position).isTouchflag()) {
+                            child_twolist.get(position).setTouchflag(false);
                             child_twoAdapter.notifyDataChanged();
                         }
                     }
                     else
                     {
-                        tuodan_twolist.get(position).setIs_checked(true);
-                        if (child_twolist.get(position).is_checked()) {
-                            child_twolist.get(position).setIs_checked(false);
+                        Log.e("wangweimingclick","number <0");
+                        Log.e("wangweimingclick",String.valueOf(position));
+                        tuodan_twolist.get(position).setTouchflag(true);
+                        if (child_twolist.get(position).isTouchflag()) {
+                            child_twolist.get(position).setTouchflag(false);
                             child_twoAdapter.notifyDataChanged();
                         }
                     }
@@ -2579,14 +2600,14 @@ public class PukeActivity extends AppCompatActivity {
         //拖胆
 
         for (int i = 0; i < child_twolist.size(); i++) {
-            child_twolist.get(i).setIs_checked(false);
+            child_twolist.get(i).setTouchflag(false);
         }
         child_twoAdapter = new TagAdapter<String>(child_twonums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rtwo2, false);
 
-                if (child_twolist.get(position).is_checked()) {
+                if (child_twolist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2600,11 +2621,11 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 //同样的位置如果已经被点击
-                if (child_twolist.get(position).is_checked()) {
-                    child_twolist.get(position).setIs_checked(false);
-                    if(tuodan_twolist.get(position).is_checked())
+                if (child_twolist.get(position).isTouchflag()) {
+                    child_twolist.get(position).setTouchflag(false);
+                    if(tuodan_twolist.get(position).isTouchflag())
                     {
-                        tuodan_twolist.get(position).setIs_checked(false);
+                        tuodan_twolist.get(position).setTouchflag(false);
                         child_twoAdapter.notifyDataChanged();
 
                     }
@@ -2613,10 +2634,10 @@ public class PukeActivity extends AppCompatActivity {
                     child_twoAdapter.notifyDataChanged();
                 } else {
 
-                    child_twolist.get(position).setIs_checked(true);
-                    if(tuodan_twolist.get(position).is_checked())
+                    child_twolist.get(position).setTouchflag(true);
+                    if(tuodan_twolist.get(position).isTouchflag())
                     {
-                        tuodan_twolist.get(position).setIs_checked(false);
+                        tuodan_twolist.get(position).setTouchflag(false);
                         child_twoAdapter.notifyDataChanged();
 
                     }
@@ -2633,14 +2654,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initTHREE() {
         for (int i = 0; i < tuodan_threelist.size(); i++) {
-            tuodan_threelist.get(i).setIs_checked(false);
+            tuodan_threelist.get(i).setTouchflag(false);
         }
         tuodan_threeadapter = new TagAdapter<String>(tuodan_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three, false);
 
-                if (tuodan_threelist.get(position).is_checked()) {
+                if (tuodan_threelist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2655,11 +2676,11 @@ public class PukeActivity extends AppCompatActivity {
 
                 int number = 0;
                 //如果被点击
-                if (tuodan_threelist.get(position).is_checked()) {
+                if (tuodan_threelist.get(position).isTouchflag()) {
                     //计算number
                     for (int i = 0; i < tuodan_threelist.size(); i++)
                     {
-                        if (tuodan_threelist.get(i).is_checked()) {
+                        if (tuodan_threelist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
@@ -2667,23 +2688,21 @@ public class PukeActivity extends AppCompatActivity {
                     if (number > 1)
                     {
                         ToastUtil.toast(mActivity, "胆码只能选择二个");
-                        tuodan_threelist.get(position).setIs_checked(false);
+                        tuodan_threelist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_threelist.get(position).is_checked()) {
-                            child_threelist.get(position).setIs_checked(false);
+                        if (child_threelist.get(position).isTouchflag()) {
+                            child_threelist.get(position).setTouchflag(false);
                             child_threeadpter.notifyDataChanged();
-
                         }
                     }
                     //没超出胆码数量
                     else
                     {
-                        tuodan_threelist.get(position).setIs_checked(false);
+                        tuodan_threelist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_threelist.get(position).is_checked()) {
-                            child_threelist.get(position).setIs_checked(false);
+                        if (child_threelist.get(position).isTouchflag()) {
+                            child_threelist.get(position).setTouchflag(false);
                             child_threeadpter.notifyDataChanged();
-
                         }
                     }
                     tuodan_threeadapter.notifyDataChanged();
@@ -2694,25 +2713,24 @@ public class PukeActivity extends AppCompatActivity {
                     //计算num
                     for (int i = 0; i < tuodan_threelist.size(); i++)
                     {
-                        if (tuodan_threelist.get(i).is_checked()) {
+                        if (tuodan_threelist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
-
                     if (number > 1)
                     {
                         ToastUtil.toast(mActivity, "胆码只能选择二个");
-                        tuodan_threelist.get(position).setIs_checked(false);
-                        if (child_threelist.get(position).is_checked()) {
-                            child_threelist.get(position).setIs_checked(false);
+                        tuodan_threelist.get(position).setTouchflag(false);
+                        if (child_threelist.get(position).isTouchflag()) {
+                            child_threelist.get(position).setTouchflag(false);
                             child_threeadpter.notifyDataChanged();
                         }
                     }
                     else
                     {
-                        tuodan_threelist.get(position).setIs_checked(true);
-                        if (child_threelist.get(position).is_checked()) {
-                            child_threelist.get(position).setIs_checked(false);
+                        tuodan_threelist.get(position).setTouchflag(true);
+                        if (child_threelist.get(position).isTouchflag()) {
+                            child_threelist.get(position).setTouchflag(false);
                             child_threeadpter.notifyDataChanged();
                         }
                     }
@@ -2725,14 +2743,14 @@ public class PukeActivity extends AppCompatActivity {
 
         //拖胆
         for (int i = 0; i < child_threelist.size(); i++) {
-            child_threelist.get(i).setIs_checked(false);
+            child_threelist.get(i).setTouchflag(false);
         }
         child_threeadpter = new TagAdapter<String>(child_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, three2, false);
 
-                if (child_threelist.get(position).is_checked()) {
+                if (child_threelist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2745,11 +2763,11 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 //同样的位置如果已经被点击
-                if (child_threelist.get(position).is_checked()) {
-                    child_threelist.get(position).setIs_checked(false);
-                    if(tuodan_threelist.get(position).is_checked())
+                if (child_threelist.get(position).isTouchflag()) {
+                    child_threelist.get(position).setTouchflag(false);
+                    if(tuodan_threelist.get(position).isTouchflag())
                     {
-                        tuodan_threelist.get(position).setIs_checked(false);
+                        tuodan_threelist.get(position).setTouchflag(false);
                         tuodan_threeadapter.notifyDataChanged();
 
                     }
@@ -2758,10 +2776,10 @@ public class PukeActivity extends AppCompatActivity {
                     child_threeadpter.notifyDataChanged();
                 } else {
 
-                    child_threelist.get(position).setIs_checked(true);
-                    if(tuodan_threelist.get(position).is_checked())
+                    child_threelist.get(position).setTouchflag(true);
+                    if(tuodan_threelist.get(position).isTouchflag())
                     {
-                        tuodan_threelist.get(position).setIs_checked(false);
+                        tuodan_threelist.get(position).setTouchflag(false);
                         tuodan_threeadapter.notifyDataChanged();
 
                     }
@@ -2778,14 +2796,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initFOUR() {
         for (int i = 0; i < tuodan_fourlist.size(); i++) {
-            tuodan_fourlist.get(i).setIs_checked(false);
+            tuodan_fourlist.get(i).setTouchflag(false);
         }
         tuodan_fouradapter = new TagAdapter<String>(tuodan_fournums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, four, false);
 
-                if (tuodan_fourlist.get(position).is_checked()) {
+                if (tuodan_fourlist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2800,11 +2818,11 @@ public class PukeActivity extends AppCompatActivity {
 
                 int number = 0;
                 //如果被点击
-                if (tuodan_fourlist.get(position).is_checked()) {
+                if (tuodan_fourlist.get(position).isTouchflag()) {
                     //计算number
                     for (int i = 0; i < tuodan_fourlist.size(); i++)
                     {
-                        if (tuodan_fourlist.get(i).is_checked()) {
+                        if (tuodan_fourlist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
@@ -2812,10 +2830,10 @@ public class PukeActivity extends AppCompatActivity {
                     if (number > 2)
                     {
                         ToastUtil.toast(mActivity, "胆码只能选择三个");
-                        tuodan_fourlist.get(position).setIs_checked(false);
+                        tuodan_fourlist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_fourlist.get(position).is_checked()) {
-                            child_fourlist.get(position).setIs_checked(false);
+                        if (child_fourlist.get(position).isTouchflag()) {
+                            child_fourlist.get(position).setTouchflag(false);
                             child_fourAdapter.notifyDataChanged();
 
                         }
@@ -2823,10 +2841,10 @@ public class PukeActivity extends AppCompatActivity {
                     //没超出胆码数量
                     else
                     {
-                        tuodan_fourlist.get(position).setIs_checked(false);
+                        tuodan_fourlist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_fourlist.get(position).is_checked()) {
-                            child_fourlist.get(position).setIs_checked(false);
+                        if (child_fourlist.get(position).isTouchflag()) {
+                            child_fourlist.get(position).setTouchflag(false);
                             child_fourAdapter.notifyDataChanged();
 
                         }
@@ -2839,7 +2857,7 @@ public class PukeActivity extends AppCompatActivity {
                     //计算num
                     for (int i = 0; i < tuodan_fourlist.size(); i++)
                     {
-                        if (tuodan_fourlist.get(i).is_checked()) {
+                        if (tuodan_fourlist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
@@ -2847,17 +2865,17 @@ public class PukeActivity extends AppCompatActivity {
                     if (number > 2)
                     {
                         ToastUtil.toast(mActivity, "胆码只能选择三个");
-                        tuodan_fourlist.get(position).setIs_checked(false);
-                        if (child_fourlist.get(position).is_checked()) {
-                            child_fourlist.get(position).setIs_checked(false);
+                        tuodan_fourlist.get(position).setTouchflag(false);
+                        if (child_fourlist.get(position).isTouchflag()) {
+                            child_fourlist.get(position).setTouchflag(false);
                             child_fourAdapter.notifyDataChanged();
                         }
                     }
                     else
                     {
-                        tuodan_fourlist.get(position).setIs_checked(true);
-                        if (child_fourlist.get(position).is_checked()) {
-                            child_fourlist.get(position).setIs_checked(false);
+                        tuodan_fourlist.get(position).setTouchflag(true);
+                        if (child_fourlist.get(position).isTouchflag()) {
+                            child_fourlist.get(position).setTouchflag(false);
                             child_fourAdapter.notifyDataChanged();
                         }
                     }
@@ -2869,14 +2887,14 @@ public class PukeActivity extends AppCompatActivity {
         });
         //拖胆
         for (int i = 0; i < child_fourlist.size(); i++) {
-            child_fourlist.get(i).setIs_checked(false);
+            child_fourlist.get(i).setTouchflag(false);
         }
         child_fourAdapter = new TagAdapter<String>(child_fournums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, four2, false);
 
-                if (child_fourlist.get(position).is_checked()) {
+                if (child_fourlist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2889,11 +2907,11 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 //同样的位置如果已经被点击
-                if (child_fourlist.get(position).is_checked()) {
-                    child_fourlist.get(position).setIs_checked(false);
-                    if(tuodan_fourlist.get(position).is_checked())
+                if (child_fourlist.get(position).isTouchflag()) {
+                    child_fourlist.get(position).setTouchflag(false);
+                    if(tuodan_fourlist.get(position).isTouchflag())
                     {
-                        tuodan_fourlist.get(position).setIs_checked(false);
+                        tuodan_fourlist.get(position).setTouchflag(false);
                         tuodan_fouradapter.notifyDataChanged();
 
                     }
@@ -2902,10 +2920,10 @@ public class PukeActivity extends AppCompatActivity {
                     child_fourAdapter.notifyDataChanged();
                 } else {
 
-                    child_fourlist.get(position).setIs_checked(true);
-                    if(tuodan_fourlist.get(position).is_checked())
+                    child_fourlist.get(position).setTouchflag(true);
+                    if(tuodan_fourlist.get(position).isTouchflag())
                     {
-                        tuodan_fourlist.get(position).setIs_checked(false);
+                        tuodan_fourlist.get(position).setTouchflag(false);
                         tuodan_fouradapter.notifyDataChanged();
 
                     }
@@ -2922,14 +2940,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initFIVE() {
         for (int i = 0; i < tuodan_fivelist.size(); i++) {
-            tuodan_fivelist.get(i).setIs_checked(false);
+            tuodan_fivelist.get(i).setTouchflag(false);
         }
         tuodan_fiveadapter = new TagAdapter<String>(tuodan_fivenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, five, false);
 
-                if (tuodan_fivelist.get(position).is_checked()) {
+                if (tuodan_fivelist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -2943,11 +2961,11 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 int number = 0;
                 //如果被点击
-                if (tuodan_fivelist.get(position).is_checked()) {
+                if (tuodan_fivelist.get(position).isTouchflag()) {
                     //计算number
                     for (int i = 0; i < tuodan_fivelist.size(); i++)
                     {
-                        if (tuodan_fivelist.get(i).is_checked()) {
+                        if (tuodan_fivelist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
@@ -2955,10 +2973,10 @@ public class PukeActivity extends AppCompatActivity {
                     if (number > 3)
                     {
                         ToastUtil.toast(mActivity, "胆码只能选择四个");
-                        tuodan_fivelist.get(position).setIs_checked(false);
+                        tuodan_fivelist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_fivelist.get(position).is_checked()) {
-                            child_fivelist.get(position).setIs_checked(false);
+                        if (child_fivelist.get(position).isTouchflag()) {
+                            child_fivelist.get(position).setTouchflag(false);
                             child_fiveAdapter.notifyDataChanged();
 
                         }
@@ -2966,10 +2984,10 @@ public class PukeActivity extends AppCompatActivity {
                     //没超出胆码数量
                     else
                     {
-                        tuodan_fivelist.get(position).setIs_checked(false);
+                        tuodan_fivelist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_fivelist.get(position).is_checked()) {
-                            child_fivelist.get(position).setIs_checked(false);
+                        if (child_fivelist.get(position).isTouchflag()) {
+                            child_fivelist.get(position).setTouchflag(false);
                             child_fiveAdapter.notifyDataChanged();
 
                         }
@@ -2982,7 +3000,7 @@ public class PukeActivity extends AppCompatActivity {
                     //计算num
                     for (int i = 0; i < tuodan_fivelist.size(); i++)
                     {
-                        if (tuodan_fivelist.get(i).is_checked()) {
+                        if (tuodan_fivelist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
@@ -2990,17 +3008,17 @@ public class PukeActivity extends AppCompatActivity {
                     if (number > 3)
                     {
                         ToastUtil.toast(mActivity, "胆码只能选择四个");
-                        tuodan_fivelist.get(position).setIs_checked(false);
-                        if (child_fivelist.get(position).is_checked()) {
-                            child_fivelist.get(position).setIs_checked(false);
+                        tuodan_fivelist.get(position).setTouchflag(false);
+                        if (child_fivelist.get(position).isTouchflag()) {
+                            child_fivelist.get(position).setTouchflag(false);
                             child_fiveAdapter.notifyDataChanged();
                         }
                     }
                     else
                     {
-                        tuodan_fivelist.get(position).setIs_checked(true);
-                        if (child_fivelist.get(position).is_checked()) {
-                            child_fivelist.get(position).setIs_checked(false);
+                        tuodan_fivelist.get(position).setTouchflag(true);
+                        if (child_fivelist.get(position).isTouchflag()) {
+                            child_fivelist.get(position).setTouchflag(false);
                             child_fiveAdapter.notifyDataChanged();
                         }
                     }
@@ -3013,14 +3031,14 @@ public class PukeActivity extends AppCompatActivity {
 
         //胆拖
         for (int i = 0; i < child_fivelist.size(); i++) {
-            child_fivelist.get(i).setIs_checked(false);
+            child_fivelist.get(i).setTouchflag(false);
         }
         child_fiveAdapter = new TagAdapter<String>(child_fivenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, five2, false);
 
-                if (child_fivelist.get(position).is_checked()) {
+                if (child_fivelist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3033,11 +3051,11 @@ public class PukeActivity extends AppCompatActivity {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 //同样的位置如果已经被点击
-                if (child_fivelist.get(position).is_checked()) {
-                    child_fivelist.get(position).setIs_checked(false);
-                    if(tuodan_fivelist.get(position).is_checked())
+                if (child_fivelist.get(position).isTouchflag()) {
+                    child_fivelist.get(position).setTouchflag(false);
+                    if(tuodan_fivelist.get(position).isTouchflag())
                     {
-                        tuodan_fivelist.get(position).setIs_checked(false);
+                        tuodan_fivelist.get(position).setTouchflag(false);
                         tuodan_fiveadapter.notifyDataChanged();
 
                     }
@@ -3046,10 +3064,10 @@ public class PukeActivity extends AppCompatActivity {
                     child_fiveAdapter.notifyDataChanged();
                 } else {
 
-                    child_fivelist.get(position).setIs_checked(true);
-                    if(tuodan_fivelist.get(position).is_checked())
+                    child_fivelist.get(position).setTouchflag(true);
+                    if(tuodan_fivelist.get(position).isTouchflag())
                     {
-                        tuodan_fivelist.get(position).setIs_checked(false);
+                        tuodan_fivelist.get(position).setTouchflag(false);
                         tuodan_fiveadapter.notifyDataChanged();
 
                     }
@@ -3067,14 +3085,14 @@ public class PukeActivity extends AppCompatActivity {
     private void initSIX() {
         //胆码
         for (int i = 0; i < tuodan_sixlist.size(); i++) {
-            tuodan_sixlist.get(i).setIs_checked(false);
+            tuodan_sixlist.get(i).setTouchflag(false);
         }
         tuodan_sixadapter = new TagAdapter<String>(tuodan_sixnums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, six, false);
 
-                if (tuodan_sixlist.get(position).is_checked()) {
+                if (tuodan_sixlist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3088,30 +3106,30 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 int number = 0;
                     //如果被点击
-                if (tuodan_sixlist.get(position).is_checked()) {
+                if (tuodan_sixlist.get(position).isTouchflag()) {
                     //计算number
                     for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                        if (tuodan_sixlist.get(i).is_checked()) {
+                        if (tuodan_sixlist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
                     //超出胆码数量，提示，且设为false；
                     if (number > 4) {
                         ToastUtil.toast(mActivity, "胆码只能选择五个");
-                        tuodan_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixlist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_sixlist.get(position).is_checked()) {
-                            child_sixlist.get(position).setIs_checked(false);
+                        if (child_sixlist.get(position).isTouchflag()) {
+                            child_sixlist.get(position).setTouchflag(false);
                             child_sixAdapter.notifyDataChanged();
 
                         }
                     }
                     //没超出胆码数量
                     else {
-                        tuodan_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixlist.get(position).setTouchflag(false);
                         //取消冲突
-                        if (child_sixlist.get(position).is_checked()) {
-                            child_sixlist.get(position).setIs_checked(false);
+                        if (child_sixlist.get(position).isTouchflag()) {
+                            child_sixlist.get(position).setTouchflag(false);
                             child_sixAdapter.notifyDataChanged();
 
                         }
@@ -3123,23 +3141,23 @@ public class PukeActivity extends AppCompatActivity {
                     {
                         //计算num
                     for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                        if (tuodan_sixlist.get(i).is_checked()) {
+                        if (tuodan_sixlist.get(i).isTouchflag()) {
                             number++;
                         }
                     }
                     if (number > 4) {
                         ToastUtil.toast(mActivity, "胆码只能选择五个");
-                        tuodan_sixlist.get(position).setIs_checked(false);
-                        if (child_sixlist.get(position).is_checked()) {
-                            child_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixlist.get(position).setTouchflag(false);
+                        if (child_sixlist.get(position).isTouchflag()) {
+                            child_sixlist.get(position).setTouchflag(false);
                             child_sixAdapter.notifyDataChanged();
 
                         }
                     }
                     else {
-                        tuodan_sixlist.get(position).setIs_checked(true);
-                        if (child_sixlist.get(position).is_checked()) {
-                            child_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixlist.get(position).setTouchflag(true);
+                        if (child_sixlist.get(position).isTouchflag()) {
+                            child_sixlist.get(position).setTouchflag(false);
                             child_sixAdapter.notifyDataChanged();
 
                         }
@@ -3153,14 +3171,14 @@ public class PukeActivity extends AppCompatActivity {
         });
         //拖码
         for (int i = 0; i < child_sixlist.size(); i++) {
-            child_sixlist.get(i).setIs_checked(false);
+            child_sixlist.get(i).setTouchflag(false);
         }
         child_sixAdapter = new TagAdapter<String>(child_sixnums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, six2, false);
 
-                if (child_sixlist.get(position).is_checked()) {
+                if (child_sixlist.get(position).isTouchflag()) {
 
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
@@ -3175,11 +3193,11 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
 
                     //同样的位置如果已经被点击
-                if (child_sixlist.get(position).is_checked()) {
-                    child_sixlist.get(position).setIs_checked(false);
-                    if(tuodan_sixlist.get(position).is_checked())
+                if (child_sixlist.get(position).isTouchflag()) {
+                    child_sixlist.get(position).setTouchflag(false);
+                    if(tuodan_sixlist.get(position).isTouchflag())
                     {
-                        tuodan_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixlist.get(position).setTouchflag(false);
                         tuodan_sixadapter.notifyDataChanged();
 
                     }
@@ -3188,10 +3206,10 @@ public class PukeActivity extends AppCompatActivity {
                     child_sixAdapter.notifyDataChanged();
                 } else {
 
-                    child_sixlist.get(position).setIs_checked(true);
-                    if(tuodan_sixlist.get(position).is_checked())
+                    child_sixlist.get(position).setTouchflag(true);
+                    if(tuodan_sixlist.get(position).isTouchflag())
                     {
-                        tuodan_sixlist.get(position).setIs_checked(false);
+                        tuodan_sixlist.get(position).setTouchflag(false);
                         tuodan_sixadapter.notifyDataChanged();
 
                     }
@@ -3211,14 +3229,15 @@ public class PukeActivity extends AppCompatActivity {
     private void initRONE() {
         Log.e("initRONE", "initRONE");
         for (int i = 0; i < putong_onelist.size(); i++) {
-            putong_onelist.get(i).setIs_checked(false);
+            putong_onelist.get(i).setTouchflag(false);
+
         }
         putong_neadapter = new TagAdapter<String>(putong_onenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rrone, false);
 
-                if (putong_onelist.get(position).is_checked()) {
+                if (putong_onelist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3230,11 +3249,11 @@ public class PukeActivity extends AppCompatActivity {
         rrone.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (putong_onelist.get(position).is_checked()) {
-                    putong_onelist.get(position).setIs_checked(false);
+                if (putong_onelist.get(position).isTouchflag()) {
+                    putong_onelist.get(position).setTouchflag(false);
                     putong_neadapter.notifyDataChanged();
                 } else {
-                    putong_onelist.get(position).setIs_checked(true);
+                    putong_onelist.get(position).setTouchflag(true);
                     putong_neadapter.notifyDataChanged();
                 }
                 calculate_rone();
@@ -3248,14 +3267,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initRTWO() {
         for (int i = 0; i < putong_twolist.size(); i++) {
-            putong_twolist.get(i).setIs_checked(false);
+            putong_twolist.get(i).setTouchflag(false);
         }
         putong_twoadapter = new TagAdapter<String>(putong_twonums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rrtwo, false);
 
-                if (putong_twolist.get(position).is_checked()) {
+                if (putong_twolist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3268,11 +3287,11 @@ public class PukeActivity extends AppCompatActivity {
         rrtwo.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (putong_twolist.get(position).is_checked()) {
-                    putong_twolist.get(position).setIs_checked(false);
+                if (putong_twolist.get(position).isTouchflag()) {
+                    putong_twolist.get(position).setTouchflag(false);
                     putong_threeadapter.notifyDataChanged();
                 } else {
-                    putong_twolist.get(position).setIs_checked(true);
+                    putong_twolist.get(position).setTouchflag(true);
                     putong_twoadapter.notifyDataChanged();
                 }
                 calculate_rtwo();
@@ -3286,14 +3305,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initRTHREE() {
         for (int i = 0; i < putongthreelist.size(); i++) {
-            putongthreelist.get(i).setIs_checked(false);
+            putongthreelist.get(i).setTouchflag(false);
         }
         putong_threeadapter = new TagAdapter<String>(putong_threenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rthree, false);
 
-                if (putongthreelist.get(position).is_checked()) {
+                if (putongthreelist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3305,11 +3324,11 @@ public class PukeActivity extends AppCompatActivity {
         rthree.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (putongthreelist.get(position).is_checked()) {
-                    putongthreelist.get(position).setIs_checked(false);
+                if (putongthreelist.get(position).isTouchflag()) {
+                    putongthreelist.get(position).setTouchflag(false);
                     putong_threeadapter.notifyDataChanged();
                 } else {
-                    putongthreelist.get(position).setIs_checked(true);
+                    putongthreelist.get(position).setTouchflag(true);
                     putong_threeadapter.notifyDataChanged();
                 }
                 calculate_rthree();
@@ -3323,14 +3342,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initRFOUR() {
         for (int i = 0; i < putong_fourlist.size(); i++) {
-            putong_fourlist.get(i).setIs_checked(false);
+            putong_fourlist.get(i).setTouchflag(false);
         }
         putong_fouradapter = new TagAdapter<String>(putong_fournums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rfour, false);
 
-                if (putong_fourlist.get(position).is_checked()) {
+                if (putong_fourlist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3342,11 +3361,11 @@ public class PukeActivity extends AppCompatActivity {
         rfour.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (putong_fourlist.get(position).is_checked()) {
-                    putong_fourlist.get(position).setIs_checked(false);
+                if (putong_fourlist.get(position).isTouchflag()) {
+                    putong_fourlist.get(position).setTouchflag(false);
                     putong_fouradapter.notifyDataChanged();
                 } else {
-                    putong_fourlist.get(position).setIs_checked(true);
+                    putong_fourlist.get(position).setTouchflag(true);
                     putong_fouradapter.notifyDataChanged();
                 }
                 calculate_rfour();
@@ -3360,14 +3379,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initRFIVE() {
         for (int i = 0; i < putong_fivelist.size(); i++) {
-            putong_fivelist.get(i).setIs_checked(false);
+            putong_fivelist.get(i).setTouchflag(false);
         }
         putong_fiveadapter = new TagAdapter<String>(putong_fivenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rfive, false);
 
-                if (putong_fivelist.get(position).is_checked()) {
+                if (putong_fivelist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3379,11 +3398,11 @@ public class PukeActivity extends AppCompatActivity {
         rfive.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (putong_fivelist.get(position).is_checked()) {
-                    putong_fivelist.get(position).setIs_checked(false);
+                if (putong_fivelist.get(position).isTouchflag()) {
+                    putong_fivelist.get(position).setTouchflag(false);
                     putong_fiveadapter.notifyDataChanged();
                 } else {
-                    putong_fivelist.get(position).setIs_checked(true);
+                    putong_fivelist.get(position).setTouchflag(true);
                     putong_fiveadapter.notifyDataChanged();
                 }
                 calculate_rfive();
@@ -3397,14 +3416,14 @@ public class PukeActivity extends AppCompatActivity {
      */
     private void initRSIX() {
         for (int i = 0; i < putong_sixlist.size(); i++) {
-            putong_sixlist.get(i).setIs_checked(false);
+            putong_sixlist.get(i).setTouchflag(false);
         }
         putong_sixadapter = new TagAdapter<String>(putong_sixnums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rsix, false);
 
-                if (putong_sixlist.get(position).is_checked()) {
+                if (putong_sixlist.get(position).isTouchflag()) {
                     tv.setBackgroundResource(images_selected[position]);
                 } else {
                     tv.setBackgroundResource(images[position]);
@@ -3416,11 +3435,13 @@ public class PukeActivity extends AppCompatActivity {
         rsix.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                if (putong_sixlist.get(position).is_checked()) {
-                    putong_sixlist.get(position).setIs_checked(false);
+                if (putong_sixlist.get(position).isTouchflag()) {
+                    putong_sixlist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     putong_sixadapter.notifyDataChanged();
                 } else {
-                    putong_sixlist.get(position).setIs_checked(true);
+                    putong_sixlist.get(position).setTouchflag(true);
+                    buy_acount=buy_acount+1;
                     putong_sixadapter.notifyDataChanged();
                 }
                 calculate_rsix();
@@ -3626,7 +3647,7 @@ public class PukeActivity extends AppCompatActivity {
         int buy_acount = 0;
 
         for (int i = 0; i < baoxuanList.size(); i++) {
-            if (baoxuanList.get(i).is_checked()) {
+            if (baoxuanList.get(i).isTouchflag()) {
                 buy_acount++;
                 //Log.e("sumValueSelecte", baoxuanList.get(i).getNum());
             }
@@ -3641,7 +3662,7 @@ public class PukeActivity extends AppCompatActivity {
         int buy_acount = 0;
 
         for (int i = 0; i < tonghuaList.size(); i++) {
-            if (tonghuaList.get(i).is_checked()) {
+            if (tonghuaList.get(i).isTouchflag()) {
                 buy_acount++;
                 //Log.e("sumValueSelecte", tonghuaList.get(i).getNum());
             }
@@ -3656,7 +3677,7 @@ public class PukeActivity extends AppCompatActivity {
         int buy_acount = 0;
 
         for (int i = 0; i < shunziList.size(); i++) {
-            if (shunziList.get(i).is_checked()) {
+            if (shunziList.get(i).isTouchflag()) {
                 buy_acount++;
                 // Log.e("sumValueSelecte", shunziList.get(i).getNum());
             }
@@ -3671,7 +3692,7 @@ public class PukeActivity extends AppCompatActivity {
         int buy_acount = 0;
 
         for (int i = 0; i < tonghuashunList.size(); i++) {
-            if (tonghuashunList.get(i).is_checked()) {
+            if (tonghuashunList.get(i).isTouchflag()) {
                 buy_acount++;
                 // Log.e("sumValueSelecte", tonghuashunList.get(i).getNum());
             }
@@ -3686,7 +3707,7 @@ public class PukeActivity extends AppCompatActivity {
         int buy_acount = 0;
 
         for (int i = 0; i < baoziList.size(); i++) {
-            if (baoziList.get(i).is_checked()) {
+            if (baoziList.get(i).isTouchflag()) {
                 buy_acount++;
                 // Log.e("sumValueSelecte", baoziList.get(i).getNum());
             }
@@ -3701,7 +3722,7 @@ public class PukeActivity extends AppCompatActivity {
         int buy_acount = 0;
 
         for (int i = 0; i < duiziList.size(); i++) {
-            if (duiziList.get(i).is_checked()) {
+            if (duiziList.get(i).isTouchflag()) {
                 buy_acount++;
                 //  Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
@@ -3709,19 +3730,19 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
-
+        //拖胆
     public void calculate_two() {
         //计算选中的注数和金额
         int buy_acount = 0;
         int but_two=0;
         for (int i = 0; i < tuodan_twolist.size(); i++) {
-            if (tuodan_twolist.get(i).is_checked()) {
+            if (tuodan_twolist.get(i).isTouchflag()) {
                 buy_acount++;
 
             }
         }
         for (int i = 0; i < putong_twolist.size(); i++) {
-            if (putong_twolist.get(i).is_checked()) {
+            if (putong_twolist.get(i).isTouchflag()) {
                 but_two++;
 
             }
@@ -3729,15 +3750,13 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
-
-
-
+    //拖胆
     public void calculate_three() {
         //计算选中的注数和金额
         int buy_acount = 0;
 
         for (int i = 0; i < tuodan_threelist.size(); i++) {
-            if (tuodan_threelist.get(i).is_checked()) {
+            if (tuodan_threelist.get(i).isTouchflag()) {
                 buy_acount++;
 
             }
@@ -3745,14 +3764,14 @@ public class PukeActivity extends AppCompatActivity {
         num.setText(buy_acount + "");
         price.setText(buy_acount * TicketPrice + "");
     }
-
+    //拖胆
 
     public void calculate_four() {
         //计算选中的注数和金额
         int buy_acount = 0;
 
         for (int i = 0; i < tuodan_fourlist.size(); i++) {
-            if (tuodan_fourlist.get(i).is_checked()) {
+            if (tuodan_fourlist.get(i).isTouchflag()) {
                 buy_acount++;
 
             }
@@ -3761,13 +3780,13 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-
+    //拖胆
     public void calculate_five() {
         //计算选中的注数和金额
         int buy_acount = 0;
 
         for (int i = 0; i < tuodan_fivelist.size(); i++) {
-            if (tuodan_fivelist.get(i).is_checked()) {
+            if (tuodan_fivelist.get(i).isTouchflag()) {
                 buy_acount++;
 
             }
@@ -3776,13 +3795,13 @@ public class PukeActivity extends AppCompatActivity {
         price.setText(buy_acount * TicketPrice + "");
     }
 
-
+    //拖胆
     public void calculate_six() {
         //计算选中的注数和金额
         int buy_acount = 0;
 
         for (int i = 0; i < tuodan_sixlist.size(); i++) {
-            if (tuodan_sixlist.get(i).is_checked()) {
+            if (tuodan_sixlist.get(i).isTouchflag()) {
                 buy_acount++;
                 // Log.e("sumValueSelecte", duiziList.get(i).getNum());
             }
@@ -3797,102 +3816,368 @@ public class PukeActivity extends AppCompatActivity {
      * 计算rone  普通投注
      */
     public void calculate_rone() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
-
-        for (int i = 0; i < putong_onelist.size(); i++) {
-            if (putong_onelist.get(i).is_checked()) {
-                buy_acount++;
-
-            }
+        switch (buy_acount)
+        {
+            case 0:
+                num.setText(1+ "");
+                price.setText(2+ "");
+                break;
+            case 2:
+                num.setText(2+ "");
+                price.setText(4+ "");
+                break;
+            case 3:
+                num.setText(3+ "");
+                price.setText(6+ "");
+                break;
+            case 4:
+                num.setText(4+ "");
+                price.setText(8+ "");
+                break;
+            case 5:
+                num.setText(5+ "");
+                price.setText(10+ "");
+                break;
+            case 6:
+                num.setText(6+ "");
+                price.setText(12+ "");
+                break;
+            case 7:
+                num.setText(7+ "");
+                price.setText(14+ "");
+                break;
+            case 8:
+                num.setText(8+ "");
+                price.setText(16+ "");
+                break;
+            case 9:
+                num.setText(9+ "");
+                price.setText(18+ "");
+                break;
+            case 10:
+                num.setText(10+ "");
+                price.setText(20+ "");
+                break;
+            case 11:
+                num.setText(11+ "");
+                price.setText(22+ "");
+                break;
+            case 12:
+                num.setText(12+ "");
+                price.setText(24+ "");
+                break;
+            case 13:
+                num.setText(13+ "");
+                price.setText(26+ "");
+                break;
         }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
     }
 
     /**
      * 计算rtwo  普通投注
      */
     public void calculate_rtwo() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
-
-        for (int i = 0; i < putong_twolist.size(); i++) {
-            if (putong_twolist.get(i).is_checked()) {
-                buy_acount++;
-
-            }
+        switch (buy_acount)
+        {
+            case 0:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 2:
+                num.setText(1+ "");
+                price.setText(2+ "");
+                break;
+            case 3:
+                num.setText(3+ "");
+                price.setText(6+ "");
+                break;
+            case 4:
+                num.setText(6+ "");
+                price.setText(12+ "");
+                break;
+            case 5:
+                num.setText(10+ "");
+                price.setText(20+ "");
+                break;
+            case 6:
+                num.setText(15+ "");
+                price.setText(30+ "");
+                break;
+            case 7:
+                num.setText(21+ "");
+                price.setText(42+ "");
+                break;
+            case 8:
+                num.setText(28+ "");
+                price.setText(56+ "");
+                break;
+            case 9:
+                num.setText(36+ "");
+                price.setText(72+ "");
+                break;
+            case 10:
+                num.setText(45+ "");
+                price.setText(90+ "");
+                break;
+            case 11:
+                num.setText(55+ "");
+                price.setText(110+ "");
+                break;
+            case 12:
+                num.setText(66+ "");
+                price.setText(132+ "");
+                break;
+            case 13:
+                num.setText(78+ "");
+                price.setText(156+ "");
+                break;
         }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
     }
 
     /**
-     * 计算rthree  普通投注
+     * 计算组合数
      */
+
     public void calculate_rthree() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
-
-        for (int i = 0; i < putongthreelist.size(); i++) {
-            if (putongthreelist.get(i).is_checked()) {
-                buy_acount++;
-
-            }
+        switch (buy_acount)
+        {
+            case 0:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 2:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 3:
+                num.setText(1+ "");
+                price.setText(2+ "");
+                break;
+            case 4:
+                num.setText(4+ "");
+                price.setText(8+ "");
+                break;
+            case 5:
+                num.setText(10+ "");
+                price.setText(20+ "");
+                break;
+            case 6:
+                num.setText(20+ "");
+                price.setText(40+ "");
+                break;
+            case 7:
+                num.setText(35+ "");
+                price.setText(70+ "");
+                break;
+            case 8:
+                num.setText(56+ "");
+                price.setText(112+ "");
+                break;
+            case 9:
+                num.setText(84+ "");
+                price.setText(168+ "");
+                break;
+            case 10:
+                num.setText(120+ "");
+                price.setText(240+ "");
+                break;
+            case 11:
+                num.setText(165+ "");
+                price.setText(330+ "");
+                break;
+            case 12:
+                num.setText(220+ "");
+                price.setText(440+ "");
+                break;
+            case 13:
+                num.setText(286+ "");
+                price.setText(572+ "");
+                break;
         }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
     }
 
     /**
      * 计算rfour  普通投注
      */
     public void calculate_rfour() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
-
-        for (int i = 0; i < putong_fourlist.size(); i++) {
-            if (putong_fourlist.get(i).is_checked()) {
-                buy_acount++;
-
-            }
+        switch (buy_acount)
+        {
+            case 0:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 2:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 3:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 4:
+                num.setText(1+ "");
+                price.setText(2+ "");
+                break;
+            case 5:
+                num.setText(5+ "");
+                price.setText(10+ "");
+                break;
+            case 6:
+                num.setText(15+ "");
+                price.setText(30+ "");
+                break;
+            case 7:
+                num.setText(35+ "");
+                price.setText(70+ "");
+                break;
+            case 8:
+                num.setText(70+ "");
+                price.setText(140+ "");
+                break;
+            case 9:
+                num.setText(126+ "");
+                price.setText(252+ "");
+                break;
+            case 10:
+                num.setText(210+ "");
+                price.setText(420+ "");
+                break;
+            case 11:
+                num.setText(330+ "");
+                price.setText(660+ "");
+                break;
+            case 12:
+                num.setText(495+ "");
+                price.setText(990+ "");
+                break;
+            case 13:
+                num.setText(715+ "");
+                price.setText(1430+ "");
+                break;
         }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
     }
 
     /**
      * 计算rfive  普通投注
      */
     public void calculate_rfive() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
-
-        for (int i = 0; i < putong_fivelist.size(); i++) {
-            if (putong_fivelist.get(i).is_checked()) {
-                buy_acount++;
-
-            }
+        switch (buy_acount)
+        {
+            case 0:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 2:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 3:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 4:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 5:
+                num.setText(1+ "");
+                price.setText(2+ "");
+                break;
+            case 6:
+                num.setText(6+ "");
+                price.setText(12+ "");
+                break;
+            case 7:
+                num.setText(21+ "");
+                price.setText(42+ "");
+                break;
+            case 8:
+                num.setText(56+ "");
+                price.setText(112+ "");
+                break;
+            case 9:
+                num.setText(126+ "");
+                price.setText(252+ "");
+                break;
+            case 10:
+                num.setText(252+ "");
+                price.setText(504+ "");
+                break;
+            case 11:
+                num.setText(462+ "");
+                price.setText(924+ "");
+                break;
+            case 12:
+                num.setText(792+ "");
+                price.setText(1584+ "");
+                break;
+            case 13:
+                num.setText(1287+ "");
+                price.setText(2574+ "");
+                break;
         }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
     }
 
     /**
      * 计算rsix  普通投注
      */
     public void calculate_rsix() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
-
-        for (int i = 0; i < putong_sixlist.size(); i++) {
-            if (putong_sixlist.get(i).is_checked()) {
-                buy_acount++;
-                // Log.e("sumValueSelecte", duiziList.get(i).getNum());
-            }
+        switch (buy_acount)
+        {
+            case 0:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 2:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 3:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 4:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 5:
+                num.setText(0+ "");
+                price.setText(0+ "");
+                break;
+            case 6:
+                num.setText(1+ "");
+                price.setText(2+ "");
+                break;
+            case 7:
+                num.setText(7+ "");
+                price.setText(14+ "");
+                break;
+            case 8:
+                num.setText(28+ "");
+                price.setText(56+ "");
+                break;
+            case 9:
+                num.setText(84+ "");
+                price.setText(168+ "");
+                break;
+            case 10:
+                num.setText(210+ "");
+                price.setText(420+ "");
+                break;
+            case 11:
+                num.setText(462+ "");
+                price.setText(924+ "");
+                break;
+            case 12:
+                num.setText(924+ "");
+                price.setText(1848+ "");
+                break;
+            case 13:
+                num.setText(1716+ "");
+                price.setText(3432+ "");
+                break;
         }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
+
     }
 
     //分类弹窗
@@ -4087,7 +4372,7 @@ public class PukeActivity extends AppCompatActivity {
                             mSelecte_Mode = tuodan_six;
                             break;
                     }
-                    mAcache.put("FAST_SELECT_MODE", mSelecte_Mode + "");
+                    mAcache.put("PUKEMODE", mSelecte_Mode + "");
                     initRule();
                     clearNum();
                 }
@@ -4173,7 +4458,7 @@ public class PukeActivity extends AppCompatActivity {
             case S_BAOXUAN:
                 result = numberRandom(1, baoxuanNums);
                 for (int i = 0; i < result.length; i++) {
-                    baoxuanList.get(result[i]).setIs_checked(true);
+                    baoxuanList.get(result[i]).setTouchflag(true);
                     baoxuanAdapter.setSelectedList(result[i]);
                 }
                 break;
@@ -4181,28 +4466,28 @@ public class PukeActivity extends AppCompatActivity {
             case danxuan_tonghua:
                 result = numberRandom(1, tonghuaNums);
                 for (int i = 0; i < result.length; i++) {
-                    tonghuaList.get(result[i]).setIs_checked(true);
+                    tonghuaList.get(result[i]).setTouchflag(true);
                     tonghuaAdapter.setSelectedList(result[i]);
                 }
                 break;
             case danxuan_shunzi:
                 result = numberRandom(1, shunziNums);
                 for (int i = 0; i < result.length; i++) {
-                    shunziList.get(result[i]).setIs_checked(true);
+                    shunziList.get(result[i]).setTouchflag(true);
                     shunziAdapter.setSelectedList(result[i]);
                 }
                 break;
             case danxuan_tonghuashun:
                 result = numberRandom(1, tonghuashunNums);
                 for (int i = 0; i < result.length; i++) {
-                    tonghuashunList.get(result[i]).setIs_checked(true);
+                    tonghuashunList.get(result[i]).setTouchflag(true);
                     tonghuashunAdapter.setSelectedList(result[i]);
                 }
                 break;
             case danxuan_baozi:
                 result = numberRandom(1, baoziNums);
                 for (int i = 0; i < result.length; i++) {
-                    baoziList.get(result[i]).setIs_checked(true);
+                    baoziList.get(result[i]).setTouchflag(true);
                     baoziAdapter.setSelectedList(result[i]);
                 }
 
@@ -4210,7 +4495,7 @@ public class PukeActivity extends AppCompatActivity {
             case danxuan_duizi:
                 result = numberRandom(1, duiziNums);
                 for (int i = 0; i < result.length; i++) {
-                    duiziList.get(result[i]).setIs_checked(true);
+                    duiziList.get(result[i]).setTouchflag(true);
                     duiziAdapter.setSelectedList(result[i]);
                 }
                 break;
@@ -4220,7 +4505,7 @@ public class PukeActivity extends AppCompatActivity {
             case tuodan_two:
                 result = numberRandom(2, tuodan_twonums);
                 for (int i = 0; i < result.length; i++) {
-                    tuodan_twolist.get(result[i]).setIs_checked(true);
+                    tuodan_twolist.get(result[i]).setTouchflag(true);
                     twodan_twoadapter.setSelectedList(result[i]);
                 }
 
@@ -4228,21 +4513,21 @@ public class PukeActivity extends AppCompatActivity {
             case tuodan_three:
                 result = numberRandom(3, tuodan_threenums);
                 for (int i = 0; i < result.length; i++) {
-                    tuodan_threelist.get(result[i]).setIs_checked(true);
+                    tuodan_threelist.get(result[i]).setTouchflag(true);
                     tuodan_threeadapter.setSelectedList(result[i]);
                 }
                 break;
             case tuodan_four:
                 result = numberRandom(4, tuodan_fournums);
                 for (int i = 0; i < result.length; i++) {
-                    tuodan_fourlist.get(result[i]).setIs_checked(true);
+                    tuodan_fourlist.get(result[i]).setTouchflag(true);
                     tuodan_fouradapter.setSelectedList(result[i]);
                 }
                 break;
             case tuodan_five:
                 result = numberRandom(5, tuodan_fivenums);
                 for (int i = 0; i < result.length; i++) {
-                    tuodan_fivelist.get(result[i]).setIs_checked(true);
+                    tuodan_fivelist.get(result[i]).setTouchflag(true);
                     tuodan_fiveadapter.setSelectedList(result[i]);
                 }
                 break;
@@ -4250,12 +4535,12 @@ public class PukeActivity extends AppCompatActivity {
             case tuodan_six:
                 result = numberRandom(6, tuodan_sixnums);
                 for (int i = 0; i < result.length; i++) {
-                    tuodan_sixlist.get(result[i]).setIs_checked(true);
+                    tuodan_sixlist.get(result[i]).setTouchflag(true);
                     tuodan_sixadapter.setSelectedList(result[i]);
                 }
                 result = numberRandom(6, tuodan_sixnums);
                 for (int i = 0; i < result.length; i++) {
-                    tuodan_sixlist.get(result[i]).setIs_checked(true);
+                    tuodan_sixlist.get(result[i]).setTouchflag(true);
                     tuodan_sixadapter.setSelectedList(result[i]);
                 }
 
@@ -4266,35 +4551,35 @@ public class PukeActivity extends AppCompatActivity {
             case putong_one:
                 result = numberRandom(1, putong_onenums);
                 for (int i = 0; i < result.length; i++) {
-                    putong_onelist.get(result[i]).setIs_checked(true);
+                    putong_onelist.get(result[i]).setTouchflag(true);
                     putong_neadapter.setSelectedList(result[i]);
                 }
                 break;
             case putong_two:
                 result = numberRandom(2, putong_twonums);
                 for (int i = 0; i < result.length; i++) {
-                    putong_twolist.get(result[i]).setIs_checked(true);
+                    putong_twolist.get(result[i]).setTouchflag(true);
                     putong_twoadapter.setSelectedList(result[i]);
                 }
                 break;
             case putong_three:
                 result = numberRandom(3, putong_threenums);
                 for (int i = 0; i < result.length; i++) {
-                    putongthreelist.get(result[i]).setIs_checked(true);
+                    putongthreelist.get(result[i]).setTouchflag(true);
                     putong_threeadapter.setSelectedList(result[i]);
                 }
                 break;
             case putong_four:
                 result = numberRandom(4, putong_fournums);
                 for (int i = 0; i < result.length; i++) {
-                    putong_fourlist.get(result[i]).setIs_checked(true);
+                    putong_fourlist.get(result[i]).setTouchflag(true);
                     putong_fouradapter.setSelectedList(result[i]);
                 }
                 break;
             case putong_five:
                 result = numberRandom(5, putong_fivenums);
                 for (int i = 0; i < result.length; i++) {
-                    putong_fivelist.get(result[i]).setIs_checked(true);
+                    putong_fivelist.get(result[i]).setTouchflag(true);
                     putong_fiveadapter.setSelectedList(result[i]);
                 }
                 break;
@@ -4302,7 +4587,7 @@ public class PukeActivity extends AppCompatActivity {
             case putong_six:
                 result = numberRandom(6, putong_sixnums);
                 for (int i = 0; i < result.length; i++) {
-                    putong_sixlist.get(result[i]).setIs_checked(true);
+                    putong_sixlist.get(result[i]).setTouchflag(true);
                     putong_sixadapter.setSelectedList(result[i]);
                 }
                 break;

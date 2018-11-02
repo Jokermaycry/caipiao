@@ -52,13 +52,14 @@ public class OpenFragment extends Fragment {
     private int page = 1;
     private List<OpenListBO> list = new ArrayList<>();
     private MyApdater myApdater;
-
+    private String TAG="OpenFragment";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_open, container, false);
         ButterKnife.bind(this, view);
         mActivity = getActivity();
         initView();
+        Log.e(TAG,"onCreateView");
         return view;
 
     }
@@ -139,8 +140,66 @@ public class OpenFragment extends Fragment {
                 @Override
                 public View getView(FlowLayout parent, int position, String s) {
                     TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_tv2, numTag, false);
-                    Log.e("s",s);
+
+                   // Log.e("wangweiming",s.substring(1));
                     tv.setText(s);
+                    if(info.getName().equals("山东扑克3")) {
+                         Log.e("wangweiming","enterswitch");
+                        String temp=s.substring(1);
+                        String temprary=temp.substring(0,1);
+                        switch (s.substring(0, 1)) {
+                            case "1":
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv.setBackgroundResource(R.drawable.tonghua1);
+
+                                if (temprary.equals("0"))
+                                {
+                                     tv.setText(temp.substring(1));
+                                  }
+                                else
+                                 {
+                                    tv.setText(s.substring(1));
+                                   }
+                                break;
+
+                            case "2":
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv.setBackgroundResource(R.drawable.tonghua2);
+                                if (temprary.equals("0"))
+                                {
+                                    tv.setText(temp.substring(1));
+                                }
+                                else
+                                {
+                                    tv.setText(s.substring(1));
+                                }
+                                break;
+                            case "3":
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv.setBackgroundResource(R.drawable.tonghua3);
+                                if (temprary.equals("0"))
+                                {
+                                    tv.setText(temp.substring(1));
+                                }
+                                else
+                                {
+                                    tv.setText(s.substring(1));
+                                }
+                                break;
+                            case "4":
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv.setBackgroundResource(R.drawable.tonghua4);
+                                if (temprary.equals("0"))
+                                {
+                                    tv.setText(temp.substring(1));
+                                }
+                                else
+                                {
+                                    tv.setText(s.substring(1));
+                                }
+                                break;
+                        }
+                    }
                     return tv;
                 }
             };
@@ -157,6 +216,7 @@ public class OpenFragment extends Fragment {
                 log_num.setText(info.getLast_qs()+"期");
                 dur_time.setText("每"+info.getPer_time()+"秒一期");
             }
+            Log.e("info.getName()",info.getName());
             name.setText(info.getName());
             numTag.setAdapter(numAdapter);
             RelativeLayout itemLy=holder.getView(R.id.item_ly);

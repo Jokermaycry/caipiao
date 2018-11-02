@@ -14,6 +14,32 @@ public class NumInfo implements Serializable{
     private String upload_data;
     private boolean is_checked=false;
     private boolean is_spe;
+    private boolean touchflag;
+    private int flag=0;
+
+    public boolean isTouchflag() {
+        return touchflag;
+    }
+
+    public void setTouchflag(boolean touchflag) {
+        this.touchflag = touchflag;
+    }
+
+    public boolean isIs_checked() {
+        return is_checked;
+    }
+
+    public boolean isIs_spe() {
+        return is_spe;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
 
     public String getUpload_data() {
         return upload_data;

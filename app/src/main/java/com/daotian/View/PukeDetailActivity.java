@@ -222,7 +222,7 @@ public class PukeDetailActivity extends AppCompatActivity {
             break;
     }
     for (int i = 0; i < baoxuanList.size(); i++) {
-        if (baoxuanList.get(i).is_checked()) {
+        if (baoxuanList.get(i).isTouchflag()) {
             TicketResultListInfo info = new TicketResultListInfo();
             info.setNum("1");
             switch (i)
@@ -327,14 +327,14 @@ public class PukeDetailActivity extends AppCompatActivity {
 //                    break;
             case danxuan_tonghua:
                 for (int i = 0; i < tonghuaList.size(); i++) {
-                    if (tonghuaList.get(i).is_checked()) {
+                    if (tonghuaList.get(i).isTouchflag()) {
                         info.getNumbers1().add(tonghuaList.get(i));
                     }
                 }
                 break;
             case danxuan_shunzi:
                 for (int i = 0; i < shunziList.size(); i++) {
-                    if (shunziList.get(i).is_checked()) {
+                    if (shunziList.get(i).isTouchflag()) {
                         info.getNumbers1().add(shunziList.get(i));
                     }
                 }
@@ -342,64 +342,58 @@ public class PukeDetailActivity extends AppCompatActivity {
                 break;
             case danxuan_tonghuashun:
                 for (int i = 0; i < tonghuashunList.size(); i++) {
-                    if (tonghuashunList.get(i).is_checked()) {
+                    if (tonghuashunList.get(i).isTouchflag()) {
                         info.getNumbers1().add(tonghuashunList.get(i));
                     }
                 }
                 break;
             case danxuan_baozi:
                 for (int i = 0; i < baoziList.size(); i++) {
-                    if (baoziList.get(i).is_checked()) {
+                    if (baoziList.get(i).isTouchflag()) {
                         info.getNumbers1().add(baoziList.get(i));
                     }
                 }
                 break;
             case danxuan_duizi:
                 for (int i = 0; i < duiziList.size(); i++) {
-                    if (duiziList.get(i).is_checked()) {
+                    if (duiziList.get(i).isTouchflag()) {
                         info.getNumbers1().add(duiziList.get(i));
                     }
                 }
 
                 break;
-//                case SD_ONE:
-//                    for (int i = 0; i < tuodan_RONEList.size(); i++) {
-//                        if (tuodan_RONEList.get(i).is_checked()) {
-//                            info.getNumbers1().add(tuodan_RONEList.get(i));
-//                        }
-//                    }
-//                    break;
+
             case tuodan_two:
                 for (int i = 0; i < tuodan_twolist.size(); i++) {
-                    if (tuodan_twolist.get(i).is_checked()) {
+                    if (tuodan_twolist.get(i).isTouchflag()) {
                         info.getNumbers1().add(tuodan_twolist.get(i));
                     }
                 }
                 break;
             case tuodan_three:
                 for (int i = 0; i < tuodan_threelist.size(); i++) {
-                    if (tuodan_threelist.get(i).is_checked()) {
+                    if (tuodan_threelist.get(i).isTouchflag()) {
                         info.getNumbers1().add(tuodan_threelist.get(i));
                     }
                 }
                 break;
             case tuodan_four:
                 for (int i = 0; i < tuodan_fourlist.size(); i++) {
-                    if (tuodan_fourlist.get(i).is_checked()) {
+                    if (tuodan_fourlist.get(i).isTouchflag()) {
                         info.getNumbers1().add(tuodan_fourlist.get(i));
                     }
                 }
                 break;
             case tuodan_five:
                 for (int i = 0; i < tuodan_fivelist.size(); i++) {
-                    if (tuodan_fivelist.get(i).is_checked()) {
+                    if (tuodan_fivelist.get(i).isTouchflag()) {
                         info.getNumbers1().add(tuodan_fivelist.get(i));
                     }
                 }
                 break;
             case tuodan_six:
                 for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                    if (tuodan_sixlist.get(i).is_checked()) {
+                    if (tuodan_sixlist.get(i).isTouchflag()) {
                         info.getNumbers1().add(tuodan_sixlist.get(i));
                     }
                 }
@@ -408,42 +402,42 @@ public class PukeDetailActivity extends AppCompatActivity {
             //up
             case putong_one:
                 for (int i = 0; i < putong_onelist.size(); i++) {
-                    if (putong_onelist.get(i).is_checked()) {
+                    if (putong_onelist.get(i).isTouchflag()) {
                         info.getNumbers1().add(putong_onelist.get(i));
                     }
                 }
                 break;
             case putong_two:
                 for (int i = 0; i < putong_twolist.size(); i++) {
-                    if (putong_twolist.get(i).is_checked()) {
+                    if (putong_twolist.get(i).isTouchflag()) {
                         info.getNumbers1().add(putong_twolist.get(i));
                     }
                 }
                 break;
             case putong_three:
                 for (int i = 0; i < putongthreelist.size(); i++) {
-                    if (putongthreelist.get(i).is_checked()) {
+                    if (putongthreelist.get(i).isTouchflag()) {
                         info.getNumbers1().add(putongthreelist.get(i));
                     }
                 }
                 break;
             case putong_four:
                 for (int i = 0; i < putong_fourlist.size(); i++) {
-                    if (putong_fourlist.get(i).is_checked()) {
+                    if (putong_fourlist.get(i).isTouchflag()) {
                         info.getNumbers1().add(putong_fourlist.get(i));
                     }
                 }
                 break;
             case putong_five:
                 for (int i = 0; i < putong_fivelist.size(); i++) {
-                    if (putong_fivelist.get(i).is_checked()) {
+                    if (putong_fivelist.get(i).isTouchflag()) {
                         info.getNumbers1().add(putong_fivelist.get(i));
                     }
                 }
                 break;
             case putong_six:
                 for (int i = 0; i < putong_sixlist.size(); i++) {
-                    if (putong_sixlist.get(i).is_checked()) {
+                    if (putong_sixlist.get(i).isTouchflag()) {
                         info.getNumbers1().add(putong_sixlist.get(i));
                     }
                 }
@@ -614,7 +608,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                 //如果被点击，添加到数组
                 for (int i = 0; i < baoxuanList.size(); i++)
                 {
-                  if (baoxuanList.get(i).is_checked())
+                  if (baoxuanList.get(i).isTouchflag())
                 {
                     TicketResultListInfo info = new TicketResultListInfo();
                     baoxuanList.get(i).setIs_spe(true);
@@ -679,14 +673,14 @@ public class PukeDetailActivity extends AppCompatActivity {
                 switch (mSelecte_Mode) {
                     case danxuan_tonghua:
                         for (int i = 0; i < 4; i++) {
-                            if (tonghuaList.get(i).is_checked()) {
+                            if (tonghuaList.get(i).isTouchflag()) {
                                 info.getNumbers1().add(tonghuaList.get(i));
                             }
                         }
                         break;
                     case danxuan_shunzi:
                         for (int i = 0; i <12; i++) {
-                            if (shunziList.get(i).is_checked()) {
+                            if (shunziList.get(i).isTouchflag()) {
                                 info.getNumbers1().add(shunziList.get(i));
                             }
                         }
@@ -694,21 +688,21 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case danxuan_tonghuashun:
                         for (int i = 0; i < 4; i++) {
-                            if (tonghuashunList.get(i).is_checked()) {
+                            if (tonghuashunList.get(i).isTouchflag()) {
                                 info.getNumbers1().add(tonghuashunList.get(i));
                             }
                         }
                         break;
                     case danxuan_baozi:
                         for (int i = 0; i < 13; i++) {
-                            if (baoziList.get(i).is_checked()) {
+                            if (baoziList.get(i).isTouchflag()) {
                                 info.getNumbers1().add(baoziList.get(i));
                             }
                         }
                         break;
                     case danxuan_duizi:
                         for (int i = 0; i < 13; i++) {
-                            if (duiziList.get(i).is_checked()) {
+                            if (duiziList.get(i).isTouchflag()) {
                                 info.getNumbers1().add(duiziList.get(i));
                             }
                         }
@@ -716,13 +710,13 @@ public class PukeDetailActivity extends AppCompatActivity {
 
                     case tuodan_two:
                         for (int i = 0; i < 13; i++) {
-                            if (tuodan_twolist.get(i).is_checked()) {
+                            if (tuodan_twolist.get(i).isTouchflag()) {
                                 tuodan_twolist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(tuodan_twolist.get(i));
                             }
                         }
                         for (int i = 0; i < 13; i++) {
-                            if (child_twolist.get(i).is_checked()) {
+                            if (child_twolist.get(i).isTouchflag()) {
                                 child_twolist.get(i).setIs_spe(true);
                                 info.getNumbers2().add(child_twolist.get(i));
                             }
@@ -730,13 +724,13 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case tuodan_three:
                         for (int i = 0; i < 13; i++) {
-                            if (tuodan_threelist.get(i).is_checked()) {
+                            if (tuodan_threelist.get(i).isTouchflag()) {
                                 tuodan_threelist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(tuodan_threelist.get(i));
                             }
                         }
                         for (int i = 0; i < 13; i++) {
-                            if (child_threelist.get(i).is_checked()) {
+                            if (child_threelist.get(i).isTouchflag()) {
                                 child_threelist.get(i).setIs_spe(true);
                                 info.getNumbers2().add(child_threelist.get(i));
                             }
@@ -744,13 +738,13 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case tuodan_four:
                         for (int i = 0; i < 13; i++) {
-                            if (tuodan_fourlist.get(i).is_checked()) {
+                            if (tuodan_fourlist.get(i).isTouchflag()) {
                                 tuodan_fourlist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(tuodan_fourlist.get(i));
                             }
                         }
                         for (int i = 0; i < 13; i++) {
-                            if (child_fourlist.get(i).is_checked()) {
+                            if (child_fourlist.get(i).isTouchflag()) {
                                 child_fourlist.get(i).setIs_spe(true);
                                 info.getNumbers2().add(child_fourlist.get(i));
                             }
@@ -758,13 +752,13 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case tuodan_five:
                         for (int i = 0; i < 13; i++) {
-                            if (tuodan_fivelist.get(i).is_checked()) {
+                            if (tuodan_fivelist.get(i).isTouchflag()) {
                                 tuodan_fivelist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(tuodan_fivelist.get(i));
                             }
                         }
                         for (int i = 0; i < 13; i++) {
-                            if (child_fivelist.get(i).is_checked()) {
+                            if (child_fivelist.get(i).isTouchflag()) {
                                 child_fivelist.get(i).setIs_spe(true);
                                 info.getNumbers2().add(child_fivelist.get(i));
                             }
@@ -772,13 +766,13 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case tuodan_six:
                         for (int i = 0; i <13; i++) {
-                            if (tuodan_sixlist.get(i).is_checked()) {
+                            if (tuodan_sixlist.get(i).isTouchflag()) {
                                 tuodan_sixlist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(tuodan_sixlist.get(i));
                             }
                         }
                         for (int i = 0; i < 13; i++) {
-                            if (child_sixlist.get(i).is_checked()) {
+                            if (child_sixlist.get(i).isTouchflag()) {
                                 child_sixlist.get(i).setIs_spe(true);
                                 info.getNumbers2().add(child_sixlist.get(i));
                             }
@@ -786,7 +780,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                         //up
                     case putong_one:
                         for (int i = 0; i < 13; i++) {
-                            if (putong_onelist.get(i).is_checked()) {
+                            if (putong_onelist.get(i).isTouchflag()) {
                                 putong_onelist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(putong_onelist.get(i));
                             }
@@ -795,7 +789,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case putong_two:
                         for (int i = 0; i <13; i++) {
-                            if (putong_twolist.get(i).is_checked()) {
+                            if (putong_twolist.get(i).isTouchflag()) {
                                 putong_twolist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(putong_twolist.get(i));
                             }
@@ -804,7 +798,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case putong_three:
                         for (int i = 0; i < 13; i++) {
-                            if (putongthreelist.get(i).is_checked()) {
+                            if (putongthreelist.get(i).isTouchflag()) {
                                 putongthreelist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(putongthreelist.get(i));
                             }
@@ -813,7 +807,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case putong_four:
                         for (int i = 0; i <13; i++) {
-                            if (putong_fourlist.get(i).is_checked()) {
+                            if (putong_fourlist.get(i).isTouchflag()) {
                                 putong_fourlist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(putong_fourlist.get(i));
                             }
@@ -822,7 +816,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case putong_five:
                         for (int i = 0; i < 13; i++) {
-                            if (putong_fivelist.get(i).is_checked()) {
+                            if (putong_fivelist.get(i).isTouchflag()) {
                                 putong_fivelist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(putong_fivelist.get(i));
                             }
@@ -831,7 +825,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                         break;
                     case putong_six:
                         for (int i = 0; i < 13; i++) {
-                            if (putong_sixlist.get(i).is_checked()) {
+                            if (putong_sixlist.get(i).isTouchflag()) {
                                 putong_sixlist.get(i).setIs_spe(true);
                                 info.getNumbers1().add(putong_sixlist.get(i));
                             }
@@ -988,6 +982,7 @@ public class PukeDetailActivity extends AppCompatActivity {
                 @Override
                 public View getView(FlowLayout parent, int position, NumInfo s) {
                     TextView tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                    Log.e("info.getMode()",String.valueOf(info.getMode()));
                     switch (info.getMode()) {
                         case S_BAOXUAN:
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_one, numTag, false);
@@ -1062,8 +1057,27 @@ public class PukeDetailActivity extends AppCompatActivity {
                             tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_single, numTag, false);
                             tv.setBackgroundResource(R.drawable.puke_empty);
                             break;
+                        case type_BAOZI:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_baoxuan, numTag, false);
+                            tv.setBackgroundResource(R.drawable.baozibx_empty);
+                            break;
+                        case type_DUIZI:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_baoxuan, numTag, false);
+                            tv.setBackgroundResource(R.drawable.duizibx_empty);
+                            break;
+                        case type_TONGHUA:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_baoxuan, numTag, false);
+                            tv.setBackgroundResource(R.drawable.tonghuabx_empty);
+                            break;
+                        case type_TONGHUASHUN:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_baoxuan, numTag, false);
+                            tv.setBackgroundResource(R.drawable.tonghuashunbx_empty);
+                            break;
+                        case type_SHUNZI:
+                            tv = (TextView) LayoutInflater.from(PukeDetailActivity.this).inflate(R.layout.list_item_puke_detail_baoxuan, numTag, false);
+                            tv.setBackgroundResource(R.drawable.shunzibx_empty);
+                            break;
                     }
-
 
                     tv.setText(s.getNum());
 

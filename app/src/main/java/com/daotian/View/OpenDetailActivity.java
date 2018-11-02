@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -27,6 +28,9 @@ import com.daotian.Utils.TimeUtils;
 import com.daotian.Utils.ToastUtil;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.abslistview.CommonAdapter;
+import com.zhy.view.flowlayout.FlowLayout;
+import com.zhy.view.flowlayout.TagAdapter;
+import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -165,7 +169,43 @@ public class OpenDetailActivity extends AppCompatActivity {
             for(int i=0;i<nums.size();i++){
                 num=num+" "+nums.get(i);
             }
-            holder.setText(R.id.open_num,num);
+            if(!name.equals("山东扑克3")) {
+                holder.setText(R.id.open_num, num);
+            }
+            /////////////
+            if(name.equals("山东扑克3")) {
+                final TagFlowLayout numTag = holder.getView(R.id.num_tag);
+                TagAdapter<String> numAdapter = new TagAdapter<String>(nums) {
+                    @Override
+                    public View getView(FlowLayout parent, int position, String s) {
+                        TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+
+                        Log.e("wangweiming", s.substring(1));
+                        tv.setText(s.substring(0, 1));
+                        if (name.equals("山东扑克3")) {
+                            switch (s.substring(0, 1)) {
+                                case "1":
+                                    tv.setBackgroundResource(R.drawable.tonghua1);
+                                    break;
+
+                                case "2":
+                                    tv.setBackgroundResource(R.drawable.tonghua2);
+                                    break;
+                                case "3":
+                                    tv.setBackgroundResource(R.drawable.tonghua3);
+                                    break;
+                                case "4":
+                                    tv.setBackgroundResource(R.drawable.tonghua4);
+                                    break;
+                            }
+                        }
+                        return tv;
+                    }
+                };
+                numTag.setAdapter(numAdapter);
+                /////////////
+            }
+
         }
     }
 
