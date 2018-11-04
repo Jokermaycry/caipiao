@@ -13,6 +13,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -169,6 +171,8 @@ public class PukeDetailActivity extends AppCompatActivity {
         initView();
         initIntent();
         getData();
+        getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        randomBtn.setVisibility(View.GONE);
     }
     private void getData() {
         HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -575,6 +579,7 @@ public class PukeDetailActivity extends AppCompatActivity {
 
             }
         });
+
     }
     @OnClick({R.id.back, R.id.continue_btn, R.id.random_btn, R.id.clear_btn, R.id.comfirm_btn, R.id.term_stop_check})
     public void onClick(View view) {

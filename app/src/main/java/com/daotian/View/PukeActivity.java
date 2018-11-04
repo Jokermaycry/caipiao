@@ -516,6 +516,7 @@ public class PukeActivity extends AppCompatActivity {
         initDUIZI();
         initTONGHUA();
         initTONGHUASHUN();
+        initSHUNZI();
         initRONE();
         initRTWO();
         initRTHREE();
@@ -3331,39 +3332,39 @@ public class PukeActivity extends AppCompatActivity {
         {
 
             case tuodan_two:
-                if(buy_acount!=1)
+                if(buy_acount<1)
                 {
-                    ToastUtil.toast(mActivity, "至少购买1注");
+                    ToastUtil.toast(mActivity, "至少购买1个胆码");
                     return  ;
                 }
 
                 break;
             case tuodan_three:
-                if(buy_acount!=2)
+                if(buy_acount<2)
                 {
-                    ToastUtil.toast(mActivity, "至少购买2注");
+                    ToastUtil.toast(mActivity, "至少购买2个胆码");
                     return  ;
                 }
 
                 break;
             case tuodan_four:
-                if(buy_acount!=3)
+                if(buy_acount<3)
                 {
-                    ToastUtil.toast(mActivity, "至少购买3注");
+                    ToastUtil.toast(mActivity, "至少购买3个胆码");
                     return  ;
                 }
                 break;
             case tuodan_five:
-                if(buy_acount!=4)
+                if(buy_acount<4)
                 {
-                    ToastUtil.toast(mActivity, "至少购买4注");
+                    ToastUtil.toast(mActivity, "至少购买4个胆码");
                     return  ;
                 }
                 break;
             case tuodan_six:
-                if(buy_acount!=5)
+                if(buy_acount<5)
                 {
-                    ToastUtil.toast(mActivity, "至少购买5注");
+                    ToastUtil.toast(mActivity, "至少购买5个胆码");
                     return ;
                 }
                 break;
@@ -3591,36 +3592,41 @@ public class PukeActivity extends AppCompatActivity {
     }
         //拖胆
     public void calculate_two() {
-
-        num.setText((buy_acount+child_acount-1) + "");
-        price.setText((buy_acount+child_acount-1) * TicketPrice + "");
+        if(buy_acount+child_acount>0) {
+            num.setText((buy_acount + child_acount - 1) + "");
+            price.setText((buy_acount + child_acount - 1) * TicketPrice + "");
+        }
     }
     //拖胆
     public void calculate_three() {
-
-        num.setText((buy_acount+child_acount-2) + "");
-        price.setText((buy_acount+child_acount-2) * TicketPrice + "");
+        if(buy_acount+child_acount>0) {
+            num.setText((buy_acount + child_acount - 2) + "");
+            price.setText((buy_acount + child_acount - 2) * TicketPrice + "");
+        }
     }
     //拖胆
 
     public void calculate_four() {
-
-        num.setText((buy_acount+child_acount-3) + "");
-        price.setText((buy_acount+child_acount-3) * TicketPrice + "");
+        if(buy_acount+child_acount>0) {
+            num.setText((buy_acount + child_acount - 3) + "");
+            price.setText((buy_acount + child_acount - 3) * TicketPrice + "");
+        }
     }
 
     //拖胆
     public void calculate_five() {
-
-        num.setText((buy_acount+child_acount-4) + "");
-        price.setText((buy_acount+child_acount-4) * TicketPrice + "");
+        if(buy_acount+child_acount>0) {
+            num.setText((buy_acount + child_acount - 4) + "");
+            price.setText((buy_acount + child_acount - 4) * TicketPrice + "");
+        }
     }
 
     //拖胆
     public void calculate_six() {
-
-        num.setText((buy_acount+child_acount-5) + "");
-        price.setText((buy_acount+child_acount-5) * TicketPrice + "");
+        if(buy_acount+child_acount>0) {
+            num.setText((buy_acount + child_acount - 5) + "");
+            price.setText((buy_acount + child_acount - 5) * TicketPrice + "");
+        }
     }
 
     //普通投注
@@ -4199,6 +4205,8 @@ public class PukeActivity extends AppCompatActivity {
      * 清空和值号码
      */
     private void clearNum() {
+        buy_acount=0;
+        child_acount=0;
         switch (mSelecte_Mode) {
             case S_BAOXUAN:
                 initBAOXUAN();

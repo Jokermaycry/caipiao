@@ -76,6 +76,7 @@ public class MyFragment extends Fragment {
     @BindView(R.id.puke)
     LinearLayout puke;
     private Activity mActivity;
+    private String TAG = "fragment_my";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -83,6 +84,7 @@ public class MyFragment extends Fragment {
         ButterKnife.bind(this, view);
         mActivity = getActivity();
         initView();
+        Log.e(TAG, "onCreateView");
         return view;
 
     }

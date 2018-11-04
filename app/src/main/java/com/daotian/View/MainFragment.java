@@ -65,6 +65,8 @@ public class MainFragment extends Fragment {
     private ProgressDialog dialog;
     private List<TicketSortBO> list = new ArrayList<>();
     private ListAdapter mAdapter;
+    private String TAG = "fragment_main";
+
     /**
      * 异步线程
      */
@@ -80,6 +82,7 @@ public class MainFragment extends Fragment {
         dialog.setTitle("正在联网下载数据...");
         dialog.setMessage("请稍后...");
         initView();
+        Log.e(TAG, "onCreateView");
         return view;
 
     }
