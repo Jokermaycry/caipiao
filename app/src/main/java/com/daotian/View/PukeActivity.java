@@ -59,8 +59,7 @@ import cz.msebera.android.httpclient.Header;
  */
 
 public class PukeActivity extends AppCompatActivity {
-    int count=0;
-    int x=0;
+    int child_acount=0;
     int buy_acount = 0;
     //每注彩票价格
     private final int TicketPrice = 2;
@@ -261,14 +260,6 @@ public class PukeActivity extends AppCompatActivity {
     private List<String> duiziNums = new ArrayList<>();
     private TagAdapter<String> duiziAdapter;
     private List<NumInfo> duiziList = new ArrayList<>();
-
-
-//    //任选1
-//    // down 拖胆
-//    private List<String> RONENums = new ArrayList<>();
-//    private TagAdapter<String> RONEAdapter;
-//    private List<NumInfo> RONEList = new ArrayList<>();
-
 
     //任选2拖胆
     private List<String> tuodan_twonums = new ArrayList<>();
@@ -1547,31 +1538,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1598,31 +1589,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1649,31 +1640,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1700,31 +1691,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -1751,31 +1742,31 @@ public class PukeActivity extends AppCompatActivity {
             NumInfo info = new NumInfo();
             switch (i) {
                 case 0:
-                    info.setNum("A");info.setUpload_data("1");
+                    info.setNum("A");info.setUpload_data("01");
                     break;
                 case 1:
-                    info.setNum("2");info.setUpload_data("2");
+                    info.setNum("2");info.setUpload_data("02");
                     break;
                 case 2:
-                    info.setNum("3");info.setUpload_data("3");
+                    info.setNum("3");info.setUpload_data("03");
                     break;
                 case 3:
-                    info.setNum("4");info.setUpload_data("4");
+                    info.setNum("4");info.setUpload_data("04");
                     break;
                 case 4:
-                    info.setNum("5");info.setUpload_data("5");
+                    info.setNum("5");info.setUpload_data("05");
                     break;
                 case 5:
-                    info.setNum("6");info.setUpload_data("6");
+                    info.setNum("6");info.setUpload_data("06");
                     break;
                 case 6:
-                    info.setNum("7");info.setUpload_data("7");
+                    info.setNum("7");info.setUpload_data("07");
                     break;
                 case 7:
-                    info.setNum("8");info.setUpload_data("8");
+                    info.setNum("8");info.setUpload_data("08");
                     break;
                 case 8:
-                    info.setNum("9");info.setUpload_data("9");
+                    info.setNum("9");info.setUpload_data("09");
                     break;
                 case 9:
                     info.setNum("10");info.setUpload_data("10");
@@ -2291,8 +2282,7 @@ public class PukeActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * 同花   视图初始化
+    /*** 同花   视图初始化
      */
     private void initTONGHUA() {
 
@@ -2522,77 +2512,31 @@ public class PukeActivity extends AppCompatActivity {
         rtwo.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-
-                int number = 0;
-                //如果已经被点击如果被点击
-                if (tuodan_twolist.get(position).isTouchflag()) {
-                    //计算number
-                    for (int i = 0; i < tuodan_twolist.size(); i++) {
-                        if (tuodan_twolist.get(i).isTouchflag()) {
-                            number++;
-                        }
-                    }
-                    ToastUtil.toast(mActivity, String.valueOf(number));
-                    //超出胆码数量，提示，且设为false；
-                    if (number > 0) {
-                        ToastUtil.toast(mActivity, "胆码只能选择一个");
-                        ToastUtil.toast(mActivity, String.valueOf(number));
-                        tuodan_twolist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_twolist.get(position).isTouchflag()) {
-                            child_twolist.get(position).setTouchflag(false);
-                            child_twoAdapter.notifyDataChanged();
-
-                        }
-                    } else {
-                        tuodan_twolist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_twolist.get(position).isTouchflag()) {
-                            child_twolist.get(position).setTouchflag(false);
-                            child_twoAdapter.notifyDataChanged();
-
-                        }
-                        child_twoAdapter.notifyDataChanged();
-
-                    }
-                }
-                //没被点击的情况下，设置成true
-                else if(!tuodan_twolist.get(position).isTouchflag())
-                {
-                    //计算num
-                    for (int i = 0; i < tuodan_twolist.size(); i++)
-                    {
-                        if (tuodan_twolist.get(i).isTouchflag()) {
-                            number++;
-                        }
-
-
-                    }
-                    Log.e("wangweimingnumber",String.valueOf(number));
-                    if (number >0)
-                    {
-                        Log.e("wangweimingclick","number >0");
-                        Log.e("wangweimingclick",String.valueOf(position));
-                        ToastUtil.toast(mActivity, "胆码只能选择一个");
-                        tuodan_twolist.get(position).setTouchflag(false);
-                        if (child_twolist.get(position).isTouchflag()) {
-                            child_twolist.get(position).setTouchflag(false);
-                            child_twoAdapter.notifyDataChanged();
-                        }
-                    }
-                    else
-                    {
-                        Log.e("wangweimingclick","number <0");
-                        Log.e("wangweimingclick",String.valueOf(position));
-                        tuodan_twolist.get(position).setTouchflag(true);
-                        if (child_twolist.get(position).isTouchflag()) {
-                            child_twolist.get(position).setTouchflag(false);
-                            child_twoAdapter.notifyDataChanged();
-                        }
-                    }
-                    child_twoAdapter.notifyDataChanged();
-                }
-                calculate_two();
+        if (tuodan_twolist.get(position).isTouchflag()) {
+        tuodan_twolist.get(position).setTouchflag(false);
+        buy_acount=buy_acount-1;
+        twodan_twoadapter.notifyDataChanged();
+        }
+        else {
+        tuodan_twolist.get(position).setTouchflag(true);
+        if( child_twolist.get(position).isTouchflag())
+        {
+        child_twolist.get(position).setTouchflag(false);
+        child_acount--;
+        child_twoAdapter.notifyDataChanged();
+        }
+        buy_acount=buy_acount+1;
+        twodan_twoadapter.notifyDataChanged();
+        }
+        if(buy_acount>1)
+        {
+        ToastUtil.toast(mActivity, "胆码最多选1个");
+        tuodan_twolist.get(position).setTouchflag(false);
+        buy_acount--;
+        twodan_twoadapter.notifyDataChanged();
+        return false;
+        }
+        calculate_two();
                 return false;
             }
         });
@@ -2612,9 +2556,7 @@ public class PukeActivity extends AppCompatActivity {
                 } else {
                     tv.setBackgroundResource(images[position]);
                 }
-
-                return tv;
-            }
+                return tv; }
         };
         rtwo2.setAdapter(child_twoAdapter);
         rtwo2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
@@ -2623,25 +2565,19 @@ public class PukeActivity extends AppCompatActivity {
                 //同样的位置如果已经被点击
                 if (child_twolist.get(position).isTouchflag()) {
                     child_twolist.get(position).setTouchflag(false);
-                    if(tuodan_twolist.get(position).isTouchflag())
-                    {
-                        tuodan_twolist.get(position).setTouchflag(false);
-                        child_twoAdapter.notifyDataChanged();
-
-                    }
-
-
+                    child_acount--;
                     child_twoAdapter.notifyDataChanged();
                 } else {
 
                     child_twolist.get(position).setTouchflag(true);
-                    if(tuodan_twolist.get(position).isTouchflag())
+                    child_acount++;
+                    child_twoAdapter.notifyDataChanged();
+                    if( tuodan_twolist.get(position).isTouchflag())
                     {
                         tuodan_twolist.get(position).setTouchflag(false);
-                        child_twoAdapter.notifyDataChanged();
-
+                        buy_acount--;
+                        twodan_twoadapter.notifyDataChanged();
                     }
-                    child_twoAdapter.notifyDataChanged();
                 }
                 calculate_two();
                 return false;
@@ -2673,68 +2609,29 @@ public class PukeActivity extends AppCompatActivity {
         three.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-
-                int number = 0;
-                //如果被点击
                 if (tuodan_threelist.get(position).isTouchflag()) {
-                    //计算number
-                    for (int i = 0; i < tuodan_threelist.size(); i++)
-                    {
-                        if (tuodan_threelist.get(i).isTouchflag()) {
-                            number++;
-                        }
-                    }
-                    //超出胆码数量，提示，且设为false；
-                    if (number > 1)
-                    {
-                        ToastUtil.toast(mActivity, "胆码只能选择二个");
-                        tuodan_threelist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_threelist.get(position).isTouchflag()) {
-                            child_threelist.get(position).setTouchflag(false);
-                            child_threeadpter.notifyDataChanged();
-                        }
-                    }
-                    //没超出胆码数量
-                    else
-                    {
-                        tuodan_threelist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_threelist.get(position).isTouchflag()) {
-                            child_threelist.get(position).setTouchflag(false);
-                            child_threeadpter.notifyDataChanged();
-                        }
-                    }
+                    tuodan_threelist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     tuodan_threeadapter.notifyDataChanged();
                 }
-                //没被点击，设为true
-                else
-                {
-                    //计算num
-                    for (int i = 0; i < tuodan_threelist.size(); i++)
+                else {
+                    tuodan_threelist.get(position).setTouchflag(true);
+                    if( child_threelist.get(position).isTouchflag())
                     {
-                        if (tuodan_threelist.get(i).isTouchflag()) {
-                            number++;
-                        }
+                        child_threelist.get(position).setTouchflag(false);
+                        child_acount--;
+                        child_threeadpter.notifyDataChanged();
                     }
-                    if (number > 1)
-                    {
-                        ToastUtil.toast(mActivity, "胆码只能选择二个");
-                        tuodan_threelist.get(position).setTouchflag(false);
-                        if (child_threelist.get(position).isTouchflag()) {
-                            child_threelist.get(position).setTouchflag(false);
-                            child_threeadpter.notifyDataChanged();
-                        }
-                    }
-                    else
-                    {
-                        tuodan_threelist.get(position).setTouchflag(true);
-                        if (child_threelist.get(position).isTouchflag()) {
-                            child_threelist.get(position).setTouchflag(false);
-                            child_threeadpter.notifyDataChanged();
-                        }
-                    }
+                    buy_acount=buy_acount+1;
                     tuodan_threeadapter.notifyDataChanged();
+                }
+                if(buy_acount>2)
+                {
+                    ToastUtil.toast(mActivity, "胆码最多选2个");
+                    tuodan_threelist.get(position).setTouchflag(false);
+                    buy_acount--;
+                    tuodan_threeadapter.notifyDataChanged();
+                    return false;
                 }
                 calculate_three();
                 return false;
@@ -2765,25 +2662,21 @@ public class PukeActivity extends AppCompatActivity {
                 //同样的位置如果已经被点击
                 if (child_threelist.get(position).isTouchflag()) {
                     child_threelist.get(position).setTouchflag(false);
-                    if(tuodan_threelist.get(position).isTouchflag())
-                    {
-                        tuodan_threelist.get(position).setTouchflag(false);
-                        tuodan_threeadapter.notifyDataChanged();
-
-                    }
+                    child_acount--;
 
 
                     child_threeadpter.notifyDataChanged();
                 } else {
 
                     child_threelist.get(position).setTouchflag(true);
-                    if(tuodan_threelist.get(position).isTouchflag())
+                    child_acount++;
+                    child_threeadpter.notifyDataChanged();
+                    if( tuodan_threelist.get(position).isTouchflag())
                     {
                         tuodan_threelist.get(position).setTouchflag(false);
+                        buy_acount--;
                         tuodan_threeadapter.notifyDataChanged();
-
                     }
-                    child_threeadpter.notifyDataChanged();
                 }
                 calculate_three();
                 return false;
@@ -2815,71 +2708,29 @@ public class PukeActivity extends AppCompatActivity {
         four.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-
-                int number = 0;
-                //如果被点击
                 if (tuodan_fourlist.get(position).isTouchflag()) {
-                    //计算number
-                    for (int i = 0; i < tuodan_fourlist.size(); i++)
-                    {
-                        if (tuodan_fourlist.get(i).isTouchflag()) {
-                            number++;
-                        }
-                    }
-                    //超出胆码数量，提示，且设为false；
-                    if (number > 2)
-                    {
-                        ToastUtil.toast(mActivity, "胆码只能选择三个");
-                        tuodan_fourlist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_fourlist.get(position).isTouchflag()) {
-                            child_fourlist.get(position).setTouchflag(false);
-                            child_fourAdapter.notifyDataChanged();
-
-                        }
-                    }
-                    //没超出胆码数量
-                    else
-                    {
-                        tuodan_fourlist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_fourlist.get(position).isTouchflag()) {
-                            child_fourlist.get(position).setTouchflag(false);
-                            child_fourAdapter.notifyDataChanged();
-
-                        }
-                    }
+                    tuodan_fourlist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     tuodan_fouradapter.notifyDataChanged();
                 }
-                //没被点击，设为true
-                else
-                {
-                    //计算num
-                    for (int i = 0; i < tuodan_fourlist.size(); i++)
+                else {
+                    tuodan_fourlist.get(position).setTouchflag(true);
+                    if( child_fourlist.get(position).isTouchflag())
                     {
-                        if (tuodan_fourlist.get(i).isTouchflag()) {
-                            number++;
-                        }
+                        child_fourlist.get(position).setTouchflag(false);
+                        child_acount--;
+                        child_fourAdapter.notifyDataChanged();
                     }
-
-                    if (number > 2)
-                    {
-                        ToastUtil.toast(mActivity, "胆码只能选择三个");
-                        tuodan_fourlist.get(position).setTouchflag(false);
-                        if (child_fourlist.get(position).isTouchflag()) {
-                            child_fourlist.get(position).setTouchflag(false);
-                            child_fourAdapter.notifyDataChanged();
-                        }
-                    }
-                    else
-                    {
-                        tuodan_fourlist.get(position).setTouchflag(true);
-                        if (child_fourlist.get(position).isTouchflag()) {
-                            child_fourlist.get(position).setTouchflag(false);
-                            child_fourAdapter.notifyDataChanged();
-                        }
-                    }
+                    buy_acount=buy_acount+1;
                     tuodan_fouradapter.notifyDataChanged();
+                }
+                if(buy_acount>3)
+                {
+                    ToastUtil.toast(mActivity, "胆码最多选3个");
+                    tuodan_fourlist.get(position).setTouchflag(false);
+                    buy_acount--;
+                    tuodan_fouradapter.notifyDataChanged();
+                    return false;
                 }
                 calculate_four();
                 return false;
@@ -2909,25 +2760,22 @@ public class PukeActivity extends AppCompatActivity {
                 //同样的位置如果已经被点击
                 if (child_fourlist.get(position).isTouchflag()) {
                     child_fourlist.get(position).setTouchflag(false);
-                    if(tuodan_fourlist.get(position).isTouchflag())
-                    {
-                        tuodan_fourlist.get(position).setTouchflag(false);
-                        tuodan_fouradapter.notifyDataChanged();
-
-                    }
+                    child_acount--;
 
 
                     child_fourAdapter.notifyDataChanged();
                 } else {
 
                     child_fourlist.get(position).setTouchflag(true);
-                    if(tuodan_fourlist.get(position).isTouchflag())
+                    child_acount++;
+                    child_fourAdapter.notifyDataChanged();
+                    if( tuodan_fourlist.get(position).isTouchflag())
                     {
                         tuodan_fourlist.get(position).setTouchflag(false);
+                        buy_acount--;
                         tuodan_fouradapter.notifyDataChanged();
 
                     }
-                    child_fourAdapter.notifyDataChanged();
                 }
                 calculate_four();
                 return false;
@@ -2959,70 +2807,29 @@ public class PukeActivity extends AppCompatActivity {
         five.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                int number = 0;
-                //如果被点击
                 if (tuodan_fivelist.get(position).isTouchflag()) {
-                    //计算number
-                    for (int i = 0; i < tuodan_fivelist.size(); i++)
-                    {
-                        if (tuodan_fivelist.get(i).isTouchflag()) {
-                            number++;
-                        }
-                    }
-                    //超出胆码数量，提示，且设为false；
-                    if (number > 3)
-                    {
-                        ToastUtil.toast(mActivity, "胆码只能选择四个");
-                        tuodan_fivelist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_fivelist.get(position).isTouchflag()) {
-                            child_fivelist.get(position).setTouchflag(false);
-                            child_fiveAdapter.notifyDataChanged();
-
-                        }
-                    }
-                    //没超出胆码数量
-                    else
-                    {
-                        tuodan_fivelist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_fivelist.get(position).isTouchflag()) {
-                            child_fivelist.get(position).setTouchflag(false);
-                            child_fiveAdapter.notifyDataChanged();
-
-                        }
-                    }
+                    tuodan_fivelist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     tuodan_fiveadapter.notifyDataChanged();
                 }
-                //没被点击，设为true
-                else
-                {
-                    //计算num
-                    for (int i = 0; i < tuodan_fivelist.size(); i++)
+                else {
+                    tuodan_fivelist.get(position).setTouchflag(true);
+                    if( child_fivelist.get(position).isTouchflag())
                     {
-                        if (tuodan_fivelist.get(i).isTouchflag()) {
-                            number++;
-                        }
+                        child_fivelist.get(position).setTouchflag(false);
+                        child_acount--;
+                        child_fiveAdapter.notifyDataChanged();
                     }
-
-                    if (number > 3)
-                    {
-                        ToastUtil.toast(mActivity, "胆码只能选择四个");
-                        tuodan_fivelist.get(position).setTouchflag(false);
-                        if (child_fivelist.get(position).isTouchflag()) {
-                            child_fivelist.get(position).setTouchflag(false);
-                            child_fiveAdapter.notifyDataChanged();
-                        }
-                    }
-                    else
-                    {
-                        tuodan_fivelist.get(position).setTouchflag(true);
-                        if (child_fivelist.get(position).isTouchflag()) {
-                            child_fivelist.get(position).setTouchflag(false);
-                            child_fiveAdapter.notifyDataChanged();
-                        }
-                    }
+                    buy_acount=buy_acount+1;
                     tuodan_fiveadapter.notifyDataChanged();
+                }
+                if(buy_acount>4)
+                {
+                    ToastUtil.toast(mActivity, "胆码最多选4个");
+                    tuodan_fivelist.get(position).setTouchflag(false);
+                    buy_acount--;
+                    tuodan_fiveadapter.notifyDataChanged();
+                    return false;
                 }
                 calculate_five();
                 return false;
@@ -3053,25 +2860,19 @@ public class PukeActivity extends AppCompatActivity {
                 //同样的位置如果已经被点击
                 if (child_fivelist.get(position).isTouchflag()) {
                     child_fivelist.get(position).setTouchflag(false);
-                    if(tuodan_fivelist.get(position).isTouchflag())
-                    {
-                        tuodan_fivelist.get(position).setTouchflag(false);
-                        tuodan_fiveadapter.notifyDataChanged();
-
-                    }
-
-
+                    child_acount--;
                     child_fiveAdapter.notifyDataChanged();
                 } else {
-
                     child_fivelist.get(position).setTouchflag(true);
-                    if(tuodan_fivelist.get(position).isTouchflag())
+                    child_acount++;
+                    child_fiveAdapter.notifyDataChanged();
+                    if( tuodan_fivelist.get(position).isTouchflag())
                     {
                         tuodan_fivelist.get(position).setTouchflag(false);
+                        buy_acount--;
                         tuodan_fiveadapter.notifyDataChanged();
 
                     }
-                    child_fiveAdapter.notifyDataChanged();
                 }
                 calculate_five();
                 return false;
@@ -3104,66 +2905,30 @@ public class PukeActivity extends AppCompatActivity {
         six.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                int number = 0;
-                    //如果被点击
                 if (tuodan_sixlist.get(position).isTouchflag()) {
-                    //计算number
-                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                        if (tuodan_sixlist.get(i).isTouchflag()) {
-                            number++;
-                        }
-                    }
-                    //超出胆码数量，提示，且设为false；
-                    if (number > 4) {
-                        ToastUtil.toast(mActivity, "胆码只能选择五个");
-                        tuodan_sixlist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_sixlist.get(position).isTouchflag()) {
-                            child_sixlist.get(position).setTouchflag(false);
-                            child_sixAdapter.notifyDataChanged();
-
-                        }
-                    }
-                    //没超出胆码数量
-                    else {
-                        tuodan_sixlist.get(position).setTouchflag(false);
-                        //取消冲突
-                        if (child_sixlist.get(position).isTouchflag()) {
-                            child_sixlist.get(position).setTouchflag(false);
-                            child_sixAdapter.notifyDataChanged();
-
-                        }
-                    }
+                    tuodan_sixlist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     tuodan_sixadapter.notifyDataChanged();
                 }
-                //没被点击，设为true
-                else
-                    {
-                        //计算num
-                    for (int i = 0; i < tuodan_sixlist.size(); i++) {
-                        if (tuodan_sixlist.get(i).isTouchflag()) {
-                            number++;
-                        }
-                    }
-                    if (number > 4) {
-                        ToastUtil.toast(mActivity, "胆码只能选择五个");
-                        tuodan_sixlist.get(position).setTouchflag(false);
-                        if (child_sixlist.get(position).isTouchflag()) {
-                            child_sixlist.get(position).setTouchflag(false);
-                            child_sixAdapter.notifyDataChanged();
-
-                        }
-                    }
-                    else {
-                        tuodan_sixlist.get(position).setTouchflag(true);
-                        if (child_sixlist.get(position).isTouchflag()) {
-                            child_sixlist.get(position).setTouchflag(false);
-                            child_sixAdapter.notifyDataChanged();
-
-                        }
-                    }
-
+                else {
+                    tuodan_sixlist.get(position).setTouchflag(true);
+                    buy_acount=buy_acount+1;
                     tuodan_sixadapter.notifyDataChanged();
+                    if( child_sixlist.get(position).isTouchflag())
+                    {
+                        child_sixlist.get(position).setTouchflag(false);
+                        child_acount--;
+                        child_sixAdapter.notifyDataChanged();
+                    }
+
+                }
+                if(buy_acount>5)
+                {
+                    ToastUtil.toast(mActivity, "胆码最多选5个");
+                    tuodan_sixlist.get(position).setTouchflag(false);
+                    buy_acount--;
+                    tuodan_sixadapter.notifyDataChanged();
+                    return false;
                 }
                 calculate_six();
                 return false;
@@ -3195,25 +2960,19 @@ public class PukeActivity extends AppCompatActivity {
                     //同样的位置如果已经被点击
                 if (child_sixlist.get(position).isTouchflag()) {
                     child_sixlist.get(position).setTouchflag(false);
-                    if(tuodan_sixlist.get(position).isTouchflag())
-                    {
-                        tuodan_sixlist.get(position).setTouchflag(false);
-                        tuodan_sixadapter.notifyDataChanged();
-
-                    }
-
-
+                    buy_acount=buy_acount-1;
                     child_sixAdapter.notifyDataChanged();
                 } else {
-
                     child_sixlist.get(position).setTouchflag(true);
-                    if(tuodan_sixlist.get(position).isTouchflag())
+                    buy_acount=buy_acount+1;
+                    child_sixAdapter.notifyDataChanged();
+                    if( tuodan_sixlist.get(position).isTouchflag())
                     {
                         tuodan_sixlist.get(position).setTouchflag(false);
+                        buy_acount--;
                         tuodan_sixadapter.notifyDataChanged();
 
                     }
-                    child_sixAdapter.notifyDataChanged();
                 }
                 calculate_six();
                 return false;
@@ -3251,9 +3010,11 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (putong_onelist.get(position).isTouchflag()) {
                     putong_onelist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     putong_neadapter.notifyDataChanged();
                 } else {
                     putong_onelist.get(position).setTouchflag(true);
+                    buy_acount=buy_acount+1;
                     putong_neadapter.notifyDataChanged();
                 }
                 calculate_rone();
@@ -3289,9 +3050,11 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (putong_twolist.get(position).isTouchflag()) {
                     putong_twolist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     putong_threeadapter.notifyDataChanged();
                 } else {
                     putong_twolist.get(position).setTouchflag(true);
+                    buy_acount=buy_acount+1;
                     putong_twoadapter.notifyDataChanged();
                 }
                 calculate_rtwo();
@@ -3326,9 +3089,11 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (putongthreelist.get(position).isTouchflag()) {
                     putongthreelist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     putong_threeadapter.notifyDataChanged();
                 } else {
                     putongthreelist.get(position).setTouchflag(true);
+                    buy_acount=buy_acount+1;
                     putong_threeadapter.notifyDataChanged();
                 }
                 calculate_rthree();
@@ -3363,9 +3128,11 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (putong_fourlist.get(position).isTouchflag()) {
                     putong_fourlist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     putong_fouradapter.notifyDataChanged();
                 } else {
                     putong_fourlist.get(position).setTouchflag(true);
+                    buy_acount=buy_acount+1;
                     putong_fouradapter.notifyDataChanged();
                 }
                 calculate_rfour();
@@ -3400,9 +3167,11 @@ public class PukeActivity extends AppCompatActivity {
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (putong_fivelist.get(position).isTouchflag()) {
                     putong_fivelist.get(position).setTouchflag(false);
+                    buy_acount=buy_acount-1;
                     putong_fiveadapter.notifyDataChanged();
                 } else {
                     putong_fivelist.get(position).setTouchflag(true);
+                    buy_acount=buy_acount+1;
                     putong_fiveadapter.notifyDataChanged();
                 }
                 calculate_rfive();
@@ -3553,10 +3322,54 @@ public class PukeActivity extends AppCompatActivity {
      * 选中号码
      */
     private void numbersComfirm() {
+
         if (num.getText().toString().equals("0")) {
             ToastUtil.toast(mActivity, "至少购买一注");
             return;
         }
+        switch (mSelecte_Mode)
+        {
+
+            case tuodan_two:
+                if(buy_acount!=1)
+                {
+                    ToastUtil.toast(mActivity, "至少购买1注");
+                    return  ;
+                }
+
+                break;
+            case tuodan_three:
+                if(buy_acount!=2)
+                {
+                    ToastUtil.toast(mActivity, "至少购买2注");
+                    return  ;
+                }
+
+                break;
+            case tuodan_four:
+                if(buy_acount!=3)
+                {
+                    ToastUtil.toast(mActivity, "至少购买3注");
+                    return  ;
+                }
+                break;
+            case tuodan_five:
+                if(buy_acount!=4)
+                {
+                    ToastUtil.toast(mActivity, "至少购买4注");
+                    return  ;
+                }
+                break;
+            case tuodan_six:
+                if(buy_acount!=5)
+                {
+                    ToastUtil.toast(mActivity, "至少购买5注");
+                    return ;
+                }
+                break;
+        }
+        buy_acount=0;
+        child_acount=0;
         if (mContinue) {
             Log.e("mContinue", "true");
             Intent in = new Intent(PukeActivity.this, PukeDetailActivity.class);
@@ -3639,6 +3452,52 @@ public class PukeActivity extends AppCompatActivity {
         }
 
 
+    }
+    private boolean checkrightorfalse()
+    {
+        switch (mSelecte_Mode)
+        {
+
+            case tuodan_two:
+                if(buy_acount!=1)
+                {
+                    ToastUtil.toast(mActivity, "至少购买1注");
+                    return  false;
+                }
+
+                break;
+            case tuodan_three:
+                if(buy_acount!=2)
+                {
+                    ToastUtil.toast(mActivity, "至少购买2注");
+                    return  false;
+                }
+
+                break;
+            case tuodan_four:
+                if(buy_acount!=3)
+                {
+                    ToastUtil.toast(mActivity, "至少购买3注");
+                    return  false;
+                }
+                break;
+            case tuodan_five:
+                if(buy_acount!=4)
+                {
+                    ToastUtil.toast(mActivity, "至少购买4注");
+                    return  false;
+                }
+                break;
+            case tuodan_six:
+                if(buy_acount!=5)
+                {
+                    ToastUtil.toast(mActivity, "至少购买5注");
+                    return  false;
+                }
+                break;
+
+        }
+        return false;
     }
 
 
@@ -3732,82 +3591,36 @@ public class PukeActivity extends AppCompatActivity {
     }
         //拖胆
     public void calculate_two() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
-        int but_two=0;
-        for (int i = 0; i < tuodan_twolist.size(); i++) {
-            if (tuodan_twolist.get(i).isTouchflag()) {
-                buy_acount++;
 
-            }
-        }
-        for (int i = 0; i < putong_twolist.size(); i++) {
-            if (putong_twolist.get(i).isTouchflag()) {
-                but_two++;
-
-            }
-        }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
+        num.setText((buy_acount+child_acount-1) + "");
+        price.setText((buy_acount+child_acount-1) * TicketPrice + "");
     }
     //拖胆
     public void calculate_three() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
 
-        for (int i = 0; i < tuodan_threelist.size(); i++) {
-            if (tuodan_threelist.get(i).isTouchflag()) {
-                buy_acount++;
-
-            }
-        }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
+        num.setText((buy_acount+child_acount-2) + "");
+        price.setText((buy_acount+child_acount-2) * TicketPrice + "");
     }
     //拖胆
 
     public void calculate_four() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
 
-        for (int i = 0; i < tuodan_fourlist.size(); i++) {
-            if (tuodan_fourlist.get(i).isTouchflag()) {
-                buy_acount++;
-
-            }
-        }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
+        num.setText((buy_acount+child_acount-3) + "");
+        price.setText((buy_acount+child_acount-3) * TicketPrice + "");
     }
 
     //拖胆
     public void calculate_five() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
 
-        for (int i = 0; i < tuodan_fivelist.size(); i++) {
-            if (tuodan_fivelist.get(i).isTouchflag()) {
-                buy_acount++;
-
-            }
-        }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
+        num.setText((buy_acount+child_acount-4) + "");
+        price.setText((buy_acount+child_acount-4) * TicketPrice + "");
     }
 
     //拖胆
     public void calculate_six() {
-        //计算选中的注数和金额
-        int buy_acount = 0;
 
-        for (int i = 0; i < tuodan_sixlist.size(); i++) {
-            if (tuodan_sixlist.get(i).isTouchflag()) {
-                buy_acount++;
-                // Log.e("sumValueSelecte", duiziList.get(i).getNum());
-            }
-        }
-        num.setText(buy_acount + "");
-        price.setText(buy_acount * TicketPrice + "");
+        num.setText((buy_acount+child_acount-5) + "");
+        price.setText((buy_acount+child_acount-5) * TicketPrice + "");
     }
 
     //普通投注
@@ -4373,6 +4186,8 @@ public class PukeActivity extends AppCompatActivity {
                             break;
                     }
                     mAcache.put("PUKEMODE", mSelecte_Mode + "");
+                    buy_acount=0;
+                    child_acount=0;
                     initRule();
                     clearNum();
                 }
