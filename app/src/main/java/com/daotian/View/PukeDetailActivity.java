@@ -172,7 +172,7 @@ public class PukeDetailActivity extends AppCompatActivity {
         initIntent();
         getData();
         getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        randomBtn.setVisibility(View.GONE);
+
     }
     private void getData() {
         HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -1145,19 +1145,19 @@ public class PukeDetailActivity extends AppCompatActivity {
 //                    mode_tv.setText("任选一");
 //                    break;
                 case tuodan_two:
-                    mode_tv.setText("任选二");
+                    mode_tv.setText("拖胆-任选二");
                     break;
                 case tuodan_three:
-                    mode_tv.setText("任选三");
+                    mode_tv.setText("拖胆-任选三");
                     break;
                 case tuodan_four:
-                    mode_tv.setText("任选四");
+                    mode_tv.setText("拖胆-任选四");
                     break;
                 case tuodan_five:
-                    mode_tv.setText("任选五");
+                    mode_tv.setText("拖胆-任选五");
                     break;
                 case tuodan_six:
-                    mode_tv.setText("任选六");
+                    mode_tv.setText("拖胆-任选六");
                     break;
                 //up
                 case putong_one:
@@ -1538,323 +1538,40 @@ public class PukeDetailActivity extends AppCompatActivity {
 
 
                 break;
-                    //普通任选模式
-//            case SD_ONE:
-//                for (int i = 0; i < 13; i++) {
-//                    random_list.add(i +"");
-//                }
-//                result = numberRandom(1, random_list);
-//
-//                    NumInfo putong_one_info = new NumInfo();
-//                    switch (result[0]) {
-//                        case 0:
-//                            putong_one_info.setNum("A");
-//                            break;
-//                        case 1:
-//                            putong_one_info.setNum("2");
-//                            break;
-//                        case 2:
-//                            putong_one_info.setNum("3");
-//                            break;
-//                        case 3:
-//                            putong_one_info.setNum("4");
-//                            break;
-//                        case 4:
-//                            putong_one_info.setNum("5");
-//                            break;
-//                        case 5:
-//                            putong_one_info.setNum("6");
-//                            break;
-//                        case 6:
-//                            putong_one_info.setNum("7");
-//                            break;
-//                        case 7:
-//                            putong_one_info.setNum("8");
-//                            break;
-//                        case 8:
-//                            putong_one_info.setNum("9");
-//                            break;
-//                        case 9:
-//                            putong_one_info.setNum("10");
-//                            break;
-//                        case 10:
-//                            putong_one_info.setNum("J");
-//                            break;
-//                        case 11:
-//                            putong_one_info.setNum("Q");
-//                            break;
-//                        case 12:
-//                            putong_one_info.setNum("K");
-//                            break;
-//
-//
-//                    }
-//                    result_list1.add(putong_one_info);
-//
-//                break;
-            case tuodan_two:
-                for (int i = 0; i < 13; i++) {
-                    random_list.add(i +"");
-                }
-                result = numberRandom(2, random_list);
-                for (int i = 0; i < result.length; i++) {
-                    NumInfo info = new NumInfo();
-                    switch (result[i]) {
-                        case 0:
-                            info.setNum("A");
-                            info.setUpload_data("01");
-                            break;
-                        case 1:
-                            info.setNum("2");
-                            info.setUpload_data("02");
-                            break;
-                        case 2:
-                            info.setNum("3");
-                            info.setUpload_data("03");
-                            break;
-                        case 3:
-                            info.setNum("4");info.setUpload_data("04");
-                            break;
-                        case 4:
-                            info.setNum("5");info.setUpload_data("05");
-                            break;
-                        case 5:
-                            info.setNum("6");info.setUpload_data("06");
-                            break;
-                        case 6:
-                            info.setNum("7");info.setUpload_data("07");
-                            break;
-                        case 7:
-                            info.setNum("8");info.setUpload_data("08");
-                            break;
-                        case 8:
-                            info.setNum("9");info.setUpload_data("09");
-                            break;
-                        case 9:
-                            info.setNum("10");info.setUpload_data("10");
-                            break;
-                        case 10:
-                            info.setNum("J");info.setUpload_data("11");
-                            break;
-                        case 11:
-                            info.setNum("Q");info.setUpload_data("12");
-                            break;
-                        case 12:
-                            info.setNum("K");info.setUpload_data("13");
-                            break;
 
-                    }
-                    result_list1.add(info);
+            case tuodan_two:
+                if(mSelecte_Mode==tuodan_two) {
+                    ToastUtil.toast(mActivity, "抱歉，该玩法不支持机选");
+                    return;
                 }
+
+
                 break;
             case tuodan_three:
-                for (int i = 0; i < 13; i++) {
-                    random_list.add(i +"");
-                }
-                result = numberRandom(3, random_list);
-                for (int i = 0; i < result.length; i++) {
-                    NumInfo info = new NumInfo();
-                    switch (result[i]) {
-                        case 0:
-                            info.setNum("A");info.setUpload_data("01");
-                            break;
-                        case 1:
-                            info.setNum("2");info.setUpload_data("02");
-                            break;
-                        case 2:
-                            info.setNum("3");info.setUpload_data("03");
-                            break;
-                        case 3:
-                            info.setNum("4");info.setUpload_data("04");
-                            break;
-                        case 4:
-                            info.setNum("5");info.setUpload_data("05");
-                            break;
-                        case 5:
-                            info.setNum("6");info.setUpload_data("06");
-                            break;
-                        case 6:
-                            info.setNum("7");info.setUpload_data("07");
-                            break;
-                        case 7:
-                            info.setNum("8");info.setUpload_data("08");
-                            break;
-                        case 8:
-                            info.setNum("9");info.setUpload_data("09");
-                            break;
-                        case 9:
-                            info.setNum("10");info.setUpload_data("10");
-                            break;
-                        case 10:
-                            info.setNum("J");info.setUpload_data("11");
-                            break;
-                        case 11:
-                            info.setNum("Q");info.setUpload_data("12");
-                            break;
-                        case 12:
-                            info.setNum("K");info.setUpload_data("13");
-                            break;
-
-                    }
-                    result_list1.add(info);
+                if(mSelecte_Mode==tuodan_three) {
+                    ToastUtil.toast(mActivity, "抱歉，该玩法不支持机选");
+                    return;
                 }
                 break;
             case tuodan_four:
-                for (int i = 0; i < 13; i++) {
-                    random_list.add(i +"");
+                if(mSelecte_Mode==tuodan_four) {
+                    ToastUtil.toast(mActivity, "抱歉，该玩法不支持机选");
+                    return;
                 }
-                result = numberRandom(4, random_list);
-                for (int i = 0; i < result.length; i++) {
-                    NumInfo info = new NumInfo();
-                    switch (result[i]) {
-                        case 0:
-                            info.setNum("A");info.setUpload_data("01");
-                            break;
-                        case 1:
-                            info.setNum("2");info.setUpload_data("02");
-                            break;
-                        case 2:
-                            info.setNum("3");info.setUpload_data("03");
-                            break;
-                        case 3:
-                            info.setNum("4");info.setUpload_data("04");
-                            break;
-                        case 4:
-                            info.setNum("5");info.setUpload_data("05");
-                            break;
-                        case 5:
-                            info.setNum("6");info.setUpload_data("06");
-                            break;
-                        case 6:
-                            info.setNum("7");info.setUpload_data("07");
-                            break;
-                        case 7:
-                            info.setNum("8");info.setUpload_data("08");
-                            break;
-                        case 8:
-                            info.setNum("9");info.setUpload_data("09");
-                            break;
-                        case 9:
-                            info.setNum("10");info.setUpload_data("10");
-                            break;
-                        case 10:
-                            info.setNum("J");info.setUpload_data("11");
-                            break;
-                        case 11:
-                            info.setNum("Q");info.setUpload_data("12");
-                            break;
-                        case 12:
-                            info.setNum("K");info.setUpload_data("13");
-                            break;
 
-                    }
-                    result_list1.add(info);
-                }
                 break;
             case tuodan_five:
-                for (int i = 0; i < 13; i++) {
-                    random_list.add(i +"");
-                }
-                result = numberRandom(5, random_list);
-                for (int i = 0; i < result.length; i++) {
-                    NumInfo info = new NumInfo();
-                    switch (result[i]) {
-                        case 0:
-                            info.setNum("A");info.setUpload_data("01");
-                            break;
-                        case 1:
-                            info.setNum("2");info.setUpload_data("02");
-                            break;
-                        case 2:
-                            info.setNum("3");info.setUpload_data("03");
-                            break;
-                        case 3:
-                            info.setNum("4");info.setUpload_data("04");
-                            break;
-                        case 4:
-                            info.setNum("5");info.setUpload_data("05");
-                            break;
-                        case 5:
-                            info.setNum("6");info.setUpload_data("06");
-                            break;
-                        case 6:
-                            info.setNum("7");info.setUpload_data("07");
-                            break;
-                        case 7:
-                            info.setNum("8");info.setUpload_data("08");
-                            break;
-                        case 8:
-                            info.setNum("9");info.setUpload_data("09");
-                            break;
-                        case 9:
-                            info.setNum("10");info.setUpload_data("10");
-                            break;
-                        case 10:
-                            info.setNum("J");info.setUpload_data("11");
-                            break;
-                        case 11:
-                            info.setNum("Q");info.setUpload_data("12");
-                            break;
-                        case 12:
-                            info.setNum("K");info.setUpload_data("13");
-                            break;
-
-                    }
-                    result_list1.add(info);
+                if(mSelecte_Mode==tuodan_five) {
+                    ToastUtil.toast(mActivity, "抱歉，该玩法不支持机选");
+                    return;
                 }
                 break;
             case tuodan_six:
-                for (int i = 0; i < 13; i++) {
-                    random_list.add(i +"");
+                if(mSelecte_Mode==tuodan_six) {
+                    ToastUtil.toast(mActivity, "抱歉，该玩法不支持机选");
+                    return;
                 }
-                result = numberRandom(6, random_list);
-                for (int i = 0; i < result.length; i++) {
-                    NumInfo info = new NumInfo();
-                    switch (result[i]) {
-                        case 0:
-                            info.setNum("A");info.setUpload_data("01");
-                            break;
-                        case 1:
-                            info.setNum("2");info.setUpload_data("02");
-                            break;
-                        case 2:
-                            info.setNum("3");info.setUpload_data("03");
-                            break;
-                        case 3:
-                            info.setNum("4");info.setUpload_data("04");
-                            break;
-                        case 4:
-                            info.setNum("5");info.setUpload_data("05");
-                            break;
-                        case 5:
-                            info.setNum("6");info.setUpload_data("06");
-                            break;
-                        case 6:
-                            info.setNum("7");info.setUpload_data("07");
-                            break;
-                        case 7:
-                            info.setNum("8");info.setUpload_data("08");
-                            break;
-                        case 8:
-                            info.setNum("9");info.setUpload_data("09");
-                            break;
-                        case 9:
-                            info.setNum("10");info.setUpload_data("10");
-                            break;
-                        case 10:
-                            info.setNum("J");info.setUpload_data("11");
-                            break;
-                        case 11:
-                            info.setNum("Q");info.setUpload_data("12");
-                            break;
-                        case 12:
-                            info.setNum("K");info.setUpload_data("13");
-                            break;
 
-
-                    }
-                    result_list1.add(info);
-                }
                 break;
 
 

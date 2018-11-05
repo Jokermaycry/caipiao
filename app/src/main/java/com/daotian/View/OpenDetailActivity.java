@@ -178,10 +178,30 @@ public class OpenDetailActivity extends AppCompatActivity {
                 TagAdapter<String> numAdapter = new TagAdapter<String>(nums) {
                     @Override
                     public View getView(FlowLayout parent, int position, String s) {
-                        TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_detail_one, numTag, false);
+                        TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                        Log.e("wangweiming_all", s);
 
-                        Log.e("wangweiming", s.substring(1));
-                        tv.setText(s.substring(0, 1));
+                        String string=s.substring(1);
+                        switch (string)
+                        {
+                            case "11":
+
+                                tv.setText("J");
+                                break;
+                            case "12":
+
+                                tv.setText("Q");
+                                break;
+                            case "13":
+
+                                tv.setText("K");
+                                break;
+                                default:
+                                    tv.setText(s.substring(0, 1));
+                                    break;
+
+                        }
+
                         if (name.equals("山东扑克3")) {
                             switch (s.substring(0, 1)) {
                                 case "1":

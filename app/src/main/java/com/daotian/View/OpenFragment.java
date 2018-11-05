@@ -176,7 +176,7 @@ public class OpenFragment extends Fragment {
                         String temprary = temp.substring(0, 1);
                         switch (s.substring(0, 1)) {
                             case "1":
-                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
                                 tv.setBackgroundResource(R.drawable.tonghua1);
 
                                 if (temprary.equals("0")) {
@@ -187,7 +187,7 @@ public class OpenFragment extends Fragment {
                                 break;
 
                             case "2":
-                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
                                 tv.setBackgroundResource(R.drawable.tonghua2);
                                 if (temprary.equals("0")) {
                                     tv.setText(temp.substring(1));
@@ -196,7 +196,7 @@ public class OpenFragment extends Fragment {
                                 }
                                 break;
                             case "3":
-                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
                                 tv.setBackgroundResource(R.drawable.tonghua3);
                                 if (temprary.equals("0")) {
                                     tv.setText(temp.substring(1));
@@ -205,7 +205,7 @@ public class OpenFragment extends Fragment {
                                 }
                                 break;
                             case "4":
-                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_puke_open, numTag, false);
+                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
                                 tv.setBackgroundResource(R.drawable.tonghua4);
                                 if (temprary.equals("0")) {
                                     tv.setText(temp.substring(1));

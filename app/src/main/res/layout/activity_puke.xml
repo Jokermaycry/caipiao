@@ -466,7 +466,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="请至少选择1个胆码"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -495,7 +495,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="我认为可能出的牌最少选择1张，最多选择12张"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -533,7 +533,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="请至少选择2个胆码"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -562,7 +562,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="我认为可能出的牌最少选择1张，最多选择12张"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -600,7 +600,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="请至少选择3个胆码"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -629,7 +629,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="我认为可能出的牌最少选择1张，最多选择12张"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -667,7 +667,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="请至少选择4个胆码"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -696,7 +696,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="我认为可能出的牌最少选择1张，最多选择12张"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -733,7 +733,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="请至少选择5个胆码"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -762,7 +762,7 @@
                     <TextView
                         android:textSize="13sp"
                         android:layout_marginLeft="5dp"
-                        android:text="请至少选择一个号码"
+                        android:text="我认为可能出的牌最少选择1张，最多选择12张"
                         android:textColor="@color/theme_color1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
