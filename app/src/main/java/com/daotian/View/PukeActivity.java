@@ -3600,53 +3600,100 @@ public class PukeActivity extends AppCompatActivity {
     }
     //拖胆
     public void calculate_three() {
-        if(buy_acount+child_acount>=3&&buy_acount>=1) {
-            num.setText((buy_acount + child_acount - 2) + "");
-            price.setText((buy_acount + child_acount - 2) * TicketPrice + "");
+        if ((buy_acount+child_acount)<3 || buy_acount<1 ||child_acount<1) {
+            num.setText("0");
+            price.setText("0");
+        }else if(buy_acount==2){
+            num.setText( buy_acount + "");
+            price.setText( buy_acount* TicketPrice+ "");
+        }else{
+            rank(child_acount,2);
+            num.setText(allnum + "");
+            price.setText(allnum * TicketPrice + "");
         }
-        if(buy_acount<1)
-        {
-            num.setText(0 + "");
-            price.setText(0+ "");
-        }
+
     }
     //拖胆
 
     public void calculate_four() {
-        if(buy_acount+child_acount>=4&&buy_acount>=1) {
-            num.setText((buy_acount + child_acount - 3) + "");
-            price.setText((buy_acount + child_acount - 3) * TicketPrice + "");
+        if ((buy_acount+child_acount)<4 || buy_acount<1 ||child_acount<1) {
+            num.setText("0");
+            price.setText("0");
+        }else if(buy_acount==3) {
+            num.setText(buy_acount + "");
+            price.setText(buy_acount * TicketPrice + "");
         }
-        if(buy_acount<1)
-        {
-            num.setText(0 + "");
-            price.setText(0+ "");
+        else if(buy_acount==2)
+            {
+                rank(child_acount,2);
+                num.setText( buy_acount + "");
+                price.setText( buy_acount* TicketPrice+ "");
+        }else{
+            rank(child_acount,3);
+            num.setText(allnum + "");
+            price.setText(allnum * TicketPrice + "");
         }
+
     }
 
     //拖胆
     public void calculate_five() {
-        if(buy_acount+child_acount>=5&&buy_acount>=1) {
-            num.setText((buy_acount + child_acount - 4) + "");
-            price.setText((buy_acount + child_acount - 4) * TicketPrice + "");
+        if ((buy_acount+child_acount)<5 || buy_acount<1 ||child_acount<1) {
+            num.setText("0");
+            price.setText("0");
+        }else if(buy_acount==4) {
+            num.setText(buy_acount + "");
+            price.setText(buy_acount * TicketPrice + "");
         }
-        if(buy_acount<1)
+        else if(buy_acount==3)
         {
-            num.setText(0 + "");
-            price.setText(0+ "");
+            rank(child_acount,2);
+            num.setText(buy_acount + "");
+            price.setText(buy_acount * TicketPrice + "");
+
+        }
+        else if(buy_acount==2)
+        {
+            rank(child_acount,3);
+            num.setText( buy_acount + "");
+            price.setText( buy_acount* TicketPrice+ "");
+        }else{
+            rank(child_acount,4);
+            num.setText(allnum + "");
+            price.setText(allnum * TicketPrice + "");
         }
     }
 
     //拖胆
     public void calculate_six() {
-        if(buy_acount+child_acount>=6&&buy_acount>=1) {
-            num.setText((buy_acount + child_acount - 5) + "");
-            price.setText((buy_acount + child_acount - 5) * TicketPrice + "");
+        if ((buy_acount+child_acount)<6 || buy_acount<1 ||child_acount<1) {
+            num.setText("0");
+            price.setText("0");
+        }else if(buy_acount==5) {
+            num.setText(buy_acount + "");
+            price.setText(buy_acount * TicketPrice + "");
         }
-        if(buy_acount<1)
+        else if(buy_acount==4) {
+            rank(child_acount,2);
+            num.setText(buy_acount + "");
+            price.setText(buy_acount * TicketPrice + "");
+        }
+        else if(buy_acount==3)
         {
-            num.setText(0 + "");
-            price.setText(0+ "");
+            rank(child_acount,3);
+            num.setText(buy_acount + "");
+            price.setText(buy_acount * TicketPrice + "");
+
+        }
+        else if(buy_acount==2)
+        {
+            rank(child_acount,4);
+            num.setText( buy_acount + "");
+            price.setText( buy_acount* TicketPrice+ "");
+        }else{
+            rank(child_acount,5);
+            num.setText(allnum + "");
+            price.setText(allnum * TicketPrice + "");
         }
     }
 
@@ -3846,6 +3893,8 @@ public class PukeActivity extends AppCompatActivity {
                 price.setText(572+ "");
                 break;
         }
+
+
     }
 
     /**
