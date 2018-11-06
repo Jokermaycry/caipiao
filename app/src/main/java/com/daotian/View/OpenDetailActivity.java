@@ -164,6 +164,7 @@ public class OpenDetailActivity extends AppCompatActivity {
 
             holder.setText(R.id.log_num,"第"+info.getLog_num()+"期");
             holder.setText(R.id.open_time, TimeUtils.formatTimeMinute(Long.valueOf(info.getOpen_time())*1000));
+            holder.setText(R.id.openname,info.getOpen_name());
             List<String> nums =JSON.parseArray(info.getOpen_num(),String.class);
             String num="";
             for(int i=0;i<nums.size();i++){

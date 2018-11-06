@@ -8,6 +8,14 @@ public class OpenDetailBO {
     String log_num;
     String open_num;
     String open_time;
+    String open_name;
+    public String getOpen_name() {
+        return open_name;
+    }
+
+    public void setOpen_name(String open_name) {
+        this.open_name = open_name;
+    }
 
     public String getLog_num() {
         return log_num;

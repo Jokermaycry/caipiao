@@ -13,6 +13,15 @@ public class OpenListBO {
     private String last_open_time;//开奖时间 	String
     private String open_num;//开奖时间 	String
     private String type;
+    private String open_name;
+
+    public String getOpen_name() {
+        return open_name;
+    }
+
+    public void setOpen_name(String open_name) {
+        this.open_name = open_name;
+    }
 
     public String getName() {
         return name;

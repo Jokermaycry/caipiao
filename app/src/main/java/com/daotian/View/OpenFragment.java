@@ -61,6 +61,7 @@ public class OpenFragment extends Fragment {
     private List<OpenListBO> list = new ArrayList<>();
     private MyApdater myApdater;
     private String TAG = "OpenFragment";
+    private String openname;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -156,6 +157,7 @@ public class OpenFragment extends Fragment {
             TextView name = holder.getView(R.id.name);
             TextView log_num = holder.getView(R.id.log_num);
             TextView dur_time = holder.getView(R.id.dur_time);
+            TextView openname=holder.getView(R.id.openname);
             List<String> nums;
             if (!TextUtils.isEmpty(info.getOpen_num())) {
                 nums = JSON.parseArray(info.getOpen_num(), String.class);
@@ -223,11 +225,12 @@ public class OpenFragment extends Fragment {
                 log_num.setVisibility(View.GONE);
                 dur_time.setVisibility(View.VISIBLE);
                 dur_time.setText("暂无开奖信息");
+                openname.setText(info.getOpen_name());
                 numTag.setVisibility(View.GONE);
             } else {
                 log_num.setVisibility(View.VISIBLE);
                 dur_time.setVisibility(View.VISIBLE);
-
+                openname.setText(info.getOpen_name());
                 log_num.setText(info.getLast_qs() + "期");
                 dur_time.setText("每" + info.getPer_time() + "秒一期");
             }
