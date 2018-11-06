@@ -285,7 +285,7 @@ public class PukeActivity extends AppCompatActivity {
 
     //任选1   普通投注
     private List<String> putong_onenums = new ArrayList<>();
-    private TagAdapter<String> putong_neadapter;
+    private TagAdapter<String> putong_oneadapter;
     private List<NumInfo> putong_onelist = new ArrayList<>();
     //任选2   普通投注
     private List<String> putong_twonums = new ArrayList<>();
@@ -2987,7 +2987,7 @@ public class PukeActivity extends AppCompatActivity {
             putong_onelist.get(i).setTouchflag(false);
 
         }
-        putong_neadapter = new TagAdapter<String>(putong_onenums) {
+        putong_oneadapter = new TagAdapter<String>(putong_onenums) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 ImageView tv = (ImageView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_puke_tv, rrone, false);
@@ -3000,18 +3000,18 @@ public class PukeActivity extends AppCompatActivity {
                 return tv;
             }
         };
-        rrone.setAdapter(putong_neadapter);
+        rrone.setAdapter(putong_oneadapter);
         rrone.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 if (putong_onelist.get(position).isTouchflag()) {
                     putong_onelist.get(position).setTouchflag(false);
                     buy_acount=buy_acount-1;
-                    putong_neadapter.notifyDataChanged();
+                    putong_oneadapter.notifyDataChanged();
                 } else {
                     putong_onelist.get(position).setTouchflag(true);
                     buy_acount=buy_acount+1;
-                    putong_neadapter.notifyDataChanged();
+                    putong_oneadapter.notifyDataChanged();
                 }
                 Log.e("buy_acount", String.valueOf(buy_acount));
                 calculate_rone();
@@ -4414,10 +4414,10 @@ public class PukeActivity extends AppCompatActivity {
             case putong_one:
                 buy_acount=1;
                 child_acount=0;
-                result = numberRandom(1, putong_twonums);
+                result = numberRandom(1, putong_onenums);
                 for (int i = 0; i < result.length; i++) {
-                    putong_twolist.get(result[i]).setTouchflag(true);
-                    putong_twoadapter.setSelectedList(result[i]);
+                    putong_onelist.get(result[i]).setTouchflag(true);
+                    putong_oneadapter.setSelectedList(result[i]);
                 }
 
                 break;

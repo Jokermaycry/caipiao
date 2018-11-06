@@ -1275,7 +1275,400 @@ public class PukeDetailActivity extends AppCompatActivity {
         List<String> random_list2 = new ArrayList<>();
 
         switch (mSelecte_Mode) {
-            case S_BAOXUAN:
+
+            case putong_one:
+                for (int i = 0; i < 13; i++) {
+                    random_list.add("" + i);
+                }
+                result = numberRandom(1, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            info.setUpload_data("1");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            info.setUpload_data("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            info.setUpload_data("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            info.setUpload_data("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            info.setUpload_data("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            info.setUpload_data("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            info.setUpload_data("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            info.setUpload_data("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            info.setUpload_data("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            info.setUpload_data("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            info.setUpload_data("11");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            info.setUpload_data("12");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            info.setUpload_data("13");
+                            break;
+
+                    }
+                    result_list1.add(info);
+                }
+
+
+                break;
+            case putong_two:
+                for (int i = 0; i < 13; i++) {
+                    random_list.add("" + i);
+                }
+                result = numberRandom(2, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            info.setUpload_data("1");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            info.setUpload_data("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            info.setUpload_data("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            info.setUpload_data("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            info.setUpload_data("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            info.setUpload_data("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            info.setUpload_data("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            info.setUpload_data("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            info.setUpload_data("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            info.setUpload_data("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            info.setUpload_data("11");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            info.setUpload_data("12");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            info.setUpload_data("13");
+                            break;
+
+                    }
+                    result_list1.add(info);
+                }
+                break;
+            case putong_three:
+                for (int i = 0; i < 13; i++) {
+                    random_list.add("" + i);
+                }
+                result = numberRandom(3, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            info.setUpload_data("1");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            info.setUpload_data("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            info.setUpload_data("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            info.setUpload_data("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            info.setUpload_data("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            info.setUpload_data("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            info.setUpload_data("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            info.setUpload_data("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            info.setUpload_data("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            info.setUpload_data("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            info.setUpload_data("11");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            info.setUpload_data("12");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            info.setUpload_data("13");
+                            break;
+
+                    }
+                    result_list1.add(info);
+                }
+                break;
+            case putong_four:
+                for (int i = 0; i < 13; i++) {
+                    random_list.add("" + i);
+                }
+                result = numberRandom(4, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            info.setUpload_data("1");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            info.setUpload_data("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            info.setUpload_data("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            info.setUpload_data("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            info.setUpload_data("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            info.setUpload_data("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            info.setUpload_data("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            info.setUpload_data("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            info.setUpload_data("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            info.setUpload_data("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            info.setUpload_data("11");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            info.setUpload_data("12");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            info.setUpload_data("13");
+                            break;
+
+                    }
+                    result_list1.add(info);
+                }
+                break;
+            case putong_five:
+                for (int i = 0; i < 13; i++) {
+                    random_list.add("" + i);
+                }
+                result = numberRandom(5, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            info.setUpload_data("1");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            info.setUpload_data("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            info.setUpload_data("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            info.setUpload_data("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            info.setUpload_data("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            info.setUpload_data("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            info.setUpload_data("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            info.setUpload_data("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            info.setUpload_data("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            info.setUpload_data("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            info.setUpload_data("11");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            info.setUpload_data("12");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            info.setUpload_data("13");
+                            break;
+
+                    }
+                    result_list1.add(info);
+                }
+                break;
+            case putong_six:
+                for (int i = 0; i < 13; i++) {
+                    random_list.add("" + i);
+                }
+                result = numberRandom(6, random_list);
+                for (int i = 0; i < result.length; i++) {
+                    NumInfo info = new NumInfo();
+                    switch (result[i]) {
+                        case 0:
+                            info.setNum("A");
+                            info.setUpload_data("1");
+                            break;
+                        case 1:
+                            info.setNum("2");
+                            info.setUpload_data("2");
+                            break;
+                        case 2:
+                            info.setNum("3");
+                            info.setUpload_data("3");
+                            break;
+                        case 3:
+                            info.setNum("4");
+                            info.setUpload_data("4");
+                            break;
+                        case 4:
+                            info.setNum("5");
+                            info.setUpload_data("5");
+                            break;
+                        case 5:
+                            info.setNum("6");
+                            info.setUpload_data("6");
+                            break;
+                        case 6:
+                            info.setNum("7");
+                            info.setUpload_data("7");
+                            break;
+                        case 7:
+                            info.setNum("8");
+                            info.setUpload_data("8");
+                            break;
+                        case 8:
+                            info.setNum("9");
+                            info.setUpload_data("9");
+                            break;
+                        case 9:
+                            info.setNum("10");
+                            info.setUpload_data("10");
+                            break;
+                        case 10:
+                            info.setNum("J");
+                            info.setUpload_data("11");
+                            break;
+                        case 11:
+                            info.setNum("Q");
+                            info.setUpload_data("12");
+                            break;
+                        case 12:
+                            info.setNum("K");
+                            info.setUpload_data("13");
+                            break;
+
+                    }
+                    result_list1.add(info);
+                }
+
+                    case S_BAOXUAN:
                 for (int i = 0; i < 5; i++) {
                     random_list.add(""+i);
 
