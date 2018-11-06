@@ -169,8 +169,8 @@ public class OpenFragment extends Fragment {
                 @Override
                 public View getView(FlowLayout parent, int position, String s) {
                     TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_tv2, numTag, false);
-
-                    // Log.e("wangweiming",s.substring(1));
+                    Log.e("fuck",info.getOpen_num());
+                     Log.e("wangweiming",s);
                     tv.setText(s);
                     if (info.getName().equals("山东扑克3")) {
                         Log.e("wangweiming", "enterswitch");

@@ -211,11 +211,13 @@ public class OrderFragment extends Fragment {
                     if (info.getSery_num().equals("1")) {
                         Intent in = new Intent(mContext, OrderDetailActivity.class);
                         in.putExtra("order_id", info.getId());
+                        in.putExtra("name",info.getName());
                         in.putExtra("ticket_type", OrderActivity.type+"");
                         startActivity(in);
                     } else {
                         Intent in = new Intent(mContext, ZqOrderDetailActivity.class);
                         in.putExtra("order_id", info.getId());
+                        in.putExtra("name",info.getName());
                         in.putExtra("ticket_type",OrderActivity.type+"");
                         startActivity(in);
                     }

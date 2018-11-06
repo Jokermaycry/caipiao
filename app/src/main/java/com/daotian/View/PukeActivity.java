@@ -2659,7 +2659,12 @@ public class PukeActivity extends AppCompatActivity {
                 if (child_threelist.get(position).isTouchflag()) {
                     child_threelist.get(position).setTouchflag(false);
                     child_acount--;
-
+                    if( tuodan_threelist.get(position).isTouchflag())
+                    {
+                        tuodan_threelist.get(position).setTouchflag(false);
+                        buy_acount--;
+                        tuodan_threeadapter.notifyDataChanged();
+                    }
 
                     child_threeadpter.notifyDataChanged();
                 } else {
@@ -2757,9 +2762,14 @@ public class PukeActivity extends AppCompatActivity {
                 if (child_fourlist.get(position).isTouchflag()) {
                     child_fourlist.get(position).setTouchflag(false);
                     child_acount--;
-
-
                     child_fourAdapter.notifyDataChanged();
+                    if( tuodan_fourlist.get(position).isTouchflag())
+                    {
+                        tuodan_fourlist.get(position).setTouchflag(false);
+                        buy_acount--;
+                        tuodan_fouradapter.notifyDataChanged();
+
+                    }
                 } else {
 
                     child_fourlist.get(position).setTouchflag(true);
@@ -2807,6 +2817,12 @@ public class PukeActivity extends AppCompatActivity {
                     tuodan_fivelist.get(position).setTouchflag(false);
                     buy_acount=buy_acount-1;
                     tuodan_fiveadapter.notifyDataChanged();
+                    if( child_fivelist.get(position).isTouchflag())
+                    {
+                        child_fivelist.get(position).setTouchflag(false);
+                        child_acount--;
+                        child_fiveAdapter.notifyDataChanged();
+                    }
                 }
                 else {
                     tuodan_fivelist.get(position).setTouchflag(true);
@@ -2858,6 +2874,13 @@ public class PukeActivity extends AppCompatActivity {
                     child_fivelist.get(position).setTouchflag(false);
                     child_acount--;
                     child_fiveAdapter.notifyDataChanged();
+                    if( tuodan_fivelist.get(position).isTouchflag())
+                    {
+                        tuodan_fivelist.get(position).setTouchflag(false);
+                        buy_acount--;
+                        tuodan_fiveadapter.notifyDataChanged();
+
+                    }
                 } else {
                     child_fivelist.get(position).setTouchflag(true);
                     child_acount++;
@@ -2905,6 +2928,12 @@ public class PukeActivity extends AppCompatActivity {
                     tuodan_sixlist.get(position).setTouchflag(false);
                     buy_acount=buy_acount-1;
                     tuodan_sixadapter.notifyDataChanged();
+                    if( child_sixlist.get(position).isTouchflag())
+                    {
+                        child_sixlist.get(position).setTouchflag(false);
+                        child_acount--;
+                        child_sixAdapter.notifyDataChanged();
+                    }
                 }
                 else {
                     tuodan_sixlist.get(position).setTouchflag(true);
@@ -2956,11 +2985,19 @@ public class PukeActivity extends AppCompatActivity {
                     //同样的位置如果已经被点击
                 if (child_sixlist.get(position).isTouchflag()) {
                     child_sixlist.get(position).setTouchflag(false);
-                    buy_acount=buy_acount-1;
+                    child_acount=child_acount-1;
                     child_sixAdapter.notifyDataChanged();
+                    if( tuodan_sixlist.get(position).isTouchflag())
+                    {
+                        tuodan_sixlist.get(position).setTouchflag(false);
+                        buy_acount--;
+                        tuodan_sixadapter.notifyDataChanged();
+
+                    }
+
                 } else {
                     child_sixlist.get(position).setTouchflag(true);
-                    buy_acount=buy_acount+1;
+                    child_acount=child_acount+1;
                     child_sixAdapter.notifyDataChanged();
                     if( tuodan_sixlist.get(position).isTouchflag())
                     {
@@ -2970,6 +3007,8 @@ public class PukeActivity extends AppCompatActivity {
 
                     }
                 }
+                Log.e("six_buy_acount",String.valueOf(buy_acount));
+                Log.e("six_child_acount",String.valueOf(child_acount));
                 calculate_six();
                 return false;
             }
@@ -3604,8 +3643,8 @@ public class PukeActivity extends AppCompatActivity {
             num.setText("0");
             price.setText("0");
         }else if(buy_acount==2){
-            num.setText( buy_acount + "");
-            price.setText( buy_acount* TicketPrice+ "");
+            num.setText( child_acount + "");
+            price.setText( child_acount* TicketPrice+ "");
         }else{
             rank(child_acount,2);
             num.setText(allnum + "");
@@ -3620,14 +3659,14 @@ public class PukeActivity extends AppCompatActivity {
             num.setText("0");
             price.setText("0");
         }else if(buy_acount==3) {
-            num.setText(buy_acount + "");
-            price.setText(buy_acount * TicketPrice + "");
+            num.setText(child_acount + "");
+            price.setText(child_acount * TicketPrice + "");
         }
         else if(buy_acount==2)
             {
                 rank(child_acount,2);
-                num.setText( buy_acount + "");
-                price.setText( buy_acount* TicketPrice+ "");
+                num.setText( allnum + "");
+                price.setText( allnum* TicketPrice+ "");
         }else{
             rank(child_acount,3);
             num.setText(allnum + "");
@@ -3642,21 +3681,21 @@ public class PukeActivity extends AppCompatActivity {
             num.setText("0");
             price.setText("0");
         }else if(buy_acount==4) {
-            num.setText(buy_acount + "");
-            price.setText(buy_acount * TicketPrice + "");
+            num.setText(child_acount + "");
+            price.setText(child_acount * TicketPrice + "");
         }
         else if(buy_acount==3)
         {
             rank(child_acount,2);
-            num.setText(buy_acount + "");
-            price.setText(buy_acount * TicketPrice + "");
+            num.setText(allnum + "");
+            price.setText(allnum * TicketPrice + "");
 
         }
         else if(buy_acount==2)
         {
             rank(child_acount,3);
-            num.setText( buy_acount + "");
-            price.setText( buy_acount* TicketPrice+ "");
+            num.setText( allnum + "");
+            price.setText( allnum* TicketPrice+ "");
         }else{
             rank(child_acount,4);
             num.setText(allnum + "");
@@ -3670,26 +3709,26 @@ public class PukeActivity extends AppCompatActivity {
             num.setText("0");
             price.setText("0");
         }else if(buy_acount==5) {
-            num.setText(buy_acount + "");
-            price.setText(buy_acount * TicketPrice + "");
+            num.setText(child_acount + "");
+            price.setText(child_acount * TicketPrice + "");
         }
         else if(buy_acount==4) {
             rank(child_acount,2);
-            num.setText(buy_acount + "");
-            price.setText(buy_acount * TicketPrice + "");
+            num.setText(allnum + "");
+            price.setText(allnum * TicketPrice + "");
         }
         else if(buy_acount==3)
         {
             rank(child_acount,3);
-            num.setText(buy_acount + "");
-            price.setText(buy_acount * TicketPrice + "");
+            num.setText(allnum + "");
+            price.setText(allnum * TicketPrice + "");
 
         }
         else if(buy_acount==2)
         {
             rank(child_acount,4);
-            num.setText( buy_acount + "");
-            price.setText( buy_acount* TicketPrice+ "");
+            num.setText( allnum + "");
+            price.setText( allnum* TicketPrice+ "");
         }else{
             rank(child_acount,5);
             num.setText(allnum + "");

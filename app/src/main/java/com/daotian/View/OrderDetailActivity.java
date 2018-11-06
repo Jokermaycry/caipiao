@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +29,9 @@ import com.daotian.Utils.ExpandListView;
 import com.daotian.Utils.ToastUtil;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.abslistview.CommonAdapter;
+import com.zhy.view.flowlayout.FlowLayout;
+import com.zhy.view.flowlayout.TagAdapter;
+import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.HashMap;
 import java.util.List;
@@ -79,6 +83,7 @@ public class OrderDetailActivity extends AppCompatActivity {
 
     private String order_id;
     private String log_num;
+    private String name;
     private Activity mActivity;
     private ProgressDialog dialog;
     private OrderDetailBO mInfo;
@@ -98,6 +103,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         type = getIntent().getStringExtra("type");
         log_num = getIntent().getStringExtra("log_num");
         ticket_type = getIntent().getStringExtra("ticket_type");
+        name=getIntent().getStringExtra("name");
         Log.e("ticket_type", ticket_type);
         if (!TextUtils.isEmpty(type) && type.equals("child")) {
             initChildView();
@@ -286,6 +292,8 @@ public class OrderDetailActivity extends AppCompatActivity {
 
             holder.setText(R.id.mode, info.getBuy_name());
             List<String> list = JSON.parseArray(info.getBuy_num(), String.class);
+            List<String> temp;
+            temp = JSON.parseArray(info.getBuy_num(), String.class);
             String nums = "";
             if (!TextUtils.isEmpty(ticket_type) && ticket_type.equals("2")) {
                 for (int i = 0; i < list.size(); i++) {
@@ -321,6 +329,70 @@ public class OrderDetailActivity extends AppCompatActivity {
             }
 
             holder.setText(R.id.numbers, nums);
+
+
+
+            final TagFlowLayout numTag = holder.getView(R.id.num_tag);
+            TagAdapter<String> numAdapter = new TagAdapter<String>(temp) {
+                @Override
+                public View getView(FlowLayout parent, int position, String s) {
+                    TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_tv2, numTag, false);
+                    Log.e("wangweiming",s);
+//                    Log.e("wangweiming",s.substring(1));
+                    //tv.setText(s);
+//                    if (name.equals("山东扑克3")) {
+//                        Log.e("wangweiming", "enterswitch");
+//                        String temp = s.substring(1);
+//                        String temprary = temp.substring(0, 1);
+//                        switch (s.substring(0, 1)) {
+//                            case "1":
+//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
+//                                tv.setBackgroundResource(R.drawable.tonghua1);
+//
+//                                if (temprary.equals("0")) {
+//                                    tv.setText(temp.substring(1));
+//                                } else {
+//                                    tv.setText(s.substring(1));
+//                                }
+//                                break;
+//
+//                            case "2":
+//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
+//                                tv.setBackgroundResource(R.drawable.tonghua2);
+//                                if (temprary.equals("0")) {
+//                                    tv.setText(temp.substring(1));
+//                                } else {
+//                                    tv.setText(s.substring(1));
+//                                }
+//                                break;
+//                            case "3":
+//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
+//                                tv.setBackgroundResource(R.drawable.tonghua3);
+//                                if (temprary.equals("0")) {
+//                                    tv.setText(temp.substring(1));
+//                                } else {
+//                                    tv.setText(s.substring(1));
+//                                }
+//                                break;
+//                            case "4":
+//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
+//                                tv.setBackgroundResource(R.drawable.tonghua4);
+//                                if (temprary.equals("0")) {
+//                                    tv.setText(temp.substring(1));
+//                                } else {
+//                                    tv.setText(s.substring(1));
+//                                }
+//                                break;
+//                        }
+//                    }
+                    return tv;
+                }
+            };
+            numTag.setAdapter(numAdapter);
+
+
+
+
         }
     }
 }
