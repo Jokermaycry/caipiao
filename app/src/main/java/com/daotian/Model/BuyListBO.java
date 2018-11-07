@@ -8,6 +8,15 @@ public class BuyListBO {
     private String buy_num;
     private String buy_name;
     private String buy_type;
+    private String buy_num_two;
+
+    public String getBuy_num_two() {
+        return buy_num_two;
+    }
+
+    public void setBuy_num_two(String buy_num_two) {
+        this.buy_num_two = buy_num_two;
+    }
 
     public String getBuy_num() {
         return buy_num;

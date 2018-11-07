@@ -89,7 +89,161 @@ public class OrderDetailActivity extends AppCompatActivity {
     private OrderDetailBO mInfo;
     private Adapter mAdapter;
     private String type, ticket_type;
+    //任选
+    int[] images = {
+            R.drawable.puke1, R.drawable.puke2,
+            R.drawable.puke3, R.drawable.puke4,
+            R.drawable.puke5, R.drawable.puke6,
+            R.drawable.puke7, R.drawable.puke8,
+            R.drawable.puke9, R.drawable.puke10,
+            R.drawable.puke11, R.drawable.puke12,
+            R.drawable.puke13,};
+    int[] images_selected = {
+            R.drawable.puke1_selected, R.drawable.puke2_selected,
+            R.drawable.puke3_selected, R.drawable.puke4_selected,
+            R.drawable.puke5_selected, R.drawable.puke6_selected,
+            R.drawable.puke7_selected, R.drawable.puke8_selected,
+            R.drawable.puke9_selected, R.drawable.puke10_selected,
+            R.drawable.puke11_selected, R.drawable.puke12_selected,
+            R.drawable.puke13_selected};
+    //包选
+    int[] images_baoxuan = {
+            R.drawable.tonghuashunbx,
+            R.drawable.tonghuabx,
+            R.drawable.duizibx,
+            R.drawable.baozibx,
+            R.drawable.shunzibx};
+    int[] images_baoxuan_selected = {
+            R.drawable.tonghuashunbx_selected,
+            R.drawable.tonghuabx_selected,
+            R.drawable.duizibx_selected,
+            R.drawable.baozibx_selected,
+            R.drawable.shunzibx_selected
+    };
+    //同花
+    int[] images_tonghua = {
+            R.drawable.tonghua1,
+            R.drawable.tonghua2,
+            R.drawable.tonghua3,
+            R.drawable.tonghua4,
+    };
+    int[] images_tonghua_selected = {
+            R.drawable.tonghua1_selected,
+            R.drawable.tonghua2_selected,
+            R.drawable.tonghua3_selected,
+            R.drawable.tonghua4_selected,
 
+    };
+    //同花顺
+    int[] images_tonghuashun = {
+            R.drawable.tonghuashun1,
+            R.drawable.tonghuashun2,
+            R.drawable.tonghuashun3,
+            R.drawable.tonghuashun4,
+    };
+    int[] images_tonghuashun_selected = {
+            R.drawable.tonghuashun1_2,
+            R.drawable.tonghuashun2_2,
+            R.drawable.tonghuashun3_2,
+            R.drawable.tonghuashun4_2,
+
+    };
+    //豹子
+    int[] images_baozi = {
+            R.drawable.baozi1,
+            R.drawable.baozi2,
+            R.drawable.baozi3,
+            R.drawable.baozi4,
+            R.drawable.baozi5,
+            R.drawable.duizi6,
+            R.drawable.baozi7,
+            R.drawable.baozi8,
+            R.drawable.baozi9,
+            R.drawable.baozi10,
+            R.drawable.baozij,
+            R.drawable.baoziq,
+            R.drawable.baozik,
+    };
+    int[] images_baozi_selected = {
+            R.drawable.baozi1_2,
+            R.drawable.baozi2_2,
+            R.drawable.baozi3_2,
+            R.drawable.baozi4_2,
+            R.drawable.baozi5_2,
+            R.drawable.baozi6_2,
+            R.drawable.baozi7_2,
+            R.drawable.baozi8_2,
+            R.drawable.baozi9_2,
+            R.drawable.baozi10_2,
+            R.drawable.baozij_2,
+            R.drawable.baoziq_2,
+            R.drawable.baozik_2,
+
+    };
+    //对子
+    int[] images_duizi = {
+            R.drawable.duizi1,
+            R.drawable.duizi2,
+            R.drawable.duizi3,
+            R.drawable.duizi4,
+            R.drawable.duizi5,
+            R.drawable.duizi6,
+            R.drawable.duizi7,
+            R.drawable.duizi8,
+            R.drawable.duizi9,
+            R.drawable.duizi10,
+            R.drawable.duizi11,
+            R.drawable.duizi12,
+            R.drawable.duizi13,
+    };
+    int[] images_duizi_selected = {
+            R.drawable.duizi1_2,
+            R.drawable.duizi2_2,
+            R.drawable.duizi3_2,
+            R.drawable.duizi4_2,
+            R.drawable.duizi5_2,
+            R.drawable.duizi6_2,
+            R.drawable.duizi7_2,
+            R.drawable.duizi8_2,
+            R.drawable.duizi9_2,
+            R.drawable.duizi10_2,
+            R.drawable.duizi11_2,
+            R.drawable.duizi12_2,
+            R.drawable.duizi13_2,
+
+    };
+    //顺子
+    int[] images_shunzi = {
+            R.drawable.shunzi1,
+            R.drawable.shunzi2,
+            R.drawable.shunzi3,
+            R.drawable.shunzi4,
+            R.drawable.shunzi5,
+            R.drawable.shunzi6,
+            R.drawable.shunzi7,
+            R.drawable.shunzi8,
+            R.drawable.shunzi9,
+            R.drawable.shunzi10,
+            R.drawable.shunzi11,
+            R.drawable.shunzi12,
+
+    };
+    int[] images_shunzi_selected = {
+            R.drawable.shunzi1_2,
+            R.drawable.shunzi2_2,
+            R.drawable.shunzi3_2,
+            R.drawable.shunzi4_2,
+            R.drawable.shunzi5_2,
+            R.drawable.shunzi6_2,
+            R.drawable.shunzi7_2,
+            R.drawable.shunzi8_2,
+            R.drawable.shunzi9_2,
+            R.drawable.shunzi10_2,
+            R.drawable.shunzi11_2,
+            R.drawable.shunzi12_2,
+
+
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -293,7 +447,10 @@ public class OrderDetailActivity extends AppCompatActivity {
             holder.setText(R.id.mode, info.getBuy_name());
             List<String> list = JSON.parseArray(info.getBuy_num(), String.class);
             List<String> temp;
-            temp = JSON.parseArray(info.getBuy_num(), String.class);
+            List<String> temp2;
+            temp = JSON.parseArray(info.getBuy_num_two(), String.class);
+            temp2 = JSON.parseArray(temp.get(0), String.class);
+
             String nums = "";
             if (!TextUtils.isEmpty(ticket_type) && ticket_type.equals("2")) {
                 for (int i = 0; i < list.size(); i++) {
@@ -327,68 +484,128 @@ public class OrderDetailActivity extends AppCompatActivity {
                     }
                 }
             }
-
-            holder.setText(R.id.numbers, nums);
-
-
-
             final TagFlowLayout numTag = holder.getView(R.id.num_tag);
-            TagAdapter<String> numAdapter = new TagAdapter<String>(temp) {
+            TagAdapter<String> numAdapter = new TagAdapter<String>(temp2) {
                 @Override
                 public View getView(FlowLayout parent, int position, String s) {
-                    TextView tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_tv2, numTag, false);
-                    Log.e("wangweiming",s);
-//                    Log.e("wangweiming",s.substring(1));
-                    //tv.setText(s);
-//                    if (name.equals("山东扑克3")) {
-//                        Log.e("wangweiming", "enterswitch");
-//                        String temp = s.substring(1);
-//                        String temprary = temp.substring(0, 1);
-//                        switch (s.substring(0, 1)) {
-//                            case "1":
-//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
-//                                tv.setBackgroundResource(R.drawable.tonghua1);
-//
-//                                if (temprary.equals("0")) {
-//                                    tv.setText(temp.substring(1));
-//                                } else {
-//                                    tv.setText(s.substring(1));
-//                                }
-//                                break;
-//
-//                            case "2":
-//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
-//                                tv.setBackgroundResource(R.drawable.tonghua2);
-//                                if (temprary.equals("0")) {
-//                                    tv.setText(temp.substring(1));
-//                                } else {
-//                                    tv.setText(s.substring(1));
-//                                }
-//                                break;
-//                            case "3":
-//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
-//                                tv.setBackgroundResource(R.drawable.tonghua3);
-//                                if (temprary.equals("0")) {
-//                                    tv.setText(temp.substring(1));
-//                                } else {
-//                                    tv.setText(s.substring(1));
-//                                }
-//                                break;
-//                            case "4":
-//                                tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open, numTag, false);
-//                                tv.setBackgroundResource(R.drawable.tonghua4);
-//                                if (temprary.equals("0")) {
-//                                    tv.setText(temp.substring(1));
-//                                } else {
-//                                    tv.setText(s.substring(1));
-//                                }
-//                                break;
-//                        }
-//                    }
+
+                    TextView tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                    switch (info.getBuy_type())
+                    {
+
+                        case "2"://同花单选
+                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_tonghua[Integer.parseInt(s)-1]);
+                            break;
+                        case "3"://顺子单选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_shunzi[Integer.parseInt(s)-1]);
+                            break;
+
+                        case "4"://同花顺单选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_tonghuashun[Integer.parseInt(s)-1]);
+                            break;
+                        case "5"://豹子单选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_baozi[Integer.parseInt(s)-1]);
+                            break;
+                        case "6"://对子单选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_duizi[Integer.parseInt(s)-1]);
+                            break;
+
+                        case "8"://任选2拖胆
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+
+
+                        case "9"://任选3拖胆
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+                        case "10"://任选4拖胆
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+
+                        case "11"://任选5拖胆
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+                        case "12"://任选6拖胆
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+                        case "13"://任选1普通
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+                        case "14"://任选2普通
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+                        case "15"://任选3普通
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+
+                        case "16"://任选4普通
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+                        case "17"://任选5普通
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            break;
+
+                        case "18"://任选6普通
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                             break;
+
+                        case "21"://同花包选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_baoxuan[1]);
+                            break;
+                        case "22"://顺子包选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_baoxuan[4]);
+                            break;
+                        case "23"://同花顺包选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_baoxuan[0]);
+                            break;
+                        case "24"://豹子包选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_baoxuan[3]);
+                            break;
+                        case "25"://对子包选
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_baoxuan[2]);
+                            break;
+
+                    }
+                    Log.e("whichis：",s);
+
+
+
                     return tv;
                 }
             };
             numTag.setAdapter(numAdapter);
+            if(!name.equals("山东扑克3")) {
+
+                holder.setText(R.id.numbers, nums);
+                numTag.setVisibility(View.GONE);
+            }
+            else
+            {
+                holder.setVisible(R.id.numbers,false);
+                numTag.setVisibility(View.VISIBLE);
+            }
+
 
 
 
