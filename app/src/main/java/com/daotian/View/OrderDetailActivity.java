@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.daotian.Base.Constant;
 import com.daotian.Http.ParamUtil;
 import com.daotian.Http.ServiceInterface;
@@ -24,9 +22,12 @@ import com.daotian.Http.TicketService;
 import com.daotian.Model.BuyListBO;
 import com.daotian.Model.OrderDetailBO;
 import com.daotian.Model.ResultBO;
+import com.daotian.Model.opennumdetailBO;
 import com.daotian.R;
 import com.daotian.Utils.ExpandListView;
 import com.daotian.Utils.ToastUtil;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.zhy.base.adapter.ViewHolder;
 import com.zhy.base.adapter.abslistview.CommonAdapter;
 import com.zhy.view.flowlayout.FlowLayout;
@@ -80,15 +81,24 @@ public class OrderDetailActivity extends AppCompatActivity {
     TextView wenSet;
     @BindView(R.id.cancle)
     TextView cancle;
+    @BindView(R.id.open_list2)
+    ExpandListView openList2;
+
 
     private String order_id;
     private String log_num;
     private String name;
+    private String name2;
     private Activity mActivity;
     private ProgressDialog dialog;
     private OrderDetailBO mInfo;
     private Adapter mAdapter;
+    private Adapter2 mAdapter2;
     private String type, ticket_type;
+    private String opennumtwo;
+    String temp ;
+    String temprary ;
+    String  openstate;
     //任选
     int[] images = {
             R.drawable.puke1, R.drawable.puke2,
@@ -98,28 +108,14 @@ public class OrderDetailActivity extends AppCompatActivity {
             R.drawable.puke9, R.drawable.puke10,
             R.drawable.puke11, R.drawable.puke12,
             R.drawable.puke13,};
-    int[] images_selected = {
-            R.drawable.puke1_selected, R.drawable.puke2_selected,
-            R.drawable.puke3_selected, R.drawable.puke4_selected,
-            R.drawable.puke5_selected, R.drawable.puke6_selected,
-            R.drawable.puke7_selected, R.drawable.puke8_selected,
-            R.drawable.puke9_selected, R.drawable.puke10_selected,
-            R.drawable.puke11_selected, R.drawable.puke12_selected,
-            R.drawable.puke13_selected};
-    //包选
+
     int[] images_baoxuan = {
             R.drawable.tonghuashunbx,
             R.drawable.tonghuabx,
             R.drawable.duizibx,
             R.drawable.baozibx,
             R.drawable.shunzibx};
-    int[] images_baoxuan_selected = {
-            R.drawable.tonghuashunbx_selected,
-            R.drawable.tonghuabx_selected,
-            R.drawable.duizibx_selected,
-            R.drawable.baozibx_selected,
-            R.drawable.shunzibx_selected
-    };
+
     //同花
     int[] images_tonghua = {
             R.drawable.tonghua1,
@@ -127,13 +123,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             R.drawable.tonghua3,
             R.drawable.tonghua4,
     };
-    int[] images_tonghua_selected = {
-            R.drawable.tonghua1_selected,
-            R.drawable.tonghua2_selected,
-            R.drawable.tonghua3_selected,
-            R.drawable.tonghua4_selected,
 
-    };
     //同花顺
     int[] images_tonghuashun = {
             R.drawable.tonghuashun1,
@@ -141,13 +131,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             R.drawable.tonghuashun3,
             R.drawable.tonghuashun4,
     };
-    int[] images_tonghuashun_selected = {
-            R.drawable.tonghuashun1_2,
-            R.drawable.tonghuashun2_2,
-            R.drawable.tonghuashun3_2,
-            R.drawable.tonghuashun4_2,
 
-    };
     //豹子
     int[] images_baozi = {
             R.drawable.baozi1,
@@ -164,22 +148,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             R.drawable.baoziq,
             R.drawable.baozik,
     };
-    int[] images_baozi_selected = {
-            R.drawable.baozi1_2,
-            R.drawable.baozi2_2,
-            R.drawable.baozi3_2,
-            R.drawable.baozi4_2,
-            R.drawable.baozi5_2,
-            R.drawable.baozi6_2,
-            R.drawable.baozi7_2,
-            R.drawable.baozi8_2,
-            R.drawable.baozi9_2,
-            R.drawable.baozi10_2,
-            R.drawable.baozij_2,
-            R.drawable.baoziq_2,
-            R.drawable.baozik_2,
 
-    };
     //对子
     int[] images_duizi = {
             R.drawable.duizi1,
@@ -196,22 +165,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             R.drawable.duizi12,
             R.drawable.duizi13,
     };
-    int[] images_duizi_selected = {
-            R.drawable.duizi1_2,
-            R.drawable.duizi2_2,
-            R.drawable.duizi3_2,
-            R.drawable.duizi4_2,
-            R.drawable.duizi5_2,
-            R.drawable.duizi6_2,
-            R.drawable.duizi7_2,
-            R.drawable.duizi8_2,
-            R.drawable.duizi9_2,
-            R.drawable.duizi10_2,
-            R.drawable.duizi11_2,
-            R.drawable.duizi12_2,
-            R.drawable.duizi13_2,
 
-    };
     //顺子
     int[] images_shunzi = {
             R.drawable.shunzi1,
@@ -228,22 +182,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             R.drawable.shunzi12,
 
     };
-    int[] images_shunzi_selected = {
-            R.drawable.shunzi1_2,
-            R.drawable.shunzi2_2,
-            R.drawable.shunzi3_2,
-            R.drawable.shunzi4_2,
-            R.drawable.shunzi5_2,
-            R.drawable.shunzi6_2,
-            R.drawable.shunzi7_2,
-            R.drawable.shunzi8_2,
-            R.drawable.shunzi9_2,
-            R.drawable.shunzi10_2,
-            R.drawable.shunzi11_2,
-            R.drawable.shunzi12_2,
 
-
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -257,7 +196,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         type = getIntent().getStringExtra("type");
         log_num = getIntent().getStringExtra("log_num");
         ticket_type = getIntent().getStringExtra("ticket_type");
-        name=getIntent().getStringExtra("name");
+        name = getIntent().getStringExtra("name");
         Log.e("ticket_type", ticket_type);
         if (!TextUtils.isEmpty(type) && type.equals("child")) {
             initChildView();
@@ -287,6 +226,14 @@ public class OrderDetailActivity extends AppCompatActivity {
                     return;
                 }
                 mInfo = JSON.parseObject(resultBO.getResultData(), OrderDetailBO.class);
+                openstate=mInfo.getStatus();
+                try {
+                    name2=mInfo.getName();
+                    Log.e("name2", name2);
+                }
+                catch (Exception e) {
+                    Log.e("name2", "error");
+                }
                 initData();
 
             }
@@ -320,6 +267,16 @@ public class OrderDetailActivity extends AppCompatActivity {
                     return;
                 }
                 mInfo = JSON.parseObject(resultBO.getResultData(), OrderDetailBO.class);
+                openstate=mInfo.getStatus();
+
+                try {
+                    name2=mInfo.getName();
+                    Log.e("name2", name2);
+                }
+                catch (Exception e) {
+                    Log.e("name2", "error");
+                }
+
                 initData();
 
             }
@@ -364,10 +321,13 @@ public class OrderDetailActivity extends AppCompatActivity {
         winPrice.setText(mInfo.getGet_fee());
         orderNo.setText(mInfo.getOrder_sn());
         cathInfo.setText(mInfo.getBuy_ts() + "条  " + mInfo.getBuy_bs() + "倍");
-
+        /////////
         mAdapter = new Adapter(mActivity, R.layout.list_item_buylist, mInfo.getBuy_detail());
         buyList.setAdapter(mAdapter);
-
+        // opennumtwo = mInfo.getOpen_num_two();
+//
+        mAdapter2 = new Adapter2(mActivity, R.layout.list_item_openlist2, mInfo.getOpen_num_two());
+        openList2.setAdapter(mAdapter2);
         if (Constant.mSetting != null) {
             wenSet.setText(Constant.mSetting.getWel_setting());
         } else {
@@ -404,7 +364,7 @@ public class OrderDetailActivity extends AppCompatActivity {
      */
     private void cancleOrder() {
         HashMap<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("order_id",order_id);
+        paramMap.put("order_id", order_id);
         RequestParams params = ParamUtil.requestParams(paramMap);
         TicketService.post(params, ServiceInterface.cancleOrder, new AsyncHttpResponseHandler() {
             @Override
@@ -431,6 +391,120 @@ public class OrderDetailActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 列表适配器2
+     */
+    public class Adapter2 extends CommonAdapter<opennumdetailBO> {
+
+        public Adapter2(Context context, int layoutId, List<opennumdetailBO> datas) {
+            super(context, layoutId, datas);
+        }
+
+        @Override
+        public void convert(final ViewHolder holder, final opennumdetailBO info) {
+            List<String> temp3;
+            temp3 = JSON.parseArray(info.getOpen_num_detail(), String.class);
+            final TagFlowLayout numTag2 = holder.getView(R.id.num_tag2);
+            TagAdapter<String> numAdapter2 = new TagAdapter<String>(temp3) {
+                @Override
+                public View getView(FlowLayout parent, int position, String s) {
+                    TextView tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag2, false);
+                    Log.e("opennumtwo：", s);
+
+                        try {
+                            temp = s.substring(1);
+                            temprary = temp.substring(0, 1);
+                            try {
+                                switch (s.substring(0, 1)) {
+                                    case "1":
+                                        tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open2, numTag2, false);
+                                        tv.setBackgroundResource(R.drawable.tonghua1);
+
+                                        if (temprary.equals("0")) {
+                                            tv.setText(temp.substring(1));
+                                        } else {
+                                            tv.setText(s.substring(1));
+                                        }
+                                        break;
+
+                                    case "2":
+                                        tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open2, numTag2, false);
+                                        tv.setBackgroundResource(R.drawable.tonghua2);
+                                        if (temprary.equals("0")) {
+                                            tv.setText(temp.substring(1));
+                                        } else {
+                                            tv.setText(s.substring(1));
+                                        }
+                                        break;
+                                    case "3":
+                                        tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open2, numTag2, false);
+                                        tv.setBackgroundResource(R.drawable.tonghua3);
+                                        if (temprary.equals("0")) {
+                                            tv.setText(temp.substring(1));
+                                        } else {
+                                            tv.setText(s.substring(1));
+                                        }
+                                        break;
+                                    case "4":
+                                        tv = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_open2, numTag2, false);
+                                        tv.setBackgroundResource(R.drawable.tonghua4);
+                                        if (temprary.equals("0")) {
+                                            tv.setText(temp.substring(1));
+                                        } else {
+                                            tv.setText(s.substring(1));
+                                        }
+                                        break;
+                                }
+                            }
+                            catch (Exception e)
+                            {
+
+                            }
+
+                        } catch (Exception e) {
+
+
+                        }
+
+
+
+                    return tv;
+                }
+            };
+            numTag2.setAdapter(numAdapter2);
+            try {
+                if (!name2.equals("扑克3")) {
+                    try {
+                      numTag2.setVisibility(View.GONE);
+                      openNum.setVisibility(View.VISIBLE);
+
+                    } catch (Exception e) {
+
+                    }
+                } else {
+                    try {
+                        if (TextUtils.isEmpty(mInfo.getOpen_num())||openstate.equals("0")) {
+                            openNum.setVisibility( View.GONE);
+                            openNum.setText("未开奖");
+                            numTag2.setVisibility(View.VISIBLE);
+                        } else {
+                            openNum.setVisibility( View.GONE);
+                            numTag2.setVisibility(View.VISIBLE);
+                        }
+
+                    } catch (Exception e) {
+
+                    }
+
+
+                }
+            } catch (Exception e) {
+
+            }
+
+        }
+
+    }
 
     /**
      * 列表适配器
@@ -448,8 +522,10 @@ public class OrderDetailActivity extends AppCompatActivity {
             List<String> list = JSON.parseArray(info.getBuy_num(), String.class);
             List<String> temp;
             List<String> temp2;
+
             temp = JSON.parseArray(info.getBuy_num_two(), String.class);
             temp2 = JSON.parseArray(temp.get(0), String.class);
+
 
             String nums = "";
             if (!TextUtils.isEmpty(ticket_type) && ticket_type.equals("2")) {
@@ -484,86 +560,87 @@ public class OrderDetailActivity extends AppCompatActivity {
                     }
                 }
             }
+
+
             final TagFlowLayout numTag = holder.getView(R.id.num_tag);
             TagAdapter<String> numAdapter = new TagAdapter<String>(temp2) {
                 @Override
                 public View getView(FlowLayout parent, int position, String s) {
 
                     TextView tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                    switch (info.getBuy_type())
-                    {
+                    switch (info.getBuy_type()) {
 
                         case "2"://同花单选
-                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images_tonghua[Integer.parseInt(s)-1]);
+                            tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
+                            tv.setBackgroundResource(images_tonghua[Integer.parseInt(s) - 1]);
                             break;
                         case "3"://顺子单选
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images_shunzi[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images_shunzi[Integer.parseInt(s) - 1]);
                             break;
 
                         case "4"://同花顺单选
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images_tonghuashun[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images_tonghuashun[Integer.parseInt(s) - 1]);
                             break;
                         case "5"://豹子单选
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images_baozi[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images_baozi[Integer.parseInt(s) - 1]);
                             break;
                         case "6"://对子单选
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images_duizi[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images_duizi[Integer.parseInt(s) - 1]);
                             break;
 
                         case "8"://任选2拖胆
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
 
 
                         case "9"://任选3拖胆
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
                         case "10"://任选4拖胆
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
 
                         case "11"://任选5拖胆
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
                         case "12"://任选6拖胆
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
                         case "13"://任选1普通
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
                         case "14"://任选2普通
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
                         case "15"://任选3普通
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
 
                         case "16"://任选4普通
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
                         case "17"://任选5普通
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
                             break;
 
                         case "18"://任选6普通
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
-                            tv.setBackgroundResource(images[Integer.parseInt(s)-1]);
-                             break;
+                            tv.setBackgroundResource(images[Integer.parseInt(s) - 1]);
+                            break;
 
                         case "21"://同花包选
                             tv = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.list_item_open2, numTag, false);
@@ -587,29 +664,33 @@ public class OrderDetailActivity extends AppCompatActivity {
                             break;
 
                     }
-                    Log.e("whichis：",s);
-
 
 
                     return tv;
                 }
             };
             numTag.setAdapter(numAdapter);
-            if(!name.equals("山东扑克3")) {
+            try {
+                if (!name2.equals("扑克3")) {
+                    try {
+                        holder.setText(R.id.numbers, nums);
+                        numTag.setVisibility(View.GONE);
+                    } catch (Exception e) {
 
-                holder.setText(R.id.numbers, nums);
-                numTag.setVisibility(View.GONE);
+                    }
+                } else {
+                    try {
+                        holder.setVisible(R.id.numbers, false);
+                        numTag.setVisibility(View.VISIBLE);
+                    } catch (Exception e) {
+
+                    }
+
+
+                }
+            } catch (Exception e) {
+
             }
-            else
-            {
-                holder.setVisible(R.id.numbers,false);
-                numTag.setVisibility(View.VISIBLE);
-            }
-
-
-
-
-
         }
     }
 }

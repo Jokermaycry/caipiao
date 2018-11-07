@@ -19,6 +19,15 @@ public class OrderDetailBO {
     private String buy_bs;//
     private String buy_ts;//
     private String day;//
+    private List<opennumdetailBO>  open_num_two;
+
+    public List<opennumdetailBO> getOpen_num_two() {
+        return open_num_two;
+    }
+
+    public void setOpen_num_two(List<opennumdetailBO> open_num_two) {
+        this.open_num_two = open_num_two;
+    }
 
     public String getOrder_sn() {
         return order_sn;

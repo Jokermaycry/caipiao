@@ -199,7 +199,8 @@
 
             <LinearLayout
                 android:padding="10dp"
-                android:orientation="horizontal"
+                android:background="@color/white"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
@@ -208,7 +209,12 @@
                     android:textSize="14sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/comm_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"></View>
                 <TextView
                     android:id="@+id/open_num"
                     android:text="..."
@@ -216,6 +222,15 @@
                     android:textSize="14sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+                <com.daotian.Utils.ExpandListView
+                    android:id="@+id/open_list2"
+                    android:layout_width="match_parent"
+                    android:dividerHeight="0.5dp"
+                    android:paddingLeft="60dp"
+                    android:divider="@color/comm_border"
+                    android:layout_height="wrap_content">
+
+                </com.daotian.Utils.ExpandListView>
             </LinearLayout>
 
             <LinearLayout
